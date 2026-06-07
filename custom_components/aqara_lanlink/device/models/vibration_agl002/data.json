@@ -1,0 +1,321 @@
+{
+  "bundle_ids": [
+    "lumi.sensor.p100"
+  ],
+  "device_types": [
+    "ContactSensor",
+    "Public",
+    "Root",
+    "VibrationSensor"
+  ],
+  "display_name": "Multi-State Sensor P100",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20137",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.32929",
+    "3.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "VibrationSensor"
+    },
+    "3": {
+      "deviceType": "ContactSensor"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.vibration.agl002",
+  "models": [
+    "lumi.vibration.agl002"
+  ],
+  "regions": [
+    "CN",
+    "EU",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.147.32944": {
+      "data_type": "float",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "PowerSource",
+      "max_value": 3.5999999046325684,
+      "min_value": 0.0,
+      "name": "Current voltage",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentVoltage",
+      "unit": "V"
+    },
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "name": "State of low bat",
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "1.175.20378": {
+      "data_type": "enum",
+      "endpoint_id": 1,
+      "enum_values": {
+        "0": "Unconfigured",
+        "3": "Door window state",
+        "5": "Object orientation"
+      },
+      "function_code": "GeneralConfiguration",
+      "name": "Detection mode setting",
+      "subscribable": true,
+      "trait_code": "DetectionModeSetting",
+      "writable": true
+    },
+    "1.175.33083": {
+      "data_type": "int",
+      "endpoint_id": 1,
+      "function_code": "GeneralConfiguration",
+      "max_value": 10.0,
+      "min_value": 1.0,
+      "name": "Current sensitivity level",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentSensitivityLevel",
+      "writable": true
+    },
+    "2.164.20364": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "In motion",
+        "1": "Stationary"
+      },
+      "function_code": "Vibration",
+      "name": "Stationary state",
+      "subscribable": true,
+      "trait_code": "StationaryState"
+    },
+    "2.164.20370": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 180.0,
+      "min_value": -180.0,
+      "name": "Initial tilt angle",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "InitialTiltAngle",
+      "unit": "°"
+    },
+    "2.164.20371": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 180.0,
+      "min_value": -180.0,
+      "name": "Tilt angle deviation",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "TiltAngleDeviation",
+      "unit": "°"
+    },
+    "2.164.20372": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 180.0,
+      "min_value": -180.0,
+      "name": "Peak tilt angle",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "PeakTiltAngle",
+      "unit": "°"
+    },
+    "2.164.20373": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 180.0,
+      "min_value": -180.0,
+      "name": "Stationary tilt angle",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "StationaryTiltAngle",
+      "unit": "°"
+    },
+    "2.164.20374": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "name": "Object motion detection enable",
+      "subscribable": true,
+      "trait_code": "ObjectMotionDetectionEnable",
+      "writable": true
+    },
+    "2.164.20375": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 300.0,
+      "min_value": 5.0,
+      "name": "Event report interval",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "EventReportInterval",
+      "unit": "S",
+      "writable": true
+    },
+    "2.164.20376": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "1": "Horizontal up",
+        "2": "Horizontal down",
+        "3": "Vertical",
+        "4": "Tilted"
+      },
+      "function_code": "Vibration",
+      "name": "Object orientation state",
+      "subscribable": true,
+      "trait_code": "ObjectOrientationState"
+    },
+    "2.164.20377": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "name": "Object orientation enable",
+      "subscribable": true,
+      "trait_code": "ObjectOrientationEnable",
+      "writable": true
+    },
+    "2.164.20536": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 3600.0,
+      "min_value": 0.0,
+      "name": "Object motion dur threshold",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "ObjectMotionDurThreshold",
+      "unit": "S",
+      "writable": true
+    },
+    "2.164.20537": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 65535.0,
+      "min_value": 0.0,
+      "name": "Object motion duration",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "ObjectMotionDuration",
+      "unit": "S"
+    },
+    "2.164.20538": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 3600.0,
+      "min_value": 0.0,
+      "name": "Vibration dur threshold",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "VibrationDurThreshold",
+      "unit": "S",
+      "writable": true
+    },
+    "2.164.20539": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "Vibration",
+      "max_value": 65535.0,
+      "min_value": 0.0,
+      "name": "Vibration duration",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "VibrationDuration",
+      "unit": "S"
+    },
+    "2.164.33007": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Three knocks",
+        "1": "Move",
+        "2": "Vibrate",
+        "3": "Tilt",
+        "4": "Free fall"
+      },
+      "function_code": "Vibration",
+      "name": "Vibration event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "VibrationEvent"
+    },
+    "3.155.32990": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Contact",
+      "name": "Contact sensor state",
+      "subscribable": true,
+      "trait_code": "ContactSensorState"
+    }
+  },
+  "whitelabels": {}
+}

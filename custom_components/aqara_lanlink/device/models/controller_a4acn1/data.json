@@ -1,0 +1,195 @@
+{
+  "bundle_ids": [
+    "lumi.controller.a4acn1"
+  ],
+  "device_types": [
+    "Hub",
+    "Panel",
+    "Public",
+    "Root",
+    "Speaker"
+  ],
+  "display_name": "Aqara MagicPad S1",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.20009",
+    "1.176.33096",
+    "1.176.33097",
+    "1.205.20300",
+    "1.205.20301",
+    "1.205.20391",
+    "1.205.33099",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Panel"
+    },
+    "3": {
+      "deviceType": "Hub"
+    },
+    "4": {
+      "deviceType": "Speaker"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.controller.a4acn1",
+  "models": [
+    "lumi.controller.a4acn1"
+  ],
+  "regions": [
+    "CN",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.171.20118": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 165.0,
+      "min_value": 1.0,
+      "name": "Wi fi channel",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiChannel"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "4.145.32954": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "0": "Playing",
+        "1": "Paused"
+      },
+      "function_code": "MediaPlayback",
+      "name": "Current playback state",
+      "subscribable": true,
+      "trait_code": "CurrentPlaybackState"
+    },
+    "4.145.32958": {
+      "data_type": "string",
+      "endpoint_id": 4,
+      "function_code": "MediaPlayback",
+      "name": "Media information",
+      "subscribable": true,
+      "trait_code": "MediaInformation"
+    },
+    "4.145.33015": {
+      "data_type": "string",
+      "endpoint_id": 4,
+      "function_code": "MediaPlayback",
+      "name": "Login state",
+      "subscribable": true,
+      "trait_code": "LoginState"
+    },
+    "4.145.33021": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "0": "Play",
+        "1": "Pause",
+        "6": "Previous",
+        "7": "Next",
+        "8": "Play specific list"
+      },
+      "function_code": "MediaPlayback",
+      "name": "Target playback state",
+      "subscribable": true,
+      "trait_code": "TargetPlaybackState",
+      "writable": true
+    },
+    "4.146.32960": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "Speaker",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Volume",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "Volume",
+      "unit": "%",
+      "writable": true
+    },
+    "4.146.32961": {
+      "data_type": "bool",
+      "endpoint_id": 4,
+      "function_code": "Speaker",
+      "name": "Mute",
+      "subscribable": true,
+      "trait_code": "Mute",
+      "writable": true
+    },
+    "4.146.32962": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "Speaker",
+      "max_value": 100.0,
+      "min_value": 1.0,
+      "name": "Step value",
+      "step": 10.0,
+      "subscribable": true,
+      "trait_code": "StepValue",
+      "unit": "%",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

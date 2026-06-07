@@ -1,0 +1,12 @@
+{
+  "_comment": "Captured topology push frame from a real Aqara M3 hub. Frame arrives spontaneously (seq=1) immediately after a successful LANLink checkin; not a response to a pull request. Real hub DID and sub-device DIDs replaced with sanitized placeholders. Captured 2026-04-22 against firmware in production at the time. See docs/DISCOVERY_SPIKE_FINDINGS.md for analysis.",
+  "seq": 1,
+  "type": "device",
+  "cmd": "topology",
+  "data": {
+    "lumi1.TESTHUB00001": [
+      "lumi1.TESTHUB00001",
+      "lumi3.TESTDEV000002"
+    ]
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Panel",
+    "Public",
+    "Root",
+    "Switch"
+  ],
+  "display_name": "Scene Panel Switch S1",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20109",
+    "1.205.20110",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.20123",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20135",
+    "1.205.20136",
+    "1.205.20137",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32914",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.32929",
+    "3.130.33012",
+    "3.130.33016",
+    "4.130.32913",
+    "4.130.32914",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.32929",
+    "4.130.33012",
+    "4.130.33016",
+    "5.130.32913",
+    "5.130.32914",
+    "5.130.32915",
+    "5.130.32919",
+    "5.130.32929",
+    "5.130.33012",
+    "5.130.33016"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Panel"
+    },
+    "3": {
+      "deviceType": "Switch"
+    },
+    "4": {
+      "deviceType": "Switch"
+    },
+    "5": {
+      "deviceType": "Switch"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.switch.n4acn4",
+  "models": [
+    "lumi.switch.n4acn4"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.140.32944": {
+      "data_type": "float",
+      "endpoint_id": 1,
+      "function_code": "EnergyManagement",
+      "max_value": 380.0,
+      "min_value": 100.0,
+      "name": "Current voltage",
+      "step": 0.001,
+      "subscribable": true,
+      "trait_code": "CurrentVoltage",
+      "unit": "V"
+    },
+    "1.140.32945": {
+      "data_type": "float",
+      "endpoint_id": 1,
+      "function_code": "EnergyManagement",
+      "max_value": 5000.0,
+      "min_value": 0.0,
+      "name": "Current power",
+      "step": 0.1,
+      "subscribable": true,
+      "trait_code": "CurrentPower",
+      "unit": "W"
+    },
+    "1.140.32946": {
+      "data_type": "float",
+      "endpoint_id": 1,
+      "function_code": "EnergyManagement",
+      "max_value": 100000000.0,
+      "min_value": 0.0,
+      "name": "Cumulative energy consumption",
+      "step": 0.1,
+      "subscribable": true,
+      "trait_code": "CumulativeEnergyConsumption",
+      "unit": "W·h"
+    },
+    "3.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "4.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 4,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "5.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 5,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

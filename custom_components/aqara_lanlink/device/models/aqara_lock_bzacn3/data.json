@@ -1,0 +1,120 @@
+{
+  "bundle_ids": [
+    "aqara.lock.bzacn3"
+  ],
+  "device_types": [
+    "DoorLock",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Smart Door Lock N100",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "DoorLock"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "aqara.lock.bzacn3",
+  "models": [
+    "aqara.lock.bzacn3"
+  ],
+  "regions": [
+    "CN",
+    "EU",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "State of low bat",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "2.148.32970": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Not fully locked",
+        "1": "Locked",
+        "2": "Un locked"
+      },
+      "function_code": "DoorLock",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Lock state",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "LockState"
+    },
+    "2.148.32971": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Door open",
+        "1": "Door closed",
+        "2": "Door jammed",
+        "3": "Door forced open",
+        "4": "Door unspecified error",
+        "5": "Door ajar"
+      },
+      "function_code": "DoorLock",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Door state",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "DoorState"
+    }
+  },
+  "whitelabels": {}
+}

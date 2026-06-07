@@ -1,0 +1,166 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Camera",
+    "FaceScanner",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Doorbell G4",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.20009",
+    "1.176.33096",
+    "1.176.33097",
+    "1.205.20300",
+    "1.205.20301",
+    "1.205.20391",
+    "1.205.33099",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Camera"
+    },
+    "4": {
+      "deviceType": "FaceScanner"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.camera.acn005",
+  "models": [
+    "lumi.camera.acn005"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "State of low bat",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "1.147.33089": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "2": "Battery"
+      },
+      "function_code": "PowerSource",
+      "name": "Power mode",
+      "subscribable": true,
+      "trait_code": "PowerMode"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "2.136.32930": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 2,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "Camera active status",
+      "subscribable": true,
+      "trait_code": "CameraActiveStatus"
+    },
+    "2.170.32928": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Single press"
+      },
+      "function_code": "Doorbell",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "2.170.32960": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Doorbell",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Volume",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "Volume",
+      "unit": "%",
+      "writable": true
+    },
+    "4.219.20217": {
+      "data_type": "int",
+      "endpoint_id": 4,
+      "function_code": "FaceRecognition",
+      "max_value": 1.8446744073709552e+19,
+      "min_value": 0.0,
+      "name": "Face ID report",
+      "readable": false,
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "FaceIDReport"
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,9 @@
+Device Model	Device Name	Server Region	Attr name	Resource Name	ResourceId	Supported statistics types	Value Type	Enumerate	Transmission type	Description
+lumi.test.fp300	Test FP300	China Mainland	Light intensity	lux	0.3.85		uint32_t		Readable/Reportable	Light intensity.
+lumi.test.fp300	Test FP300	China Mainland	Adaptive sensitivity switch	adaptive_sens	4.4.85		uint8_t	Turn off: 0; Turn on: 1	Readable/Writable/Reportable	Adaptive sensitivity switch function. 0: Off; 1: On
+lumi.test.fp300	Test FP300	China Mainland	Device working mode	work_mode	14.59.85		uint32_t	Radar+Infrared: 0; Radar only: 1; Infrared only: 2	Readable/Writable/Reportable	Set device working mode
+lumi.test.fp300	Test FP300	China Mainland	Temperature reporting period	temp_freq	1.113.85		float		Readable/Writable/Reportable	Temperature reporting period in seconds
+lumi.test.fp300	Test FP300	Europe Middle East Africa	Light intensity	lux	0.3.85		uint32_t		Readable/Reportable	Light intensity.
+lumi.test.fp300	Test FP300	Europe Middle East Africa	Region-only trait	regional_thing	5.5.85		uint8_t		Readable/Writable/Reportable	Only present in EMEA firmware.
+lumi.test.bulb	Test Bulb	China Mainland	Power	power_status	4.1.85		uint8_t	Off: 0; On: 1	Readable/Writable/Reportable	Power on/off
+lumi.test.bulb	Test Bulb	America	Power	power_status	4.1.85		uint8_t	Off: 0; On: 1; Reverse: 2	Readable/Writable/Reportable	Power on/off (with toggle in this region's firmware)

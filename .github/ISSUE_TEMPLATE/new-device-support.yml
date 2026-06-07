@@ -1,0 +1,122 @@
+name: New device support
+description: Request support for an Aqara device that is not yet in the integration.
+labels:
+  - device-support
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening this issue, check whether a similar device model is already
+        supported. If it is, the new model may be a white-label variant — provide
+        the Aqara model string and the display name in the fields below and the
+        maintainer will handle the catalogue update.
+
+        The most important field below is the Aqara model string. A maintainer
+        will use it to regenerate the device catalogue from the Aqara developer
+        API; you do not need to capture any cloud traffic.
+
+  - type: input
+    id: model_strings
+    attributes:
+      label: Aqara model string(s)
+      description: >
+        The model identifier(s) as reported by the Aqara cloud, e.g.
+        lumi.light.agl003. If multiple variants share a model family, list all
+        of them separated by commas.
+      placeholder: "lumi.sensor.example01, lumi.sensor.example02"
+    validations:
+      required: true
+
+  - type: input
+    id: product_name
+    attributes:
+      label: Product name and type
+      description: >
+        The product's marketing name and category, e.g. "T2 RGB LED Bulb (E27)",
+        "Door and Window Sensor P2", "Cube T1 Pro".
+      placeholder: "Aqara Widget Sensor (Model A)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: region
+    attributes:
+      label: Region
+      description: >
+        Your Aqara account region. This helps the maintainer target the correct
+        cloud endpoint when regenerating the catalogue.
+      options:
+        - China Mainland (CN)
+        - Europe (EU)
+        - United States (US)
+        - Korea (KR)
+        - Russia (RU)
+        - Hong Kong / Macau / Taiwan (HMT)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: firmware_mode
+    attributes:
+      label: Firmware mode
+      description: >
+        Zigbee and Matter devices use different model string prefixes and
+        expose different traits. Select the mode of your device.
+      options:
+        - Zigbee
+        - Matter
+        - Other / Unknown
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: expected_features
+    attributes:
+      label: Expected features
+      description: >
+        Check the entity types you expect this device to expose in Home
+        Assistant based on what it does.
+      options:
+        - label: Binary sensor (contact, motion, occupancy, vibration, etc.)
+        - label: Switch (on/off control)
+        - label: Sensor (numeric value — temperature, humidity, illuminance, etc.)
+        - label: Light (brightness, colour temperature, colour)
+        - label: Lock
+        - label: Climate (thermostat, HVAC)
+        - label: Camera / video stream
+        - label: Event (doorbell, button press)
+        - label: Other (describe in additional context below)
+
+  - type: dropdown
+    id: hardware_access
+    attributes:
+      label: Hardware access for testing
+      description: >
+        Do you have physical access to this device and can test a PR against
+        real hardware?
+      options:
+        - "Yes, I can test"
+        - "No, I cannot test"
+        - "Sometimes / limited access"
+    validations:
+      required: true
+
+  - type: input
+    id: similar_model
+    attributes:
+      label: Similar already-supported model (optional)
+      description: >
+        If you know of a model that is already supported and behaves similarly
+        (potential white-label candidate), enter it here. Leave blank if
+        unknown.
+      placeholder: "lumi.light.agl003"
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: >
+        Any other information that may help: firmware version, known quirks,
+        links to Aqara documentation or open-source references.

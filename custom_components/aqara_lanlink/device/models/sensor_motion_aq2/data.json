@@ -1,0 +1,144 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "IlluminanceSensor",
+    "MotionSensor",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Motion Sensor",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20110",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20137",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "MotionSensor"
+    },
+    "3": {
+      "deviceType": "IlluminanceSensor"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.sensor_motion.aq2",
+  "models": [
+    "lumi.sensor_motion.aq2"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.147.32944": {
+      "data_type": "float",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "PowerSource",
+      "max_value": 3.6,
+      "min_value": 0.0,
+      "name": "Current voltage",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentVoltage",
+      "unit": "V"
+    },
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "name": "State of low bat",
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "2.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "2.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "3.154.32989": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "Illuminance",
+      "max_value": 100000.0,
+      "min_value": 0.0,
+      "name": "Current illuminance",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentIlluminance",
+      "unit": "lux"
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,68 @@
+{
+  "_comment": "Real customaction/query capture for actionId='new_dynamic_scene_mode' against a T2 RGB CCT bulb (lumi.light.agl003). Despite the misleading name, this action_id returns STATIC scenes (CCT presets with color_temp + light_level, no seqId). 4 default + 0 user. Sanitised from a live capture; DIDs replaced with TEST* placeholders. Each entry's 'value' field is a JSON-encoded string with {\"colour_temperature\": <mireds>, \"light_level\": <pct>}; the parser must converts mireds -> Kelvin so in-memory Effect objects are Kelvin.",
+  "result": {
+    "UserCustomActions": [],
+    "DefaultCustomActions": [
+      {
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1726227277763,
+        "channel": 0,
+        "icon": "T3-morning",
+        "actionId": "scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "customName": "Good night",
+        "subType": "2",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "state": 1,
+        "value": "{\"colour_temperature\":\"500\", \"light_level\":\"1\"}"
+      },
+      {
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1726227277763,
+        "channel": 0,
+        "icon": "T3-work",
+        "actionId": "scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "customName": "Work",
+        "subType": "2",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "state": 1,
+        "value": "{\"colour_temperature\":\"182\", \"light_level\":\"100\"}"
+      },
+      {
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1726227277763,
+        "channel": 0,
+        "icon": "T3-read",
+        "actionId": "scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "customName": "Reading",
+        "subType": "2",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "state": 1,
+        "value": "{\"colour_temperature\":\"250\", \"light_level\":\"100\"}"
+      },
+      {
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1726227277763,
+        "channel": 0,
+        "icon": "T3-rest",
+        "actionId": "scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "customName": "Chill Out",
+        "subType": "2",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "state": 1,
+        "value": "{\"colour_temperature\":\"286\", \"light_level\":\"50\"}"
+      }
+    ]
+  },
+  "code": 0,
+  "requestId": "REDACTED",
+  "message": "Success",
+  "msgDetails": "Success"
+}

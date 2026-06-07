@@ -1,0 +1,4802 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "AirConditioner",
+    "Public",
+    "Root"
+  ],
+  "display_name": "VRF Air Conditioning Controller",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20110",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20137",
+    "1.205.33107",
+    "10.130.32913",
+    "10.130.32914",
+    "10.130.32915",
+    "10.130.32919",
+    "10.130.33012",
+    "10.130.33016",
+    "11.130.32913",
+    "11.130.32914",
+    "11.130.32915",
+    "11.130.32919",
+    "11.130.33012",
+    "11.130.33016",
+    "12.130.32913",
+    "12.130.32914",
+    "12.130.32915",
+    "12.130.32919",
+    "12.130.33012",
+    "12.130.33016",
+    "13.130.32913",
+    "13.130.32914",
+    "13.130.32915",
+    "13.130.32919",
+    "13.130.33012",
+    "13.130.33016",
+    "14.130.32913",
+    "14.130.32914",
+    "14.130.32915",
+    "14.130.32919",
+    "14.130.33012",
+    "14.130.33016",
+    "15.130.32913",
+    "15.130.32914",
+    "15.130.32915",
+    "15.130.32919",
+    "15.130.33012",
+    "15.130.33016",
+    "16.130.32913",
+    "16.130.32914",
+    "16.130.32915",
+    "16.130.32919",
+    "16.130.33012",
+    "16.130.33016",
+    "17.130.32913",
+    "17.130.32914",
+    "17.130.32915",
+    "17.130.32919",
+    "17.130.33012",
+    "17.130.33016",
+    "18.130.32913",
+    "18.130.32914",
+    "18.130.32915",
+    "18.130.32919",
+    "18.130.33012",
+    "18.130.33016",
+    "19.130.32913",
+    "19.130.32914",
+    "19.130.32915",
+    "19.130.32919",
+    "19.130.33012",
+    "19.130.33016",
+    "2.130.32913",
+    "2.130.32914",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "2.130.33016",
+    "20.130.32913",
+    "20.130.32914",
+    "20.130.32915",
+    "20.130.32919",
+    "20.130.33012",
+    "20.130.33016",
+    "21.130.32913",
+    "21.130.32914",
+    "21.130.32915",
+    "21.130.32919",
+    "21.130.33012",
+    "21.130.33016",
+    "22.130.32913",
+    "22.130.32914",
+    "22.130.32915",
+    "22.130.32919",
+    "22.130.33012",
+    "22.130.33016",
+    "23.130.32913",
+    "23.130.32914",
+    "23.130.32915",
+    "23.130.32919",
+    "23.130.33012",
+    "23.130.33016",
+    "24.130.32913",
+    "24.130.32914",
+    "24.130.32915",
+    "24.130.32919",
+    "24.130.33012",
+    "24.130.33016",
+    "25.130.32913",
+    "25.130.32914",
+    "25.130.32915",
+    "25.130.32919",
+    "25.130.33012",
+    "25.130.33016",
+    "26.130.32913",
+    "26.130.32914",
+    "26.130.32915",
+    "26.130.32919",
+    "26.130.33012",
+    "26.130.33016",
+    "27.130.32913",
+    "27.130.32914",
+    "27.130.32915",
+    "27.130.32919",
+    "27.130.33012",
+    "27.130.33016",
+    "28.130.32913",
+    "28.130.32914",
+    "28.130.32915",
+    "28.130.32919",
+    "28.130.33012",
+    "28.130.33016",
+    "29.130.32913",
+    "29.130.32914",
+    "29.130.32915",
+    "29.130.32919",
+    "29.130.33012",
+    "29.130.33016",
+    "3.130.32913",
+    "3.130.32914",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "3.130.33016",
+    "30.130.32913",
+    "30.130.32914",
+    "30.130.32915",
+    "30.130.32919",
+    "30.130.33012",
+    "30.130.33016",
+    "31.130.32913",
+    "31.130.32914",
+    "31.130.32915",
+    "31.130.32919",
+    "31.130.33012",
+    "31.130.33016",
+    "32.130.32913",
+    "32.130.32914",
+    "32.130.32915",
+    "32.130.32919",
+    "32.130.33012",
+    "32.130.33016",
+    "33.130.32913",
+    "33.130.32914",
+    "33.130.32915",
+    "33.130.32919",
+    "33.130.33012",
+    "33.130.33016",
+    "34.130.32913",
+    "34.130.32914",
+    "34.130.32915",
+    "34.130.32919",
+    "34.130.33012",
+    "34.130.33016",
+    "35.130.32913",
+    "35.130.32914",
+    "35.130.32915",
+    "35.130.32919",
+    "35.130.33012",
+    "35.130.33016",
+    "36.130.32913",
+    "36.130.32914",
+    "36.130.32915",
+    "36.130.32919",
+    "36.130.33012",
+    "36.130.33016",
+    "37.130.32913",
+    "37.130.32914",
+    "37.130.32915",
+    "37.130.32919",
+    "37.130.33012",
+    "37.130.33016",
+    "38.130.32913",
+    "38.130.32914",
+    "38.130.32915",
+    "38.130.32919",
+    "38.130.33012",
+    "38.130.33016",
+    "39.130.32913",
+    "39.130.32914",
+    "39.130.32915",
+    "39.130.32919",
+    "39.130.33012",
+    "39.130.33016",
+    "4.130.32913",
+    "4.130.32914",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012",
+    "4.130.33016",
+    "40.130.32913",
+    "40.130.32914",
+    "40.130.32915",
+    "40.130.32919",
+    "40.130.33012",
+    "40.130.33016",
+    "41.130.32913",
+    "41.130.32914",
+    "41.130.32915",
+    "41.130.32919",
+    "41.130.33012",
+    "41.130.33016",
+    "42.130.32913",
+    "42.130.32914",
+    "42.130.32915",
+    "42.130.32919",
+    "42.130.33012",
+    "42.130.33016",
+    "43.130.32913",
+    "43.130.32914",
+    "43.130.32915",
+    "43.130.32919",
+    "43.130.33012",
+    "43.130.33016",
+    "44.130.32913",
+    "44.130.32914",
+    "44.130.32915",
+    "44.130.32919",
+    "44.130.33012",
+    "44.130.33016",
+    "45.130.32913",
+    "45.130.32914",
+    "45.130.32915",
+    "45.130.32919",
+    "45.130.33012",
+    "45.130.33016",
+    "46.130.32913",
+    "46.130.32914",
+    "46.130.32915",
+    "46.130.32919",
+    "46.130.33012",
+    "46.130.33016",
+    "47.130.32913",
+    "47.130.32914",
+    "47.130.32915",
+    "47.130.32919",
+    "47.130.33012",
+    "47.130.33016",
+    "48.130.32913",
+    "48.130.32914",
+    "48.130.32915",
+    "48.130.32919",
+    "48.130.33012",
+    "48.130.33016",
+    "49.130.32913",
+    "49.130.32914",
+    "49.130.32915",
+    "49.130.32919",
+    "49.130.33012",
+    "49.130.33016",
+    "5.130.32913",
+    "5.130.32914",
+    "5.130.32915",
+    "5.130.32919",
+    "5.130.33012",
+    "5.130.33016",
+    "50.130.32913",
+    "50.130.32914",
+    "50.130.32915",
+    "50.130.32919",
+    "50.130.33012",
+    "50.130.33016",
+    "51.130.32913",
+    "51.130.32914",
+    "51.130.32915",
+    "51.130.32919",
+    "51.130.33012",
+    "51.130.33016",
+    "52.130.32913",
+    "52.130.32914",
+    "52.130.32915",
+    "52.130.32919",
+    "52.130.33012",
+    "52.130.33016",
+    "53.130.32913",
+    "53.130.32914",
+    "53.130.32915",
+    "53.130.32919",
+    "53.130.33012",
+    "53.130.33016",
+    "54.130.32913",
+    "54.130.32914",
+    "54.130.32915",
+    "54.130.32919",
+    "54.130.33012",
+    "54.130.33016",
+    "55.130.32913",
+    "55.130.32914",
+    "55.130.32915",
+    "55.130.32919",
+    "55.130.33012",
+    "55.130.33016",
+    "56.130.32913",
+    "56.130.32914",
+    "56.130.32915",
+    "56.130.32919",
+    "56.130.33012",
+    "56.130.33016",
+    "57.130.32913",
+    "57.130.32914",
+    "57.130.32915",
+    "57.130.32919",
+    "57.130.33012",
+    "57.130.33016",
+    "58.130.32913",
+    "58.130.32914",
+    "58.130.32915",
+    "58.130.32919",
+    "58.130.33012",
+    "58.130.33016",
+    "59.130.32913",
+    "59.130.32914",
+    "59.130.32915",
+    "59.130.32919",
+    "59.130.33012",
+    "59.130.33016",
+    "6.130.32913",
+    "6.130.32914",
+    "6.130.32915",
+    "6.130.32919",
+    "6.130.33012",
+    "6.130.33016",
+    "60.130.32913",
+    "60.130.32914",
+    "60.130.32915",
+    "60.130.32919",
+    "60.130.33012",
+    "60.130.33016",
+    "61.130.32913",
+    "61.130.32914",
+    "61.130.32915",
+    "61.130.32919",
+    "61.130.33012",
+    "61.130.33016",
+    "62.130.32913",
+    "62.130.32914",
+    "62.130.32915",
+    "62.130.32919",
+    "62.130.33012",
+    "62.130.33016",
+    "63.130.32913",
+    "63.130.32914",
+    "63.130.32915",
+    "63.130.32919",
+    "63.130.33012",
+    "63.130.33016",
+    "64.130.32913",
+    "64.130.32914",
+    "64.130.32915",
+    "64.130.32919",
+    "64.130.33012",
+    "64.130.33016",
+    "65.130.32913",
+    "65.130.32914",
+    "65.130.32915",
+    "65.130.32919",
+    "65.130.33012",
+    "65.130.33016",
+    "7.130.32913",
+    "7.130.32914",
+    "7.130.32915",
+    "7.130.32919",
+    "7.130.33012",
+    "7.130.33016",
+    "8.130.32913",
+    "8.130.32914",
+    "8.130.32915",
+    "8.130.32919",
+    "8.130.33012",
+    "8.130.33016",
+    "9.130.32913",
+    "9.130.32914",
+    "9.130.32915",
+    "9.130.32919",
+    "9.130.33012",
+    "9.130.33016"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "10": {
+      "deviceType": "AirConditioner"
+    },
+    "11": {
+      "deviceType": "AirConditioner"
+    },
+    "12": {
+      "deviceType": "AirConditioner"
+    },
+    "13": {
+      "deviceType": "AirConditioner"
+    },
+    "14": {
+      "deviceType": "AirConditioner"
+    },
+    "15": {
+      "deviceType": "AirConditioner"
+    },
+    "16": {
+      "deviceType": "AirConditioner"
+    },
+    "17": {
+      "deviceType": "AirConditioner"
+    },
+    "18": {
+      "deviceType": "AirConditioner"
+    },
+    "19": {
+      "deviceType": "AirConditioner"
+    },
+    "2": {
+      "deviceType": "AirConditioner"
+    },
+    "20": {
+      "deviceType": "AirConditioner"
+    },
+    "21": {
+      "deviceType": "AirConditioner"
+    },
+    "22": {
+      "deviceType": "AirConditioner"
+    },
+    "23": {
+      "deviceType": "AirConditioner"
+    },
+    "24": {
+      "deviceType": "AirConditioner"
+    },
+    "25": {
+      "deviceType": "AirConditioner"
+    },
+    "26": {
+      "deviceType": "AirConditioner"
+    },
+    "27": {
+      "deviceType": "AirConditioner"
+    },
+    "28": {
+      "deviceType": "AirConditioner"
+    },
+    "29": {
+      "deviceType": "AirConditioner"
+    },
+    "3": {
+      "deviceType": "AirConditioner"
+    },
+    "30": {
+      "deviceType": "AirConditioner"
+    },
+    "31": {
+      "deviceType": "AirConditioner"
+    },
+    "32": {
+      "deviceType": "AirConditioner"
+    },
+    "33": {
+      "deviceType": "AirConditioner"
+    },
+    "34": {
+      "deviceType": "AirConditioner"
+    },
+    "35": {
+      "deviceType": "AirConditioner"
+    },
+    "36": {
+      "deviceType": "AirConditioner"
+    },
+    "37": {
+      "deviceType": "AirConditioner"
+    },
+    "38": {
+      "deviceType": "AirConditioner"
+    },
+    "39": {
+      "deviceType": "AirConditioner"
+    },
+    "4": {
+      "deviceType": "AirConditioner"
+    },
+    "40": {
+      "deviceType": "AirConditioner"
+    },
+    "41": {
+      "deviceType": "AirConditioner"
+    },
+    "42": {
+      "deviceType": "AirConditioner"
+    },
+    "43": {
+      "deviceType": "AirConditioner"
+    },
+    "44": {
+      "deviceType": "AirConditioner"
+    },
+    "45": {
+      "deviceType": "AirConditioner"
+    },
+    "46": {
+      "deviceType": "AirConditioner"
+    },
+    "47": {
+      "deviceType": "AirConditioner"
+    },
+    "48": {
+      "deviceType": "AirConditioner"
+    },
+    "49": {
+      "deviceType": "AirConditioner"
+    },
+    "5": {
+      "deviceType": "AirConditioner"
+    },
+    "50": {
+      "deviceType": "AirConditioner"
+    },
+    "51": {
+      "deviceType": "AirConditioner"
+    },
+    "52": {
+      "deviceType": "AirConditioner"
+    },
+    "53": {
+      "deviceType": "AirConditioner"
+    },
+    "54": {
+      "deviceType": "AirConditioner"
+    },
+    "55": {
+      "deviceType": "AirConditioner"
+    },
+    "56": {
+      "deviceType": "AirConditioner"
+    },
+    "57": {
+      "deviceType": "AirConditioner"
+    },
+    "58": {
+      "deviceType": "AirConditioner"
+    },
+    "59": {
+      "deviceType": "AirConditioner"
+    },
+    "6": {
+      "deviceType": "AirConditioner"
+    },
+    "60": {
+      "deviceType": "AirConditioner"
+    },
+    "61": {
+      "deviceType": "AirConditioner"
+    },
+    "62": {
+      "deviceType": "AirConditioner"
+    },
+    "63": {
+      "deviceType": "AirConditioner"
+    },
+    "64": {
+      "deviceType": "AirConditioner"
+    },
+    "65": {
+      "deviceType": "AirConditioner"
+    },
+    "7": {
+      "deviceType": "AirConditioner"
+    },
+    "8": {
+      "deviceType": "AirConditioner"
+    },
+    "9": {
+      "deviceType": "AirConditioner"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.airrtc.vrfegl01",
+  "models": [
+    "lumi.airrtc.vrfegl01"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "10.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 10,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "10.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 10,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "10.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 10,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "10.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 10,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "10.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 10,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "11.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 11,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "11.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 11,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "11.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 11,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "11.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 11,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "11.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 11,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "12.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 12,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "12.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 12,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "12.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 12,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "12.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 12,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "12.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 12,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "13.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 13,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "13.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 13,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "13.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 13,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "13.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 13,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "13.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 13,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "14.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 14,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "14.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 14,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "14.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 14,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "14.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 14,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "14.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 14,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "15.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 15,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "15.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 15,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "15.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 15,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "15.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 15,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "15.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 15,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "16.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 16,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "16.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 16,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "16.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 16,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "16.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 16,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "16.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 16,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "17.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 17,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "17.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 17,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "17.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 17,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "17.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 17,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "17.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 17,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "18.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 18,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "18.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 18,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "18.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 18,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "18.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 18,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "18.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 18,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "19.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 19,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "19.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 19,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "19.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 19,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "19.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 19,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "19.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 19,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "2.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "2.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "2.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "2.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "2.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "20.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 20,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "20.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 20,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "20.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 20,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "20.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 20,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "20.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 20,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "21.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 21,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "21.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 21,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "21.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 21,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "21.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 21,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "21.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 21,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "22.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 22,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "22.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 22,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "22.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 22,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "22.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 22,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "22.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 22,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "23.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 23,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "23.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 23,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "23.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 23,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "23.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 23,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "23.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 23,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "24.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 24,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "24.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 24,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "24.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 24,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "24.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 24,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "24.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 24,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "25.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 25,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "25.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 25,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "25.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 25,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "25.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 25,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "25.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 25,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "26.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 26,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "26.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 26,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "26.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 26,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "26.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 26,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "26.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 26,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "27.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 27,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "27.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 27,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "27.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 27,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "27.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 27,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "27.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 27,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "28.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 28,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "28.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 28,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "28.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 28,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "28.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 28,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "28.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 28,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "29.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 29,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "29.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 29,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "29.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 29,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "29.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 29,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "29.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 29,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "3.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "3.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "3.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "3.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "3.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "30.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 30,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "30.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 30,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "30.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 30,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "30.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 30,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "30.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 30,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "31.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 31,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "31.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 31,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "31.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 31,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "31.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 31,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "31.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 31,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "32.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 32,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "32.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 32,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "32.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 32,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "32.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 32,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "32.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 32,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "33.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 33,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "33.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 33,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "33.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 33,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "33.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 33,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "33.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 33,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "34.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 34,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "34.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 34,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "34.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 34,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "34.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 34,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "34.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 34,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "35.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 35,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "35.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 35,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "35.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 35,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "35.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 35,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "35.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 35,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "36.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 36,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "36.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 36,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "36.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 36,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "36.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 36,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "36.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 36,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "37.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 37,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "37.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 37,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "37.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 37,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "37.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 37,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "37.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 37,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "38.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 38,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "38.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 38,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "38.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 38,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "38.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 38,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "38.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 38,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "39.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 39,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "39.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 39,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "39.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 39,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "39.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 39,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "39.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 39,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "4.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 4,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "4.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "4.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "4.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "4.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "40.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 40,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "40.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 40,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "40.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 40,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "40.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 40,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "40.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 40,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "41.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 41,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "41.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 41,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "41.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 41,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "41.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 41,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "41.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 41,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "42.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 42,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "42.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 42,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "42.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 42,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "42.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 42,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "42.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 42,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "43.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 43,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "43.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 43,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "43.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 43,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "43.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 43,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "43.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 43,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "44.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 44,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "44.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 44,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "44.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 44,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "44.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 44,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "44.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 44,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "45.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 45,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "45.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 45,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "45.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 45,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "45.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 45,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "45.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 45,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "46.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 46,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "46.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 46,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "46.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 46,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "46.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 46,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "46.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 46,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "47.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 47,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "47.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 47,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "47.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 47,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "47.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 47,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "47.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 47,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "48.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 48,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "48.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 48,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "48.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 48,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "48.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 48,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "48.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 48,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "49.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 49,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "49.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 49,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "49.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 49,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "49.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 49,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "49.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 49,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "5.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 5,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "5.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 5,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "5.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 5,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "5.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 5,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "5.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 5,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "50.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 50,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "50.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 50,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "50.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 50,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "50.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 50,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "50.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 50,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "51.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 51,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "51.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 51,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "51.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 51,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "51.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 51,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "51.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 51,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "52.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 52,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "52.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 52,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "52.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 52,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "52.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 52,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "52.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 52,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "53.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 53,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "53.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 53,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "53.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 53,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "53.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 53,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "53.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 53,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "54.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 54,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "54.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 54,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "54.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 54,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "54.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 54,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "54.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 54,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "55.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 55,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "55.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 55,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "55.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 55,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "55.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 55,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "55.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 55,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "56.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 56,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "56.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 56,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "56.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 56,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "56.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 56,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "56.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 56,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "57.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 57,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "57.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 57,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "57.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 57,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "57.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 57,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "57.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 57,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "58.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 58,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "58.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 58,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "58.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 58,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "58.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 58,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "58.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 58,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "59.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 59,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "59.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 59,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "59.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 59,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "59.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 59,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "59.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 59,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "6.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 6,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "6.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 6,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "6.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 6,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "6.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 6,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "6.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 6,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "60.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 60,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "60.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 60,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "60.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 60,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "60.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 60,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "60.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 60,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "61.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 61,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "61.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 61,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "61.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 61,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "61.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 61,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "61.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 61,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "62.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 62,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "62.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 62,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "62.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 62,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "62.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 62,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "62.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 62,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "63.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 63,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "63.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 63,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "63.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 63,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "63.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 63,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "63.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 63,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "64.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 64,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "64.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 64,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "64.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 64,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "64.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 64,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "64.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 64,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "65.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 65,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "65.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 65,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "65.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 65,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "65.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 65,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "65.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 65,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "7.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 7,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "7.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 7,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "7.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 7,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "7.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 7,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "7.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 7,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "8.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 8,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "8.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 8,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "8.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 8,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "8.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 8,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "8.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 8,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "9.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 9,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "9.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 9,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "3": "Fan",
+        "4": "Dry"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "9.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 9,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "9.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 9,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "9.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 9,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,40 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "FaceScanner"
+  ],
+  "display_name": "Doorbell Camera Hub G410",
+  "dropped_paths": [
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012"
+  ],
+  "endpoints": {
+    "4": {
+      "deviceType": "FaceScanner"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.camera.acn017",
+  "models": [
+    "lumi.camera.acn017"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "4.219.20217": {
+      "data_type": "int",
+      "endpoint_id": 4,
+      "function_code": "FaceRecognition",
+      "max_value": 1.8446744073709552e+19,
+      "min_value": 0.0,
+      "name": "Face ID report",
+      "readable": false,
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "FaceIDReport"
+    }
+  },
+  "whitelabels": {}
+}

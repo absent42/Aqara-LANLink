@@ -1,0 +1,657 @@
+{
+  "bundle_ids": [
+    "lumi.gateway.agl012"
+  ],
+  "device_types": [
+    "AirConditioner",
+    "Hub",
+    "IRDevice",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Hub M300",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33046",
+    "0.128.33047",
+    "0.128.33056",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.33013",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.20116",
+    "1.171.20117",
+    "1.171.20308",
+    "1.171.33027",
+    "1.171.33028",
+    "1.171.33029",
+    "1.171.33030",
+    "1.176.20009",
+    "1.176.20010",
+    "1.176.33096",
+    "1.176.33097",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "2.181.20089",
+    "2.181.20483",
+    "2.205.20113",
+    "2.205.20300",
+    "2.205.20301",
+    "2.205.20307",
+    "2.205.20391",
+    "2.205.33098",
+    "2.205.33099",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Hub"
+    },
+    "3": {
+      "deviceType": "AirConditioner"
+    },
+    "4": {
+      "deviceType": "IRDevice"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.gateway.agl012",
+  "models": [
+    "lumi.gateway.agl012"
+  ],
+  "regions": [
+    "CN",
+    "EU",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "0.128.20306": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 0,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "Disconnected",
+        "1": "Connected"
+      },
+      "function_code": "BasicInformation",
+      "name": "Hub connection status",
+      "subscribable": true,
+      "trait_code": "HubConnectionStatus"
+    },
+    "1.171.20118": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 165.0,
+      "min_value": 1.0,
+      "name": "Wi fi channel",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiChannel"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "1.171.20390": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "Not provisioning",
+        "1": "Provisioning"
+      },
+      "function_code": "NetworkCommissioning",
+      "name": "Child device provisioning state",
+      "subscribable": true,
+      "trait_code": "ChildDeviceProvisioningState"
+    },
+    "1.172.33039": {
+      "data_type": "int",
+      "endpoint_id": 1,
+      "function_code": "EcosystemInformation",
+      "max_value": 255.0,
+      "min_value": 0.0,
+      "name": "Supported ecosystem",
+      "step": 1.0,
+      "trait_code": "SupportedEcosystem"
+    },
+    "1.172.33040": {
+      "data_type": "int",
+      "endpoint_id": 1,
+      "function_code": "EcosystemInformation",
+      "max_value": 255.0,
+      "min_value": 0.0,
+      "name": "Bound ecosystem",
+      "step": 1.0,
+      "trait_code": "BoundEcosystem"
+    },
+    "1.172.33041": {
+      "data_type": "struct",
+      "endpoint_id": 1,
+      "function_code": "EcosystemInformation",
+      "name": "Magic pair payload",
+      "subscribable": true,
+      "trait_code": "MagicPairPayload"
+    },
+    "1.172.33042": {
+      "data_type": "struct",
+      "endpoint_id": 1,
+      "function_code": "EcosystemInformation",
+      "name": "Home kit payload",
+      "subscribable": true,
+      "trait_code": "HomeKitPayload"
+    },
+    "1.172.33043": {
+      "data_type": "struct",
+      "endpoint_id": 1,
+      "function_code": "EcosystemInformation",
+      "name": "Matter payload",
+      "subscribable": true,
+      "trait_code": "MatterPayload"
+    },
+    "1.175.20138": {
+      "data_type": "enum",
+      "endpoint_id": 1,
+      "enum_values": {
+        "1": "Factory reset",
+        "2": "Network reset"
+      },
+      "function_code": "GeneralConfiguration",
+      "name": "Reset mode",
+      "subscribable": true,
+      "trait_code": "ResetMode",
+      "writable": true
+    },
+    "1.175.20211": {
+      "data_type": "enum",
+      "endpoint_id": 1,
+      "enum_values": {
+        "1": "Chinese",
+        "10": "Italian",
+        "11": "Japanese",
+        "12": "Polish",
+        "19": "Arabic",
+        "2": "English",
+        "3": "Cantonese",
+        "4": "Spanish",
+        "5": "Russian",
+        "6": "Korean",
+        "8": "German",
+        "9": "French"
+      },
+      "function_code": "GeneralConfiguration",
+      "name": "Voice language",
+      "subscribable": true,
+      "trait_code": "VoiceLanguage",
+      "writable": true
+    },
+    "1.175.20297": {
+      "data_type": "string",
+      "endpoint_id": 1,
+      "function_code": "GeneralConfiguration",
+      "name": "Time zone",
+      "subscribable": true,
+      "trait_code": "TimeZone",
+      "writable": true
+    },
+    "1.175.20305": {
+      "data_type": "bool",
+      "endpoint_id": 1,
+      "function_code": "GeneralConfiguration",
+      "name": "Hub ark tech enable",
+      "subscribable": true,
+      "trait_code": "HubArkTechEnable",
+      "writable": true
+    },
+    "1.175.20482": {
+      "data_type": "bool",
+      "endpoint_id": 1,
+      "function_code": "GeneralConfiguration",
+      "name": "Usb data communication enable",
+      "subscribable": true,
+      "trait_code": "UsbDataCommunicationEnable",
+      "writable": true
+    },
+    "1.176.20227": {
+      "data_type": "enum",
+      "endpoint_id": 1,
+      "enum_values": {
+        "0": "Enable reset and factory",
+        "1": "Disable factory only",
+        "2": "Disable reset and factory"
+      },
+      "function_code": "GeneralDiagnostics",
+      "name": "Anti deletion level setting",
+      "subscribable": true,
+      "trait_code": "AntiDeletionLevelSetting",
+      "writable": true
+    },
+    "1.176.20298": {
+      "data_type": "enum",
+      "endpoint_id": 1,
+      "enum_values": {
+        "0": "Disable",
+        "1": "Enable"
+      },
+      "function_code": "GeneralDiagnostics",
+      "name": "Anti deletion setting",
+      "subscribable": true,
+      "trait_code": "AntiDeletionSetting",
+      "writable": true
+    },
+    "1.176.20299": {
+      "data_type": "enum",
+      "endpoint_id": 1,
+      "enum_values": {
+        "1": "Trigger"
+      },
+      "function_code": "GeneralDiagnostics",
+      "name": "Anti deletion notification",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "AntiDeletionNotification"
+    },
+    "1.248.20302": {
+      "data_type": "bool",
+      "endpoint_id": 1,
+      "function_code": "NetworkManagement",
+      "name": "Remote proxy access enable",
+      "subscribable": true,
+      "trait_code": "RemoteProxyAccessEnable",
+      "writable": true
+    },
+    "1.248.20303": {
+      "data_type": "string",
+      "endpoint_id": 1,
+      "function_code": "NetworkManagement",
+      "name": "Internet access address",
+      "subscribable": true,
+      "trait_code": "InternetAccessAddress"
+    },
+    "1.248.20304": {
+      "data_type": "string",
+      "endpoint_id": 1,
+      "function_code": "NetworkManagement",
+      "name": "Lan access address",
+      "subscribable": true,
+      "trait_code": "LanAccessAddress"
+    },
+    "2.146.32960": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Speaker",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Volume",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "Volume",
+      "unit": "%",
+      "writable": true
+    },
+    "2.167.20309": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "BridgeConfiguration",
+      "max_value": 4294967295.0,
+      "min_value": 0.0,
+      "name": "Supported hub capability",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "SupportedHubCapability"
+    },
+    "2.167.33018": {
+      "data_type": "List[X]",
+      "endpoint_id": 2,
+      "function_code": "BridgeConfiguration",
+      "name": "Bridged node list",
+      "subscribable": true,
+      "trait_code": "BridgedNodeList"
+    },
+    "2.183.33118": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "MatterBridgeCommissioning",
+      "name": "Matter pairing switch",
+      "subscribable": true,
+      "trait_code": "MatterPairingSwitch",
+      "writable": true
+    },
+    "2.183.33119": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Loading DAC",
+        "1": "Failed DAC",
+        "2": "Ready DAC"
+      },
+      "function_code": "MatterBridgeCommissioning",
+      "name": "Matter DAC state",
+      "subscribable": true,
+      "trait_code": "MatterDACState"
+    },
+    "2.183.33120": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Unbound",
+        "1": "Bound"
+      },
+      "function_code": "MatterBridgeCommissioning",
+      "name": "Matter bind state",
+      "subscribable": true,
+      "trait_code": "MatterBindState"
+    },
+    "2.183.33121": {
+      "data_type": "string",
+      "endpoint_id": 2,
+      "function_code": "MatterBridgeCommissioning",
+      "name": "Matter onboarding payload",
+      "subscribable": true,
+      "trait_code": "MatterOnboardingPayload"
+    },
+    "2.183.33122": {
+      "data_type": "string",
+      "endpoint_id": 2,
+      "function_code": "MatterBridgeCommissioning",
+      "name": "Matter manufacturer list",
+      "subscribable": true,
+      "trait_code": "MatterManufacturerList"
+    },
+    "2.183.33123": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Non matter pairing state",
+        "1": "Matter pairing state",
+        "2": "Limit exceeded",
+        "3": "Invalid DAC",
+        "4": "Under preparation"
+      },
+      "function_code": "MatterBridgeCommissioning",
+      "name": "Matter pairing state",
+      "subscribable": true,
+      "trait_code": "MatterPairingState"
+    },
+    "2.183.33124": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "MatterBridgeCommissioning",
+      "name": "Matter bridge supported",
+      "subscribable": true,
+      "trait_code": "MatterBridgeSupported"
+    },
+    "2.256.20385": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Police car 1",
+        "1": "Police car 2",
+        "10": "Doorbell",
+        "10000": "Default ringtone",
+        "11": "Knock",
+        "12": "Funny",
+        "13": "Alarm clock",
+        "14": "Arming",
+        "15": "Disarming",
+        "2": "Safety accident",
+        "20": "Mi mix",
+        "21": "Enthusiastic",
+        "22": "Guitar classic",
+        "23": "Ice world piano",
+        "24": "Leisure time",
+        "25": "Childhood",
+        "26": "Morning stream iet",
+        "27": "Musix box",
+        "28": "Orange",
+        "3": "Missile countdown",
+        "4": "Ghost sound",
+        "5": "Sniper rifle",
+        "6": "Intense battle",
+        "7": "Air raid siren",
+        "8": "Dog bark"
+      },
+      "function_code": "Ringtone",
+      "name": "Ringtone play index",
+      "subscribable": true,
+      "trait_code": "RingtonePlayIndex",
+      "writable": true
+    },
+    "2.256.20386": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Ringtone",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Ringtone play volume",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "RingtonePlayVolume",
+      "unit": "%",
+      "writable": true
+    },
+    "2.256.20387": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Stopped",
+        "1": "Playing"
+      },
+      "function_code": "Ringtone",
+      "name": "Ringtone play status",
+      "subscribable": true,
+      "trait_code": "RingtonePlayStatus",
+      "writable": true
+    },
+    "2.256.20388": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "Ringtone",
+      "max_value": 86400.0,
+      "min_value": 0.0,
+      "name": "Ringtone play duration",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "RingtonePlayDuration",
+      "unit": "S",
+      "writable": true
+    },
+    "3.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "3.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "2": "Auto",
+        "3": "Fan",
+        "4": "Dry",
+        "5": "Sleep"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "3.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "3.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 32.0,
+      "min_value": 16.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "3.141.32952": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": -50.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "3.141.32953": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current humidity",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentHumidity",
+      "unit": "%"
+    },
+    "3.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "name": "Fan mode",
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "3.142.32951": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "0": "Off",
+        "1": "Rock left right",
+        "2": "Rock up down",
+        "3": "Rock round"
+      },
+      "function_code": "FanControl",
+      "name": "Rock setting",
+      "subscribable": true,
+      "trait_code": "RockSetting",
+      "writable": true
+    },
+    "4.139.32940": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "0": "Air conditioner",
+        "1": "TV",
+        "10": "Lighting",
+        "11": "DVD",
+        "12": "Customize",
+        "2": "Fan",
+        "3": "TV box",
+        "4": "Projector",
+        "5": "Settop box",
+        "6": "DVD",
+        "7": "Heater",
+        "8": "Air purifier",
+        "9": "Speaker"
+      },
+      "function_code": "IRControl",
+      "name": "IR type",
+      "subscribable": true,
+      "trait_code": "IRType",
+      "writable": true
+    },
+    "4.139.32972": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "1": "Power",
+        "2": "Mode",
+        "3": "Temp",
+        "4": "Temp",
+        "5": "Wind speed"
+      },
+      "function_code": "IRControl",
+      "name": "IR key",
+      "readable": false,
+      "trait_code": "IRKey",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

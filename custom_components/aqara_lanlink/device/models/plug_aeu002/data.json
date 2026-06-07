@@ -1,0 +1,190 @@
+{
+  "bundle_ids": [
+    "lumi.plug.common"
+  ],
+  "device_types": [
+    "Button",
+    "Outlet",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Wall Outlet H2",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.32929",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.32929",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.32929",
+    "4.130.33012",
+    "5.130.32913",
+    "5.130.32915",
+    "5.130.32919",
+    "5.130.33012",
+    "6.130.32913",
+    "6.130.32915",
+    "6.130.32919",
+    "6.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Outlet"
+    },
+    "3": {
+      "deviceType": "Outlet"
+    },
+    "4": {
+      "deviceType": "Outlet"
+    },
+    "5": {
+      "deviceType": "Button"
+    },
+    "6": {
+      "deviceType": "Button"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.plug.aeu002",
+  "models": [
+    "lumi.plug.aeu002"
+  ],
+  "regions": [
+    "CN",
+    "EU",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.140.32944": {
+      "data_type": "float",
+      "endpoint_id": 1,
+      "function_code": "EnergyManagement",
+      "max_value": 380.0,
+      "min_value": 100.0,
+      "name": "Current voltage",
+      "step": 0.001,
+      "subscribable": true,
+      "trait_code": "CurrentVoltage",
+      "unit": "V"
+    },
+    "1.140.32945": {
+      "data_type": "float",
+      "endpoint_id": 1,
+      "function_code": "EnergyManagement",
+      "max_value": 9999.0,
+      "min_value": 0.0,
+      "name": "Current power",
+      "step": 0.1,
+      "subscribable": true,
+      "trait_code": "CurrentPower",
+      "unit": "W"
+    },
+    "1.140.32946": {
+      "data_type": "float",
+      "endpoint_id": 1,
+      "function_code": "EnergyManagement",
+      "max_value": 100000000.0,
+      "min_value": 0.0,
+      "name": "Cumulative energy consumption",
+      "step": 0.1,
+      "subscribable": true,
+      "trait_code": "CumulativeEnergyConsumption",
+      "unit": "W·h"
+    },
+    "2.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "3.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "4.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 4,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "5.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 5,
+      "enum_values": {
+        "0": "Single press",
+        "1": "Double press",
+        "2": "Long press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "6.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 6,
+      "enum_values": {
+        "0": "Single press",
+        "1": "Double press",
+        "2": "Long press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,115 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Public",
+    "Root",
+    "SmokeAlarm"
+  ],
+  "display_name": "lumi.sensor_smoke.acn02",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33141",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "SmokeAlarm"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.sensor_smoke.acn02",
+  "models": [
+    "lumi.sensor_smoke.acn02"
+  ],
+  "regions": [],
+  "source_region": "ger",
+  "traits": {
+    "1.147.32944": {
+      "data_type": "float",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "PowerSource",
+      "max_value": 3.6,
+      "min_value": 0.0,
+      "name": "Current voltage",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentVoltage",
+      "unit": "V"
+    },
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "State of low bat",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "2.156.32991": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Smoke",
+      "max_value": 5.0,
+      "min_value": 0.0,
+      "name": "Smoke density",
+      "step": 0.001,
+      "subscribable": true,
+      "trait_code": "SmokeDensity",
+      "unit": "OBS%/FT"
+    },
+    "2.156.32992": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Smoke",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Smoke detected",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "SmokeDetected"
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,230 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Button",
+    "Public",
+    "Root",
+    "Switch"
+  ],
+  "display_name": "Wall Switch T1 (No Neutral, Three Rocker)",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32914",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.32929",
+    "2.130.33012",
+    "2.130.33016",
+    "3.130.32913",
+    "3.130.32914",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.32929",
+    "3.130.33012",
+    "3.130.33016",
+    "4.130.32913",
+    "4.130.32914",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.32929",
+    "4.130.33012",
+    "4.130.33016"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Switch"
+    },
+    "3": {
+      "deviceType": "Switch"
+    },
+    "4": {
+      "deviceType": "Switch"
+    },
+    "5": {
+      "deviceType": "Button"
+    },
+    "6": {
+      "deviceType": "Button"
+    },
+    "7": {
+      "deviceType": "Button"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.switch.b3l01",
+  "models": [
+    "lumi.switch.b3l01"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "2.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "2.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Single press",
+        "1": "Double press",
+        "2": "Long press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "2.135.33109": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Button",
+      "name": "Local control disabled",
+      "subscribable": true,
+      "trait_code": "LocalControlDisabled",
+      "writable": true
+    },
+    "3.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "3.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "0": "Single press",
+        "1": "Double press",
+        "2": "Long press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "3.135.33109": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Button",
+      "name": "Local control disabled",
+      "subscribable": true,
+      "trait_code": "LocalControlDisabled",
+      "writable": true
+    },
+    "4.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 4,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "4.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "0": "Single press",
+        "1": "Double press",
+        "2": "Long press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "4.135.33109": {
+      "data_type": "bool",
+      "endpoint_id": 4,
+      "function_code": "Button",
+      "name": "Local control disabled",
+      "subscribable": true,
+      "trait_code": "LocalControlDisabled",
+      "writable": true
+    },
+    "5.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 5,
+      "enum_values": {
+        "0": "Single press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "6.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 6,
+      "enum_values": {
+        "0": "Single press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "7.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 7,
+      "enum_values": {
+        "0": "Single press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    }
+  },
+  "whitelabels": {}
+}

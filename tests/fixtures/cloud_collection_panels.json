@@ -1,0 +1,103 @@
+{
+  "_comment": "Real layout/collection/panels capture for an Aqara P100 Multi-State Sensor (lumi.vibration.agl002). Source: data/p100 flows (mitmproxy tnetstring format). Sanitised: real DID replaced with lumi.TESTDEV0000000001, positionId replaced with real2.TESTROOM00000001, endpointPositionId likewise, subjectKey DID component likewise, gatewayId replaced with lumi1.TESTHUB000001, layoutEntityId values replaced with synthetic ObjectIds, requestId redacted to test-request-id. Covers two endpoints: ep2 (VibrationSensor, 14 paths) and ep3 (ContactSensor, 6 paths). The real response uses result[*].subjects[*] for endpointId and paths, NOT result[*].views[*] as the idealised spec describes.",
+  "result": [
+    {
+      "layoutEntityId": "000000000000000000000001",
+      "loadState": 1,
+      "subjects": [
+        {
+          "loadState": 1,
+          "perm": 0,
+          "endpointId": 2,
+          "objProperties": [
+            "4.8.85",
+            "4.7.85",
+            "13.8.85",
+            "0.7.85",
+            "0.6.85",
+            "13.4.85",
+            "13.7.85",
+            "0.8.85",
+            "0.9.85",
+            "1.2.85"
+          ],
+          "endpointName": "Multi-State Sensor P100",
+          "endpointStatistics": 1,
+          "modelType": 2,
+          "deviceId": "lumi.TESTDEV0000000001",
+          "deviceName": "Multi-State Sensor P100",
+          "positionName": "Default Room",
+          "deviceTypes": "VibrationSensor",
+          "subjectModel": "lumi.vibration.agl002",
+          "positionId": "real2.TESTROOM00000001",
+          "paths": [
+            "2.130.32915",
+            "2.130.32913",
+            "2.164.20370",
+            "2.164.33007",
+            "2.130.32919",
+            "2.164.20371",
+            "2.164.20372",
+            "2.164.20373",
+            "2.164.20374",
+            "2.164.20375",
+            "2.164.20364",
+            "2.164.20376",
+            "2.164.20377",
+            "2.130.33012"
+          ],
+          "state": 1,
+          "endpointPositionId": "real2.TESTROOM00000001",
+          "subjectKey": "lumi.TESTDEV0000000001:2",
+          "gatewayId": "lumi1.TESTHUB000001",
+          "endpointPositionName": "Default Room",
+          "endpointIconId": "vibration"
+        }
+      ],
+      "type": "device_endpoint_panel"
+    },
+    {
+      "layoutEntityId": "000000000000000000000002",
+      "loadState": 1,
+      "subjects": [
+        {
+          "loadState": 1,
+          "applianceId": "ContactSensor",
+          "perm": 0,
+          "endpointId": 3,
+          "objProperties": [
+            "3.1.85"
+          ],
+          "endpointName": "Door and Window Sensor",
+          "endpointStatistics": 1,
+          "modelType": 2,
+          "deviceId": "lumi.TESTDEV0000000001",
+          "deviceName": "Multi-State Sensor P100",
+          "positionName": "Default Room",
+          "deviceTypes": "ContactSensor",
+          "subjectModel": "lumi.vibration.agl002",
+          "positionId": "real2.TESTROOM00000001",
+          "paths": [
+            "3.130.32919",
+            "3.130.32929",
+            "3.130.33012",
+            "3.155.32990",
+            "3.130.32915",
+            "3.130.32913"
+          ],
+          "state": 1,
+          "endpointPositionId": "real2.TESTROOM00000001",
+          "subjectKey": "lumi.TESTDEV0000000001:3",
+          "gatewayId": "lumi1.TESTHUB000001",
+          "endpointPositionName": "Default Room",
+          "endpointIconId": "window_a"
+        }
+      ],
+      "type": "device_endpoint_panel"
+    }
+  ],
+  "code": 0,
+  "requestId": "test-request-id",
+  "message": "Success",
+  "msgDetails": "Success"
+}

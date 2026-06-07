@@ -1,0 +1,243 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Add Aqara device",
+                "description": "Pick a discovered Aqara device, or enter the device's LAN IP and DID manually if nothing was found on the network. The DID looks like `lumi1.0123456789ab` (the suffix is the device's MAC address) and is shown in the Aqara app under device settings.",
+                "data": {
+                    "hub_ip": "Device IP address",
+                    "hub_did": "Device DID"
+                }
+            },
+            "credentials": {
+                "title": "Aqara cloud credentials",
+                "description": "Enter your Aqara account email, password, and region. If you already have an Aqara user ID and token (for example from another tool), you can paste them in the optional fields instead and skip the cloud login.",
+                "data": {
+                    "aqara_account": "Aqara account email",
+                    "aqara_password": "Aqara account password",
+                    "aqara_region": "Aqara region",
+                    "aqara_user_id": "Aqara user ID (optional, advanced)",
+                    "aqara_token": "Aqara token (optional, advanced)"
+                }
+            },
+            "confirm": {
+                "title": "Confirm device setup",
+                "description": "Device: {hub_model} ({hub_did})\nDevices managed: {device_count}\n\nConfirm to add this device to Home Assistant. You can pair individual devices afterwards from the integration page."
+            },
+            "reauth_confirm": {
+                "title": "Re-authenticate Aqara device",
+                "description": "The Aqara cloud token for {account} was rejected. Enter the account password to refresh the token, or paste a new Aqara user ID and token directly. The device connection details are unchanged.",
+                "data": {
+                    "aqara_account": "Aqara account email",
+                    "aqara_password": "Aqara account password",
+                    "aqara_region": "Aqara region",
+                    "aqara_user_id": "Aqara user ID (optional, advanced)",
+                    "aqara_token": "Aqara token (optional, advanced)"
+                }
+            },
+            "reconfigure": {
+                "title": "Reconfigure Aqara device",
+                "description": "Update the Aqara cloud credentials for {account}. Enter the account password to refresh the token, or paste a new Aqara user ID and token directly. The device connection details (IP, DID, model) are unchanged.",
+                "data": {
+                    "aqara_account": "Aqara account email",
+                    "aqara_password": "Aqara account password",
+                    "aqara_region": "Aqara region",
+                    "aqara_user_id": "Aqara user ID (optional, advanced)",
+                    "aqara_token": "Aqara token (optional, advanced)"
+                }
+            }
+        },
+        "error": {
+            "aqara_login_failed": "Aqara cloud login failed. Check your email, password, and region.",
+            "aqara_credentials_required": "Enter either your Aqara account email and password, or paste a user ID and token.",
+            "cannot_connect": "Could not validate against the hub. Check that the hub is on the same network as Home Assistant and that the credentials are correct.",
+            "not_tunnel_host": "This device is reachable but is not a LANLink tunnel host (for example an M100 hub). Its devices can be added under a compatible hub such as the M3.",
+            "not_lanlink": "This device responded but is not a LANLink device.",
+            "invalid_host": "Enter a valid IP address or hostname (no spaces or special characters)."
+        },
+        "abort": {
+            "already_configured": "This Aqara device is already configured.",
+            "reauth_successful": "Re-authentication was successful.",
+            "reconfigure_successful": "Reconfiguration was successful."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Camera configuration",
+                "description": "IP address and RTSP credentials for this hub's built-in camera. Leave the IP blank to let the integration auto-discover it.",
+                "data": {
+                    "camera_ip": "Camera IP address",
+                    "rtsp_username": "RTSP username",
+                    "rtsp_password": "RTSP password",
+                    "backchannel_channel": "Two-way-audio channel (1 high, 2 medium, 3 low)"
+                }
+            }
+        },
+        "error": {
+            "invalid_host": "Enter a valid IP address or hostname (no spaces or special characters)."
+        },
+        "abort": {
+            "not_a_camera": "This hub has no built-in camera, so there is nothing to configure."
+        }
+    },
+    "config_subentries": {
+        "device": {
+            "entry_type": "Device",
+            "initiate_flow": {
+                "user": "Add a device"
+            },
+            "step": {
+                "pick_device": {
+                    "title": "Add an Aqara device",
+                    "description": "Pick a device to add to Home Assistant ({supported_count} eligible). Add one device per run; rerun this flow to add more. {unsupported_info}\n\nContributions for unsupported devices are welcome.",
+                    "data": {
+                        "device": "Device"
+                    }
+                },
+                "device_extras": {
+                    "title": "Device configuration",
+                    "description": "Provide any extra configuration this device needs before it can be added.",
+                    "data": {
+                        "camera_ip": "Camera IP address",
+                        "rtsp_username": "RTSP username",
+                        "rtsp_password": "RTSP password",
+                        "backchannel_channel": "Two-way-audio channel (1 high, 2 medium, 3 low)"
+                    }
+                },
+                "bootstrap_review": {
+                    "title": "Review traits for new device ({model})",
+                    "description": "This device (`{did}`) is not yet in the shipped catalogue. Pick which discovered traits to enable as entities. Skipped traits can be added later via the `scan_device` service.",
+                    "data": {
+                        "selected": "Traits to add"
+                    }
+                }
+            },
+            "error": {
+                "cannot_connect": "Could not reach the Aqara cloud to list devices on this hub. Check your network and try again.",
+                "no_devices_picked": "Pick a device to add.",
+                "extras_validation_failed": "The device configuration could not be validated. Check the values and try again."
+            },
+            "abort": {
+                "unknown_device": "The selected device is no longer in the cloud's device list. Reopen the picker and try again.",
+                "bootstrap_cloud_failed": "Could not scan the new device's traits because the Aqara cloud is unreachable. Add the device now (it will have no entities yet) and re-run `aqara_lanlink.scan_device` once the cloud is available."
+            }
+        }
+    },
+    "entity": {
+        "button": {
+            "ptz_up": { "name": "Pan up" },
+            "ptz_down": { "name": "Pan down" },
+            "ptz_left": { "name": "Pan left" },
+            "ptz_right": { "name": "Pan right" },
+            "ptz_stop": { "name": "Stop movement" },
+            "ptz_zoom_in": { "name": "Zoom in" },
+            "ptz_zoom_out": { "name": "Zoom out" }
+        },
+        "camera": {
+            "camera_ch1": { "name": "High quality" },
+            "camera_ch2": { "name": "Medium quality" },
+            "camera_ch3": { "name": "Low quality" }
+        },
+        "number": {
+            "detection_clear_delay": { "name": "Detection clear delay" },
+            "ptz_zoom": { "name": "Zoom" }
+        },
+        "select": {
+            "ptz_preset": { "name": "Preset" }
+        }
+    },
+    "services": {
+        "play_audio_file": {
+            "name": "Play audio file",
+            "description": "Stream an AAC-ADTS audio file through an Aqara doorbell's voice channel.",
+            "fields": {
+                "device_id": {
+                    "name": "Doorbell",
+                    "description": "The Aqara doorbell to play the audio through."
+                },
+                "file_path": {
+                    "name": "File path",
+                    "description": "Absolute path to an AAC-ADTS audio file. The directory must be in allowlist_external_dirs."
+                }
+            }
+        },
+        "scan_device": {
+            "name": "Scan device for new traits",
+            "description": "Runs a one-shot cloud scan against one Aqara device to recover traits the shipped catalogue is missing. Intended for the small number of models not yet catalogued, or when firmware adds new traits to a previously catalogued model; not needed for routine use.",
+            "fields": {
+                "device_id": {
+                    "name": "Device",
+                    "description": "The HA device to scan."
+                }
+            }
+        },
+        "export_overlay": {
+            "name": "Export overlay for PR",
+            "description": "Renders accepted overlay traits as a Python TraitSpec snippet ready to paste into a model package's overrides.py OVERRIDES dict, then posts the result as a Persistent Notification. Intended for submitting catalogue PRs after running scan_device.",
+            "fields": {
+                "model": {
+                    "name": "Model",
+                    "description": "Restrict the export to one model. Omit to render all models in the overlay."
+                }
+            }
+        },
+        "ptz": {
+            "name": "PTZ control",
+            "description": "Control a PTZ camera with a single action. The command selects what to do; value, continuous, and duration refine it. One service so dashboards (including the WebRTC card) can drive every PTZ action through one action key.",
+            "fields": {
+                "command": {
+                    "name": "Command",
+                    "description": "What to do. up/down/left/right pan or tilt; stop halts a continuous move; zoom_in/zoom_out step the zoom; zoom sets an absolute magnification (needs value); preset recalls a saved position (needs value)."
+                },
+                "value": {
+                    "name": "Value",
+                    "description": "For zoom: the magnification (1.0 widest to 9.0 tele). For zoom_in/zoom_out: the step size in magnification (default 1.0). For preset: the preset name (as set in the Aqara app) or its numeric id. Ignored by other commands."
+                },
+                "continuous": {
+                    "name": "Continuous",
+                    "description": "For up/down/left/right, move continuously until stop is sent (or duration elapses) instead of a single nudge."
+                },
+                "duration": {
+                    "name": "Duration",
+                    "description": "For a continuous directional move, seconds to move before auto-stopping. Omit to move until stop."
+                }
+            }
+        }
+    },
+    "issues": {
+        "push_stalled": {
+            "title": "Aqara hub stopped sending updates",
+            "description": "The hub is connected but has stopped forwarding device updates over the local tunnel, and repeated automatic recovery attempts have not helped. Try rebooting the hub. If it persists, check that \"LAN Control\" is enabled for this hub in the Aqara app."
+        },
+        "candidate_paths": {
+            "title": "New device capabilities observed",
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "title": "Run scan_device to review",
+                        "description": "Dismiss this notification and invoke `aqara_lanlink.scan_device(device_id=...)` for each device listed."
+                    }
+                }
+            }
+        },
+        "scan_review": {
+            "title": "New capabilities detected on {model}",
+            "fix_flow": {
+                "step": {
+                    "select": {
+                        "title": "Review discovered traits ({count})",
+                        "description": "The cloud scan of `{did}` found {count} traits the catalogue does not cover yet. Pick which to add as entities on this device. The accepted entries also become a ready-to-submit PR payload via the `export_overlay` service.\n\n{details}",
+                        "data": {
+                            "selected": "Traits to add"
+                        }
+                    }
+                }
+            }
+        },
+        "scan_failure": {
+            "title": "Cloud scan failed for {did}",
+            "description": "The integration could not complete the scan: {message}. Re-run `aqara_lanlink.scan_device` when the cloud is reachable."
+        }
+    }
+}

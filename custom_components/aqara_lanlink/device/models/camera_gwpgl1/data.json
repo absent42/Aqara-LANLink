@@ -1,0 +1,322 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Camera",
+    "FaceScanner",
+    "GestureSensor",
+    "HumanDetector",
+    "MotionSensor",
+    "PackageDetector",
+    "PetMonitor",
+    "Public",
+    "Root",
+    "SoundSensor",
+    "VehicleDetector"
+  ],
+  "display_name": "Camera Hub G3",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.20009",
+    "1.176.33096",
+    "1.176.33097",
+    "1.205.20300",
+    "1.205.20301",
+    "1.205.20391",
+    "1.205.33099",
+    "11.130.32913",
+    "11.130.32915",
+    "11.130.32919",
+    "11.130.33012",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012",
+    "5.130.32913",
+    "5.130.32915",
+    "5.130.32919",
+    "5.130.33012",
+    "6.130.32913",
+    "6.130.32915",
+    "6.130.32919",
+    "6.130.33012",
+    "7.130.32913",
+    "7.130.32915",
+    "7.130.32919",
+    "7.130.33012",
+    "8.130.32913",
+    "8.130.32915",
+    "8.130.32919",
+    "8.130.33012",
+    "9.130.32913",
+    "9.130.32915",
+    "9.130.32919",
+    "9.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "11": {
+      "deviceType": "GestureSensor"
+    },
+    "2": {
+      "deviceType": "Camera"
+    },
+    "3": {
+      "deviceType": "HumanDetector"
+    },
+    "4": {
+      "deviceType": "FaceScanner"
+    },
+    "5": {
+      "deviceType": "MotionSensor"
+    },
+    "6": {
+      "deviceType": "PetMonitor"
+    },
+    "7": {
+      "deviceType": "SoundSensor"
+    },
+    "8": {
+      "deviceType": "PackageDetector"
+    },
+    "9": {
+      "deviceType": "VehicleDetector"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.camera.gwpgl1",
+  "models": [
+    "lumi.camera.gwpgl1"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.147.33089": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "3": "DC source"
+      },
+      "function_code": "PowerSource",
+      "name": "Power mode",
+      "subscribable": true,
+      "trait_code": "PowerMode"
+    },
+    "1.171.20118": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 165.0,
+      "min_value": 1.0,
+      "name": "Wi fi channel",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiChannel"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "11.220.20218": {
+      "data_type": "enum",
+      "endpoint_id": 11,
+      "enum_values": {
+        "10": "Good",
+        "101": "Two both hands",
+        "102": "Four both hands",
+        "103": "Five both hands",
+        "104": "Eight both hands",
+        "2": "Two",
+        "4": "Four",
+        "5": "Five",
+        "6": "Eight"
+      },
+      "function_code": "GestureRecognition",
+      "name": "Gesture recognition report",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "GestureRecognitionReport"
+    },
+    "2.136.20030": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 2,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "P 2 P capture enabled",
+      "subscribable": true,
+      "trait_code": "P2PCaptureEnabled",
+      "writable": true
+    },
+    "2.136.20036": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 2,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "P 2 P capture status",
+      "subscribable": true,
+      "trait_code": "P2PCaptureStatus"
+    },
+    "2.136.32930": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 2,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "Camera active status",
+      "subscribable": true,
+      "trait_code": "CameraActiveStatus"
+    },
+    "3.216.20215": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "1": "Human detected"
+      },
+      "function_code": "HumanRecognition",
+      "name": "Human recognition report",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "HumanRecognitionReport"
+    },
+    "4.219.20217": {
+      "data_type": "int",
+      "endpoint_id": 4,
+      "function_code": "FaceRecognition",
+      "max_value": 1.8446744073709552e+19,
+      "min_value": 0.0,
+      "name": "Face ID report",
+      "readable": false,
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "FaceIDReport"
+    },
+    "5.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 5,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "5.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 5,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "Infrared and ultrasonic",
+        "3": "Physical contact",
+        "4": "Radar",
+        "5": "Vision"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "6.218.20216": {
+      "data_type": "enum",
+      "endpoint_id": 6,
+      "enum_values": {
+        "1": "Cat detected",
+        "2": "Dog detected",
+        "3": "Cat or dog detected"
+      },
+      "function_code": "PetRecognition",
+      "name": "Pet recognition report",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "PetRecognitionReport"
+    },
+    "7.217.20214": {
+      "data_type": "enum",
+      "endpoint_id": 7,
+      "enum_values": {
+        "1": "Cry detected"
+      },
+      "function_code": "SoundDetection",
+      "name": "Anomaly sound detected",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "AnomalySoundDetected"
+    },
+    "8.223.20221": {
+      "data_type": "enum",
+      "endpoint_id": 8,
+      "enum_values": {
+        "1": "Package appeared",
+        "2": "Package disappeared"
+      },
+      "function_code": "PackageRecognition",
+      "name": "Package recognition report",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "PackageRecognitionReport"
+    },
+    "9.221.20219": {
+      "data_type": "enum",
+      "endpoint_id": 9,
+      "enum_values": {
+        "1": "Vehicle detected"
+      },
+      "function_code": "VehicleDetection",
+      "name": "Vehicle detected",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "VehicleDetected"
+    }
+  },
+  "whitelabels": {}
+}

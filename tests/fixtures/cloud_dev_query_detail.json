@@ -1,0 +1,31 @@
+{
+  "_comment": "Synthesized response for Aqara Legacy RPC GET /app/v1.0/lumi/app/dev/query/detail?area=EU&dids=[\"lumi.TESTZIG0000000C\"] modelled on a real T2 RGB CCT bulb capture documented in DISCOVERY_SPIKE_FINDINGS.md ('Major addendum: trait introspection endpoints' / 'dev/query/detail'). Sign source for GET is the alphabetically-sorted query string with the JSON-encoded dids list (NOT URL-percent-encoded). Sanitized: real DIDs replaced with placeholders, real MAC replaced with synthetic MAC, real homeId/positionId replaced with placeholders, real requestId redacted, timeZoneId genericised to UTC.",
+  "result": [
+    {
+      "did": "lumi.TESTZIG0000000C",
+      "mac": "00:11:22:33:44:55",
+      "model": "lumi.light.agl003",
+      "deviceName": "LED Bulb T2 (E27, RGB CCT)",
+      "originalName": "LED Bulb T2 (E27, RGB CCT)",
+      "manualUrl": "https://www.aqara.com/manuals/led-bulb-t2-rgb-cct.pdf",
+      "parentDeviceId": "lumi1.TESTHUB00001",
+      "parentDeviceName": "Hub M3",
+      "parentModel": "lumi.gateway.agl004",
+      "homeId": "real1.TESTPOSITION0001",
+      "positionId": "real2.TESTROOM00000001",
+      "positionName": "Default Room",
+      "timeZoneId": "UTC",
+      "firmwareVersion": "0.0.0_0030",
+      "modelType": 2,
+      "connectGatewayAgreement": "zigbee",
+      "statusChangeTime": 1776373586391,
+      "state": 1,
+      "supportHomeKit": 1,
+      "categoryNames": ["Light"]
+    }
+  ],
+  "code": 0,
+  "requestId": "REDACTED",
+  "message": "Success",
+  "msgDetails": "Success"
+}

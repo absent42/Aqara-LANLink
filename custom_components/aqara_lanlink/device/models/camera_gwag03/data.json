@@ -1,0 +1,98 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Camera",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Camera Hub G2H",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.33096",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Camera"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.camera.gwag03",
+  "models": [
+    "lumi.camera.gwag03"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.147.33089": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "3": "DC source"
+      },
+      "function_code": "PowerSource",
+      "name": "Power mode",
+      "subscribable": true,
+      "trait_code": "PowerMode"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "2.136.32930": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 2,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "Camera active status",
+      "subscribable": true,
+      "trait_code": "CameraActiveStatus"
+    }
+  },
+  "whitelabels": {}
+}

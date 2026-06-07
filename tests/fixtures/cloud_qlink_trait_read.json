@@ -1,0 +1,226 @@
+{
+  "_comment": "Real qlink/trait/read capture for an Aqara T2 RGB CCT bulb (lumi.light.agl003). Sanitised from a live mitmproxy capture: real DIDs/positionIds replaced with TEST* placeholders, requestId redacted. Captured against the user's bulb on 2026-04-XX. Filtered down to the T2 entry only (the original response also covered the hub, doorbell, switch, etc.). All canonical light propertyIds present: 4.1.85 power (2.132.32920, enums [\"0\",\"1\"]), 1.7.85 light_level (2.133.32923, %, 1-100), 1.9.85 colour_temperature (2.134.32927, mireds 153-370 = 2702K-6535K), 14.8.85 light_xy packed (2.134.20192, max=4294967305 uint32 + 2 component paths 32925/32926 with max=65279 uint16), 8.0.2259 power_on_behavior (2.132.32921, enums [\"0\",\"1\",\"2\",\"3\"], value 2 = Reverse). Pattern detector should absorb the four canonical traits into ONE LightDescriptor; the per-trait classifier should produce a labelled Select for 8.0.2259 plus auto-named Numbers/Sensors for the rest.",
+  "result": [
+    {
+      "traits": [
+        {
+          "path": "2.130.32915",
+          "enums": "[\"0\",\"1\"]",
+          "unit": "",
+          "defaultValue": "1",
+          "needSubscribe": true
+        },
+        {
+          "path": "2.130.32913",
+          "enums": "",
+          "unit": "",
+          "defaultValue": "RGB\u706f\u6ce1",
+          "traitTime": 1777475032695,
+          "needSubscribe": true,
+          "value": "Light bulb",
+          "propertyId": [
+            "4.1.28"
+          ]
+        },
+        {
+          "path": "2.130.32919",
+          "enums": "[\"light_bulb\",\"ceiling_light\",\"ceiling_light_a\",\"ceiling_light_b\",\"chandelier_a\",\"chandelier_b\",\"chandelier_c\",\"floor_lamp\",\"table_lamp_a\",\"table_lamp_b\",\"spotlight_a\",\"spotlight_b\",\"strip_light\",\"string_light\",\"panel_light\",\"track_lighting\",\"column_light\",\"floor_lamp_a\",\"downlights_light\",\"wall_lamp\",\"child_lamp\",\"grille_lamp\",\"art_lamp\"]",
+          "unit": "",
+          "defaultValue": "light_bulb",
+          "traitTime": 1777475032695,
+          "needSubscribe": true,
+          "value": "light_bulb",
+          "propertyId": [
+            "4.1.600"
+          ]
+        },
+        {
+          "path": "0.130.32914",
+          "needSubscribe": true,
+          "value": "real2.TESTROOM00000001",
+          "propertyId": [
+            "8.0.8108"
+          ]
+        },
+        {
+          "path": "0.130.32913",
+          "defaultValue": "\u6d41\u5149\u706f\u5e26",
+          "needSubscribe": true,
+          "value": "LED Bulb T2 (E27, RGB CCT)"
+        },
+        {
+          "path": "2.133.33126",
+          "unit": "ms",
+          "min": 0.0,
+          "max": 10000.0,
+          "defaultValue": "1500",
+          "traitTime": 1777474943230,
+          "step": 500.0,
+          "needSubscribe": true,
+          "value": "1500",
+          "propertyId": [
+            "1.12.85"
+          ]
+        },
+        {
+          "path": "0.128.32901",
+          "enums": "[\"0\",\"1\"]",
+          "needSubscribe": true,
+          "value": 1,
+          "propertyId": [
+            "8.0.2045"
+          ]
+        },
+        {
+          "path": "0.130.33016",
+          "needSubscribe": true,
+          "value": "Default Room",
+          "propertyId": [
+            "8.0.8102"
+          ]
+        },
+        {
+          "path": "2.133.33125",
+          "unit": "ms",
+          "min": 0.0,
+          "max": 10000.0,
+          "defaultValue": "1500",
+          "traitTime": 1777474943230,
+          "step": 500.0,
+          "needSubscribe": true,
+          "value": "1500",
+          "propertyId": [
+            "1.11.85"
+          ]
+        },
+        {
+          "path": "2.132.32921",
+          "enums": "[\"0\",\"1\",\"2\",\"3\"]",
+          "unit": "",
+          "defaultValue": "",
+          "traitTime": 1777475034657,
+          "needSubscribe": true,
+          "value": "2",
+          "propertyId": [
+            "8.0.2259"
+          ]
+        },
+        {
+          "path": "2.132.32920",
+          "enums": "[\"0\",\"1\"]",
+          "traitTime": 1777475034657,
+          "needSubscribe": true,
+          "value": "1",
+          "propertyId": [
+            "4.1.85"
+          ]
+        },
+        {
+          "path": "2.130.33012",
+          "enums": "[\"0\",\"1\"]",
+          "unit": "",
+          "defaultValue": "1",
+          "needSubscribe": true,
+          "value": "1"
+        },
+        {
+          "path": "2.133.32923",
+          "unit": "%",
+          "min": 1.0,
+          "max": 100.0,
+          "traitTime": 1777474802346,
+          "step": 1.0,
+          "needSubscribe": true,
+          "value": "100",
+          "propertyId": [
+            "1.7.85"
+          ]
+        },
+        {
+          "path": "0.129.32912",
+          "needSubscribe": true
+        },
+        {
+          "path": "2.134.20192",
+          "min": 0.0,
+          "max": 4294967305,
+          "traitTime": 1777475034657,
+          "step": 1.0,
+          "needSubscribe": true,
+          "value": "1342591970",
+          "propertyId": [
+            "14.8.85"
+          ]
+        },
+        {
+          "path": "0.129.32906",
+          "enums": "[\"0\",\"1\"]",
+          "defaultValue": "0",
+          "needSubscribe": true,
+          "value": "0"
+        },
+        {
+          "path": "2.134.32927",
+          "min": 153.0,
+          "max": 370.0,
+          "traitTime": 1777474777265,
+          "step": 1.0,
+          "needSubscribe": true,
+          "value": "153",
+          "propertyId": [
+            "1.9.85"
+          ]
+        },
+        {
+          "path": "0.129.32907",
+          "defaultValue": "1",
+          "needSubscribe": true,
+          "value": "1"
+        },
+        {
+          "path": "2.134.32926",
+          "min": 0.0,
+          "max": 65279.0,
+          "traitTime": 1777475034657,
+          "step": 1.0,
+          "needSubscribe": true,
+          "value": "21474",
+          "propertyId": [
+            "14.8.85"
+          ]
+        },
+        {
+          "path": "2.134.32925",
+          "min": 0.0,
+          "max": 65279.0,
+          "traitTime": 1777475034657,
+          "step": 1.0,
+          "needSubscribe": true,
+          "value": "20486",
+          "propertyId": [
+            "14.8.85"
+          ]
+        },
+        {
+          "path": "0.129.32909",
+          "defaultValue": "[0,1,2]",
+          "needSubscribe": true,
+          "value": "[0,1,2]"
+        },
+        {
+          "path": "2.134.32924",
+          "enums": "[\"1\"]",
+          "defaultValue": "1",
+          "needSubscribe": true
+        }
+      ],
+      "positionId": "real2.TESTROOM00000001",
+      "deviceModel": "lumi.light.agl003",
+      "deviceId": "lumi.TESTZIG0000000C"
+    }
+  ],
+  "code": 0,
+  "requestId": "REDACTED",
+  "message": "Success",
+  "msgDetails": "Success"
+}

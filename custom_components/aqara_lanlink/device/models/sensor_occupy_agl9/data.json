@@ -1,0 +1,1785 @@
+{
+  "bundle_ids": [
+    "lumi.sensor_occupy.agl9"
+  ],
+  "device_types": [
+    "IlluminanceSensor",
+    "LocationSensor",
+    "OccupancySensor",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Spatial Multi-Sensor FP400",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.33013",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20110",
+    "1.205.33107",
+    "101.130.32913",
+    "101.130.32915",
+    "101.130.32919",
+    "101.130.33012",
+    "102.130.32913",
+    "102.130.32915",
+    "102.130.32919",
+    "102.130.33012",
+    "103.130.32913",
+    "103.130.32915",
+    "103.130.32919",
+    "103.130.33012",
+    "104.130.32913",
+    "104.130.32915",
+    "104.130.32919",
+    "104.130.33012",
+    "105.130.32913",
+    "105.130.32915",
+    "105.130.32919",
+    "105.130.33012",
+    "106.130.32913",
+    "106.130.32915",
+    "106.130.32919",
+    "106.130.33012",
+    "107.130.32913",
+    "107.130.32915",
+    "107.130.32919",
+    "107.130.33012",
+    "108.130.32913",
+    "108.130.32915",
+    "108.130.32919",
+    "108.130.33012",
+    "109.130.32913",
+    "109.130.32915",
+    "109.130.32919",
+    "109.130.33012",
+    "110.130.32913",
+    "110.130.32915",
+    "110.130.32919",
+    "110.130.33012",
+    "111.130.32913",
+    "111.130.32915",
+    "111.130.32919",
+    "111.130.33012",
+    "112.130.32913",
+    "112.130.32915",
+    "112.130.32919",
+    "112.130.33012",
+    "113.130.32913",
+    "113.130.32915",
+    "113.130.32919",
+    "113.130.33012",
+    "114.130.32913",
+    "114.130.32915",
+    "114.130.32919",
+    "114.130.33012",
+    "115.130.32913",
+    "115.130.32915",
+    "115.130.32919",
+    "115.130.33012",
+    "116.130.32913",
+    "116.130.32915",
+    "116.130.32919",
+    "116.130.33012",
+    "117.130.32913",
+    "117.130.32915",
+    "117.130.32919",
+    "117.130.33012",
+    "118.130.32913",
+    "118.130.32915",
+    "118.130.32919",
+    "118.130.33012",
+    "119.130.32913",
+    "119.130.32915",
+    "119.130.32919",
+    "119.130.33012",
+    "120.130.32913",
+    "120.130.32915",
+    "120.130.32919",
+    "120.130.33012",
+    "121.130.32913",
+    "121.130.32915",
+    "121.130.32919",
+    "121.130.33012",
+    "122.130.32913",
+    "122.130.32915",
+    "122.130.32919",
+    "122.130.33012",
+    "123.130.32913",
+    "123.130.32915",
+    "123.130.32919",
+    "123.130.33012",
+    "124.130.32913",
+    "124.130.32915",
+    "124.130.32919",
+    "124.130.33012",
+    "125.130.32913",
+    "125.130.32915",
+    "125.130.32919",
+    "125.130.33012",
+    "126.130.32913",
+    "126.130.32915",
+    "126.130.32919",
+    "126.130.33012",
+    "127.130.32913",
+    "127.130.32915",
+    "127.130.32919",
+    "127.130.33012",
+    "128.130.32913",
+    "128.130.32915",
+    "128.130.32919",
+    "128.130.33012",
+    "129.130.32913",
+    "129.130.32915",
+    "129.130.32919",
+    "129.130.33012",
+    "130.130.32913",
+    "130.130.32915",
+    "130.130.32919",
+    "130.130.33012",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "101": {
+      "deviceType": "OccupancySensor"
+    },
+    "102": {
+      "deviceType": "OccupancySensor"
+    },
+    "103": {
+      "deviceType": "OccupancySensor"
+    },
+    "104": {
+      "deviceType": "OccupancySensor"
+    },
+    "105": {
+      "deviceType": "OccupancySensor"
+    },
+    "106": {
+      "deviceType": "OccupancySensor"
+    },
+    "107": {
+      "deviceType": "OccupancySensor"
+    },
+    "108": {
+      "deviceType": "OccupancySensor"
+    },
+    "109": {
+      "deviceType": "OccupancySensor"
+    },
+    "110": {
+      "deviceType": "OccupancySensor"
+    },
+    "111": {
+      "deviceType": "OccupancySensor"
+    },
+    "112": {
+      "deviceType": "OccupancySensor"
+    },
+    "113": {
+      "deviceType": "OccupancySensor"
+    },
+    "114": {
+      "deviceType": "OccupancySensor"
+    },
+    "115": {
+      "deviceType": "OccupancySensor"
+    },
+    "116": {
+      "deviceType": "OccupancySensor"
+    },
+    "117": {
+      "deviceType": "OccupancySensor"
+    },
+    "118": {
+      "deviceType": "OccupancySensor"
+    },
+    "119": {
+      "deviceType": "OccupancySensor"
+    },
+    "120": {
+      "deviceType": "OccupancySensor"
+    },
+    "121": {
+      "deviceType": "OccupancySensor"
+    },
+    "122": {
+      "deviceType": "OccupancySensor"
+    },
+    "123": {
+      "deviceType": "OccupancySensor"
+    },
+    "124": {
+      "deviceType": "OccupancySensor"
+    },
+    "125": {
+      "deviceType": "OccupancySensor"
+    },
+    "126": {
+      "deviceType": "OccupancySensor"
+    },
+    "127": {
+      "deviceType": "OccupancySensor"
+    },
+    "128": {
+      "deviceType": "OccupancySensor"
+    },
+    "129": {
+      "deviceType": "OccupancySensor"
+    },
+    "130": {
+      "deviceType": "OccupancySensor"
+    },
+    "2": {
+      "deviceType": "OccupancySensor"
+    },
+    "3": {
+      "deviceType": "LocationSensor"
+    },
+    "4": {
+      "deviceType": "IlluminanceSensor"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.sensor_occupy.agl9",
+  "models": [
+    "lumi.sensor_occupy.agl9"
+  ],
+  "regions": [
+    "CN",
+    "EU",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "101.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 101,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "101.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 101,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "101.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 101,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "101.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 101,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "102.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 102,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "102.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 102,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "102.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 102,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "102.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 102,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "103.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 103,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "103.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 103,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "103.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 103,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "103.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 103,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "104.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 104,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "104.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 104,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "104.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 104,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "104.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 104,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "105.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 105,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "105.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 105,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "105.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 105,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "105.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 105,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "106.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 106,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "106.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 106,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "106.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 106,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "106.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 106,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "107.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 107,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "107.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 107,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "107.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 107,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "107.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 107,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "108.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 108,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "108.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 108,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "108.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 108,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "108.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 108,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "109.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 109,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "109.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 109,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "109.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 109,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "109.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 109,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "110.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 110,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "110.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 110,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "110.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 110,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "110.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 110,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "111.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 111,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "111.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 111,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "111.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 111,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "111.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 111,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "112.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 112,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "112.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 112,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "112.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 112,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "112.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 112,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "113.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 113,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "113.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 113,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "113.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 113,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "113.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 113,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "114.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 114,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "114.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 114,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "114.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 114,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "114.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 114,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "115.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 115,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "115.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 115,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "115.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 115,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "115.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 115,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "116.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 116,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "116.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 116,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "116.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 116,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "116.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 116,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "117.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 117,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "117.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 117,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "117.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 117,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "117.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 117,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "118.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 118,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "118.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 118,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "118.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 118,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "118.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 118,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "119.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 119,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "119.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 119,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "119.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 119,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "119.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 119,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "120.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 120,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "120.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 120,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "120.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 120,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "120.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 120,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "121.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 121,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "121.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 121,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "121.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 121,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "121.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 121,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "122.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 122,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "122.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 122,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "122.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 122,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "122.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 122,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "123.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 123,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "123.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 123,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "123.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 123,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "123.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 123,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "124.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 124,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "124.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 124,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "124.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 124,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "124.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 124,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "125.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 125,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "125.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 125,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "125.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 125,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "125.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 125,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "126.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 126,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "126.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 126,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "126.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 126,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "126.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 126,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "127.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 127,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "127.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 127,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "127.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 127,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "127.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 127,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "128.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 128,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "128.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 128,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "128.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 128,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "128.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 128,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "129.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 129,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "129.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 129,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "129.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 129,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "129.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 129,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "130.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 130,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "130.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 130,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "130.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 130,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "130.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 130,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "2.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "2.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "PIR and ultrasonic",
+        "3": "Physical contact"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "2.160.33044": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "OccupancySensing",
+      "max_value": 86400000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one day",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneDay",
+      "unit": "ms"
+    },
+    "2.160.33045": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "OccupancySensing",
+      "max_value": 604800000.0,
+      "min_value": 0.0,
+      "name": "Duration occupied within one week",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "DurationOccupiedWithinOneWeek",
+      "unit": "ms"
+    },
+    "3.161.33002": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "0": "Enter",
+        "1": "Left",
+        "2": "Left in",
+        "3": "Right out",
+        "4": "Right in",
+        "5": "Left out",
+        "6": "Access",
+        "7": "Away"
+      },
+      "function_code": "Location",
+      "name": "Motion detected",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "MotionDetected"
+    },
+    "4.154.32989": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "Illuminance",
+      "max_value": 83000.0,
+      "min_value": 0.0,
+      "name": "Current illuminance",
+      "step": 10.0,
+      "subscribable": true,
+      "trait_code": "CurrentIlluminance",
+      "unit": "lux"
+    }
+  },
+  "whitelabels": {}
+}

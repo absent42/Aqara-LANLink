@@ -1,0 +1,138 @@
+# lumi.airrtc.aus002 -- Wall Thermostat Hub W200
+
+| Field | Value |
+|---|---|
+| Manufacturer | Aqara |
+| Regions | EU, US |
+| Bundle IDs | lumi.airrtc.aus001 |
+
+## Supported traits
+
+Surfaced to Home Assistant as enabled-by-default entities. Composer fusion (Light / Doorbell / etc.) may consolidate several of these into one HA entity.
+
+- `2.141.32947` -- `HeaterCooler.HeaterCoolerMode` (Heater cooler mode)
+- `2.141.32949` -- `HeaterCooler.CoolingTemperature` (Cooling temperature)
+- `2.141.32952` -- `HeaterCooler.CurrentTemperature` (Current temperature)
+- `3.141.32947` -- `HeaterCooler.HeaterCoolerMode` (Heater cooler mode)
+- `3.141.32948` -- `HeaterCooler.HeatingTemperature` (Heating temperature)
+- `3.141.32952` -- `HeaterCooler.CurrentTemperature` (Current temperature)
+- `4.141.32947` -- `HeaterCooler.HeaterCoolerMode` (Heater cooler mode)
+- `4.141.32948` -- `HeaterCooler.HeatingTemperature` (Heating temperature)
+- `4.141.32949` -- `HeaterCooler.CoolingTemperature` (Cooling temperature)
+- `4.141.32952` -- `HeaterCooler.CurrentTemperature` (Current temperature)
+- `4.141.32953` -- `HeaterCooler.CurrentHumidity` (Current humidity)
+- `4.141.33092` -- `HeaterCooler.MinHeatCoolDeadBand` (Min heat cool dead band)
+- `5.141.32947` -- `HeaterCooler.HeaterCoolerMode` (Heater cooler mode)
+- `5.141.32948` -- `HeaterCooler.HeatingTemperature` (Heating temperature)
+- `5.141.32949` -- `HeaterCooler.CoolingTemperature` (Cooling temperature)
+- `5.141.32952` -- `HeaterCooler.CurrentTemperature` (Current temperature)
+- `5.141.32953` -- `HeaterCooler.CurrentHumidity` (Current humidity)
+- `5.141.33092` -- `HeaterCooler.MinHeatCoolDeadBand` (Min heat cool dead band)
+- `6.143.32952` -- `Temperature.CurrentTemperature` (Current temperature)
+- `7.144.32953` -- `RelativeHumidity.CurrentHumidity` (Current humidity)
+
+## Diagnostic traits
+
+Surfaced as HA entities under the `diagnostic` category, default-disabled. Enable manually for debugging visibility.
+
+- `1.171.20118` -- `NetworkCommissioning.WiFiChannel` (Wi fi channel)
+- `1.171.20119` -- `NetworkCommissioning.WiFiRSSI` (Wi fi RSSI)
+
+## Press-to-trigger (Button) traits
+
+_(none)_
+
+## Dropped traits
+
+Excluded from the integration's runtime catalogue by `trait_policy.py`. They exist in Aqara's V3 spec but produce no Home Assistant entities (administrative chatter, network plumbing, static identifiers already exposed via HA's device registry, etc.). Grouped by reason:
+
+### Diagnostic noise (reboot/debug)
+
+- `1.176.20009` -- `GeneralDiagnostics.DebugInfo` (Debug info)
+- `1.176.33096` -- `GeneralDiagnostics.RebootCount` (Reboot count)
+- `1.176.33097` -- `GeneralDiagnostics.RebootReason` (Reboot reason)
+
+### Endpoint icon/name metadata (HA-managed)
+
+- `0.130.32913` -- `EndpointLabel.EndpointName` (Endpoint name)
+- `0.130.32914` -- `EndpointLabel.EndpointRoom` (Endpoint room)
+- `0.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `0.130.33016` -- `EndpointLabel.EndpointRoomName` (Endpoint room name)
+- `1.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `2.130.32913` -- `EndpointLabel.EndpointName` (Endpoint name)
+- `2.130.32914` -- `EndpointLabel.EndpointRoom` (Endpoint room)
+- `2.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `2.130.32919` -- `EndpointLabel.EndpointIcon` (Endpoint icon)
+- `2.130.33012` -- `EndpointLabel.EndpointStatistics` (Endpoint statistics)
+- `3.130.32913` -- `EndpointLabel.EndpointName` (Endpoint name)
+- `3.130.32914` -- `EndpointLabel.EndpointRoom` (Endpoint room)
+- `3.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `3.130.32919` -- `EndpointLabel.EndpointIcon` (Endpoint icon)
+- `3.130.33012` -- `EndpointLabel.EndpointStatistics` (Endpoint statistics)
+- `4.130.32913` -- `EndpointLabel.EndpointName` (Endpoint name)
+- `4.130.32914` -- `EndpointLabel.EndpointRoom` (Endpoint room)
+- `4.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `4.130.32919` -- `EndpointLabel.EndpointIcon` (Endpoint icon)
+- `4.130.33012` -- `EndpointLabel.EndpointStatistics` (Endpoint statistics)
+- `5.130.32913` -- `EndpointLabel.EndpointName` (Endpoint name)
+- `5.130.32914` -- `EndpointLabel.EndpointRoom` (Endpoint room)
+- `5.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `5.130.32919` -- `EndpointLabel.EndpointIcon` (Endpoint icon)
+- `5.130.33012` -- `EndpointLabel.EndpointStatistics` (Endpoint statistics)
+- `5.130.33016` -- `EndpointLabel.EndpointRoomName` (Endpoint room name)
+- `6.130.32913` -- `EndpointLabel.EndpointName` (Endpoint name)
+- `6.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `6.130.32919` -- `EndpointLabel.EndpointIcon` (Endpoint icon)
+- `6.130.33012` -- `EndpointLabel.EndpointStatistics` (Endpoint statistics)
+- `6.130.33016` -- `EndpointLabel.EndpointRoomName` (Endpoint room name)
+- `7.130.32913` -- `EndpointLabel.EndpointName` (Endpoint name)
+- `7.130.32915` -- `EndpointLabel.EndpointVisibility` (Endpoint visibility)
+- `7.130.32919` -- `EndpointLabel.EndpointIcon` (Endpoint icon)
+- `7.130.33012` -- `EndpointLabel.EndpointStatistics` (Endpoint statistics)
+- `7.130.33016` -- `EndpointLabel.EndpointRoomName` (Endpoint room name)
+
+### Endpoint topology metadata (HA-managed)
+
+- `0.129.32906` -- `Descriptor.SupportedEndpointDynamic` (Supported endpoint dynamic)
+- `0.129.32907` -- `Descriptor.EndpointDynamicCount` (Endpoint dynamic count)
+- `0.129.32908` -- `Descriptor.EndpointCount` (Endpoint count)
+- `0.129.32910` -- `Descriptor.EndpointDeviceTypes` (Endpoint device types)
+- `0.129.32911` -- `Descriptor.EndpointFunctions` (Endpoint functions)
+- `0.129.33013` -- `Descriptor.EndpointArrayDynamic` (Endpoint array dynamic)
+
+### Momentary counter / non-actionable
+
+- `1.131.32916` -- `Identify.IdentifyTime` (Identify time)
+- `1.131.32917` -- `Identify.IdentifyType` (Identify type)
+
+### Protocol-internal commissioning state
+
+- `1.171.33027` -- `NetworkCommissioning.SupportedNetwork` (Supported network)
+
+### Static identifier (in HA device registry)
+
+- `0.128.32896` -- `BasicInformation.FirmwareRevision` (Firmware revision)
+- `0.128.32897` -- `BasicInformation.SerialNumber` (Serial number)
+- `0.128.32898` -- `BasicInformation.VendorName` (Vendor name)
+- `0.128.32899` -- `BasicInformation.VendorID` (Vendor ID)
+- `0.128.32900` -- `BasicInformation.ProductName` (Product name)
+- `0.128.32901` -- `BasicInformation.Reachable`
+- `0.128.32902` -- `BasicInformation.HardwareVersion` (Hardware version)
+- `0.128.32903` -- `BasicInformation.Location`
+- `0.128.32904` -- `BasicInformation.Mac`
+- `0.128.32905` -- `BasicInformation.DeviceID` (Device ID)
+
+### Thread protocol plumbing
+
+- `1.181.20089` -- `ThreadNetworkDiagnostics.ThreadTopologyData` (Thread topology data)
+
+### Zigbee protocol plumbing
+
+- `1.205.20300` -- `ZigbeeNetworkDiagnostics.ZigbeeCoordNetworkKey` (Zigbee coord network key)
+- `1.205.20301` -- `ZigbeeNetworkDiagnostics.ZigbeeCoordMac` (Zigbee coord mac)
+- `1.205.20391` -- `ZigbeeNetworkDiagnostics.ZigbeeExtendedPANID` (Zigbee extended PANID)
+- `1.205.33099` -- `ZigbeeNetworkDiagnostics.PANID`
+
+---
+
+_V3 spec totals: 85 traits (20 supported, 2 diagnostic, 0 button, 63 dropped). Generated by `tools/render_catalogue_docs.py`._

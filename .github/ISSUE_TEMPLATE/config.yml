@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and general help
+    url: https://github.com/absent42/Aqara-LANLink/discussions
+    about: >
+      Ask questions, share configurations, or discuss the integration in
+      GitHub Discussions. Reserve issues for bug reports and device support
+      requests.

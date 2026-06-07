@@ -1,0 +1,198 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Public",
+    "Root",
+    "Speaker"
+  ],
+  "display_name": "aqara.speaker.hpcn01",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33141",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Speaker"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "aqara.speaker.hpcn01",
+  "models": [
+    "aqara.speaker.hpcn01"
+  ],
+  "regions": [],
+  "source_region": "ger",
+  "traits": {
+    "2.145.32954": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Playing",
+        "1": "Paused"
+      },
+      "function_code": "MediaPlayback",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Current playback state",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "CurrentPlaybackState"
+    },
+    "2.145.32955": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "MediaPlayback",
+      "max_value": 7200000.0,
+      "min_value": 0.0,
+      "name": "Playback duration",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "PlaybackDuration",
+      "unit": "ms"
+    },
+    "2.145.32956": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "MediaPlayback",
+      "max_value": 7200000.0,
+      "min_value": 0.0,
+      "name": "Sampled position",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "SampledPosition",
+      "unit": "ms"
+    },
+    "2.145.32957": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Shuffle",
+        "1": "Order",
+        "3": "All cycle"
+      },
+      "function_code": "MediaPlayback",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Playback mode",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "PlaybackMode",
+      "writable": true
+    },
+    "2.145.32958": {
+      "data_type": "string",
+      "endpoint_id": 2,
+      "function_code": "MediaPlayback",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Media information",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "MediaInformation"
+    },
+    "2.145.32959": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Internal",
+        "1": "Bluetooth",
+        "2": "External"
+      },
+      "function_code": "MediaPlayback",
+      "name": "Selected source",
+      "subscribable": true,
+      "trait_code": "SelectedSource",
+      "writable": true
+    },
+    "2.145.33021": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Play",
+        "1": "Pause",
+        "6": "Previous",
+        "7": "Next"
+      },
+      "function_code": "MediaPlayback",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Target playback state",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "TargetPlaybackState",
+      "writable": true
+    },
+    "2.146.32960": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Speaker",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Volume",
+      "step": 6.0,
+      "subscribable": true,
+      "trait_code": "Volume",
+      "unit": "%",
+      "writable": true
+    },
+    "2.146.32961": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Speaker",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Mute",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "Mute",
+      "writable": true
+    },
+    "2.146.32962": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Speaker",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Step value",
+      "step": 6.0,
+      "subscribable": true,
+      "trait_code": "StepValue",
+      "unit": "%",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

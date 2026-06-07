@@ -1,0 +1,108 @@
+{
+  "bundle_ids": [
+    "lumi.gateway.agl014"
+  ],
+  "device_types": [
+    "Hub",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Gateway M410",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.33013",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.20009",
+    "1.176.33096",
+    "1.176.33097",
+    "1.181.20089",
+    "1.205.20300",
+    "1.205.20301",
+    "1.205.20391",
+    "1.205.33099",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Hub"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.gateway.agl014",
+  "models": [
+    "lumi.gateway.agl014"
+  ],
+  "regions": [
+    "CN",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.171.20118": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 165.0,
+      "min_value": 1.0,
+      "name": "Wi fi channel",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiChannel"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "2.167.33018": {
+      "data_type": "List[X]",
+      "endpoint_id": 2,
+      "function_code": "BridgeConfiguration",
+      "name": "Bridged node list",
+      "subscribable": true,
+      "trait_code": "BridgedNodeList"
+    }
+  },
+  "whitelabels": {}
+}

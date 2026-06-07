@@ -1,0 +1,73 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "PetFeeder",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Smart Pet Feeder C1",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "PetFeeder"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "aqara.feeder.acn001",
+  "models": [
+    "aqara.feeder.acn001"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "2.166.33014": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "1": "Remote feeding"
+      },
+      "function_code": "PetFeeder",
+      "name": "Feed",
+      "subscribable": true,
+      "trait_code": "Feed"
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,77 @@
+{
+    "code": 0,
+    "result": [
+        {
+            "layoutEntityId": "000000000000000000000001",
+            "loadState": 1,
+            "type": "device_endpoint_panel",
+            "subjects": [
+                {
+                    "endpointId": 2,
+                    "endpointName": "Presence sensor",
+                    "endpointIconId": "presence_detector",
+                    "deviceName": "Presence Multi-Sensor FP300",
+                    "deviceTypes": "OccupancySensor",
+                    "endpointPositionName": "Default Room",
+                    "modelType": 2,
+                    "objProperties": ["3.51.85"],
+                    "paths": ["2.130.32915", "2.130.32913", "2.160.33001", "2.130.32919", "2.130.33012", "2.160.33000"]
+                }
+            ]
+        },
+        {
+            "layoutEntityId": "000000000000000000000002",
+            "loadState": 1,
+            "type": "device_endpoint_panel",
+            "subjects": [
+                {
+                    "endpointId": 4,
+                    "endpointName": "Temperature Sensor",
+                    "endpointIconId": "temperature",
+                    "deviceName": "Presence Multi-Sensor FP300",
+                    "deviceTypes": "TemperatureSensor",
+                    "endpointPositionName": "Default Room",
+                    "modelType": 2,
+                    "objProperties": ["4.1.600", "4.1.28", "0.1.85"],
+                    "paths": ["4.143.32952", "4.130.32919", "4.130.32915", "4.130.33012", "4.130.32913"]
+                }
+            ]
+        },
+        {
+            "layoutEntityId": "000000000000000000000003",
+            "loadState": 1,
+            "type": "device_endpoint_panel",
+            "subjects": [
+                {
+                    "endpointId": 5,
+                    "endpointName": "Humidity sensor",
+                    "endpointIconId": "humidity",
+                    "deviceName": "Presence Multi-Sensor FP300",
+                    "deviceTypes": "HumiditySensor",
+                    "endpointPositionName": "Default Room",
+                    "modelType": 2,
+                    "objProperties": ["4.2.28", "4.2.600", "0.2.85"],
+                    "paths": ["5.130.32913", "5.130.32915", "5.144.32953", "5.130.33012", "5.130.32919"]
+                }
+            ]
+        },
+        {
+            "layoutEntityId": "000000000000000000000004",
+            "loadState": 1,
+            "type": "device_endpoint_panel",
+            "subjects": [
+                {
+                    "endpointId": 6,
+                    "endpointName": "Light sensor",
+                    "endpointIconId": "illumination",
+                    "deviceName": "Presence Multi-Sensor FP300",
+                    "deviceTypes": "IlluminanceSensor",
+                    "endpointPositionName": "Default Room",
+                    "modelType": 2,
+                    "objProperties": ["0.3.85"],
+                    "paths": ["6.130.32913", "6.130.32915", "6.154.32989", "6.130.33012", "6.130.32919"]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,400 @@
+{
+  "bundle_ids": [
+    "lumi.airrtc.aus001"
+  ],
+  "device_types": [
+    "HumiditySensor",
+    "Public",
+    "Root",
+    "TemperatureSensor",
+    "Thermostat"
+  ],
+  "display_name": "Wall Thermostat Hub W200",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.33013",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.20009",
+    "1.176.33096",
+    "1.176.33097",
+    "1.181.20089",
+    "1.205.20300",
+    "1.205.20301",
+    "1.205.20391",
+    "1.205.33099",
+    "2.130.32913",
+    "2.130.32914",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32914",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32914",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012",
+    "5.130.32913",
+    "5.130.32914",
+    "5.130.32915",
+    "5.130.32919",
+    "5.130.33012",
+    "5.130.33016",
+    "6.130.32913",
+    "6.130.32915",
+    "6.130.32919",
+    "6.130.33012",
+    "6.130.33016",
+    "7.130.32913",
+    "7.130.32915",
+    "7.130.32919",
+    "7.130.33012",
+    "7.130.33016"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Thermostat"
+    },
+    "3": {
+      "deviceType": "Thermostat"
+    },
+    "4": {
+      "deviceType": "Thermostat"
+    },
+    "5": {
+      "deviceType": "Thermostat"
+    },
+    "6": {
+      "deviceType": "TemperatureSensor"
+    },
+    "7": {
+      "deviceType": "HumiditySensor"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.airrtc.aus002",
+  "models": [
+    "lumi.airrtc.aus002"
+  ],
+  "regions": [
+    "EU",
+    "US"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.171.20118": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 165.0,
+      "min_value": 1.0,
+      "name": "Wi fi channel",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiChannel"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "2.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Cool",
+        "12": "Off"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "2.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 37.0,
+      "min_value": 10.0,
+      "name": "Cooling temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "2.141.32952": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": -40.0,
+      "name": "Current temperature",
+      "step": 0.1,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "3.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "1": "Heat",
+        "12": "Off"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "3.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 37.0,
+      "min_value": 4.5,
+      "name": "Heating temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "3.141.32952": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": -40.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "4.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 4,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "12": "Off",
+        "2": "Auto"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "4.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "HeaterCooler",
+      "max_value": 37.0,
+      "min_value": 4.5,
+      "name": "Heating temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "4.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "HeaterCooler",
+      "max_value": 37.0,
+      "min_value": 10.0,
+      "name": "Cooling temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "4.141.32952": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": -40.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "4.141.32953": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current humidity",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentHumidity",
+      "unit": "%"
+    },
+    "4.141.33092": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "HeaterCooler",
+      "max_value": 10.0,
+      "min_value": 0.0,
+      "name": "Min heat cool dead band",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "MinHeatCoolDeadBand",
+      "unit": "℃",
+      "writable": true
+    },
+    "5.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 5,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat",
+        "10": "Emergency heat",
+        "12": "Off",
+        "2": "Auto"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "5.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 5,
+      "function_code": "HeaterCooler",
+      "max_value": 37.0,
+      "min_value": 4.5,
+      "name": "Heating temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "5.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 5,
+      "function_code": "HeaterCooler",
+      "max_value": 37.0,
+      "min_value": 10.0,
+      "name": "Cooling temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "5.141.32952": {
+      "data_type": "float",
+      "endpoint_id": 5,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": -40.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "5.141.32953": {
+      "data_type": "float",
+      "endpoint_id": 5,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current humidity",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentHumidity",
+      "unit": "%"
+    },
+    "5.141.33092": {
+      "data_type": "float",
+      "endpoint_id": 5,
+      "function_code": "HeaterCooler",
+      "max_value": 10.0,
+      "min_value": 0.0,
+      "name": "Min heat cool dead band",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "MinHeatCoolDeadBand",
+      "unit": "℃",
+      "writable": true
+    },
+    "6.143.32952": {
+      "data_type": "float",
+      "endpoint_id": 6,
+      "function_code": "Temperature",
+      "max_value": 100.0,
+      "min_value": -50.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "7.144.32953": {
+      "data_type": "float",
+      "endpoint_id": 7,
+      "function_code": "RelativeHumidity",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current humidity",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentHumidity",
+      "unit": "%"
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,110 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Button",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Wireless Mini Switch E1",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20137",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Button"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.remote.acn007",
+  "models": [
+    "lumi.remote.acn007"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.147.32944": {
+      "data_type": "float",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "PowerSource",
+      "max_value": 3.6,
+      "min_value": 0.0,
+      "name": "Current voltage",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentVoltage",
+      "unit": "V"
+    },
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "name": "State of low bat",
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "2.135.32928": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Single press",
+        "1": "Double press",
+        "2": "Long press"
+      },
+      "function_code": "Button",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    }
+  },
+  "whitelabels": {}
+}

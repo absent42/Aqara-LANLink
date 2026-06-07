@@ -1,0 +1,136 @@
+{
+  "bundle_ids": [
+    "lumi.lock.aus001"
+  ],
+  "device_types": [
+    "DoorLock",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Smart Lock B50",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "DoorLock"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.lock.aus001",
+  "models": [
+    "lumi.lock.aus001"
+  ],
+  "regions": [
+    "US"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "name": "State of low bat",
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "2.148.32970": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Not fully locked",
+        "1": "Locked",
+        "2": "Unlocked"
+      },
+      "function_code": "DoorLock",
+      "name": "Lock state",
+      "subscribable": true,
+      "trait_code": "LockState"
+    },
+    "2.148.32971": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Door open",
+        "1": "Door closed",
+        "2": "Door jammed",
+        "3": "Door forced open",
+        "4": "Door unspecified error",
+        "5": "Door ajar"
+      },
+      "function_code": "DoorLock",
+      "name": "Door state",
+      "subscribable": true,
+      "trait_code": "DoorState"
+    },
+    "2.148.33025": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "DoorLock",
+      "name": "Enable remote control",
+      "subscribable": true,
+      "trait_code": "EnableRemoteControl",
+      "writable": true
+    },
+    "2.148.33026": {
+      "data_type": "string",
+      "endpoint_id": 2,
+      "enum_values": {
+        "1": "Unlock",
+        "2": "Lock"
+      },
+      "function_code": "DoorLock",
+      "name": "Supported remote features",
+      "trait_code": "SupportedRemoteFeatures"
+    },
+    "2.148.33061": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "DoorLock",
+      "name": "Remote unlock",
+      "subscribable": true,
+      "trait_code": "RemoteUnlock",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

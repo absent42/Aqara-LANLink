@@ -1,0 +1,19 @@
+# Development files
+/docs/dev/
+CLAUDE.md
+.claude/
+/firmware/
+/app/
+/data/
+/tools/
+/tests/tools/
+/tests/legacy/
+
+# Python
+__pycache__/
+
+# Testing
+.pytest_cache/
+.coverage
+# Local test virtualenv
+.venv/

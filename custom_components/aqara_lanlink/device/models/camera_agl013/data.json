@@ -1,0 +1,288 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Camera",
+    "Doorbell",
+    "HumanDetector",
+    "MotionSensor",
+    "Public",
+    "Root",
+    "VideoDoorbell"
+  ],
+  "display_name": "G400 Video Doorbell",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.20009",
+    "1.176.33096",
+    "1.176.33097",
+    "1.205.20300",
+    "1.205.20301",
+    "1.205.20391",
+    "1.205.33099",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "5.130.32913",
+    "5.130.32915",
+    "5.130.32919",
+    "5.130.33012",
+    "7.130.32913",
+    "7.130.32915",
+    "7.130.32919",
+    "7.130.33012",
+    "7.136.20368",
+    "8.130.32913",
+    "8.130.32915",
+    "8.130.32919",
+    "8.130.33012",
+    "8.136.20368",
+    "9.130.32913",
+    "9.130.32915",
+    "9.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "3": {
+      "deviceType": "HumanDetector"
+    },
+    "5": {
+      "deviceType": "MotionSensor"
+    },
+    "7": {
+      "deviceType": "Camera"
+    },
+    "8": {
+      "deviceType": "VideoDoorbell"
+    },
+    "9": {
+      "deviceType": "Doorbell"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.camera.agl013",
+  "models": [
+    "lumi.camera.agl013"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "name": "State of low bat",
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "1.147.33089": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "2": "Battery"
+      },
+      "function_code": "PowerSource",
+      "name": "Power mode",
+      "subscribable": true,
+      "trait_code": "PowerMode"
+    },
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "3.216.20215": {
+      "data_type": "enum",
+      "endpoint_id": 3,
+      "enum_values": {
+        "1": "Human detected"
+      },
+      "function_code": "HumanRecognition",
+      "name": "Human recognition report",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "HumanRecognitionReport"
+    },
+    "5.160.33000": {
+      "data_type": "bool",
+      "endpoint_id": 5,
+      "function_code": "OccupancySensing",
+      "name": "Occupancy",
+      "subscribable": true,
+      "trait_code": "Occupancy"
+    },
+    "5.160.33001": {
+      "data_type": "enum",
+      "endpoint_id": 5,
+      "enum_values": {
+        "0": "PIR",
+        "1": "Ultrasonic",
+        "2": "Infrared and ultrasonic",
+        "3": "Physical contact",
+        "4": "Radar",
+        "5": "Vision"
+      },
+      "function_code": "OccupancySensing",
+      "name": "Occupancy sensor type",
+      "subscribable": true,
+      "trait_code": "OccupancySensorType",
+      "writable": true
+    },
+    "7.136.20030": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 7,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "P 2 P capture enabled",
+      "subscribable": true,
+      "trait_code": "P2PCaptureEnabled",
+      "writable": true
+    },
+    "7.136.20036": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 7,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "P 2 P capture status",
+      "subscribable": true,
+      "trait_code": "P2PCaptureStatus"
+    },
+    "7.136.20369": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 7,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "Camera RTSP enable",
+      "subscribable": true,
+      "trait_code": "CameraRTSPEnable",
+      "writable": true
+    },
+    "7.136.32930": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 7,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "Camera active status",
+      "subscribable": true,
+      "trait_code": "CameraActiveStatus"
+    },
+    "8.136.20030": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 8,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "P 2 P capture enabled",
+      "subscribable": true,
+      "trait_code": "P2PCaptureEnabled",
+      "writable": true
+    },
+    "8.136.20036": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 8,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "P 2 P capture status",
+      "subscribable": true,
+      "trait_code": "P2PCaptureStatus"
+    },
+    "8.136.20369": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 8,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "Camera RTSP enable",
+      "subscribable": true,
+      "trait_code": "CameraRTSPEnable",
+      "writable": true
+    },
+    "8.136.32930": {
+      "data_type": "bool",
+      "default_enabled": false,
+      "endpoint_id": 8,
+      "entity_category": "diagnostic",
+      "function_code": "Camera",
+      "name": "Camera active status",
+      "subscribable": true,
+      "trait_code": "CameraActiveStatus"
+    },
+    "9.170.32928": {
+      "data_type": "enum",
+      "endpoint_id": 9,
+      "enum_values": {
+        "0": "Single press",
+        "1": "Double press"
+      },
+      "function_code": "Doorbell",
+      "name": "Button event",
+      "readable": false,
+      "subscribable": true,
+      "trait_code": "ButtonEvent"
+    },
+    "9.170.32960": {
+      "data_type": "float",
+      "endpoint_id": 9,
+      "function_code": "Doorbell",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Volume",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "Volume",
+      "unit": "%",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,195 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "AirConditioner",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Thermostat (CO2)",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "AirConditioner"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.airrtc.tcpco2ecn01",
+  "models": [
+    "lumi.airrtc.tcpco2ecn01"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "2.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Output",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "On off",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "2.141.20097": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Power short press",
+        "1": "Fan speed short press",
+        "16": "Power mid press",
+        "17": "Fan speed mid press",
+        "18": "Temp up mid press",
+        "19": "Temp down mid press",
+        "2": "Temp up short press",
+        "20": "Mode mid press",
+        "3": "Temp down short press",
+        "4": "Mode short press",
+        "48": "Power long press",
+        "49": "Fan speed long press",
+        "50": "Temp up long press",
+        "51": "Temp down long press",
+        "52": "Mode long press"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler button event",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerButtonEvent"
+    },
+    "2.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Cool",
+        "1": "Heat"
+      },
+      "function_code": "HeaterCooler",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Heater cooler mode",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "2.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 30.0,
+      "min_value": 17.0,
+      "name": "Heating temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "2.141.32949": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 30.0,
+      "min_value": 17.0,
+      "name": "Cooling temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CoolingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "2.141.32952": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": -50.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "2.142.32950": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "1": "Low speed",
+        "2": "Medium speed",
+        "3": "High speed",
+        "4": "Auto"
+      },
+      "function_code": "FanControl",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Fan mode",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "FanMode",
+      "writable": true
+    },
+    "2.142.32951": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Off",
+        "1": "Rock left right",
+        "2": "Rock up down",
+        "3": "Rock round"
+      },
+      "function_code": "FanControl",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "Rock setting",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "RockSetting",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

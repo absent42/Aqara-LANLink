@@ -1,0 +1,173 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Light",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Spotlight V1",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20109",
+    "1.205.20110",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "Light"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.light.acn036",
+  "models": [
+    "lumi.light.acn036"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.140.32945": {
+      "data_type": "float",
+      "endpoint_id": 1,
+      "function_code": "EnergyManagement",
+      "max_value": 5000.0,
+      "min_value": 0.0,
+      "name": "Current power",
+      "step": 0.1,
+      "subscribable": true,
+      "trait_code": "CurrentPower",
+      "unit": "W"
+    },
+    "2.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "2.132.32921": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "function_code": "Output",
+      "name": "Start up on off",
+      "subscribable": true,
+      "trait_code": "StartUpOnOff",
+      "writable": true
+    },
+    "2.133.20106": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "LevelControl",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Start up brightness",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "StartUpBrightness",
+      "unit": "%",
+      "writable": true
+    },
+    "2.133.32923": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "LevelControl",
+      "max_value": 100.0,
+      "min_value": 1.0,
+      "name": "Current level",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentLevel",
+      "unit": "%",
+      "writable": true
+    },
+    "2.133.33125": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "LevelControl",
+      "max_value": 10000.0,
+      "min_value": 0.0,
+      "name": "On transition time",
+      "step": 500.0,
+      "subscribable": true,
+      "trait_code": "OnTransitionTime",
+      "unit": "ms",
+      "writable": true
+    },
+    "2.133.33126": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "LevelControl",
+      "max_value": 10000.0,
+      "min_value": 0.0,
+      "name": "Off transition time",
+      "step": 500.0,
+      "subscribable": true,
+      "trait_code": "OffTransitionTime",
+      "unit": "ms",
+      "writable": true
+    },
+    "2.134.32924": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "2": "Color temperature"
+      },
+      "function_code": "ColorControl",
+      "name": "Color mode",
+      "subscribable": true,
+      "trait_code": "ColorMode",
+      "writable": true
+    },
+    "2.134.32927": {
+      "data_type": "int",
+      "endpoint_id": 2,
+      "function_code": "ColorControl",
+      "max_value": 370.0,
+      "min_value": 166.0,
+      "name": "Color temperature",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "ColorTemperature",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

@@ -1,0 +1,140 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "Public",
+    "Root",
+    "WindowCovering"
+  ],
+  "display_name": "Roller Shade Controller",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20110",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "WindowCovering"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.curtain.aq2",
+  "models": [
+    "lumi.curtain.aq2"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "2.137.20032": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "WindowCovering",
+      "name": "Travel configured",
+      "subscribable": true,
+      "trait_code": "TravelConfigured"
+    },
+    "2.137.32931": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "WindowCovering",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current position percentage",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentPositionPercentage",
+      "unit": "%"
+    },
+    "2.137.32932": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "WindowCovering",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Target position percentage",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "TargetPositionPercentage",
+      "unit": "%",
+      "writable": true
+    },
+    "2.137.32933": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Left right",
+        "1": "Left",
+        "2": "Right",
+        "3": "Up"
+      },
+      "function_code": "WindowCovering",
+      "name": "Window covering open orientation",
+      "subscribable": true,
+      "trait_code": "WindowCoveringOpenOrientation",
+      "writable": true
+    },
+    "2.137.32942": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Roller shade",
+        "1": "Venetian blind",
+        "2": "Shangrila blind",
+        "3": "Zebra blind"
+      },
+      "function_code": "WindowCovering",
+      "name": "Window covering type",
+      "subscribable": true,
+      "trait_code": "WindowCoveringType",
+      "writable": true
+    },
+    "2.137.33017": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "WindowCovering",
+      "max_value": 300.0,
+      "min_value": 1.0,
+      "name": "Trip time",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "TripTime",
+      "unit": "S"
+    }
+  },
+  "whitelabels": {}
+}

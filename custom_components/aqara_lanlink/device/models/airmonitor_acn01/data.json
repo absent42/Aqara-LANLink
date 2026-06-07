@@ -1,0 +1,168 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "HumiditySensor",
+    "Public",
+    "Root",
+    "TVOCSensor",
+    "TemperatureSensor"
+  ],
+  "display_name": "TVOC Air Quality Monitor",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20137",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.32919",
+    "4.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "TVOCSensor"
+    },
+    "3": {
+      "deviceType": "TemperatureSensor"
+    },
+    "4": {
+      "deviceType": "HumiditySensor"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.airmonitor.acn01",
+  "models": [
+    "lumi.airmonitor.acn01"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "1.147.32944": {
+      "data_type": "float",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "PowerSource",
+      "max_value": 3.8,
+      "min_value": 0.0,
+      "name": "Current voltage",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentVoltage",
+      "unit": "V"
+    },
+    "1.147.32969": {
+      "data_type": "enum",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "enum_values": {
+        "0": "False",
+        "1": "True"
+      },
+      "function_code": "PowerSource",
+      "name": "State of low bat",
+      "subscribable": true,
+      "trait_code": "StateOfLowBat"
+    },
+    "2.150.32980": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "AirQuality",
+      "max_value": 9999.0,
+      "min_value": 1.0,
+      "name": "VOC density",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "VOCDensity",
+      "unit": "ppb"
+    },
+    "2.150.32981": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Unknown",
+        "1": "Excellent",
+        "2": "Good",
+        "3": "Fair",
+        "4": "Inferior",
+        "5": "Poor"
+      },
+      "function_code": "AirQuality",
+      "name": "VOC quality",
+      "subscribable": true,
+      "trait_code": "VOCQuality"
+    },
+    "3.143.32952": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "Temperature",
+      "max_value": 100.0,
+      "min_value": -50.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "4.144.32953": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "RelativeHumidity",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current humidity",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentHumidity",
+      "unit": "%"
+    }
+  },
+  "whitelabels": {}
+}

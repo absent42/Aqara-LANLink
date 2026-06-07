@@ -1,0 +1,137 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "AirConditioner",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Smart Radiator Thermostat E1",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.32919",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.20123",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20135",
+    "1.205.20136",
+    "1.205.20137",
+    "1.205.33098",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "AirConditioner"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.airrtc.agl001",
+  "models": [
+    "lumi.airrtc.agl001"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "2.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Output",
+      "name": "On off",
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    },
+    "2.141.20164": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 15.0,
+      "min_value": 5.0,
+      "name": "Anti freeze temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "AntiFreezeTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "2.141.32947": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "13": "Manual",
+        "14": "Anti freeze"
+      },
+      "function_code": "HeaterCooler",
+      "name": "Heater cooler mode",
+      "subscribable": true,
+      "trait_code": "HeaterCoolerMode",
+      "writable": true
+    },
+    "2.141.32948": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 30.0,
+      "min_value": 5.0,
+      "name": "Heating temperature",
+      "step": 0.5,
+      "subscribable": true,
+      "trait_code": "HeatingTemperature",
+      "unit": "℃",
+      "writable": true
+    },
+    "2.141.32952": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "HeaterCooler",
+      "max_value": 100.0,
+      "min_value": -50.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    }
+  },
+  "whitelabels": {}
+}

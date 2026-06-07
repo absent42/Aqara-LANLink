@@ -1,0 +1,116 @@
+{
+  "bundle_ids": [
+    "lumi.sensor_ht.agl001"
+  ],
+  "device_types": [
+    "HumiditySensor",
+    "Public",
+    "Root",
+    "TemperatureSensor"
+  ],
+  "display_name": "Climate Sensor W100",
+  "dropped_paths": [
+    "0.128.20095",
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33046",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.20111",
+    "1.205.20112",
+    "1.205.20114",
+    "1.205.20115",
+    "1.205.20123",
+    "1.205.20124",
+    "1.205.20125",
+    "1.205.20135",
+    "1.205.20136",
+    "1.205.20137",
+    "1.205.33098",
+    "1.205.33107",
+    "6.130.32913",
+    "6.130.32915",
+    "6.130.32919",
+    "6.130.33012",
+    "7.130.32913",
+    "7.130.32915",
+    "7.130.32919",
+    "7.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "6": {
+      "deviceType": "TemperatureSensor"
+    },
+    "7": {
+      "deviceType": "HumiditySensor"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.sensor_ht.agl001",
+  "models": [
+    "lumi.sensor_ht.agl001"
+  ],
+  "regions": [
+    "CN",
+    "EU",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "6.143.32952": {
+      "data_type": "float",
+      "endpoint_id": 6,
+      "function_code": "Temperature",
+      "max_value": 100.0,
+      "min_value": -50.0,
+      "name": "Current temperature",
+      "step": 0.01,
+      "subscribable": true,
+      "trait_code": "CurrentTemperature",
+      "unit": "℃"
+    },
+    "7.144.32953": {
+      "data_type": "float",
+      "endpoint_id": 7,
+      "function_code": "RelativeHumidity",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current humidity",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentHumidity",
+      "unit": "%"
+    }
+  },
+  "whitelabels": {}
+}

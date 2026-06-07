@@ -1,0 +1,147 @@
+{
+  "bundle_ids": [],
+  "device_types": [
+    "BreathingMonitor",
+    "HeartMonitor",
+    "Public",
+    "Root",
+    "SleepMonitor"
+  ],
+  "display_name": "Aqara Sleeping Belt",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.128.33047",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.176.33096",
+    "1.205.20100",
+    "1.205.33107",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.33012",
+    "4.130.32913",
+    "4.130.32915",
+    "4.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "SleepMonitor"
+    },
+    "3": {
+      "deviceType": "HeartMonitor"
+    },
+    "4": {
+      "deviceType": "BreathingMonitor"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.lunar.acn01",
+  "models": [
+    "lumi.lunar.acn01"
+  ],
+  "regions": [],
+  "source_region": "default",
+  "traits": {
+    "2.158.32995": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Unknow",
+        "1": "Awake",
+        "2": "Sleep"
+      },
+      "function_code": "Sleep",
+      "name": "Sleep state",
+      "subscribable": true,
+      "trait_code": "SleepState"
+    },
+    "2.158.32996": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Sleep",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Sleep quality",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "SleepQuality"
+    },
+    "2.158.32997": {
+      "data_type": "bool",
+      "endpoint_id": 2,
+      "function_code": "Sleep",
+      "name": "On bed",
+      "subscribable": true,
+      "trait_code": "OnBed"
+    },
+    "2.158.32998": {
+      "data_type": "enum",
+      "endpoint_id": 2,
+      "enum_values": {
+        "0": "Light sleep",
+        "1": "Deep sleep",
+        "2": "REM"
+      },
+      "function_code": "Sleep",
+      "name": "Sleep stage",
+      "subscribable": true,
+      "trait_code": "SleepStage"
+    },
+    "3.225.20232": {
+      "data_type": "float",
+      "endpoint_id": 3,
+      "function_code": "HeartMonitoring",
+      "max_value": 300.0,
+      "min_value": 0.0,
+      "name": "Heart rate",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "HeartRate",
+      "unit": "bpm"
+    },
+    "4.226.20231": {
+      "data_type": "float",
+      "endpoint_id": 4,
+      "function_code": "BreathingMonitoring",
+      "max_value": 60.0,
+      "min_value": 0.0,
+      "name": "Breathing rate",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "BreathingRate",
+      "unit": "bpm"
+    }
+  },
+  "whitelabels": {}
+}

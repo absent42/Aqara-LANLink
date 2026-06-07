@@ -1,0 +1,139 @@
+{
+  "bundle_ids": [
+    "lumi.plugin.common"
+  ],
+  "device_types": [
+    "ClotheDryingMachine",
+    "Light",
+    "Public",
+    "Root"
+  ],
+  "display_name": "Aqara Smart Clothes Drying Rack Lite",
+  "dropped_paths": [
+    "0.128.32896",
+    "0.128.32897",
+    "0.128.32898",
+    "0.128.32899",
+    "0.128.32900",
+    "0.128.32901",
+    "0.128.32902",
+    "0.128.32903",
+    "0.128.32904",
+    "0.128.32905",
+    "0.129.32906",
+    "0.129.32907",
+    "0.129.32908",
+    "0.129.32909",
+    "0.129.32910",
+    "0.129.32911",
+    "0.129.32912",
+    "0.130.32913",
+    "0.130.32914",
+    "0.130.32915",
+    "0.130.33016",
+    "1.130.32915",
+    "1.131.32916",
+    "1.131.32917",
+    "1.171.33027",
+    "1.176.33096",
+    "2.130.32913",
+    "2.130.32915",
+    "2.130.32919",
+    "2.130.33012",
+    "3.130.32913",
+    "3.130.32915",
+    "3.130.32919",
+    "3.130.33012"
+  ],
+  "endpoints": {
+    "0": {
+      "deviceType": "Root"
+    },
+    "1": {
+      "deviceType": "Public"
+    },
+    "2": {
+      "deviceType": "ClotheDryingMachine"
+    },
+    "3": {
+      "deviceType": "Light"
+    }
+  },
+  "manufacturer": "Aqara",
+  "model": "lumi.airer.acn02",
+  "models": [
+    "lumi.airer.acn02"
+  ],
+  "regions": [
+    "CN",
+    "EU",
+    "US",
+    "unknown"
+  ],
+  "source_region": "default",
+  "traits": {
+    "1.171.20119": {
+      "data_type": "int",
+      "default_enabled": false,
+      "endpoint_id": 1,
+      "entity_category": "diagnostic",
+      "function_code": "NetworkCommissioning",
+      "max_value": 0.0,
+      "min_value": -100.0,
+      "name": "Wi fi RSSI",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "WiFiRSSI"
+    },
+    "2.138.32931": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Lifter",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Current position percentage",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "CurrentPositionPercentage",
+      "unit": "%"
+    },
+    "2.138.32932": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Lifter",
+      "max_value": 100.0,
+      "min_value": 0.0,
+      "name": "Target position percentage",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "TargetPositionPercentage",
+      "unit": "%",
+      "writable": true
+    },
+    "2.138.33017": {
+      "data_type": "float",
+      "endpoint_id": 2,
+      "function_code": "Lifter",
+      "max_value": 255.0,
+      "min_value": 0.0,
+      "name": "Trip time",
+      "step": 1.0,
+      "subscribable": true,
+      "trait_code": "TripTime",
+      "unit": "S"
+    },
+    "3.132.32920": {
+      "data_type": "bool",
+      "endpoint_id": 3,
+      "function_code": "Output",
+      "max_value": 0.0,
+      "min_value": 0.0,
+      "name": "On off",
+      "step": 0.0,
+      "subscribable": true,
+      "trait_code": "OnOff",
+      "writable": true
+    }
+  },
+  "whitelabels": {}
+}

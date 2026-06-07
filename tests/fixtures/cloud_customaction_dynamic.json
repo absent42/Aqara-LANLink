@@ -1,0 +1,102 @@
+{
+  "_comment": "Real customaction/query capture for actionId='scene_mode' against a T2 RGB CCT bulb (lumi.light.agl003). Despite the misleading name, this action_id returns DYNAMIC scenes (animated, with seqId). 6 defaults: Security(64), Wake(65), Sleep(66), Colorful(67), Breath(68), Candlelight(69). Sanitised; DIDs replaced. Each entry carries a seqId; the parser must use 'is None' check (seqId == 0 would be valid). Activation is via cloud sequence/run with the seqId; LANLink alone cannot trigger these.",
+  "result": {
+    "UserCustomActions": [],
+    "DefaultCustomActions": [
+      {
+        "channel": 0,
+        "icon": "RGB_anfang",
+        "customName": "Security",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "mode": 4,
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1776533950562,
+        "actionId": "new_dynamic_scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "state": 1,
+        "value": "[{\"channel\":0,\"cycles\":1,\"endAction\":\"02\",\"lightLevel\":100,\"mode\":4,\"modeType\":4,\"speed\":100,\"xyArray\":[-1545907080]}]",
+        "seqId": 64
+      },
+      {
+        "channel": 0,
+        "icon": "RGB_huanxing",
+        "customName": "Wake",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "mode": 1,
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1776533950612,
+        "actionId": "new_dynamic_scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "state": 1,
+        "value": "[{\"channel\":0,\"cycles\":1,\"endAction\":\"02\",\"mode\":1,\"queues\":[{\"color_temperature\":10,\"duration\":0,\"light_level\":1,\"transition_time\":0},{\"color_temperature\":64,\"duration\":0,\"light_level\":100,\"transition_time\":1800000}]}]",
+        "seqId": 65
+      },
+      {
+        "channel": 0,
+        "icon": "RGB_banshui",
+        "customName": "Sleep",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "mode": 1,
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1776533950624,
+        "actionId": "new_dynamic_scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "state": 1,
+        "value": "[{\"channel\":0,\"cycles\":1,\"endAction\":\"02\",\"mode\":1,\"queues\":[{\"color_temperature\":28,\"duration\":0,\"light_level\":50,\"transition_time\":0},{\"color_temperature\":0,\"duration\":0,\"light_level\":0,\"transition_time\":1800000}]}]",
+        "seqId": 66
+      },
+      {
+        "channel": 0,
+        "icon": "RGB_huancai",
+        "customName": "Colorful",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "mode": 4,
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1776533950638,
+        "actionId": "new_dynamic_scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "state": 1,
+        "value": "[{\"channel\":0,\"cycles\":1,\"endAction\":\"02\",\"lightLevel\":100,\"mode\":4,\"modeType\":3,\"speed\":50,\"xyArray\":[800857572,853425212,1153333117,1623229851,1597782731,2553500783,1017060250]}]",
+        "seqId": 67
+      },
+      {
+        "channel": 0,
+        "icon": "RGB_huxi",
+        "customName": "Breath",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "mode": 4,
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1776533950651,
+        "actionId": "new_dynamic_scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "state": 1,
+        "value": "[{\"channel\":0,\"cycles\":1,\"endAction\":\"02\",\"lightLevel\":100,\"mode\":4,\"modeType\":1,\"speed\":50,\"xyArray\":[2333501125]}]",
+        "seqId": 68
+      },
+      {
+        "channel": 0,
+        "icon": "RGB_zhuguang",
+        "customName": "Candlelight",
+        "userDeviceId": "lumi.TESTZIG0000000C",
+        "mode": 4,
+        "customActionId": "",
+        "actionType": "0",
+        "createTime": 1776533950662,
+        "actionId": "new_dynamic_scene_mode",
+        "deviceModel": "lumi.light.agl003",
+        "state": 1,
+        "value": "[{\"channel\":0,\"cycles\":1,\"endAction\":\"02\",\"lightLevel\":100,\"mode\":4,\"modeType\":2,\"speed\":50,\"xyArray\":[2333501125]}]",
+        "seqId": 69
+      }
+    ]
+  },
+  "code": 0,
+  "requestId": "REDACTED",
+  "message": "Success",
+  "msgDetails": "Success"
+}
