@@ -11,7 +11,7 @@ Aqara does not endorse or support this integration. The LANLink protocol was rev
 
 - **~379 Aqara device models supported** out of the box, from a shipped device catalogue.
 - **Local push, no polling** - device state is pushed from the hub over a persistent encrypted LANLink tunnel; state changes reach Home Assistant with no cloud round-trip.
-- **Multiple Aqara hub in a cluster**, and mutliple hubs bound to different regions.
+- **Multiple Aqara hubs in a cluster**, and mutliple hubs bound to different regions.
 - **Multiple entity types** - switches, sensors, binary sensors, lights, numbers, selects, buttons, and events are derived from each device's catalogue with names, values and labels.
 - **Cameras and doorbells** - RTSP streaming via go2rtc, doorbell ring events, motion/occupancy/gesture etc detection events and sensors, and two-way audio (talk-back) through the go2rtc backchannel.
 - **Local camera PTZ** - pan/tilt/zoom and saved-position presets for supported cameras, as buttons, a preset selector, and services.
@@ -22,9 +22,7 @@ Aqara does not endorse or support this integration. The LANLink protocol was rev
 
 ## How it works
 
-Individual device state changes travel entirely over the LAN with no cloud
-round-trip. Live state and automations are local: once the hub session is up,
-every state read and write goes over LAN, not the internet.
+Once the encrypted tunnel between Home Assistant and an Aqara hub has been created, individual device state changes travel entirely over the LAN with no cloud round-trip. Live state changes and automations operate fully locally with every read and write going over LAN, not via the Aqara cloud servers.
 
 The cloud is required at two points:
 
@@ -53,7 +51,7 @@ For a deeper look at the workings and protocol details, see
 - **LAN Control enabled on the hub.** In the Aqara Home app, open the hub's
   settings and enable the LAN Control / local control option. Without it the hub
   will not accept the encrypted LANLink session.
-- An Aqara cloud account (email + password), or a user ID + session token
+- An Aqara account (email + password), or a user ID + session token
   obtained externally. Only the resulting session token is stored; credentials
   are not retained.
 - go2rtc (optional, required for camera streaming and two-way audio). The
@@ -169,7 +167,9 @@ The live device list is at [docs/catalogue/index.md](docs/catalogue/index.md).
 Most of these devices are currently untested with the integration and may create 
 incorrect or non-functioning entities. An override mechanism is provided to correct 
 or improve the auto-created entities. In time the device catalogue is hoped to be 
-improved through user feedback and contributions.
+improved through user contributions.
+
+The integration does not claim to expose the complete Aqara feature set. Coverage is limited by the reverse-engineered catalogue and the traits that Aqara's LANLink protocol supports for each model. 
 
 To add or improve support for a device, see
 [docs/adding-device-support.md](docs/adding-device-support.md).

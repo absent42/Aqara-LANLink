@@ -22,7 +22,7 @@ See [troubleshooting.md](troubleshooting.md) for guidance on diagnosing connecti
 
 ## Is my device supported?
 
-Approximately 379 models are catalogued and light up automatically when the integration discovers them. Check the live model list at [catalogue/index.md](catalogue/index.md).
+Approximately 379 models are catalogued. Check the live model list at [catalogue/index.md](catalogue/index.md).
 
 If your device is missing or only partially functional, see [adding-device-support.md](adding-device-support.md) for instructions on contributing support for new models.
 
@@ -35,6 +35,7 @@ A few common causes:
 - The catalogue is missing a friendly label for that trait. This is fixable by submitting an override; see [catalogue-and-traits.md](catalogue-and-traits.md).
 - The entity is a diagnostic entity, which Home Assistant disables by default. Enable it from the device page in Settings.
 - The trait is intentionally not exposed because it cannot be reliably controlled or read over the local protocol.
+- Device functions that are inlcuded in the Aqara local API and whose wire path is known are supported. If a device function is missing or doesn't funciton correctly is may be because either the function isn't exposed in the Aqara local API, or the wire path for that funciton isn't currently known.
 
 See [troubleshooting.md](troubleshooting.md) for steps to identify which case applies.
 
