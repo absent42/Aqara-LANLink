@@ -30,18 +30,23 @@ def compose(
     out: list[AnyDescriptor] = []
     others: dict[str, TraitSpec] = {}
     if button_event is not None:
+        # HA deprecates DOORBELL event entities that don't support the "ring"
+        # event_type (removal in 2027.4), so "ring" must always be present.
         ev = button_event.enum_values or {}
         if len(ev) > 1:
-            # Multi-press doorbell (e.g. Single/Double press): preserve each
-            # press as its own event_type so automations can distinguish them.
-            # Labels are humanized at catalogue-generation time -> use verbatim.
-            trigger_trait = button_event
-            event_types = tuple(ev.values())
+            # Multi-press doorbell (e.g. Single/Double press): the primary
+            # (first) press IS the ring; additional presses keep their
+            # humanized labels so automations can distinguish them.
+            items = list(ev.items())
+            normalised_enum = {items[0][0]: "ring"}
+            extra = []
+            for wire, label in items[1:]:
+                normalised_enum[wire] = label
+                extra.append(label)
+            trigger_trait = dataclasses.replace(button_event, enum_values=normalised_enum)
+            event_types = ("ring", *extra)
         else:
-            # Single press (or a bare signal with no enum): collapse to the
-            # conventional doorbell "ring" event_type. HA imposes no
-            # device_class->event_types contract, so "ring" is a UX choice (the
-            # widely-recognized doorbell event), not a requirement.
+            # Single press (or a bare signal with no enum) -> just "ring".
             normalised_enum = {wire: "ring" for wire in ev} or None
             trigger_trait = dataclasses.replace(button_event, enum_values=normalised_enum)
             event_types = ("ring",)

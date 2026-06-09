@@ -63,11 +63,12 @@ def test_event_types_normalised_to_ring_regardless_of_v3_enum_label():
     assert descs[0].trigger_trait.enum_values == {"1": "ring"}
 
 
-def test_multi_press_doorbell_preserves_each_press_type():
+def test_multi_press_doorbell_keeps_ring_and_preserves_extra_presses():
     """A multi-press doorbell (e.g. camera_agl013: Single/Double press) must
-    expose each press as a distinct event_type, not collapse both to "ring"
-    -- otherwise double-press is unusable. Labels are humanized in the
-    catalogue, so they're used verbatim and device_class stays DOORBELL."""
+    still SUPPORT the 'ring' event_type -- HA deprecates DOORBELL event
+    entities without it (removal in 2027.4) -- while preserving the extra
+    presses. The primary press IS the ring; additional presses keep their
+    humanized labels."""
     import dataclasses
     spec = dataclasses.replace(
         _button_event(),
@@ -80,9 +81,10 @@ def test_multi_press_doorbell_preserves_each_press_type():
     d = descs[0]
     assert isinstance(d, EventDescriptor)
     assert d.device_class == EventDeviceClass.DOORBELL
-    assert d.event_types == ("Single press", "Double press")
-    # labels pass through unchanged so apply_value maps wire -> press type
-    assert d.trigger_trait.enum_values == {"0": "Single press", "1": "Double press"}
+    assert "ring" in d.event_types          # HA DOORBELL contract
+    assert d.event_types == ("ring", "Double press")
+    # Single press -> ring (canonical); double press keeps its label.
+    assert d.trigger_trait.enum_values == {"0": "ring", "1": "Double press"}
 
 
 def test_event_types_default_to_ring_when_no_enum_values():
@@ -116,3 +118,34 @@ def test_full_doorbell_set():
 
 def test_doorbell_composer_registered():
     assert get_composer("Doorbell") is doorbell.compose
+
+
+def test_every_doorbell_event_in_catalogue_supports_ring():
+    """Invariant: every DOORBELL-class event entity across all shipped models
+    must include 'ring' in its event_types. HA deprecates doorbell event
+    entities that don't (removal in 2027.4)."""
+    from pathlib import Path
+
+    from custom_components.aqara_lanlink.device.classify_v3 import classify_v3
+    from custom_components.aqara_lanlink.device.models._loader import load_model_data
+    from custom_components.aqara_lanlink.device.descriptors import EventDescriptor
+
+    models_root = (
+        Path(__file__).resolve().parents[3]
+        / "custom_components" / "aqara_lanlink" / "device" / "models"
+    )
+    offenders = []
+    for pkg in sorted(p for p in models_root.iterdir() if p.is_dir() and not p.name.startswith("_")):
+        data = load_model_data(pkg)
+        descs = classify_v3(
+            model=(data["MODELS"] or [pkg.name])[0],
+            endpoints=data["ENDPOINTS"], traits=data["TRAITS"],
+        )
+        for d in descs:
+            if isinstance(d, EventDescriptor) and d.device_class == EventDeviceClass.DOORBELL:
+                if "ring" not in d.event_types:
+                    offenders.append((pkg.name, d.key, d.event_types))
+    assert not offenders, (
+        "DOORBELL event entities missing the 'ring' event_type:\n"
+        + "\n".join(f"  {m} {k}: {et}" for m, k, et in offenders)
+    )
