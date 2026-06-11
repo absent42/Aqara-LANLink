@@ -47,6 +47,13 @@ CONF_PHONE_ID = "phone_id"
 CONF_DEVICE_DID = "did"
 CONF_DEVICE_MODEL = "model"
 
+# Standalone Wi-Fi device relay-activation endpoint, persisted on the
+# subentry so a later re-arm step knows where to reconnect. Underscore
+# prefix follows the ``_cloud_metadata`` convention so these never collide
+# with user-supplied per-device extras fields.
+CONF_ACTIVATION_HOST = "_activation_host"
+CONF_ACTIVATION_PORT = "_activation_port"
+
 # Hub connection defaults
 DEFAULT_HUB_PORT = 59703
 

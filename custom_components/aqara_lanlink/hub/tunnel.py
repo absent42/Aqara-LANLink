@@ -47,8 +47,13 @@ class BaseTunnel(ABC):
     """Abstract transport interface for a LANLink session."""
 
     @abstractmethod
-    async def connect(self, host: str, port: int) -> None:
-        """Open the connection to host:port."""
+    async def connect(self, host: str, port: int, *, ssl=None) -> None:
+        """Open the connection to host:port.
+
+        Pass ssl=<SSLContext> to wrap the connection in TLS. When set,
+        server_hostname is derived from host and forwarded to
+        asyncio.open_connection automatically.
+        """
 
     @abstractmethod
     async def send(self, message: dict[str, Any]) -> None:
@@ -89,9 +94,18 @@ class PlaintextTunnel(BaseTunnel):
         self._reader: asyncio.StreamReader | None = None
         self._writer: asyncio.StreamWriter | None = None
 
-    async def connect(self, host: str, port: int) -> None:
-        """Open a plain TCP connection to host:port."""
-        self._reader, self._writer = await asyncio.open_connection(host, port)
+    async def connect(self, host: str, port: int, *, ssl=None) -> None:
+        """Open a plain TCP connection to host:port.
+
+        Pass ssl=<SSLContext> to wrap the connection in TLS. When set,
+        server_hostname is derived from host and forwarded to
+        asyncio.open_connection automatically.
+        """
+        open_kwargs: dict[str, object] = {}
+        if ssl is not None:
+            open_kwargs["ssl"] = ssl
+            open_kwargs["server_hostname"] = host
+        self._reader, self._writer = await asyncio.open_connection(host, port, **open_kwargs)
         _LOGGER.debug("PlaintextTunnel connected to %s:%d", host, port)
 
     async def send(self, message: dict[str, Any]) -> None:
@@ -414,9 +428,18 @@ class EncryptedTunnel(BaseTunnel):
     # BaseTunnel interface
     # -------------------------------------------------------------------------
 
-    async def connect(self, host: str, port: int) -> None:
-        """Open TCP connection and run the handshake."""
-        self._reader, self._writer = await asyncio.open_connection(host, port)
+    async def connect(self, host: str, port: int, *, ssl=None) -> None:
+        """Open TCP connection and run the handshake.
+
+        Pass ssl=<SSLContext> to wrap the connection in TLS. When set,
+        server_hostname is derived from host and forwarded to
+        asyncio.open_connection automatically.
+        """
+        open_kwargs: dict[str, object] = {}
+        if ssl is not None:
+            open_kwargs["ssl"] = ssl
+            open_kwargs["server_hostname"] = host
+        self._reader, self._writer = await asyncio.open_connection(host, port, **open_kwargs)
         _LOGGER.debug("EncryptedTunnel connected to %s:%d", host, port)
         await self._handshake()
         if self._keepalive_interval > 0:

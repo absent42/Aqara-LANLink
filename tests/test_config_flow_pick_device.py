@@ -8,7 +8,7 @@ add them as subentries.
 from __future__ import annotations
 
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 from homeassistant.data_entry_flow import FlowResultType
 from pytest_homeassistant_custom_component.common import MockConfigEntry
@@ -16,6 +16,8 @@ from pytest_homeassistant_custom_component.common import MockConfigEntry
 from custom_components.aqara_lanlink import config_flow as config_flow_module
 from custom_components.aqara_lanlink.config_flow import AqaraDeviceSubentryFlow
 from custom_components.aqara_lanlink.const import (
+    CONF_ACTIVATION_HOST,
+    CONF_ACTIVATION_PORT,
     CONF_AQARA_ACCOUNT,
     CONF_AQARA_REGION,
     CONF_AQARA_TOKEN,
@@ -348,6 +350,236 @@ class TestPickDeviceClusterMemberHub:
         assert hub_did not in offered_dids
 
 
+# ---------------------------------------------------------------------------
+# Standalone Wi-Fi device activation (FP2, lumi.motion.agl001).
+#
+# A standalone Wi-Fi device is cloud devicetype 8 with an empty
+# parentDeviceId and is NOT in the hub topology, so it falls through all
+# three passes of _build_candidate_records. The activation path is a 4th,
+# additive candidate source: it is offered only when discovered on the LAN,
+# validated as an Aqara TLS endpoint, and absent from the topology. On add,
+# the hub is poked into relaying it.
+# ---------------------------------------------------------------------------
+
+
+_FP2_DID = "lumi1.fp2"
+_FP2_MODEL = "lumi.motion.agl001"
+_FP2_HOST = "10.1.20.160"
+
+
+def _fp2_device_list(hub_did: str) -> list[dict]:
+    """Cloud list: the connected hub + a standalone FP2 (devicetype 8)."""
+    return [
+        {
+            "did": hub_did,
+            "model": "lumi.gateway.agl004",
+            "deviceName": "Hub M3",
+            "parentDeviceId": "",
+            "devicetype": 1,
+        },
+        {
+            "did": _FP2_DID,
+            "model": _FP2_MODEL,
+            "deviceName": "Aqara FP2",
+            "parentDeviceId": "",
+            "devicetype": 8,
+        },
+    ]
+
+
+def _fp2_lan_record():
+    """An mDNS discovery record matching the FP2 on the LAN."""
+    return SimpleNamespace(
+        host=_FP2_HOST, port=443, did=_FP2_DID, name="Aqara-FP2",
+    )
+
+
+class TestStandaloneActivationCandidates:
+    """Standalone Wi-Fi devices on the LAN must be offered for activation."""
+
+    async def test_standalone_device_offered_when_on_lan_and_not_in_topology(
+        self, hass,
+    ) -> None:
+        """An FP2 discovered on the LAN with a valid Aqara endpoint, not in
+        the topology, must be offered and its activation endpoint recorded.
+        """
+        hub_did = "lumi1.M3HUB"
+        entry = _hub_entry(hass, hub_did=hub_did)
+        # Topology contains only the hub: the FP2 is standalone.
+        stub_hub = SimpleNamespace(lanlink_topology_dids=frozenset({hub_did}))
+        entry.runtime_data = SimpleNamespace(hub=stub_hub)
+        flow = _build_subentry_flow(hass, entry)
+
+        with (
+            patch.object(
+                AqaraDeviceSubentryFlow,
+                "_fetch_device_list",
+                _make_device_list_stub(_fp2_device_list(hub_did)),
+            ),
+            patch.object(
+                config_flow_module,
+                "discover_lan_devices",
+                AsyncMock(return_value=[_fp2_lan_record()]),
+            ),
+            patch.object(
+                config_flow_module,
+                "validate_aqara_endpoint",
+                AsyncMock(return_value=True),
+            ),
+        ):
+            result = await flow.async_step_user()
+
+        assert result["type"] == FlowResultType.FORM
+        assert result["step_id"] == "pick_device"
+
+        schema = result["data_schema"].schema
+        key = next(k for k in schema if str(k) == "device")
+        options = schema[key].config["options"]
+        offered = {opt["value"]: opt["label"] for opt in options}
+
+        assert _FP2_DID in offered, "FP2 was not offered in the picker"
+        assert "needs activation" in offered[_FP2_DID]
+        assert flow._activation_endpoints[_FP2_DID] == (_FP2_HOST, 443)
+
+    async def test_standalone_device_not_offered_when_validate_fails(
+        self, hass,
+    ) -> None:
+        """If the LAN endpoint does not validate as Aqara, the FP2 is not
+        offered and no activation endpoint is recorded.
+        """
+        hub_did = "lumi1.M3HUB"
+        entry = _hub_entry(hass, hub_did=hub_did)
+        stub_hub = SimpleNamespace(lanlink_topology_dids=frozenset({hub_did}))
+        entry.runtime_data = SimpleNamespace(hub=stub_hub)
+        flow = _build_subentry_flow(hass, entry)
+
+        with (
+            patch.object(
+                AqaraDeviceSubentryFlow,
+                "_fetch_device_list",
+                _make_device_list_stub(_fp2_device_list(hub_did)),
+            ),
+            patch.object(
+                config_flow_module,
+                "discover_lan_devices",
+                AsyncMock(return_value=[_fp2_lan_record()]),
+            ),
+            patch.object(
+                config_flow_module,
+                "validate_aqara_endpoint",
+                AsyncMock(return_value=False),
+            ),
+        ):
+            result = await flow.async_step_user()
+
+        schema_keys = {str(k) for k in result["data_schema"].schema}
+        if "device" in schema_keys:
+            schema = result["data_schema"].schema
+            key = next(k for k in schema if str(k) == "device")
+            options = schema[key].config["options"]
+            offered_dids = {opt["value"] for opt in options}
+            assert _FP2_DID not in offered_dids
+        assert flow._activation_endpoints == {}
+
+    async def test_standalone_device_in_topology_not_double_offered(
+        self, hass,
+    ) -> None:
+        """A devicetype-8 device that is already in the topology is handled by
+        the normal Pass-3 path and must NOT be added via the activation path
+        (no activation endpoint recorded for it).
+        """
+        hub_did = "lumi1.M3HUB"
+        entry = _hub_entry(hass, hub_did=hub_did)
+        # FP2 is in the topology push this time.
+        stub_hub = SimpleNamespace(
+            lanlink_topology_dids=frozenset({hub_did, _FP2_DID}),
+        )
+        entry.runtime_data = SimpleNamespace(hub=stub_hub)
+        flow = _build_subentry_flow(hass, entry)
+
+        with (
+            patch.object(
+                AqaraDeviceSubentryFlow,
+                "_fetch_device_list",
+                _make_device_list_stub(_fp2_device_list(hub_did)),
+            ),
+            patch.object(
+                config_flow_module,
+                "discover_lan_devices",
+                AsyncMock(return_value=[_fp2_lan_record()]),
+            ),
+            patch.object(
+                config_flow_module,
+                "validate_aqara_endpoint",
+                AsyncMock(return_value=True),
+            ),
+        ):
+            result = await flow.async_step_user()
+
+        # The activation path must have skipped it (it is in topology).
+        assert _FP2_DID not in flow._activation_endpoints
+        # It may still be offered once via Pass 3 (topology path).
+        schema = result["data_schema"].schema
+        key = next(k for k in schema if str(k) == "device")
+        options = schema[key].config["options"]
+        offered_dids = [opt["value"] for opt in options]
+        assert offered_dids.count(_FP2_DID) == 1
+
+    async def test_activate_relay_called_on_add_and_host_persisted(
+        self, hass,
+    ) -> None:
+        """Adding the FP2 must call activate_relay and persist the activation
+        host/port on the created subentry's data.
+        """
+        hub_did = "lumi1.M3HUB"
+        entry = _hub_entry(hass, hub_did=hub_did)
+        # During render the FP2 must be standalone (only the hub in topology)
+        # so the activation path offers it. The post-activation wait is made
+        # fast by patching asyncio.sleep; the loop then exits when the stub
+        # topology (which lacks the FP2) is exhausted.
+        stub_hub = SimpleNamespace(
+            lanlink_topology_dids=frozenset({hub_did}),
+        )
+        entry.runtime_data = SimpleNamespace(hub=stub_hub)
+        flow = _build_subentry_flow(hass, entry)
+
+        activate_mock = AsyncMock()
+
+        with (
+            patch.object(
+                AqaraDeviceSubentryFlow,
+                "_fetch_device_list",
+                _make_device_list_stub(_fp2_device_list(hub_did)),
+            ),
+            patch.object(
+                config_flow_module,
+                "discover_lan_devices",
+                AsyncMock(return_value=[_fp2_lan_record()]),
+            ),
+            patch.object(
+                config_flow_module,
+                "validate_aqara_endpoint",
+                AsyncMock(return_value=True),
+            ),
+            patch.object(
+                config_flow_module, "activate_relay", activate_mock,
+            ),
+            patch.object(
+                config_flow_module.asyncio, "sleep", AsyncMock(),
+            ),
+        ):
+            # First render populates _activation_endpoints + _devices_by_did.
+            await flow.async_step_user()
+            # Submit the picker with the FP2 selected.
+            result = await flow.async_step_pick_device({"device": _FP2_DID})
+
+        assert result["type"] == FlowResultType.CREATE_ENTRY
+        activate_mock.assert_awaited_once_with(_FP2_HOST, _FP2_DID, 443)
+        data = result["data"]
+        assert data[CONF_ACTIVATION_HOST] == _FP2_HOST
+        assert data[CONF_ACTIVATION_PORT] == 443
+
+
 class TestPickDeviceTopologyPushCameras:
     """Cameras (devicetype==8, parentDeviceId=="") must be offered when their
     DID appears in the connected hub's LANLink topology push.
@@ -481,10 +713,13 @@ class TestPickDeviceTopologyPushCameras:
         assert result["step_id"] == "pick_device"
 
         # When only the hub itself is in the topology set (no addable devices
-        # in either the hub-child or topology path), there are no supported
-        # candidates and the form renders an empty schema with description
-        # placeholders only -- no "device" selector key.
-        schema_keys = {str(k) for k in result["data_schema"].schema}
-        assert "device" not in schema_keys, (
+        # in either the hub-child or topology path), the picker still renders
+        # a "device" selector, but its only option is the manual-IP sentinel:
+        # the camera NOT in the topology push must not appear as a real choice.
+        schema = result["data_schema"].schema
+        key = next(k for k in schema if str(k) == "device")
+        options = schema[key].config["options"]
+        offered_dids = {opt["value"] for opt in options}
+        assert offered_dids == {config_flow_module._MANUAL_ACTIVATE_SENTINEL}, (
             "camera NOT in the topology push must not appear in the picker"
         )

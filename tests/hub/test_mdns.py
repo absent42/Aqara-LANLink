@@ -159,3 +159,9 @@ class TestDecodeProperties:
         info = MagicMock()
         info.properties = None
         assert mdns._decode_properties(info) == {}
+
+
+def test_discover_lan_devices_is_canonical_browse():
+    # The _aqara-setup browse returns all device classes (hubs, cameras,
+    # standalone sensors like the FP2), so the honest alias points at it.
+    assert mdns.discover_lan_devices is mdns.discover_hubs

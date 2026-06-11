@@ -14,6 +14,7 @@ import time
 import uuid
 from collections.abc import Mapping
 from dataclasses import dataclass, field
+from datetime import timedelta
 from typing import Any
 
 from homeassistant.config_entries import ConfigEntry
@@ -23,6 +24,7 @@ from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.event import async_track_time_interval
 
 from .const import (
     CONF_AQARA_REGION,
@@ -53,6 +55,7 @@ from .hub.cloud_client import (
     enrich_light_effects,
 )
 from .hub.coordinator import HubCoordinator
+from .hub.rearm import RearmManager
 from .hub.topology import classify_tunnel_host
 from .ptz.controller import PtzController
 
@@ -659,6 +662,21 @@ async def async_setup_entry(
         except TypeError:
             prev_topology = frozenset()
 
+        # Re-arm relay activation for configured standalone Wi-Fi devices (the
+        # FP2). A hub reboot or device power-cycle drops the device from the
+        # LANLink topology; RearmManager re-activates it (TLS handshake to its
+        # :443) when it falls out of topology, retrying while the device is
+        # still booting. A periodic sweep covers the case where the device
+        # returns without emitting a topology push.
+        rearm = RearmManager(hass, entry)
+        entry.async_on_unload(rearm.cancel_all)
+        entry.async_on_unload(
+            async_track_time_interval(
+                hass, rearm.sweep, timedelta(minutes=5),
+                cancel_on_shutdown=True,
+            )
+        )
+
         def _on_topology_changed(dids: frozenset[str]) -> None:
             nonlocal prev_topology
             # Sticky upgrade only: once we've seen children and classified the
@@ -679,6 +697,9 @@ async def async_setup_entry(
                     len(dids),
                 )
                 hass.async_create_task(_rearm_subscriptions(hass, entry))
+            # Re-activate any configured standalone device absent from the new
+            # topology; cancel a pending re-arm for one that just came back.
+            rearm.note_topology(dids)
 
         coordinator.on_topology_changed = _on_topology_changed
 
