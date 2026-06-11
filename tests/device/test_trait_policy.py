@@ -161,13 +161,19 @@ def test_status_traits_are_force_readonly():
     assert ("Camera", "P2PCaptureStatus") in trait_policy.FORCE_READONLY_TRAITS
 
 
-def test_occupancy_sensor_type_is_force_writable():
-    """OccupancySensorType (PIR/Ultrasonic/fusion/contact selector on
-    FP/motion sensors) is marked writable=False by Aqara's V3 spec but
-    the firmware accepts writes -- the Z2M converter and the Aqara app
-    both write this attribute. Generator forces writable=True so the
-    fallback composer routes it to a SelectDescriptor."""
-    assert ("OccupancySensing", "OccupancySensorType") in trait_policy.FORCE_WRITABLE_TRAITS
+def test_occupancy_sensor_type_is_dropped():
+    """OccupancySensorType is the generic ZCL OccupancySensing descriptor
+    attribute (0x0001), inherited per-endpoint from the cluster template and
+    bled onto ~28 models including cameras/switches/a lock. Over LANLink the
+    local write is a confirmed no-op (result:None even on the FP300 fusion
+    sensor) and the attribute is never reported -- only Occupancy (33000) is.
+    Dropped catalogue-wide so it stops rendering a phantom writable select."""
+    assert ("OccupancySensing", "OccupancySensorType") in trait_policy.DROP_TRAITS
+    assert trait_policy.classify_trait("OccupancySensing", "OccupancySensorType") == "drop"
+    # The real occupancy state is unaffected.
+    assert trait_policy.classify_trait("OccupancySensing", "Occupancy") == "visible"
+    # No longer forced writable -- the local res/write doesn't actuate it.
+    assert ("OccupancySensing", "OccupancySensorType") not in trait_policy.FORCE_WRITABLE_TRAITS
 
 
 def test_drop_functions_set_is_frozenset():
@@ -182,6 +188,7 @@ def test_drop_functions_set_is_frozenset():
     # BUTTON_TRAITS is a dict (mapping (fn, tc) -> press_value), not a frozenset.
     assert isinstance(trait_policy.BUTTON_TRAITS, dict)
     assert isinstance(trait_policy.DROP_CAMERA_TRAITS, frozenset)
+    assert isinstance(trait_policy.DROP_TRAITS, frozenset)
     assert isinstance(trait_policy.FORCE_READONLY_TRAITS, frozenset)
     assert isinstance(trait_policy.FORCE_WRITABLE_TRAITS, frozenset)
 

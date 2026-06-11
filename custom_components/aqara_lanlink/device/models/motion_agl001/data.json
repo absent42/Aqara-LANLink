@@ -42,122 +42,152 @@
     "101.130.32915",
     "101.130.32919",
     "101.130.33012",
+    "101.160.33001",
     "102.130.32913",
     "102.130.32915",
     "102.130.32919",
     "102.130.33012",
+    "102.160.33001",
     "103.130.32913",
     "103.130.32915",
     "103.130.32919",
     "103.130.33012",
+    "103.160.33001",
     "104.130.32913",
     "104.130.32915",
     "104.130.32919",
     "104.130.33012",
+    "104.160.33001",
     "105.130.32913",
     "105.130.32915",
     "105.130.32919",
     "105.130.33012",
+    "105.160.33001",
     "106.130.32913",
     "106.130.32915",
     "106.130.32919",
     "106.130.33012",
+    "106.160.33001",
     "107.130.32913",
     "107.130.32915",
     "107.130.32919",
     "107.130.33012",
+    "107.160.33001",
     "108.130.32913",
     "108.130.32915",
     "108.130.32919",
     "108.130.33012",
+    "108.160.33001",
     "109.130.32913",
     "109.130.32915",
     "109.130.32919",
     "109.130.33012",
+    "109.160.33001",
     "110.130.32913",
     "110.130.32915",
     "110.130.32919",
     "110.130.33012",
+    "110.160.33001",
     "111.130.32913",
     "111.130.32915",
     "111.130.32919",
     "111.130.33012",
+    "111.160.33001",
     "112.130.32913",
     "112.130.32915",
     "112.130.32919",
     "112.130.33012",
+    "112.160.33001",
     "113.130.32913",
     "113.130.32915",
     "113.130.32919",
     "113.130.33012",
+    "113.160.33001",
     "114.130.32913",
     "114.130.32915",
     "114.130.32919",
     "114.130.33012",
+    "114.160.33001",
     "115.130.32913",
     "115.130.32915",
     "115.130.32919",
     "115.130.33012",
+    "115.160.33001",
     "116.130.32913",
     "116.130.32915",
     "116.130.32919",
     "116.130.33012",
+    "116.160.33001",
     "117.130.32913",
     "117.130.32915",
     "117.130.32919",
     "117.130.33012",
+    "117.160.33001",
     "118.130.32913",
     "118.130.32915",
     "118.130.32919",
     "118.130.33012",
+    "118.160.33001",
     "119.130.32913",
     "119.130.32915",
     "119.130.32919",
     "119.130.33012",
+    "119.160.33001",
     "120.130.32913",
     "120.130.32915",
     "120.130.32919",
     "120.130.33012",
+    "120.160.33001",
     "121.130.32913",
     "121.130.32915",
     "121.130.32919",
     "121.130.33012",
+    "121.160.33001",
     "122.130.32913",
     "122.130.32915",
     "122.130.32919",
     "122.130.33012",
+    "122.160.33001",
     "123.130.32913",
     "123.130.32915",
     "123.130.32919",
     "123.130.33012",
+    "123.160.33001",
     "124.130.32913",
     "124.130.32915",
     "124.130.32919",
     "124.130.33012",
+    "124.160.33001",
     "125.130.32913",
     "125.130.32915",
     "125.130.32919",
     "125.130.33012",
+    "125.160.33001",
     "126.130.32913",
     "126.130.32915",
     "126.130.32919",
     "126.130.33012",
+    "126.160.33001",
     "127.130.32913",
     "127.130.32915",
     "127.130.32919",
     "127.130.33012",
+    "127.160.33001",
     "128.130.32913",
     "128.130.32915",
     "128.130.32919",
     "128.130.33012",
+    "128.160.33001",
     "129.130.32913",
     "129.130.32915",
     "129.130.32919",
     "129.130.33012",
+    "129.160.33001",
     "130.130.32913",
     "130.130.32915",
     "130.130.32919",
     "130.130.33012",
+    "130.160.33001",
     "131.130.32913",
     "131.130.32915",
     "131.130.33012",
@@ -168,6 +198,7 @@
     "2.130.32915",
     "2.130.32919",
     "2.130.33012",
+    "2.160.33001",
     "3.130.32913",
     "3.130.32915",
     "3.130.32919",
@@ -333,21 +364,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "101.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 101,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "101.160.33044": {
       "data_type": "float",
       "endpoint_id": 101,
@@ -379,21 +395,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "102.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 102,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "102.160.33044": {
       "data_type": "float",
@@ -427,21 +428,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "103.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 103,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "103.160.33044": {
       "data_type": "float",
       "endpoint_id": 103,
@@ -473,21 +459,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "104.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 104,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "104.160.33044": {
       "data_type": "float",
@@ -521,21 +492,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "105.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 105,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "105.160.33044": {
       "data_type": "float",
       "endpoint_id": 105,
@@ -567,21 +523,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "106.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 106,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "106.160.33044": {
       "data_type": "float",
@@ -615,21 +556,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "107.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 107,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "107.160.33044": {
       "data_type": "float",
       "endpoint_id": 107,
@@ -661,21 +587,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "108.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 108,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "108.160.33044": {
       "data_type": "float",
@@ -709,21 +620,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "109.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 109,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "109.160.33044": {
       "data_type": "float",
       "endpoint_id": 109,
@@ -755,21 +651,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "110.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 110,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "110.160.33044": {
       "data_type": "float",
@@ -803,21 +684,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "111.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 111,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "111.160.33044": {
       "data_type": "float",
       "endpoint_id": 111,
@@ -849,21 +715,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "112.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 112,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "112.160.33044": {
       "data_type": "float",
@@ -897,21 +748,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "113.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 113,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "113.160.33044": {
       "data_type": "float",
       "endpoint_id": 113,
@@ -943,21 +779,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "114.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 114,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "114.160.33044": {
       "data_type": "float",
@@ -991,21 +812,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "115.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 115,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "115.160.33044": {
       "data_type": "float",
       "endpoint_id": 115,
@@ -1037,21 +843,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "116.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 116,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "116.160.33044": {
       "data_type": "float",
@@ -1085,21 +876,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "117.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 117,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "117.160.33044": {
       "data_type": "float",
       "endpoint_id": 117,
@@ -1131,21 +907,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "118.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 118,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "118.160.33044": {
       "data_type": "float",
@@ -1179,21 +940,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "119.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 119,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "119.160.33044": {
       "data_type": "float",
       "endpoint_id": 119,
@@ -1225,21 +971,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "120.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 120,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "120.160.33044": {
       "data_type": "float",
@@ -1273,21 +1004,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "121.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 121,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "121.160.33044": {
       "data_type": "float",
       "endpoint_id": 121,
@@ -1319,21 +1035,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "122.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 122,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "122.160.33044": {
       "data_type": "float",
@@ -1367,21 +1068,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "123.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 123,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "123.160.33044": {
       "data_type": "float",
       "endpoint_id": 123,
@@ -1413,21 +1099,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "124.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 124,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "124.160.33044": {
       "data_type": "float",
@@ -1461,21 +1132,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "125.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 125,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "125.160.33044": {
       "data_type": "float",
       "endpoint_id": 125,
@@ -1507,21 +1163,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "126.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 126,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "126.160.33044": {
       "data_type": "float",
@@ -1555,21 +1196,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "127.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 127,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "127.160.33044": {
       "data_type": "float",
       "endpoint_id": 127,
@@ -1601,21 +1227,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "128.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 128,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "128.160.33044": {
       "data_type": "float",
@@ -1649,21 +1260,6 @@
       "subscribable": true,
       "trait_code": "Occupancy"
     },
-    "129.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 129,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
-    },
     "129.160.33044": {
       "data_type": "float",
       "endpoint_id": 129,
@@ -1695,21 +1291,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "130.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 130,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "130.160.33044": {
       "data_type": "float",
@@ -1766,21 +1347,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "2.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 2,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "2.160.33044": {
       "data_type": "float",

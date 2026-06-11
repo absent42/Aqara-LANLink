@@ -71,6 +71,24 @@ DROP_CAMERA_TRAITS: frozenset[str] = frozenset({
     "CameraRTSPURL",
 })
 
+# Generic (function_code, trait_code) drops that aren't scoped to a single
+# function's dedicated set above. Checked before BUTTON/DIAGNOSTIC.
+DROP_TRAITS: frozenset[tuple[str, str]] = frozenset({
+    # OccupancySensorType (enum: PIR / Ultrasonic / fusion / PhysicalContact)
+    # is the generic ZCL OccupancySensing descriptor attribute (0x0001),
+    # inherited per-endpoint from the cluster template. Aqara's V3 spec
+    # propagates it onto ~28 models -- including device classes with no
+    # occupancy sensing at all (cameras, switches, a lock) -- so it's largely
+    # template bleed. Over the LANLink transport the write is a confirmed
+    # no-op: on agl8 (FP300, genuine PIR+mmWave fusion) writing '1' then '2'
+    # both return result:None with no actuation and no readback, and the
+    # device only ever reports Occupancy (33000), never the sensor type
+    # (33001). Dropped catalogue-wide so it stops rendering a phantom
+    # writable select. The real occupancy state (OccupancySensing/Occupancy)
+    # is unaffected.
+    ("OccupancySensing", "OccupancySensorType"),
+})
+
 # Diagnostic-category, default-disabled entities. The trait still ships
 # in data.json and an entity is created, but it's hidden by default and
 # carries entity_category="diagnostic".
@@ -116,13 +134,14 @@ FORCE_READONLY_TRAITS: frozenset[tuple[str, str]] = frozenset({
 # or NumberDescriptor (for numerics) instead of a read-only Sensor.
 # Truth-of-record for each entry is either a working Z2M converter or
 # an empirical capture from the Aqara app -- not the cloud spec.
-FORCE_WRITABLE_TRAITS: frozenset[tuple[str, str]] = frozenset({
-    # OccupancySensorType (PIR / Ultrasonic / fusion / contact) on FP1/
-    # FP2/agl8 motion sensors. Z2M converter (authored by @absent42)
-    # writes this attribute and the Aqara app exposes a sensor-type
-    # picker. Cloud spec under-declares.
-    ("OccupancySensing", "OccupancySensorType"),
-})
+#
+# OccupancySensorType was previously forced writable here on the strength
+# of a Z2M converter + Aqara app picker, but live LANLink captures show the
+# local res/write is a no-op (result:None) even on the fusion sensors, so
+# it now lives in DROP_TRAITS instead. The Z2M path is direct Zigbee, a
+# different transport; if cloud-rid writes ever prove out, re-introduce it
+# routed through the cloud composer rather than as a local wire-path write.
+FORCE_WRITABLE_TRAITS: frozenset[tuple[str, str]] = frozenset()
 
 # Traits rendered as Button entities (press-to-trigger). Maps
 # (function_code, trait_code) -> press_value to write on press.
@@ -163,6 +182,8 @@ def classify_trait(
     if function_code == "NetworkCommissioning" and trait_code in DROP_NETWORK_COMMISSIONING_TRAITS:
         return "drop"
     if function_code == "Camera" and trait_code in DROP_CAMERA_TRAITS:
+        return "drop"
+    if (function_code, trait_code) in DROP_TRAITS:
         return "drop"
     if (function_code, trait_code) in BUTTON_TRAITS:
         return "button"

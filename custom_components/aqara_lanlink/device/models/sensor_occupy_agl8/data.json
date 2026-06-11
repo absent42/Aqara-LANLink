@@ -44,6 +44,7 @@
     "2.130.32915",
     "2.130.32919",
     "2.130.33012",
+    "2.160.33001",
     "4.130.32913",
     "4.130.32915",
     "4.130.32919",
@@ -97,21 +98,6 @@
       "name": "Occupancy",
       "subscribable": true,
       "trait_code": "Occupancy"
-    },
-    "2.160.33001": {
-      "data_type": "enum",
-      "endpoint_id": 2,
-      "enum_values": {
-        "0": "PIR",
-        "1": "Ultrasonic",
-        "2": "PIR and ultrasonic",
-        "3": "Physical contact"
-      },
-      "function_code": "OccupancySensing",
-      "name": "Occupancy sensor type",
-      "subscribable": true,
-      "trait_code": "OccupancySensorType",
-      "writable": true
     },
     "4.143.32952": {
       "data_type": "float",
