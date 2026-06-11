@@ -169,3 +169,38 @@ def test_videodoorbell_endpoint_honors_platform_override(caplog):
     assert len(forced) == 1
     assert isinstance(forced[0], SensorDescriptor)
     assert "ignored" not in caplog.text.lower()
+
+
+def _occ(ep: int) -> TraitSpec:
+    wp = f"{ep}.160.33000"
+    return TraitSpec(
+        id=wp, wire_path=wp, function_code="OccupancySensing",
+        trait_code="Occupancy", name="Occupancy", data_type="bool",
+        readable=True, subscribable=True, endpoint_id=ep,
+    )
+
+
+def test_disambiguates_occupancy_zones_and_disables_them():
+    """Multi-zone occupancy: the low-endpoint catchall keeps its bare name and
+    stays enabled; the >=100 zone endpoints get a '(zone N)' suffix and are
+    disabled. A unique high-endpoint sensor (heart rate) is left untouched."""
+    heart = TraitSpec(
+        id="131.225.20232", wire_path="131.225.20232",
+        function_code="HeartMonitoring", trait_code="HeartRate",
+        name="Heart rate", data_type="int", subscribable=True, endpoint_id=131,
+    )
+    endpoints = {
+        2: {"deviceType": "OccupancySensor"},
+        101: {"deviceType": "OccupancySensor"},
+        102: {"deviceType": "OccupancySensor"},
+        131: {},  # no deviceType -> fallback sensor, no warning
+    }
+    traits = {t.id: t for t in (_occ(2), _occ(101), _occ(102), heart)}
+    descs = classify_v3("lumi.motion.agl001", endpoints, traits)
+    by_name = {d.name: d for d in descs}
+
+    assert by_name["Occupancy"].entity_registry_enabled_default is True
+    assert by_name["Occupancy (zone 1)"].entity_registry_enabled_default is False
+    assert by_name["Occupancy (zone 2)"].entity_registry_enabled_default is False
+    # Unique high-endpoint sensor is not a zone -> name + default untouched.
+    assert by_name["Heart rate"].entity_registry_enabled_default is True

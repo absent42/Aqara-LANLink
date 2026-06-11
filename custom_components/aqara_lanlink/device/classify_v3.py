@@ -18,6 +18,7 @@ from collections import defaultdict
 from .descriptors import AnyDescriptor
 from .device_types import _base, _COMPOSERS, _fallback, get_composer
 from .device_types._build import build_descriptor
+from .naming import disambiguate_names
 from .traits import TraitSpec
 
 _LOGGER = logging.getLogger(__name__)
@@ -68,7 +69,10 @@ def classify_v3(
         )
         out.extend(forced_descriptors)
         out.extend(composer(endpoint_id=ep_id, traits=ep_traits, context=context))
-    return out
+    # Whole-device pass: differentiate entities that would otherwise share a
+    # friendly name across endpoints (occupancy zones, switch gangs, light
+    # channels). Runs here because this is the only point with all endpoints.
+    return disambiguate_names(out)
 
 
 def _select_composer(device_type: str | None, model: str, ep_id: int) -> _base.Composer:
