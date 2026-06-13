@@ -22,6 +22,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import instance_id
 from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_time_interval
@@ -38,6 +39,7 @@ from .const import (
     DEFAULT_HUB_MODEL,
     DEFAULT_HUB_PORT,
     DOMAIN,
+    PHONE_ID_NAMESPACE,
     PLATFORMS,
     PUSH_STALL_TTL_SECONDS,
 )
@@ -249,22 +251,37 @@ async def _run_cloud_call_with_reauth(
     return False
 
 
-def _ensure_phone_id(hass: HomeAssistant, entry: ConfigEntry) -> str:
-    """Return the entry's stable cloud PhoneId, generating+persisting if absent.
+async def _ensure_phone_id(hass: HomeAssistant, entry: ConfigEntry) -> str:
+    """Return a stable per-Home-Assistant-install cloud PhoneId.
 
-    Aqara namespaces push-subscription state by (user, PhoneId). A PhoneId that
-    changes per request/reload orphans every subscription on the hub and lets
-    dead ``policy_resset`` entries accumulate. Persisting one value per install
-    in ``entry.data`` keeps the subscription identity stable across reloads.
-    Runs at setup so both new and pre-existing entries are covered uniformly.
+    Aqara namespaces push-subscription/relay state on the hub by (user, PhoneId),
+    and that state is persisted on the hub and never pruned in-band -- only a hub
+    factory reset clears it (see docs/dev/tunnel-resilience-report.md section 8).
+    A PhoneId that changes mints a fresh hub "subject" whose old subscription/
+    relay rows are orphaned, so they accumulate until the hub stops forwarding
+    reports.
+
+    The official app uses ONE durable PhoneId per phone, reused across every hub
+    (confirmed from mitmproxy captures). We mirror that by deriving a single value
+    from Home Assistant's installation id, so it is:
+
+    - stable across config-entry reloads AND re-adds (the install id lives in
+      ``.storage``, independent of the entry lifecycle -- the previous per-entry
+      random value was lost on every re-add),
+    - identical across every hub entry on this install (one "device", many hubs),
+    - distinct from other HA installs / phones on the same account (so multiple
+      controllers do not collide on one hub subject).
+
+    The derived value is written through to ``entry.data`` so diagnostics and
+    other readers still see it; the source of truth is the install id, so any
+    stale per-entry value is overwritten.
     """
-    existing = entry.data.get(CONF_PHONE_ID)
-    if existing:
-        return existing
-    phone_id = str(uuid.uuid4()).upper()
-    hass.config_entries.async_update_entry(
-        entry, data={**entry.data, CONF_PHONE_ID: phone_id},
-    )
+    install = await instance_id.async_get(hass)
+    phone_id = str(uuid.uuid5(uuid.UUID(PHONE_ID_NAMESPACE), install)).upper()
+    if entry.data.get(CONF_PHONE_ID) != phone_id:
+        hass.config_entries.async_update_entry(
+            entry, data={**entry.data, CONF_PHONE_ID: phone_id},
+        )
     return phone_id
 
 
@@ -358,6 +375,13 @@ async def _watchdog_tick(
         if data.stall_rearm_count:
             data.stall_rearm_count = 0
             ir.async_delete_issue(hass, DOMAIN, issue_id)
+        return
+    # Cap: once we have escalated to a Repair, stop re-arming. A wedged hub does
+    # not honor re-subscribes -- its relay table is persistent and only a factory
+    # reset clears it (docs/dev/tunnel-resilience-report.md section 8) -- so
+    # further re-arms are pointless cloud load. The escalation self-clears (above)
+    # the moment reports resume, which restores the re-arm budget.
+    if data.stall_rearm_count >= STALL_REARM_REPAIR_THRESHOLD:
         return
     # Cooldown: a single re-arm needs time to take effect (and produce a report);
     # don't hammer the cloud every keepalive while a hub stays wedged.
@@ -565,7 +589,7 @@ async def async_setup_entry(
         cloud = AqaraCloudClient(
             region=region,
             session=async_get_clientsession(hass),
-            phone_id=_ensure_phone_id(hass, entry),
+            phone_id=await _ensure_phone_id(hass, entry),
         )
         coordinator.cloud_client = cloud
 

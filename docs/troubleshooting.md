@@ -101,13 +101,36 @@ the hub appearing connected.
 three times (roughly 15 minutes of silence) without receiving any reports from
 a hub that has a non-empty topology. The hub's forwarding is wedged.
 
+The hub stores its push relay/subscription table in persistent storage that
+survives reboots and reconnects. If that table accumulates a large number of
+stale entries, the hub keeps accepting tunnel connections and keeps sending
+keepalives and topology pushes but stops forwarding device reports. Re-arming
+the subscription (which the integration does automatically) does not clear the
+stale entries, so the wedge can persist across both HA restarts and hub
+reboots.
+
 **Resolution:**
 
-1. Reboot the Aqara hub from the Aqara app or by cycling its power.
-2. After reboot, confirm that "LAN Control" is enabled in the hub's app
-   settings. A firmware update or factory-reset can disable it.
-3. Once reports resume, the integration clears the Repair issue automatically.
+1. First confirm that "LAN Control" is enabled in the hub's app settings. A
+   firmware update can disable it, which produces the same "no updates"
+   symptom.
+2. Reboot the Aqara hub from the Aqara app or by cycling its power, then wait a
+   couple of minutes for it to re-deliver topology.
+3. If reports still do not resume after a reboot, the hub's relay table is
+   wedged with stale entries. A reboot does not clear it because the table is
+   persisted. A **factory reset of the hub** is the only reliable way to clear
+   the table; re-pair the hub and its sub-devices afterwards.
+4. Once reports resume, the integration clears the Repair issue automatically.
    No manual dismissal is required.
+
+**What accumulates the stale entries:** in normal use this is rare -- the table
+is bounded by the set of devices you actually use. It builds up fastest under
+repeated connect/disconnect churn against the same hub: removing and re-adding
+the integration many times, or repeatedly triggering standalone-device relay
+activation (for example, FP2 activation testing during development). If you are
+doing that kind of repeated activation/reconnect testing, expect to need an
+occasional hub factory reset to clear accumulated relay state. See the
+developer notes for detail.
 
 ---
 
