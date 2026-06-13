@@ -42,6 +42,11 @@ CONF_AQARA_TOKEN = "aqara_token"
 # namespaces push-subscription state by (user, PhoneId); persisting one value
 # keeps the hub's subscription stable across reloads instead of orphaning it.
 CONF_PHONE_ID = "phone_id"
+# Fixed namespace UUID for deriving the PhoneId from Home Assistant's install id
+# (uuid5). The official app uses ONE durable PhoneId per phone, reused across all
+# hubs (confirmed from mitmproxy captures); we mirror that per HA install. The
+# namespace value is arbitrary -- it only needs to be constant forever.
+PHONE_ID_NAMESPACE = "a3f5c9d2-7b1e-4a6c-8f0d-2e9b4c6a1d3f"
 
 # Subentry data keys (device subentry)
 CONF_DEVICE_DID = "did"

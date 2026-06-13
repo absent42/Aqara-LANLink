@@ -365,28 +365,57 @@ async def test_setup_entry_persists_and_uses_stable_phone_id(hass, patch_clients
 
 
 @pytest.mark.asyncio
-async def test_setup_entry_reuses_existing_phone_id(hass, patch_clientsession) -> None:
-    """An entry that already carries a PhoneId keeps it unchanged across setup."""
+async def test_phone_id_derived_from_instance_id(hass) -> None:
+    """The PhoneId is deterministically derived from the HA install id (uuid5),
+    matching the app's one-durable-PhoneId-per-device model."""
+    import uuid as _uuid
+
+    from homeassistant.helpers import instance_id as _iid
+
+    from custom_components.aqara_lanlink import _ensure_phone_id
+    from custom_components.aqara_lanlink.const import PHONE_ID_NAMESPACE
+
+    entry = _hub_entry(hass)
+    install = await _iid.async_get(hass)
+    expected = str(_uuid.uuid5(_uuid.UUID(PHONE_ID_NAMESPACE), install)).upper()
+
+    assert await _ensure_phone_id(hass, entry) == expected
+    # Written through to entry.data so diagnostics/readers see it.
+    assert entry.data[CONF_PHONE_ID] == expected
+
+
+@pytest.mark.asyncio
+async def test_phone_id_shared_across_entries_and_stable_across_readd(hass) -> None:
+    """One install -> one PhoneId: identical across two hub entries, and a
+    re-add (fresh entry, no stored PhoneId) yields the same value because the
+    HA install id is durable."""
+    from custom_components.aqara_lanlink import _ensure_phone_id
+
+    entry_a = _hub_entry(hass)
+    entry_b = _hub_entry(hass)
+    pid_a = await _ensure_phone_id(hass, entry_a)
+    pid_b = await _ensure_phone_id(hass, entry_b)
+    assert pid_a == pid_b  # shared across all hub entries on this install
+
+    # Simulate a re-add: a brand-new entry with no CONF_PHONE_ID.
+    readded = _hub_entry(hass)
+    assert CONF_PHONE_ID not in readded.data
+    assert await _ensure_phone_id(hass, readded) == pid_a  # stable across re-add
+
+
+@pytest.mark.asyncio
+async def test_phone_id_overrides_stale_per_entry_value(hass) -> None:
+    """A pre-existing per-entry random PhoneId (the old behaviour) is REPLACED by
+    the instance-derived value -- the per-entry scope was the buildup vector."""
+    from custom_components.aqara_lanlink import _ensure_phone_id
+
     entry = _hub_entry(hass)
     hass.config_entries.async_update_entry(
-        entry, data={**entry.data, CONF_PHONE_ID: "EXISTING-PHONE-ID"}
+        entry, data={**entry.data, CONF_PHONE_ID: "STALE-RANDOM-PER-ENTRY"}
     )
-    _attach_subentries(entry, {})
-
-    coord = _make_coordinator_mock()
-
-    with patch(
-        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
-    ), patch(
-        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=MagicMock(),
-    ) as client_cls, patch.object(
-        hass.config_entries, "async_forward_entry_setups",
-        new=AsyncMock(return_value=True),
-    ):
-        await async_setup_entry(hass, entry)
-
-    assert entry.data[CONF_PHONE_ID] == "EXISTING-PHONE-ID"
-    assert client_cls.call_args.kwargs["phone_id"] == "EXISTING-PHONE-ID"
+    pid = await _ensure_phone_id(hass, entry)
+    assert pid != "STALE-RANDOM-PER-ENTRY"
+    assert entry.data[CONF_PHONE_ID] == pid
 
 
 @pytest.mark.asyncio
@@ -1023,6 +1052,73 @@ async def test_persistent_stall_repair_lifecycle(
         coord.seconds_since_last_report = lambda: 5.0
         await _watchdog_tick(hass, entry)
         mock_delete.assert_called()
+    await hass.async_block_till_done()
+
+
+@pytest.mark.asyncio
+async def test_watchdog_stops_rearming_after_repair_threshold(
+    hass, patch_clientsession, monkeypatch,
+) -> None:
+    """Once the push_stalled Repair is raised, the watchdog stops re-arming a
+    still-wedged hub. Re-subscribing a wedged hub is proven useless (the hub's
+    relay table is persistent; only a factory reset clears it), so further
+    re-arms are pointless cloud load. It resumes only when reports recover."""
+    from custom_components.aqara_lanlink import (
+        PUSH_STALL_TTL_SECONDS,
+        STALL_REARM_REPAIR_THRESHOLD,
+        _watchdog_tick,
+    )
+
+    entry = _hub_entry(hass)
+    sub = _make_subentry(
+        subentry_id="s", did="lumi1.FP2", model="lumi.motion.agl001",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+
+    coord = _make_coordinator_mock()
+    coord.lanlink_topology_dids = frozenset({"lumi1.FP2"})
+    coord.connected = True
+    coord.seconds_since_last_report = lambda: 9999.0  # permanently stalled
+
+    fake_cloud = MagicMock()
+    fake_cloud.query_device_traits = AsyncMock(return_value=[])
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=fake_cloud,
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ):
+        await async_setup_entry(hass, entry)
+
+    clock = [1000.0]
+    monkeypatch.setattr(
+        "custom_components.aqara_lanlink.time.monotonic", lambda: clock[0],
+    )
+    with patch("custom_components.aqara_lanlink.ir.async_create_issue"):
+        # Re-arm up to the escalation threshold (one re-arm per cooldown).
+        for _ in range(STALL_REARM_REPAIR_THRESHOLD):
+            clock[0] += PUSH_STALL_TTL_SECONDS + 1
+            await _watchdog_tick(hass, entry)
+        capped = fake_cloud.query_device_traits.await_count
+        assert capped > 0  # it did re-arm up to the threshold
+
+        # Further stalled ticks past the cooldown must NOT re-arm any more.
+        for _ in range(3):
+            clock[0] += PUSH_STALL_TTL_SECONDS + 1
+            await _watchdog_tick(hass, entry)
+        assert fake_cloud.query_device_traits.await_count == capped
+
+        # Reports recover -> stall cleared -> watchdog re-arms again next stall.
+        coord.seconds_since_last_report = lambda: 5.0
+        with patch("custom_components.aqara_lanlink.ir.async_delete_issue"):
+            await _watchdog_tick(hass, entry)  # not stalled: resets counter
+        coord.seconds_since_last_report = lambda: 9999.0
+        clock[0] += PUSH_STALL_TTL_SECONDS + 1
+        await _watchdog_tick(hass, entry)
+        assert fake_cloud.query_device_traits.await_count > capped
     await hass.async_block_till_done()
 
 

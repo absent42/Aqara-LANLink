@@ -208,7 +208,7 @@
     "issues": {
         "push_stalled": {
             "title": "Aqara hub stopped sending updates",
-            "description": "The hub is connected but has stopped forwarding device updates over the local tunnel, and repeated automatic recovery attempts have not helped. Try rebooting the hub. If it persists, check that \"LAN Control\" is enabled for this hub in the Aqara app."
+            "description": "The hub is connected but has stopped forwarding device updates over the local tunnel, and repeated automatic recovery attempts have not helped. First check that \"LAN Control\" is enabled for this hub in the Aqara app. The hub keeps its push-relay table in persistent storage that survives reboots, so if rebooting the hub does not restore updates, a factory reset of the hub is the only reliable fix (re-pair the hub and its devices afterwards)."
         },
         "candidate_paths": {
             "title": "New device capabilities observed",
