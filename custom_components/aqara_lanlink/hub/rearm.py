@@ -29,7 +29,7 @@ from collections.abc import Callable
 from typing import Any
 
 from ..const import CONF_ACTIVATION_HOST, CONF_ACTIVATION_PORT
-from .activation import ACTIVATION_PORT, activate_relay, validate_aqara_endpoint
+from .activation import ACTIVATION_PORT, activate_relay
 from .mdns import discover_hub_by_did
 
 _LOGGER = logging.getLogger(__name__)
@@ -176,22 +176,27 @@ class RearmManager:
                 host = rec.host if rec else stored_host
                 port = stored_port
 
-                reachable = await validate_aqara_endpoint(host, port)
+                # Poke directly -- do NOT probe :443 first. A separate :443
+                # connection moments before the poke poisons the device's
+                # activation window, so the hub never adopts it (proven via
+                # controlled A/B: validate-then-poke never adopts; a clean poke
+                # adopts in seconds). activate_relay is best-effort: if the
+                # device is still offline (booting after a power-cycle) the
+                # connect simply fails and we back off and retry below.
+                self._last_activation[did] = self._clock()
                 _LOGGER.info(
-                    "rearm: %s attempt %d/%d host=%s reachable=%s",
-                    did, round_index + 1, self._max_rounds, host, reachable,
+                    "rearm: %s attempt %d/%d host=%s (poking)",
+                    did, round_index + 1, self._max_rounds, host,
                 )
-                if reachable:
-                    self._last_activation[did] = self._clock()
-                    await activate_relay(host, did, port)
-                    if await self._wait_for_topology(did):
-                        _LOGGER.info(
-                            "rearm: %s rejoined LANLink topology after activation",
-                            did,
-                        )
-                        return
+                await activate_relay(host, did, port)
+                if await self._wait_for_topology(did):
+                    _LOGGER.info(
+                        "rearm: %s rejoined LANLink topology after activation",
+                        did,
+                    )
+                    return
 
-                # Not reachable, or activated but never settled -- back off.
+                # Activated but never settled (or device offline) -- back off.
                 delay = self._backoffs[min(round_index, len(self._backoffs) - 1)]
                 await asyncio.sleep(delay)
 

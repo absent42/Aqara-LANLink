@@ -58,38 +58,10 @@ async def activate_relay(host: str, did: str, port: int = ACTIVATION_PORT) -> No
             pass
 
 
-async def validate_aqara_endpoint(host: str, port: int = ACTIVATION_PORT, timeout: float = 5.0) -> bool:
-    """True iff host:port presents an Aqara TLS service (cert names contain aqaralife.kr)."""
-    try:
-        reader, writer = await asyncio.wait_for(
-            asyncio.open_connection(host, port, ssl=activation_tls_context(), server_hostname=host),
-            timeout,
-        )
-    except Exception as exc:  # noqa: BLE001
-        _LOGGER.debug("validate_aqara_endpoint: %s:%d connect failed: %r", host, port, exc)
-        return False
-    try:
-        sslobj = writer.get_extra_info("ssl_object")
-        der = sslobj.getpeercert(binary_form=True) if sslobj else None
-        return bool(der) and _cert_is_aqara(der)
-    finally:
-        writer.close()
-        try:
-            await writer.wait_closed()
-        except Exception:  # noqa: BLE001
-            pass
-
-
-def _cert_is_aqara(der: bytes) -> bool:
-    from cryptography import x509
-    try:
-        cert = x509.load_der_x509_certificate(der)
-    except Exception:  # noqa: BLE001
-        return False
-    text = cert.subject.rfc4514_string()
-    try:
-        san = cert.extensions.get_extension_for_class(x509.SubjectAlternativeName).value
-        text += " " + " ".join(san.get_values_for_type(x509.DNSName))
-    except x509.ExtensionNotFound:
-        pass
-    return "aqaralife.kr" in text
+# NB: there is deliberately no ":443 reachability/cert probe" helper here. The
+# firmware ignores an activation poke that arrives shortly after another :443
+# connection, so probing the endpoint before poking it breaks activation (the
+# hub never adopts the device). The poke is the only :443 connection the
+# activation path makes, and it doubles as the reachability check -- a
+# still-booting device simply fails the connect and re-arm retries. See
+# docs/dev/FP2_ACTIVATION_FINDINGS.md.

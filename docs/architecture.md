@@ -32,6 +32,8 @@ Adding a hub proceeds through these steps:
 
 Adding individual devices uses a separate subentry flow (`pick_device`). The flow queries the cloud for the hub's sub-device list, classifies each device as supported or unsupported, and presents a picker. If a selected device's model is not yet in the catalogue, the flow routes through a `bootstrap_review` step that performs a cloud scan and lets the user accept traits into the per-install overlay before the subentry is committed.
 
+The picker also offers **standalone Wi-Fi devices** (cloud devicetype 8, e.g. the Aqara FP2) that are bound to the account but not yet relayed by the hub. These are matched from the cloud device list against on-LAN mDNS discovery and shown labelled "needs activation"; a manual-IP fallback (`manual_activate`) lets the user type a device's LAN IP when mDNS misses it. When such a device is added it is *activated* (see section 3) so the hub begins relaying it over the existing LANLink tunnel, and its activation endpoint (host/port) is persisted on the subentry for later re-arming.
+
 ### What is cached on disk
 
 When a subentry is created it stores `did`, `model`, and `_cloud_metadata` (the raw cloud device record). It does not store trait metadata. The entity set is reconstructed at every startup by running `build_descriptors` against the shipped `data.json` catalogue (plus `overrides.py` and the per-install overlay); no cloud call is needed for that step. The cloud is consulted on every startup to re-arm the push subscription, seed current trait values, and fetch light effects (see section 3).
@@ -64,6 +66,14 @@ The hub's push subscription is per-tunnel-connection: it is lost on every reconn
 ### Topology
 
 The hub periodically pushes a topology frame listing the DIDs of all reachable sub-devices. The coordinator exposes the current set as `lanlink_topology_dids`. The integration uses topology-growth events to trigger subscription re-arming: the hub forwards nothing until its mesh is ready, and a cold-start subscribe issued before topology is populated would produce no pushes.
+
+### Standalone Wi-Fi device activation
+
+A standalone Wi-Fi device (e.g. the FP2) is bound to the hub's account but is not relayed over LANLink until a controller *activates* it: open TLS to the device's local `:443` service and send a single LANLink handshake frame. The hub then adopts the device into its relay cluster -- it appears in the topology push and its trait reports flow over the existing tunnel like any sub-device, with no cloud round-trip in steady state. The handshake itself is expected to reset; sending the frame is the trigger and the response is irrelevant, so activation is best-effort and never raises.
+
+The poke must reach a *quiescent* device: the firmware ignores an activation poke that arrives shortly after another `:443` connection to the device. The integration therefore must not probe the device's `:443` port (for example a TLS reachability/cert check) immediately before poking it -- the poke itself is the only `:443` connection the activation path makes, and it doubles as the reachability check (a still-booting device simply fails the connect and is retried).
+
+Activation is not durable across a hub reboot or a device power-cycle; either drops the device from the topology. `RearmManager` watches topology pushes and re-pokes a configured standalone device when it falls out of the relay cluster, using an absence debounce and a per-device cooldown (repeated pokes can themselves destabilise the relay) plus a periodic sweep for the case where a returning device emits no topology push.
 
 ### Reconnect and the push-liveness watchdog
 

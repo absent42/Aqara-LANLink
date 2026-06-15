@@ -2,12 +2,16 @@
 
 A standalone device (the FP2) is relayed by the hub only after we "activate"
 it (TLS handshake to its :443). A hub reboot or device power-cycle drops it from
-the hub's LANLink topology; the device may be OFFLINE while booting, so
-re-activation must RETRY until reachable, and a periodic sweep covers the case
-where no topology push arrives when it returns.
+the hub's LANLink topology; the device may be OFFLINE while booting, so re-arm
+pokes each round and retries (with backoff) until the device rejoins topology,
+and a periodic sweep covers the case where no topology push arrives when it
+returns.
 
-The network is never touched: activate_relay / validate_aqara_endpoint /
-discover_hub_by_did are patched in the rearm module namespace.
+Re-arm pokes the device DIRECTLY -- it does NOT probe :443 first. A separate
+:443 connection moments before the poke poisons the device's activation window
+so the hub never adopts it (proven via controlled A/B). The network is never
+touched in these tests: activate_relay / discover_hub_by_did are patched in the
+rearm module namespace.
 """
 
 from __future__ import annotations
@@ -50,12 +54,13 @@ def _make_entry(hub: _FakeHub, *, activated: bool = True) -> SimpleNamespace:
     )
 
 
-def _patch_relay(monkeypatch, *, validate, topology_after=None, hub=None):
-    """Patch the three network entry points in the rearm namespace.
+def _patch_relay(monkeypatch, *, topology_after=None, hub=None):
+    """Patch the network entry points in the rearm namespace.
 
-    ``validate`` is the return value (or side_effect list) for
-    validate_aqara_endpoint. When ``topology_after`` and ``hub`` are given,
-    a successful activate_relay flips the hub topology to ``topology_after``.
+    activate_relay is now the only activation call (no pre-poke reachability
+    probe). When ``topology_after`` and ``hub`` are given, a successful
+    activate_relay flips the hub topology to ``topology_after`` so the
+    subsequent ``_wait_for_topology`` sees the device rejoin.
     """
     activate = AsyncMock()
     if topology_after is not None and hub is not None:
@@ -63,18 +68,11 @@ def _patch_relay(monkeypatch, *, validate, topology_after=None, hub=None):
             hub.lanlink_topology_dids = topology_after
         activate.side_effect = _activate
 
-    validate_mock = AsyncMock()
-    if isinstance(validate, list):
-        validate_mock.side_effect = validate
-    else:
-        validate_mock.return_value = validate
-
     discover = AsyncMock(return_value=None)
 
     monkeypatch.setattr(rearm, "activate_relay", activate)
-    monkeypatch.setattr(rearm, "validate_aqara_endpoint", validate_mock)
     monkeypatch.setattr(rearm, "discover_hub_by_did", discover)
-    return activate, validate_mock, discover
+    return activate, discover
 
 
 def _manager(hass, entry, **kw) -> RearmManager:
@@ -99,24 +97,18 @@ async def test_note_topology_absent_device_schedules_one_rearm(hass, monkeypatch
     hub = _FakeHub(frozenset())
     entry = _make_entry(hub)
 
-    # Gate validate so the first task is provably still in-flight when the
-    # second note_topology arrives (proves idempotency, not a timing race).
+    # Gate activate_relay (the poke) so the first task is provably still
+    # in-flight when the second note_topology arrives (proves idempotency, not a
+    # timing race).
     gate = asyncio.Event()
 
-    async def _gated_validate(host, port):  # noqa: ANN001
+    async def _gated_activate(host, did, port):  # noqa: ANN001
         await gate.wait()
-        return True
-
-    activate = AsyncMock()
-
-    async def _activate(host, did, port):  # noqa: ANN001
         hub.lanlink_topology_dids = frozenset({FP2_DID})
-    activate.side_effect = _activate
+
+    activate = AsyncMock(side_effect=_gated_activate)
 
     monkeypatch.setattr(rearm, "activate_relay", activate)
-    monkeypatch.setattr(
-        rearm, "validate_aqara_endpoint", AsyncMock(side_effect=_gated_validate),
-    )
     monkeypatch.setattr(rearm, "discover_hub_by_did", AsyncMock(return_value=None))
     manager = _manager(hass, entry)
 
@@ -135,7 +127,7 @@ async def test_note_topology_absent_device_schedules_one_rearm(hass, monkeypatch
 async def test_note_topology_present_device_no_rearm(hass, monkeypatch):
     hub = _FakeHub(frozenset({FP2_DID}))
     entry = _make_entry(hub)
-    activate, _validate, _ = _patch_relay(monkeypatch, validate=True)
+    activate, _ = _patch_relay(monkeypatch)
     manager = _manager(hass, entry)
 
     manager.note_topology(frozenset({FP2_DID}))
@@ -145,32 +137,43 @@ async def test_note_topology_present_device_no_rearm(hass, monkeypatch):
     activate.assert_not_awaited()
 
 
-async def test_rearm_retries_until_reachable(hass, monkeypatch):
+async def test_rearm_retries_until_settled(hass, monkeypatch):
+    # No reachability probe anymore: the loop pokes every round and succeeds
+    # once the device rejoins topology. Here the topology flips only on the 3rd
+    # poke, so activate_relay must be called three times.
     hub = _FakeHub(frozenset())
     entry = _make_entry(hub)
-    activate, validate, _ = _patch_relay(
-        monkeypatch, validate=[False, False, True],
-        topology_after=frozenset({FP2_DID}), hub=hub,
-    )
-    manager = _manager(hass, entry)
+
+    calls = {"n": 0}
+
+    async def _activate(host, did, port):  # noqa: ANN001
+        calls["n"] += 1
+        if calls["n"] >= 3:
+            hub.lanlink_topology_dids = frozenset({FP2_DID})
+
+    activate = AsyncMock(side_effect=_activate)
+    monkeypatch.setattr(rearm, "activate_relay", activate)
+    monkeypatch.setattr(rearm, "discover_hub_by_did", AsyncMock(return_value=None))
+    manager = _manager(hass, entry)  # max_rounds=3
 
     manager.note_topology(frozenset())
     await _drain(manager, FP2_DID)
 
-    activate.assert_awaited_once_with(FP2_HOST, FP2_DID, FP2_PORT)
-    assert validate.await_count == 3
+    assert activate.await_count == 3
+    activate.assert_awaited_with(FP2_HOST, FP2_DID, FP2_PORT)
 
 
 async def test_sweep_reactivates_absent_device(hass, monkeypatch):
     hub = _FakeHub(frozenset())
     entry = _make_entry(hub)
-    # First round: device never settles -> task ends after max_rounds.
-    activate, validate, _ = _patch_relay(monkeypatch, validate=False)
+    # Device never settles -> the loop pokes each round and ends after max_rounds.
+    activate, _ = _patch_relay(monkeypatch)
     manager = _manager(hass, entry)
 
     manager.note_topology(frozenset())
     await _drain(manager, FP2_DID)
     assert FP2_DID not in manager._tasks  # task cleaned itself up
+    assert activate.await_count >= 1
 
     # Device is still absent; sweep should schedule a FRESH re-arm.
     manager.sweep()
@@ -185,16 +188,12 @@ async def test_cancel_all_stops_inflight(hass, monkeypatch):
     started = asyncio.Event()
     release = asyncio.Event()
 
-    async def _slow_validate(host, port):  # noqa: ANN001
+    async def _slow_activate(host, did, port):  # noqa: ANN001
         started.set()
         await release.wait()  # block forever until cancelled
-        return True
 
-    activate = AsyncMock()
+    activate = AsyncMock(side_effect=_slow_activate)
     monkeypatch.setattr(rearm, "activate_relay", activate)
-    monkeypatch.setattr(
-        rearm, "validate_aqara_endpoint", AsyncMock(side_effect=_slow_validate),
-    )
     monkeypatch.setattr(rearm, "discover_hub_by_did", AsyncMock(return_value=None))
     manager = _manager(hass, entry)
 
@@ -207,8 +206,6 @@ async def test_cancel_all_stops_inflight(hass, monkeypatch):
     with pytest.raises(asyncio.CancelledError):
         await task
 
-    activate.assert_not_awaited()
-
 
 @pytest.mark.asyncio
 async def test_absence_grace_skips_when_device_returns_during_grace(hass, monkeypatch):
@@ -216,7 +213,7 @@ async def test_absence_grace_skips_when_device_returns_during_grace(hass, monkey
     # absence-grace window, re-arm must NOT activate.
     hub = _FakeHub(frozenset())  # absent
     entry = _make_entry(hub)
-    activate, _validate, _discover = _patch_relay(monkeypatch, validate=True)
+    activate, _discover = _patch_relay(monkeypatch)
     manager = _manager(hass, entry, absence_grace=0.05, rearm_cooldown=0.0)
 
     manager.note_topology(frozenset())          # absent -> start loop (grace begins)
@@ -233,7 +230,7 @@ async def test_cooldown_blocks_reactivation_of_recently_activated_device(hass, m
     # within the cooldown -- repeated :443 handshakes can keep it unstable.
     hub = _FakeHub(frozenset())  # absent
     entry = _make_entry(hub)
-    activate, _validate, _discover = _patch_relay(monkeypatch, validate=True)
+    activate, _discover = _patch_relay(monkeypatch)
     manager = _manager(
         hass, entry, absence_grace=0.0, rearm_cooldown=90.0, clock=lambda: 1000.0,
     )

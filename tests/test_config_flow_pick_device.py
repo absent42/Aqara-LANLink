@@ -421,11 +421,6 @@ class TestStandaloneActivationCandidates:
                 "discover_lan_devices",
                 AsyncMock(return_value=[_fp2_lan_record()]),
             ),
-            patch.object(
-                config_flow_module,
-                "validate_aqara_endpoint",
-                AsyncMock(return_value=True),
-            ),
         ):
             result = await flow.async_step_user()
 
@@ -440,46 +435,6 @@ class TestStandaloneActivationCandidates:
         assert _FP2_DID in offered, "FP2 was not offered in the picker"
         assert "needs activation" in offered[_FP2_DID]
         assert flow._activation_endpoints[_FP2_DID] == (_FP2_HOST, 443)
-
-    async def test_standalone_device_not_offered_when_validate_fails(
-        self, hass,
-    ) -> None:
-        """If the LAN endpoint does not validate as Aqara, the FP2 is not
-        offered and no activation endpoint is recorded.
-        """
-        hub_did = "lumi1.M3HUB"
-        entry = _hub_entry(hass, hub_did=hub_did)
-        stub_hub = SimpleNamespace(lanlink_topology_dids=frozenset({hub_did}))
-        entry.runtime_data = SimpleNamespace(hub=stub_hub)
-        flow = _build_subentry_flow(hass, entry)
-
-        with (
-            patch.object(
-                AqaraDeviceSubentryFlow,
-                "_fetch_device_list",
-                _make_device_list_stub(_fp2_device_list(hub_did)),
-            ),
-            patch.object(
-                config_flow_module,
-                "discover_lan_devices",
-                AsyncMock(return_value=[_fp2_lan_record()]),
-            ),
-            patch.object(
-                config_flow_module,
-                "validate_aqara_endpoint",
-                AsyncMock(return_value=False),
-            ),
-        ):
-            result = await flow.async_step_user()
-
-        schema_keys = {str(k) for k in result["data_schema"].schema}
-        if "device" in schema_keys:
-            schema = result["data_schema"].schema
-            key = next(k for k in schema if str(k) == "device")
-            options = schema[key].config["options"]
-            offered_dids = {opt["value"] for opt in options}
-            assert _FP2_DID not in offered_dids
-        assert flow._activation_endpoints == {}
 
     async def test_standalone_device_in_topology_not_double_offered(
         self, hass,
@@ -507,11 +462,6 @@ class TestStandaloneActivationCandidates:
                 config_flow_module,
                 "discover_lan_devices",
                 AsyncMock(return_value=[_fp2_lan_record()]),
-            ),
-            patch.object(
-                config_flow_module,
-                "validate_aqara_endpoint",
-                AsyncMock(return_value=True),
             ),
         ):
             result = await flow.async_step_user()
@@ -555,11 +505,6 @@ class TestStandaloneActivationCandidates:
                 config_flow_module,
                 "discover_lan_devices",
                 AsyncMock(return_value=[_fp2_lan_record()]),
-            ),
-            patch.object(
-                config_flow_module,
-                "validate_aqara_endpoint",
-                AsyncMock(return_value=True),
             ),
             patch.object(
                 config_flow_module, "activate_relay", activate_mock,

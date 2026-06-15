@@ -46,7 +46,7 @@ from __future__ import annotations
 import asyncio
 import ipaddress
 import logging
-from collections.abc import Mapping
+from collections.abc import Container, Mapping
 from typing import Any
 
 import voluptuous as vol
@@ -87,7 +87,7 @@ from .const import (
 from .device import registry
 from .device.catalog import is_camera_model
 from .host_validation import is_safe_host
-from .hub.activation import ACTIVATION_PORT, activate_relay, validate_aqara_endpoint
+from .hub.activation import ACTIVATION_PORT, activate_relay
 from .hub.cloud_client import (
     AqaraAuthError,
     AqaraCloudClient,
@@ -99,6 +99,16 @@ from .hub.probe import ProbeResult, probe_tunnel_host
 _LOGGER = logging.getLogger(__name__)
 
 _DISCOVERY_TIMEOUT = 3.0
+
+# Per-candidate probe budget for the auto-discovery fan-out. Deliberately
+# tighter than the manual-entry probe (which keeps the full 3s): a real tunnel
+# host completes the credential-free ECDH handshake in well under a second
+# (a healthy M3 measured ~170ms), whereas a non-host that accepts TCP but does
+# not speak LANLink -- e.g. an FP2, which advertises `_aqara-setup` on :29316 --
+# never answers the handshake and would otherwise hang the whole concurrent
+# fan-out for the full window. A real host missed on a pathologically slow
+# network is still reachable via the manual-IP path (which probes at 3s).
+_DISCOVERY_PROBE_TIMEOUT = 1.5
 
 # Cloud device/query "devicetype" field values.
 _CLOUD_DEVICETYPE_HUB = 1   # 1 = hub, 2 = sub-device, 8 = camera
@@ -120,6 +130,31 @@ def _cloud_devicetype(record: dict) -> int | None:
         return int(raw)
     except (TypeError, ValueError):
         return None
+
+
+def _activatable_standalone_did(
+    record: Any, hub_did: str, excluded_dids: Container[str],
+) -> str | None:
+    """Return the DID if ``record`` is an activatable standalone Wi-Fi device.
+
+    Qualifies a cloud device record as a standalone Wi-Fi device (cloud
+    devicetype 8, e.g. the FP2) the hub can be poked into relaying: a real
+    record with a string DID, not the hub, not in ``excluded_dids`` (already
+    added / already a candidate / already in topology), and with no parent.
+    Returns the DID for the caller, or None if it does not qualify. Callers add
+    their own path-specific checks (on-LAN for auto-discovery; a user-supplied
+    reachable IP for manual activation).
+    """
+    if not isinstance(record, dict):
+        return None
+    did = record.get("did")
+    if not isinstance(did, str) or did == hub_did or did in excluded_dids:
+        return None
+    if record.get("parentDeviceId"):
+        return None
+    if _cloud_devicetype(record) != _CLOUD_DEVICETYPE_STANDALONE:
+        return None
+    return did
 
 
 def _topology_dids_for_entry(entry) -> frozenset[str]:
@@ -159,7 +194,12 @@ async def _discover_tunnel_hosts(hass: HomeAssistant) -> dict[str, AqaraServiceR
         return {}
 
     results = await asyncio.gather(
-        *(probe_tunnel_host(r.host, r.port, r.did) for r in records),
+        *(
+            probe_tunnel_host(
+                r.host, r.port, r.did, timeout=_DISCOVERY_PROBE_TIMEOUT,
+            )
+            for r in records
+        ),
     )
     return {
         r.did: r
@@ -1128,19 +1168,12 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
                 entry, errors={"host": "invalid_host"},
             )
 
-        try:
-            ok = await validate_aqara_endpoint(host, ACTIVATION_PORT)
-        except Exception as exc:  # noqa: BLE001 - validation is best-effort
-            _LOGGER.debug(
-                "manual activation: validate %s (%s) raised: %s",
-                did, host, exc,
-            )
-            ok = False
-        if not ok:
-            return await self._render_manual_activate_form(
-                entry, errors={"host": "cannot_connect"},
-            )
-
+        # Do NOT probe :443 to confirm the endpoint here. A bare-TLS connection
+        # moments before the activation poke poisons the device's activation
+        # window, so the hub never adopts it (proven via controlled A/B). The IP
+        # has already been format- and safety-checked above; the poke on add is
+        # best-effort and reachability is confirmed by the poke itself (the
+        # re-arm retries if the device is still booting).
         record = self._manual_records[did]
         self._activation_endpoints[did] = (host, ACTIVATION_PORT)
         self._picked_device = record
@@ -1182,18 +1215,9 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
         existing_dids = self._collect_existing_subentry_dids(entry)
         records: dict[str, dict[str, Any]] = {}
         for record in all_devices:
-            if not isinstance(record, dict):
-                continue
-            did = record.get("did")
-            if not isinstance(did, str):
-                continue
-            if did == hub_did or did in existing_dids:
-                continue
-            if record.get("parentDeviceId"):
-                continue
-            if _cloud_devicetype(record) != _CLOUD_DEVICETYPE_STANDALONE:
-                continue
-            records[did] = record
+            did = _activatable_standalone_did(record, hub_did, existing_dids)
+            if did is not None:
+                records[did] = record
         self._manual_records = records
 
         if not records:
@@ -1498,9 +1522,8 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
           - not already a candidate from an earlier pass,
           - not already in the hub's LANLink topology,
           - standalone (truthy ``parentDeviceId`` excludes it),
-          - cloud devicetype 8,
-          - discovered on the LAN over mDNS, and
-          - validated as a real Aqara TLS endpoint.
+          - cloud devicetype 8, and
+          - discovered on the LAN over mDNS.
 
         Mutates ``candidates`` in place and records the activation endpoint
         on ``self._activation_endpoints`` so the add path can poke the hub.
@@ -1512,6 +1535,7 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
             for r in candidates
             if isinstance(r, dict) and isinstance(r.get("did"), str)
         }
+        excluded = existing | topo
 
         try:
             lan_records = await discover_lan_devices(self.hass)
@@ -1521,29 +1545,16 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
         lan = {rec.did: rec.host for rec in lan_records}
 
         for record in all_devices:
-            if not isinstance(record, dict):
-                continue
-            did = record.get("did")
-            if not isinstance(did, str):
-                continue
-            if did == hub_did or did in existing or did in topo:
-                continue
-            if record.get("parentDeviceId"):
-                continue
-            if _cloud_devicetype(record) != _CLOUD_DEVICETYPE_STANDALONE:
-                continue
-            if did not in lan:
+            did = _activatable_standalone_did(record, hub_did, excluded)
+            if did is None or did not in lan:
                 continue
             host = lan[did]
-            try:
-                ok = await validate_aqara_endpoint(host, ACTIVATION_PORT)
-            except Exception as exc:  # noqa: BLE001 - validation is best-effort
-                _LOGGER.debug(
-                    "activation: validate %s (%s) raised: %s", did, host, exc,
-                )
-                continue
-            if not ok:
-                continue
+            # Do NOT probe :443 here. A bare-TLS connection to the device moments
+            # before the activation poke poisons its activation window, so the hub
+            # never adopts it (proven via controlled A/B: validate-then-poke never
+            # adopts; a clean poke adopts in seconds). The device is already known
+            # to be an on-LAN Aqara standalone (mDNS-discovered, cloud devicetype
+            # 8); the poke itself is best-effort and confirms reachability.
             candidates.append(record)
             self._activation_endpoints[did] = (host, ACTIVATION_PORT)
             _LOGGER.info(

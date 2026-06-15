@@ -299,7 +299,13 @@ class TestPickerManualSentinel:
 
 
 class TestManualActivateStep:
-    """The manual_activate step validates the IP and probes the endpoint."""
+    """The manual_activate step validates the IP format/safety, then activates.
+
+    It deliberately does NOT probe :443 before poking: a bare-TLS connection
+    moments before the activation poke poisons the device's activation window so
+    the hub never adopts it (proven via controlled A/B). Reachability is left to
+    the best-effort poke itself.
+    """
 
     @pytest.mark.parametrize("bad_ip", ["999.999.999.999", "10.1.20", "abc"])
     async def test_manual_rejects_malformed_ip(self, hass, bad_ip) -> None:
@@ -320,31 +326,6 @@ class TestManualActivateStep:
         assert result["type"] == FlowResultType.FORM
         assert result["step_id"] == "manual_activate"
         assert result["errors"] == {"host": "invalid_ip"}
-
-    async def test_manual_rejects_unreachable(self, hass) -> None:
-        """validate_aqara_endpoint False re-renders with cannot_connect."""
-        hub_did = "lumi1.M3HUB"
-        entry = _manual_hub_entry(hass, hub_did=hub_did)
-        flow = _build_manual_subentry_flow(hass, entry)
-
-        with (
-            patch.object(
-                AqaraDeviceSubentryFlow, "_fetch_device_list",
-                _device_stub(_manual_device_list(hub_did)),
-            ),
-            patch.object(
-                config_flow_module, "validate_aqara_endpoint",
-                AsyncMock(return_value=False),
-            ),
-        ):
-            await flow.async_step_manual_activate()
-            result = await flow.async_step_manual_activate(
-                {"device": _STANDALONE_DID, "host": _STANDALONE_HOST},
-            )
-
-        assert result["type"] == FlowResultType.FORM
-        assert result["step_id"] == "manual_activate"
-        assert result["errors"] == {"host": "cannot_connect"}
 
     async def test_manual_success_activates_and_persists(self, hass) -> None:
         """A valid IP + standalone record activates and persists the host."""
@@ -368,10 +349,6 @@ class TestManualActivateStep:
             patch.object(
                 AqaraDeviceSubentryFlow, "_fetch_device_list",
                 _device_stub(_manual_device_list(hub_did)),
-            ),
-            patch.object(
-                config_flow_module, "validate_aqara_endpoint",
-                AsyncMock(return_value=True),
             ),
             patch.object(
                 config_flow_module, "activate_relay", activate_mock,
