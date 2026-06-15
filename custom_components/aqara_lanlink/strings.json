@@ -111,12 +111,24 @@
                     "data": {
                         "selected": "Traits to add"
                     }
+                },
+                "manual_activate": {
+                    "title": "Activate a device by IP",
+                    "description": "Auto-discovery did not find this device on your network. Pick it from your Aqara account and enter its LAN IP address so the hub can be told to relay it.",
+                    "data": {
+                        "device": "Device",
+                        "host": "Device IP address"
+                    }
                 }
             },
             "error": {
                 "cannot_connect": "Could not reach the Aqara cloud to list devices on this hub. Check your network and try again.",
                 "no_devices_picked": "Pick a device to add.",
-                "extras_validation_failed": "The device configuration could not be validated. Check the values and try again."
+                "extras_validation_failed": "The device configuration could not be validated. Check the values and try again.",
+                "invalid_ip": "That is not a valid IP address.",
+                "invalid_host": "That host is not allowed.",
+                "no_manual_devices": "No devices available for manual activation.",
+                "unknown_device": "The selected device is no longer in the cloud's device list. Reopen the picker and try again."
             },
             "abort": {
                 "unknown_device": "The selected device is no longer in the cloud's device list. Reopen the picker and try again.",

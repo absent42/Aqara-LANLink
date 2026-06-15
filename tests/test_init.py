@@ -167,10 +167,28 @@ def _hub_entry(hass, *, hub_did: str = "lumi1.HUB") -> MockConfigEntry:
 
 
 def _make_subentry(*, subentry_id: str, did: str, model: str) -> SimpleNamespace:
-    """Build a minimal subentry shaped like what ConfigSubentry exposes."""
+    """Build a minimal subentry shaped like what ConfigSubentry exposes.
+
+    Includes ``as_dict`` and the identity fields HA's config-entries store
+    serializes: these stubs are attached to a hass-registered MockConfigEntry,
+    so the storage final-write at teardown calls ``subentry.as_dict()``. A bare
+    SimpleNamespace lacks it and raises AttributeError during an unrelated
+    test's teardown when the store happens to be dirty (a cross-test flake).
+    """
+    data = {"did": did, "model": model, "_cloud_metadata": {}}
     return SimpleNamespace(
         subentry_id=subentry_id,
-        data={"did": did, "model": model, "_cloud_metadata": {}},
+        subentry_type="device",
+        title=model,
+        unique_id=did,
+        data=data,
+        as_dict=lambda: {
+            "data": dict(data),
+            "subentry_id": subentry_id,
+            "subentry_type": "device",
+            "title": model,
+            "unique_id": did,
+        },
     )
 
 

@@ -69,6 +69,25 @@ def test_keepalive_acks_lost_thresholds():
 
 
 @pytest.mark.asyncio
+async def test_connect_passes_ssl_to_open_connection(monkeypatch):
+    import ssl as _ssl
+    captured = {}
+    async def fake_open(host, port, **kw):
+        captured.update(host=host, port=port, **kw)
+        return object(), object()  # reader, writer stubs
+    monkeypatch.setattr("asyncio.open_connection", fake_open)
+    from custom_components.aqara_lanlink.hub.tunnel import EncryptedTunnel
+    t = EncryptedTunnel(device_id="lumi1.test", keepalive_interval=0)
+    ctx = _ssl.SSLContext(_ssl.PROTOCOL_TLS_CLIENT)
+    try:
+        await t.connect("10.0.0.9", 443, ssl=ctx)   # handshake fails later; we assert open args
+    except Exception:
+        pass
+    assert captured["ssl"] is ctx
+    assert captured["server_hostname"] == "10.0.0.9"
+
+
+@pytest.mark.asyncio
 async def test_keepalive_loop_forces_reconnect_when_silent():
     t = tmod.EncryptedTunnel(device_id="d", keepalive_interval=0.01)
     t._session_key = b"k"

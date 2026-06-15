@@ -1078,6 +1078,8 @@ class TestSubentryFlowPickDevice:
         # SelectSelector exposes its serialised options on ``.config``.
         options = selector.config["options"]
         choices = {opt["value"]: opt["label"] for opt in options}
+        # The picker always appends a manual-IP-entry sentinel; ignore it here.
+        choices.pop(config_flow_module._MANUAL_ACTIVATE_SENTINEL, None)
         assert set(choices.keys()) == {"lumi1.SUB2", "lumi1.SUB3", "lumi1.SUB4"}
         # Labels include the friendly name and the model.
         assert "Override Switch" in choices["lumi1.SUB2"]

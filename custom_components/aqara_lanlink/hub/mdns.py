@@ -95,6 +95,13 @@ async def discover_hubs(
     return list(results.values())
 
 
+# The canonical `_aqara-setup._tcp` browse returns EVERY advertising Aqara
+# device on the LAN -- not only hubs, but cameras and standalone sensors like
+# the FP2. Call sites that look for activatable standalone devices use this
+# honest alias; `discover_hubs` is kept for the hub-discovery call sites.
+discover_lan_devices = discover_hubs
+
+
 async def discover_hub_by_did(
     hass: Any,
     did: str,

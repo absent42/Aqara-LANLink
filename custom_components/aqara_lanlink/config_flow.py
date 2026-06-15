@@ -44,8 +44,9 @@ credentials step and inherits the same coarse error bucket.
 from __future__ import annotations
 
 import asyncio
+import ipaddress
 import logging
-from collections.abc import Mapping
+from collections.abc import Container, Mapping
 from typing import Any
 
 import voluptuous as vol
@@ -66,6 +67,8 @@ from homeassistant.config_entries import ConfigSubentryFlow
 
 from .const import (
     AQARA_REGIONS,
+    CONF_ACTIVATION_HOST,
+    CONF_ACTIVATION_PORT,
     CONF_AQARA_ACCOUNT,
     CONF_AQARA_PASSWORD,
     CONF_AQARA_REGION,
@@ -84,20 +87,38 @@ from .const import (
 from .device import registry
 from .device.catalog import is_camera_model
 from .host_validation import is_safe_host
+from .hub.activation import ACTIVATION_PORT, activate_relay
 from .hub.cloud_client import (
     AqaraAuthError,
     AqaraCloudClient,
 )
 from .hub.coordinator import HubCoordinator
-from .hub.mdns import AqaraServiceRecord, discover_hubs
+from .hub.mdns import AqaraServiceRecord, discover_hubs, discover_lan_devices
 from .hub.probe import ProbeResult, probe_tunnel_host
 
 _LOGGER = logging.getLogger(__name__)
 
 _DISCOVERY_TIMEOUT = 3.0
 
+# Per-candidate probe budget for the auto-discovery fan-out. Deliberately
+# tighter than the manual-entry probe (which keeps the full 3s): a real tunnel
+# host completes the credential-free ECDH handshake in well under a second
+# (a healthy M3 measured ~170ms), whereas a non-host that accepts TCP but does
+# not speak LANLink -- e.g. an FP2, which advertises `_aqara-setup` on :29316 --
+# never answers the handshake and would otherwise hang the whole concurrent
+# fan-out for the full window. A real host missed on a pathologically slow
+# network is still reachable via the manual-IP path (which probes at 3s).
+_DISCOVERY_PROBE_TIMEOUT = 1.5
+
 # Cloud device/query "devicetype" field values.
 _CLOUD_DEVICETYPE_HUB = 1   # 1 = hub, 2 = sub-device, 8 = camera
+_CLOUD_DEVICETYPE_STANDALONE = 8  # standalone Wi-Fi device (e.g. the FP2)
+
+# Sentinel value for the picker's "enter a device's IP manually" option.
+# Always offered as a final picker choice so a standalone Wi-Fi device that
+# auto-discovery missed (flaky mDNS, or excluded by a filter) can still be
+# activated by hand. Selecting it routes to ``async_step_manual_activate``.
+_MANUAL_ACTIVATE_SENTINEL = "__manual_activate__"
 
 
 def _cloud_devicetype(record: dict) -> int | None:
@@ -109,6 +130,31 @@ def _cloud_devicetype(record: dict) -> int | None:
         return int(raw)
     except (TypeError, ValueError):
         return None
+
+
+def _activatable_standalone_did(
+    record: Any, hub_did: str, excluded_dids: Container[str],
+) -> str | None:
+    """Return the DID if ``record`` is an activatable standalone Wi-Fi device.
+
+    Qualifies a cloud device record as a standalone Wi-Fi device (cloud
+    devicetype 8, e.g. the FP2) the hub can be poked into relaying: a real
+    record with a string DID, not the hub, not in ``excluded_dids`` (already
+    added / already a candidate / already in topology), and with no parent.
+    Returns the DID for the caller, or None if it does not qualify. Callers add
+    their own path-specific checks (on-LAN for auto-discovery; a user-supplied
+    reachable IP for manual activation).
+    """
+    if not isinstance(record, dict):
+        return None
+    did = record.get("did")
+    if not isinstance(did, str) or did == hub_did or did in excluded_dids:
+        return None
+    if record.get("parentDeviceId"):
+        return None
+    if _cloud_devicetype(record) != _CLOUD_DEVICETYPE_STANDALONE:
+        return None
+    return did
 
 
 def _topology_dids_for_entry(entry) -> frozenset[str]:
@@ -148,7 +194,12 @@ async def _discover_tunnel_hosts(hass: HomeAssistant) -> dict[str, AqaraServiceR
         return {}
 
     results = await asyncio.gather(
-        *(probe_tunnel_host(r.host, r.port, r.did) for r in records),
+        *(
+            probe_tunnel_host(
+                r.host, r.port, r.did, timeout=_DISCOVERY_PROBE_TIMEOUT,
+            )
+            for r in records
+        ),
     )
     return {
         r.did: r
@@ -933,6 +984,8 @@ _RESERVED_SUBENTRY_KEYS: frozenset[str] = frozenset(
         "did",
         "model",
         "_cloud_metadata",
+        CONF_ACTIVATION_HOST,
+        CONF_ACTIVATION_PORT,
     },
 )
 
@@ -979,6 +1032,17 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
         # a successful subentry creation so a subsequent uncatalogued
         # device in the same wizard run gets its own fresh scan.
         self._bootstrap_report: Any = None
+        # Activation endpoints for standalone Wi-Fi devices (e.g. the FP2)
+        # discovered on the LAN this render, keyed by DID -> (host, port).
+        # Populated by _append_activation_candidates; consulted when the
+        # device is added so the hub can be poked into relaying it, and the
+        # endpoint persisted on the subentry for a later re-arm.
+        self._activation_endpoints: dict[str, tuple[str, int]] = {}
+        # Cloud records eligible for manual IP-entry activation, keyed by
+        # DID. Populated on the manual_activate step's initial render so its
+        # submission pass can look the picked record up without re-querying
+        # the cloud.
+        self._manual_records: dict[str, dict[str, Any]] = {}
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None,
@@ -1043,6 +1107,9 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
                 entry, errors={"base": "no_devices_picked"},
             )
 
+        if picked == _MANUAL_ACTIVATE_SENTINEL:
+            return await self.async_step_manual_activate()
+
         device_record = self._devices_by_did.get(picked)
         if device_record is None:
             return self.async_abort(reason="unknown_device")
@@ -1053,6 +1120,138 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
         # device class's ``EXTRA_CONFIG_SCHEMA``.
         self._picked_device = device_record
         return await self.async_step_device_extras()
+
+    async def async_step_manual_activate(
+        self, user_input: dict[str, Any] | None = None,
+    ) -> Any:
+        """Manually activate a standalone Wi-Fi device by picking it + an IP.
+
+        The fallback for when auto-discovery missed a standalone device
+        (flaky mDNS, or our filters excluded it). The user picks the device
+        from the cloud list and types its LAN IP; we validate the IP and the
+        Aqara TLS endpoint, then record the activation endpoint and route into
+        the same activate-on-add path the auto-discovery picker uses.
+
+        Two passes:
+
+        1. Initial render (``user_input is None``): query the cloud, filter to
+           standalone (devicetype 8, no parent), not-already-added devices,
+           cache them on ``self._manual_records``, and render the picker +
+           host field. A cloud failure renders ``cannot_connect``; an empty
+           eligible set renders ``no_manual_devices``.
+        2. Submission: staged validation (known device -> IP format -> safe
+           host -> reachable endpoint). Each failure re-renders this step with
+           the specific error key. On success, record the endpoint, stash the
+           picked record, and hand off to ``async_step_device_extras``.
+        """
+        entry = self._get_entry()
+
+        if user_input is None:
+            return await self._render_manual_activate_form(entry)
+
+        did = user_input.get("device")
+        if not did or did not in self._manual_records:
+            return await self._render_manual_activate_form(
+                entry, errors={"base": "no_devices_picked"},
+            )
+
+        host = (user_input.get("host") or "").strip()
+        try:
+            ipaddress.ip_address(host)
+        except ValueError:
+            return await self._render_manual_activate_form(
+                entry, errors={"host": "invalid_ip"},
+            )
+
+        if not is_safe_host(host):
+            return await self._render_manual_activate_form(
+                entry, errors={"host": "invalid_host"},
+            )
+
+        # Do NOT probe :443 to confirm the endpoint here. A bare-TLS connection
+        # moments before the activation poke poisons the device's activation
+        # window, so the hub never adopts it (proven via controlled A/B). The IP
+        # has already been format- and safety-checked above; the poke on add is
+        # best-effort and reachability is confirmed by the poke itself (the
+        # re-arm retries if the device is still booting).
+        record = self._manual_records[did]
+        self._activation_endpoints[did] = (host, ACTIVATION_PORT)
+        self._picked_device = record
+        return await self.async_step_device_extras()
+
+    async def _render_manual_activate_form(
+        self,
+        entry: ConfigEntry,
+        *,
+        errors: dict[str, str] | None = None,
+    ) -> Any:
+        """Build the manual-activate form and return the show_form result.
+
+        Queries the cloud for the eligible standalone devices, caches them on
+        ``self._manual_records``, and renders a device picker + host field.
+        On a cloud failure renders ``cannot_connect``; on an empty eligible
+        set renders ``no_manual_devices``. ``errors`` from the submission pass
+        are merged in so the host/device error key is surfaced.
+        """
+        hub_did = entry.data[CONF_HUB_DID]
+        token = entry.data[CONF_AQARA_TOKEN]
+        region = entry.data[CONF_AQARA_REGION]
+
+        try:
+            all_devices = await self._fetch_device_list(region, token)
+        except Exception as exc:  # noqa: BLE001
+            _LOGGER.warning(
+                "Aqara cloud device list unavailable for manual activation "
+                "(hub=%s): %s", hub_did, exc,
+            )
+            merged = dict(errors or {})
+            merged["base"] = "cannot_connect"
+            return self.async_show_form(
+                step_id="manual_activate",
+                data_schema=vol.Schema({vol.Required("host"): str}),
+                errors=merged,
+            )
+
+        existing_dids = self._collect_existing_subentry_dids(entry)
+        records: dict[str, dict[str, Any]] = {}
+        for record in all_devices:
+            did = _activatable_standalone_did(record, hub_did, existing_dids)
+            if did is not None:
+                records[did] = record
+        self._manual_records = records
+
+        if not records:
+            merged = dict(errors or {})
+            merged.setdefault("base", "no_manual_devices")
+            return self.async_show_form(
+                step_id="manual_activate",
+                data_schema=vol.Schema({vol.Required("host"): str}),
+                errors=merged,
+            )
+
+        schema = vol.Schema(
+            {
+                vol.Required("device"): SelectSelector(
+                    SelectSelectorConfig(
+                        options=[
+                            SelectOptionDict(
+                                value=did,
+                                label=self._device_label(record),
+                            )
+                            for did, record in records.items()
+                        ],
+                        multiple=False,
+                        mode=SelectSelectorMode.LIST,
+                    ),
+                ),
+                vol.Required("host"): str,
+            },
+        )
+        return self.async_show_form(
+            step_id="manual_activate",
+            data_schema=schema,
+            errors=errors,
+        )
 
     async def async_step_device_extras(
         self, user_input: dict[str, Any] | None = None,
@@ -1123,6 +1322,7 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
             # directly with no extras. Auto-derive runs at HA-setup
             # time using the cached trait metadata stashed on the
             # subentry's data dict by ``_create_device_subentry``.
+            await self._maybe_activate(device_record)
             return self._create_device_subentry(device_record, extras={})
 
         if user_input is None:
@@ -1174,6 +1374,7 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
                     errors={"base": error_key},
                 )
 
+        await self._maybe_activate(device_record)
         return self._create_device_subentry(device_record, extras=user_input)
 
     async def async_step_bootstrap_review(
@@ -1303,6 +1504,64 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
     # Form rendering + classification
     # ---------------------------------------------------------------------
 
+    async def _append_activation_candidates(
+        self,
+        entry: ConfigEntry,
+        all_devices: list,
+        candidates: list[dict[str, Any]],
+    ) -> None:
+        """Offer standalone Wi-Fi devices found on the LAN for activation.
+
+        A standalone Wi-Fi device (e.g. the FP2, ``lumi.motion.agl001``)
+        is cloud devicetype 8 with an empty ``parentDeviceId`` and is not
+        relayed by the hub until a controller pokes it, so it never reaches
+        the picker through the three standard passes. This 4th, additive
+        source offers such a device only when it is:
+
+          - not the hub itself,
+          - not already a candidate from an earlier pass,
+          - not already in the hub's LANLink topology,
+          - standalone (truthy ``parentDeviceId`` excludes it),
+          - cloud devicetype 8, and
+          - discovered on the LAN over mDNS.
+
+        Mutates ``candidates`` in place and records the activation endpoint
+        on ``self._activation_endpoints`` so the add path can poke the hub.
+        """
+        hub_did = entry.data[CONF_HUB_DID]
+        topo = _topology_dids_for_entry(entry)
+        existing = {
+            r["did"]
+            for r in candidates
+            if isinstance(r, dict) and isinstance(r.get("did"), str)
+        }
+        excluded = existing | topo
+
+        try:
+            lan_records = await discover_lan_devices(self.hass)
+        except Exception as exc:  # noqa: BLE001 - LAN scan is best-effort
+            _LOGGER.debug("activation: LAN discovery failed: %s", exc)
+            return
+        lan = {rec.did: rec.host for rec in lan_records}
+
+        for record in all_devices:
+            did = _activatable_standalone_did(record, hub_did, excluded)
+            if did is None or did not in lan:
+                continue
+            host = lan[did]
+            # Do NOT probe :443 here. A bare-TLS connection to the device moments
+            # before the activation poke poisons its activation window, so the hub
+            # never adopts it (proven via controlled A/B: validate-then-poke never
+            # adopts; a clean poke adopts in seconds). The device is already known
+            # to be an on-LAN Aqara standalone (mDNS-discovered, cloud devicetype
+            # 8); the poke itself is best-effort and confirms reachability.
+            candidates.append(record)
+            self._activation_endpoints[did] = (host, ACTIVATION_PORT)
+            _LOGGER.info(
+                "activation: standalone device %s offered via %s:%d",
+                did, host, ACTIVATION_PORT,
+            )
+
     async def _render_pick_device_form(
         self,
         entry: ConfigEntry,
@@ -1343,6 +1602,10 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
         candidates, cloud_dids = self._build_candidate_records(
             all_devices, hub_did, entry,
         )
+        # 4th, additive candidate source: standalone Wi-Fi devices found on
+        # the LAN that need a relay-activation poke. Runs before classify so
+        # the device flows through the normal supported/devices_by_did path.
+        await self._append_activation_candidates(entry, all_devices, candidates)
         # Topology cross-validation (warn-only; skipped if coordinator isn't
         # running yet, e.g. first add-device on a fresh entry).
         self._maybe_log_topology_mismatch(entry, cloud_dids)
@@ -1358,22 +1621,31 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
         )
         self._devices_by_did = devices_by_did
 
+        # Flag activation candidates in the picker so the user knows the
+        # device will be poked into the hub's relay cluster when added.
+        for did in self._activation_endpoints:
+            if did in supported_choices:
+                supported_choices[did] = (
+                    f"{supported_choices[did]} (needs activation)"
+                )
+
         unsupported_info = self._format_unsupported_info(
             unsupported_records, already_added_records,
         )
 
-        if not supported_choices:
-            # Nothing to pick. Render an empty schema with the info text so the
-            # user can see what was found and bow out.
-            return self.async_show_form(
-                step_id="pick_device",
-                data_schema=vol.Schema({}),
-                errors=errors,
-                description_placeholders={
-                    "supported_count": "0",
-                    "unsupported_info": unsupported_info,
-                },
-            )
+        # Always offer a final "enter IP manually" option so a standalone
+        # device that auto-discovery missed is still reachable. The sentinel
+        # is appended after the real choices (including in the empty-set case,
+        # so the picker is never a dead end).
+        manual_option = SelectOptionDict(
+            value=_MANUAL_ACTIVATE_SENTINEL,
+            label="Enter a device's IP manually",
+        )
+        options = [
+            SelectOptionDict(value=did, label=label)
+            for did, label in supported_choices.items()
+        ]
+        options.append(manual_option)
 
         # HA's SelectSelector renders as a list on the frontend. Single-select:
         # the subentry flow contract creates exactly one subentry per
@@ -1382,10 +1654,7 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
             {
                 vol.Required("device"): SelectSelector(
                     SelectSelectorConfig(
-                        options=[
-                            SelectOptionDict(value=did, label=label)
-                            for did, label in supported_choices.items()
-                        ],
+                        options=options,
                         multiple=False,
                         mode=SelectSelectorMode.LIST,
                     ),
@@ -1646,6 +1915,45 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
 
         return "\n\n".join(lines)
 
+    async def _maybe_activate(self, device_record: dict[str, Any]) -> None:
+        """Poke the hub into relaying a standalone device, if one was picked.
+
+        No-op unless the picked DID has a recorded activation endpoint.
+        Sends the relay-activation handshake, then waits up to ~20s for the
+        DID to appear in the live LANLink topology. Proceeds regardless of
+        whether it appears: entities auto-derive and the relay/re-arm catch
+        up. Never raises out of the flow.
+        """
+        try:
+            did = device_record.get("did")
+            if not isinstance(did, str) or did not in self._activation_endpoints:
+                return
+            host, port = self._activation_endpoints[did]
+            await activate_relay(host, did, port)
+
+            entry = self._get_entry()
+            runtime = getattr(entry, "runtime_data", None)
+            coordinator = getattr(runtime, "hub", None)
+            if coordinator is None:
+                return
+            # Best-effort wait for the hub to adopt the device (~20s, ~2s poll).
+            for _ in range(10):
+                topo = getattr(
+                    coordinator, "lanlink_topology_dids", frozenset(),
+                )
+                if did in topo:
+                    _LOGGER.info(
+                        "activation: %s now in LANLink topology", did,
+                    )
+                    return
+                await asyncio.sleep(2)
+            _LOGGER.info(
+                "activation: %s not yet in topology after wait; "
+                "proceeding (re-arm will catch up)", did,
+            )
+        except Exception as exc:  # noqa: BLE001 - activation is best-effort
+            _LOGGER.debug("activation: _maybe_activate raised: %s", exc)
+
     def _create_device_subentry(
         self,
         device_record: dict[str, Any],
@@ -1683,6 +1991,12 @@ class AqaraDeviceSubentryFlow(ConfigSubentryFlow):
                     )
                     continue
                 data[key] = value
+        # Persist the activation endpoint so a later re-arm step knows where
+        # to reconnect. Set after the extras merge so it cannot be clobbered.
+        if did in self._activation_endpoints:
+            host, port = self._activation_endpoints[did]
+            data[CONF_ACTIVATION_HOST] = host
+            data[CONF_ACTIVATION_PORT] = port
         return self.async_create_entry(
             title=str(title),
             data=data,

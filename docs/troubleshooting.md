@@ -27,7 +27,6 @@ the likely cause, and the steps to resolve it.
 
 ## Known device issues
 
-- FP2 Presense Sensor is not discovered by integration
 - Noise detection not working on G350
 
 ---
