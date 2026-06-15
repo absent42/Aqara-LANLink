@@ -32,6 +32,7 @@ from custom_components.aqara_lanlink.const import (
     DOMAIN,
     PLATFORMS,
 )
+from custom_components.aqara_lanlink.hub.rearm import RearmManager
 from homeassistant.const import Platform
 from homeassistant.exceptions import ConfigEntryNotReady
 
@@ -260,6 +261,36 @@ async def test_async_setup_entry_basic(hass, patch_clientsession) -> None:
     args, _ = mock_forward.call_args
     assert args[0] is entry
     assert list(args[1]) == list(PLATFORMS)
+
+
+@pytest.mark.asyncio
+async def test_setup_evaluates_current_topology_for_rearm(hass, patch_clientsession) -> None:
+    """Setup evaluates the current topology against activation targets.
+
+    The initial topology push arrives during wait_connected -- before
+    on_topology_changed is wired -- so a standalone device already absent at
+    setup would otherwise never be re-armed via the event path (it only fires
+    on a topology CHANGE, which never comes if the device stays absent).
+    async_setup_entry therefore hands the current topology to RearmManager
+    directly so an absent target is re-armed immediately.
+    """
+    entry = _hub_entry(hass)
+    _attach_subentries(entry, {})
+
+    coord = _make_coordinator_mock()
+    coord.lanlink_topology_dids = frozenset({"lumi1.HUB"})
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=MagicMock(),
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ), patch.object(RearmManager, "note_topology") as note_topology:
+        await async_setup_entry(hass, entry)
+
+    note_topology.assert_called_once_with(frozenset({"lumi1.HUB"}))
 
 
 @pytest.mark.asyncio

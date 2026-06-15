@@ -124,6 +124,15 @@ async def test_note_topology_absent_device_schedules_one_rearm(hass, monkeypatch
     activate.assert_awaited_once_with(FP2_HOST, FP2_DID, FP2_PORT)
 
 
+def test_sweep_is_event_loop_callback():
+    # async_track_time_interval must run sweep ON the event loop: it calls
+    # hass.async_create_task (via _ensure_rearm), which raises a thread-safety
+    # RuntimeError if invoked from an executor thread. Without @callback HA
+    # treats the sync method as a job and runs it in the executor.
+    from homeassistant.core import is_callback
+    assert is_callback(RearmManager.sweep)
+
+
 async def test_note_topology_present_device_no_rearm(hass, monkeypatch):
     hub = _FakeHub(frozenset({FP2_DID}))
     entry = _make_entry(hub)

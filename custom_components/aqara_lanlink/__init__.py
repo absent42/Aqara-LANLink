@@ -727,6 +727,16 @@ async def async_setup_entry(
 
         coordinator.on_topology_changed = _on_topology_changed
 
+        # Evaluate the current topology against activation targets right now. The
+        # initial topology push arrives during wait_connected -- before the
+        # callback above is wired -- so a standalone device that is already
+        # absent at setup would otherwise never be re-armed via the event path
+        # (it only fires on a topology CHANGE, which never comes if the device
+        # stays absent), leaving only the periodic sweep. This kicks off re-arm
+        # for any already-absent target immediately. ``prev_topology`` already
+        # holds the current set (a TypeError-guarded frozenset).
+        rearm.note_topology(prev_topology)
+
         # Re-arm the push subscription on every tunnel session-up. The hub-side
         # subscription is per-connection, so a reconnect (even one that returns
         # the same topology, which _on_topology_changed would not treat as

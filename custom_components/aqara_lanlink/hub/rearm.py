@@ -28,6 +28,8 @@ import time
 from collections.abc import Callable
 from typing import Any
 
+from homeassistant.core import callback
+
 from ..const import CONF_ACTIVATION_HOST, CONF_ACTIVATION_PORT
 from .activation import ACTIVATION_PORT, activate_relay
 from .mdns import discover_hub_by_did
@@ -99,11 +101,15 @@ class RearmManager:
             else:
                 self._ensure_rearm(did)
 
+    @callback
     def sweep(self, *_args: Any) -> None:
         """Periodic backstop: re-arm any configured DID still out of topology.
 
-        Signature tolerates the ``datetime`` argument passed by
-        ``async_track_time_interval``.
+        Must be a HA ``@callback`` so ``async_track_time_interval`` runs it on
+        the event loop: ``_ensure_rearm`` calls ``hass.async_create_task``,
+        which is illegal off-loop (an undecorated sync callback would be run in
+        an executor thread and raise). Signature tolerates the ``datetime``
+        argument passed by ``async_track_time_interval``.
         """
         for did in self._activation_targets():
             if did not in self._last_topology:
