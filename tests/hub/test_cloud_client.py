@@ -1150,6 +1150,134 @@ class TestQueryCollectionPanels:
 
 
 # =============================================================================
+# query_resources_by_rid - POST /app/v1.0/lumi/res/query/by/resourceId
+# =============================================================================
+
+
+class TestQueryResourcesByRid:
+    async def test_parses_result_into_rid_value_map(self):
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "result": [
+                {"resourceId": "4.4.85", "value": "1"},
+                {"resourceId": "8.0.2032", "value": "0"},
+            ],
+            "code": 0,
+        })))
+        client = AqaraCloudClient(region="EU", session=session)
+
+        result = await client.query_resources_by_rid(
+            token="tok-1", did="lumi.54ef", rids=["4.4.85", "8.0.2032"],
+        )
+        assert result == {"4.4.85": "1", "8.0.2032": "0"}
+
+    async def test_sends_post_to_correct_url_with_rids_in_body(self):
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "result": [{"resourceId": "8.0.2032", "value": "0"}], "code": 0,
+        })))
+        client = AqaraCloudClient(region="EU", session=session)
+        await client.query_resources_by_rid(
+            token="tok-1", did="lumi.54ef", rids=["8.0.2032"],
+        )
+
+        method = session.request.call_args.args[0]
+        url = session.request.call_args.args[1]
+        assert method == "POST"
+        assert url.endswith("/app/v1.0/lumi/res/query/by/resourceId")
+        assert url == "https://rpc-ger.aqara.com/app/v1.0/lumi/res/query/by/resourceId"
+
+        body = session.request.call_args.kwargs["data"]
+        body_dict = json.loads(body)
+        assert body_dict == {
+            "data": [{"options": ["8.0.2032"], "subjectId": "lumi.54ef"}],
+        }
+
+    async def test_sign_source_is_json_body_verbatim(self):
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "result": [{"resourceId": "8.0.2032", "value": "0"}], "code": 0,
+        })))
+        client = AqaraCloudClient(region="EU", session=session)
+        await client.query_resources_by_rid(
+            token="tok-1", did="lumi.54ef", rids=["8.0.2032"],
+        )
+
+        body = session.request.call_args.kwargs["data"]
+        headers = session.request.call_args.kwargs["headers"]
+        expected = hashlib.md5(
+            f"Appid={AREAS['EU'].appid}&Nonce={headers['Nonce']}"
+            f"&Time={headers['Time']}&Token=tok-1"
+            f"&{body}&{AREAS['EU'].appkey}".encode()
+        ).hexdigest()
+        assert headers["Sign"] == expected
+        assert headers["Token"] == "tok-1"
+
+    async def test_partial_result_omits_missing_rid(self):
+        """A rid absent from the result is simply absent from the returned dict."""
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "result": [{"resourceId": "4.4.85", "value": "1"}], "code": 0,
+        })))
+        client = AqaraCloudClient(region="EU", session=session)
+        result = await client.query_resources_by_rid(
+            token="tok-1", did="lumi.54ef", rids=["4.4.85", "8.0.2032"],
+        )
+        assert result == {"4.4.85": "1"}
+
+    async def test_empty_result_returns_empty_dict(self):
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "result": [], "code": 0,
+        })))
+        client = AqaraCloudClient(region="EU", session=session)
+        result = await client.query_resources_by_rid(
+            token="tok-1", did="lumi.54ef", rids=["4.4.85"],
+        )
+        assert result == {}
+
+    async def test_skips_items_lacking_resource_id_or_value(self):
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "result": [
+                {"resourceId": "4.4.85", "value": "1"},
+                {"resourceId": "8.0.2032"},      # no value
+                {"value": "9"},                   # no resourceId
+            ],
+            "code": 0,
+        })))
+        client = AqaraCloudClient(region="EU", session=session)
+        result = await client.query_resources_by_rid(
+            token="tok-1", did="lumi.54ef", rids=["4.4.85", "8.0.2032"],
+        )
+        assert result == {"4.4.85": "1"}
+
+    async def test_server_error_raises(self):
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "code": 106, "message": "Invalid sign",
+        })))
+        client = AqaraCloudClient(region="EU", session=session)
+        with pytest.raises(AqaraAuthError, match="Invalid sign"):
+            await client.query_resources_by_rid(
+                token="tok-1", did="lumi.54ef", rids=["4.4.85"],
+            )
+
+    async def test_http_error_raises(self):
+        session = MagicMock()
+
+        def _raise(*_a, **_kw):
+            raise aiohttp.ClientError("connection refused")
+
+        session.request = MagicMock(side_effect=_raise)
+        client = AqaraCloudClient(region="EU", session=session)
+        with pytest.raises(AqaraAuthError, match="HTTP error"):
+            await client.query_resources_by_rid(
+                token="tok-1", did="lumi.54ef", rids=["4.4.85"],
+            )
+
+
+# =============================================================================
 # Auth-failure code classification: _raise_if_error must raise the narrow
 # AqaraCloudAuthError subclass for codes Aqara's docs flag as token-invalid,
 # so callers can trigger HA's re-auth flow specifically.

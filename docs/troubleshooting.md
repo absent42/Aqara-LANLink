@@ -155,6 +155,14 @@ across restarts.
 entity state will catch up as soon as the next push report arrives from the
 hub or the next successful re-arm completes.
 
+**Note on device-setting entities:** Settings such as child lock, indicator
+light, button mode, power-off memory, max power, and find/restart are
+controlled locally over LANLink. Their state is seeded from the cloud once at
+load and updated optimistically whenever you change them from Home Assistant.
+They do not receive live push updates, so a change you make in the Aqara app
+while Home Assistant is running will not appear until you reload the
+integration. Changes made from Home Assistant are reflected immediately.
+
 ---
 
 ## Repair issue: "New device capabilities observed" (candidate_paths)

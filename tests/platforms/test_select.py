@@ -17,12 +17,14 @@ from .conftest import make_device, make_hub, make_subentry
 
 def _sensitivity_descriptor(
     attr_write: AttrSpec | None = None,
+    optimistic: bool = False,
 ) -> SelectDescriptor:
     return SelectDescriptor(
         key="test_sensitivity",
         attr=AttrSpec(name="test_sensitivity_attr"),
         attr_write=attr_write,
         options_map=(("low", "1"), ("medium", "2"), ("high", "3")),
+        optimistic=optimistic,
     )
 
 
@@ -83,6 +85,34 @@ async def test_attr_write_alias_used_when_set():
     entity = AqaraSelect(hub, device, sub, desc)
     await entity.async_select_option("high")
     device.async_write.assert_awaited_once_with({write_attr: "3"})
+
+
+@pytest.mark.asyncio
+async def test_optimistic_select_sets_current_option_without_report():
+    desc = _sensitivity_descriptor(optimistic=True)
+    hub = make_hub()
+    sub = make_subentry()
+    device = make_device([desc], subentry=sub)
+    device.async_write = AsyncMock()  # type: ignore[method-assign]
+    entity = AqaraSelect(hub, device, sub, desc)
+    await entity.async_select_option("medium")
+    device.async_write.assert_awaited_once_with({desc.attr: "2"})
+    # No apply_value call -- optimistic state set directly after the write.
+    assert entity._attr_current_option == "medium"
+
+
+@pytest.mark.asyncio
+async def test_non_optimistic_select_leaves_state_for_report():
+    desc = _sensitivity_descriptor(optimistic=False)
+    hub = make_hub()
+    sub = make_subentry()
+    device = make_device([desc], subentry=sub)
+    device.async_write = AsyncMock()  # type: ignore[method-assign]
+    entity = AqaraSelect(hub, device, sub, desc)
+    await entity.async_select_option("medium")
+    device.async_write.assert_awaited_once_with({desc.attr: "2"})
+    # State stays None until a report arrives via apply_value.
+    assert entity._attr_current_option is None
 
 
 @pytest.mark.asyncio

@@ -18,6 +18,7 @@ from __future__ import annotations
 from typing import NamedTuple
 from collections.abc import Iterator
 
+from custom_components.aqara_lanlink.device.settings import SettingSpec
 from custom_components.aqara_lanlink.device.traits import TraitSpec
 
 
@@ -103,6 +104,26 @@ def all_traits_for_model(model: str) -> dict[str, "TraitSpec"]:
     models that do not have an override class registered in _BY_MODEL.
     """
     return dict(_reg()._TRAITS_BY_MODEL.get(model, {}))
+
+
+def settings_for_model(model: str) -> dict[str, "SettingSpec"]:
+    """Return a fresh dict of {rid: SettingSpec} declared for `model`.
+
+    Returns a copy, not a live view; mutating the result does not affect the
+    underlying index. Empty dict when the package has no SETTINGS entries or
+    the model is unknown.
+
+    Backs a later task's build_setting_descriptors(model).
+    """
+    return dict(_reg()._SETTINGS_INDEX.get(model, {}))
+
+
+def power_class_for_model(model: str) -> str | None:
+    """Return the model's power_class ("mains"/"battery"/...), or None.
+
+    None when the model is unknown or its package did not declare POWER_CLASS.
+    """
+    return _reg()._POWER_CLASS_INDEX.get(model)
 
 
 def allow_unauthored(model: str) -> tuple[int, ...]:
@@ -194,6 +215,8 @@ __all__ = [
     "get_trait",
     "is_camera_model",
     "iter_all_traits",
+    "power_class_for_model",
     "ptz_features_for_model",
     "reset_for_tests",
+    "settings_for_model",
 ]

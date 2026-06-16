@@ -479,6 +479,12 @@ async def _build_device(
         hass=hass, entry=entry, cloud_auth_failed=cloud_auth_failed,
         op_label=f"trait subscribe+seed for did={did}",
     )
+    # 3f: seed rid-keyed device-setting state from the cloud (best-effort).
+    cloud_auth_failed = await _run_cloud_call_with_reauth(
+        _seed_settings_from_cloud(cloud=cloud, token=token, device=device),
+        hass=hass, entry=entry, cloud_auth_failed=cloud_auth_failed,
+        op_label=f"settings seed for did={did}",
+    )
     return device, merged_traits, cloud_auth_failed
 
 
@@ -912,6 +918,71 @@ async def _subscribe_and_seed_traits(
     note = getattr(getattr(device, "coordinator", None), "note_subscription_armed", None)
     if callable(note):
         note(did)
+
+
+async def _seed_settings_from_cloud(
+    *,
+    cloud: AqaraCloudClient,
+    token: str,
+    device: Device,
+) -> None:
+    """Seed rid-keyed device-setting state from the cloud at setup.
+
+    Setting descriptors (Switch/Select/Number) are keyed by resource id:
+    their ``attr.name`` IS the rid, which ``_descriptor_wire_paths`` yields
+    as the wire path. So a current cloud value read by rid can be staged via
+    ``device.seed_initial_value(rid, value)`` and lands on the setting entity
+    when it registers -- giving real state at load time (vs. unknown).
+
+    Read-only: queries current values by resource id; never touches the write
+    path. Best-effort -- an auth error propagates (so the caller can trigger
+    re-auth once per setup pass); any other failure is logged and swallowed so
+    setup is not blocked. A model with no catalogued settings makes no cloud
+    call.
+    """
+    # Gate: no cloud session configured -> skip silently (state stays unknown
+    # until a value arrives, mirroring the cloud-free trait path).
+    if cloud is None or not token:
+        return
+    model = getattr(device, "MODEL", "") or ""
+    settings = device_catalog.settings_for_model(model)
+    if not settings:
+        return
+    did = device.did
+    # Buttons are stateless momentary commands: they have no readable value
+    # and no `apply_value`, so seeding one raises on delivery. Query/seed only
+    # stateful settings (switch/select/number).
+    rids = [
+        rid for rid, spec in settings.items() if spec.platform != "button"
+    ]
+    if not rids:
+        return
+    try:
+        values = await cloud.query_resources_by_rid(token, did, rids)
+    except AqaraCloudAuthError:
+        # Propagate so the caller can trigger HA's re-auth flow once.
+        raise
+    except Exception as exc:  # noqa: BLE001 -- log and continue
+        _LOGGER.warning(
+            "settings seed: cloud read failed for did=%s model=%s "
+            "rids=%s (%s); setting entities will load without state "
+            "until next reload.",
+            did, model, rids, exc,
+        )
+        return
+    seeded = 0
+    queried = set(rids)
+    for rid, value in values.items():
+        # Only seed stateful settings we asked for: never a button rid (the
+        # cloud may echo extra/stale rids; buttons have no apply_value).
+        if value is None or rid not in queried:
+            continue
+        device.seed_initial_value(rid, str(value))
+        seeded += 1
+    _LOGGER.info(
+        "settings seed: did=%s model=%s rids=%d seeded=%d",
+        did, model, len(rids), seeded,
+    )
 
 
 def _log_path_diagnostic(

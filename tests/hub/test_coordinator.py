@@ -16,6 +16,7 @@ import pytest
 
 from homeassistant.exceptions import HomeAssistantError
 
+from custom_components.aqara_lanlink.device.attrs import AttrSpec
 from custom_components.aqara_lanlink.hub import coordinator
 from custom_components.aqara_lanlink.hub.coordinator import HubCoordinator
 from custom_components.aqara_lanlink.hub.protocol import (
@@ -1120,6 +1121,125 @@ class TestAsyncWrite:
 
         with pytest.raises(HomeAssistantError, match="hub disconnected"):
             await asyncio.wait_for(write_task, timeout=1.0)
+
+        await coord.stop()
+
+    async def test_rid_setting_sends_bare_resource_id_not_wire_path(
+        self, monkeypatch,
+    ):
+        """A spec carrying ``resource_id`` writes the BARE 3-part rid.
+
+        Settings entities pass ``AttrSpec(name=rid, resource_id=rid)``.
+        The hub's al2bc actuates the bare rid (e.g. ``4.4.85``); the
+        ``.1`` resource-instance suffix that ``_to_wire_path`` appends to
+        wire-path traits must NOT be added here -- proven live, see
+        docs/dev/LOCAL_RID_WRITE_FINDINGS.md.
+        """
+        t = FakeTunnel(device_id=HUB_DID)
+        coord, _ = await _coord_with(monkeypatch, [t], model=HUB_MODEL)
+        coord.start()
+        await coord.wait_connected(timeout=1.0)
+
+        spec = AttrSpec(name="4.4.85", resource_id="4.4.85")
+
+        async def run_write() -> None:
+            await coord.async_write(
+                CHILD_DID, CHILD_MODEL, {spec: 1}, parent_did=HUB_DID,
+            )
+
+        write_task = asyncio.create_task(run_write())
+        for _ in range(100):
+            if len(t.sent) >= 2:
+                break
+            await asyncio.sleep(0.01)
+        assert len(t.sent) == 2, "coordinator did not send write request"
+        write_msg = t.sent[1]
+        assert write_msg["cmd"] == LANLINK_CMD_WRITE
+        # Bare rid -- NOT "4.4.85.1".
+        assert write_msg["data"]["value"] == {"4.4.85": 1}
+
+        t._queue.put_nowait({
+            "seq": write_msg["seq"],
+            "type": LANLINK_TYPE_DEVICE,
+            "cmd": LANLINK_CMD_WRITE_DONE,
+            "data": {"code": 0},
+        })
+        await asyncio.wait_for(write_task, timeout=1.0)
+
+        await coord.stop()
+
+    async def test_wire_path_spec_without_resource_id_keeps_dot_one_suffix(
+        self, monkeypatch,
+    ):
+        """Control: a 3-part ``name`` with ``resource_id=None`` is unchanged.
+
+        Normal wire-path traits still get the ``.1`` resource-instance
+        suffix from ``_to_wire_path``.
+        """
+        t = FakeTunnel(device_id=HUB_DID)
+        coord, _ = await _coord_with(monkeypatch, [t], model=HUB_MODEL)
+        coord.start()
+        await coord.wait_connected(timeout=1.0)
+
+        spec = AttrSpec(name="4.1.85")  # resource_id defaults to None
+
+        async def run_write() -> None:
+            await coord.async_write(
+                CHILD_DID, CHILD_MODEL, {spec: "1"}, parent_did=HUB_DID,
+            )
+
+        write_task = asyncio.create_task(run_write())
+        for _ in range(100):
+            if len(t.sent) >= 2:
+                break
+            await asyncio.sleep(0.01)
+        assert len(t.sent) == 2, "coordinator did not send write request"
+        write_msg = t.sent[1]
+        assert write_msg["data"]["value"] == {"4.1.85.1": "1"}
+
+        t._queue.put_nowait({
+            "seq": write_msg["seq"],
+            "type": LANLINK_TYPE_DEVICE,
+            "cmd": LANLINK_CMD_WRITE_DONE,
+            "data": {"code": 0},
+        })
+        await asyncio.wait_for(write_task, timeout=1.0)
+
+        await coord.stop()
+
+    async def test_null_result_without_code_does_not_raise(self, monkeypatch):
+        """A ``write_done`` of ``{"result": None}`` with NO ``code`` key
+        returns normally. ``result`` is intentionally NOT a success signal
+        -- rid writes ack with ``result: null`` even when they actuate
+        (a false negative; see docs/dev/LOCAL_RID_WRITE_FINDINGS.md). The
+        coordinator only fails on a non-zero ``code``.
+        """
+        t = FakeTunnel(device_id=HUB_DID)
+        coord, _ = await _coord_with(monkeypatch, [t])
+        coord.start()
+        await coord.wait_connected(timeout=1.0)
+
+        spec = AttrSpec(name="4.4.85", resource_id="4.4.85")
+
+        async def run_write() -> None:
+            await coord.async_write(CHILD_DID, CHILD_MODEL, {spec: 1})
+
+        write_task = asyncio.create_task(run_write())
+        for _ in range(100):
+            if len(t.sent) >= 2:
+                break
+            await asyncio.sleep(0.01)
+        write_msg = t.sent[1]
+
+        t._queue.put_nowait({
+            "seq": write_msg["seq"],
+            "type": LANLINK_TYPE_DEVICE,
+            "cmd": LANLINK_CMD_WRITE_DONE,
+            "data": {"result": None},
+        })
+
+        # Must return normally -- no raise.
+        await asyncio.wait_for(write_task, timeout=1.0)
 
         await coord.stop()
 

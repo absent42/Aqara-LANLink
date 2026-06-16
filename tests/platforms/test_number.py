@@ -17,6 +17,7 @@ from .conftest import make_device, make_hub, make_subentry
 def _volume_descriptor(
     transform_in=None, transform_out=None,
     attr_write: AttrSpec | None = None,
+    optimistic: bool = False,
 ) -> NumberDescriptor:
     return NumberDescriptor(
         key="test_volume",
@@ -27,6 +28,7 @@ def _volume_descriptor(
         step=5,
         transform_in=transform_in,
         transform_out=transform_out,
+        optimistic=optimistic,
     )
 
 
@@ -132,6 +134,52 @@ async def test_attr_write_alias_used_when_set():
     entity = AqaraNumber(hub, device, sub, desc)
     await entity.async_set_native_value(40)
     device.async_write.assert_awaited_once_with({write_attr: "40"})
+
+
+@pytest.mark.asyncio
+async def test_optimistic_set_native_value_sets_state_without_report():
+    desc = _volume_descriptor(optimistic=True)
+    hub = make_hub()
+    sub = make_subentry()
+    device = make_device([desc], subentry=sub)
+    device.async_write = AsyncMock()  # type: ignore[method-assign]
+    entity = AqaraNumber(hub, device, sub, desc)
+    await entity.async_set_native_value(75)
+    device.async_write.assert_awaited_once_with({desc.attr: "75"})
+    # No apply_value call -- optimistic state set directly after the write.
+    assert entity._attr_native_value == 75
+
+
+@pytest.mark.asyncio
+async def test_optimistic_set_native_value_stores_user_value_not_wire_value():
+    # With a transform_out the wire value differs from the user-facing value;
+    # the optimistic state must mirror what apply_value would store (the user
+    # value), not the encoded wire payload.
+    desc = _volume_descriptor(
+        transform_out=lambda v: f"{int(v * 10)}", optimistic=True,
+    )
+    hub = make_hub()
+    sub = make_subentry()
+    device = make_device([desc], subentry=sub)
+    device.async_write = AsyncMock()  # type: ignore[method-assign]
+    entity = AqaraNumber(hub, device, sub, desc)
+    await entity.async_set_native_value(7.5)
+    device.async_write.assert_awaited_once_with({desc.attr: "75"})
+    assert entity._attr_native_value == 7.5
+
+
+@pytest.mark.asyncio
+async def test_non_optimistic_set_native_value_leaves_state_for_report():
+    desc = _volume_descriptor(optimistic=False)
+    hub = make_hub()
+    sub = make_subentry()
+    device = make_device([desc], subentry=sub)
+    device.async_write = AsyncMock()  # type: ignore[method-assign]
+    entity = AqaraNumber(hub, device, sub, desc)
+    await entity.async_set_native_value(75)
+    device.async_write.assert_awaited_once_with({desc.attr: "75"})
+    # State stays None until a report arrives via apply_value.
+    assert entity._attr_native_value is None
 
 
 def _bare_number(descriptor: NumberDescriptor) -> AqaraNumber:

@@ -16,6 +16,7 @@ import importlib.util
 import json
 from pathlib import Path
 
+from custom_components.aqara_lanlink.device.settings import SettingSpec
 from custom_components.aqara_lanlink.device.traits import TraitSpec
 
 def load_model_data(pkg_dir: Path) -> dict:
@@ -23,9 +24,18 @@ def load_model_data(pkg_dir: Path) -> dict:
     base_traits: dict[str, TraitSpec] = {}
     for wp, fields in raw["traits"].items():
         base_traits[wp] = TraitSpec(id=wp, wire_path=wp, **fields)
+    # Settings are rid-keyed and bypass the wire_path/TraitSpec pipeline
+    # entirely; they live in their own SETTINGS map, never in TRAITS.
+    base_settings: dict[str, SettingSpec] = {}
+    for rid, fields in raw.get("settings", {}).items():
+        base_settings[rid] = SettingSpec(rid=rid, **fields)
     ov_mod = _load_overrides_module(pkg_dir)
     overrides = (getattr(ov_mod, "OVERRIDES", {}) or {}) if ov_mod else {}
     merged_traits = _apply_overrides(base_traits, overrides)
+    setting_overrides = (
+        (getattr(ov_mod, "SETTINGS_OVERRIDES", {}) or {}) if ov_mod else {}
+    )
+    merged_settings = _apply_setting_overrides(base_settings, setting_overrides)
     capabilities = (getattr(ov_mod, "CAPABILITIES", {}) or {}) if ov_mod else {}
     out = {
         "MODELS": tuple(raw["models"]),
@@ -37,6 +47,8 @@ def load_model_data(pkg_dir: Path) -> dict:
         "DEVICE_TYPES": tuple(raw["device_types"]),
         "CAPABILITIES": dict(capabilities),
         "TRAITS": merged_traits,
+        "SETTINGS": merged_settings,
+        "POWER_CLASS": raw.get("power_class"),
     }
     # whitelabels is optional in data.json; only emit WHITELABELS when the
     # package has them, so packages without don't accidentally shadow the
@@ -82,4 +94,23 @@ def _apply_overrides(
             merged[wp] = dataclasses.replace(spec, wire_path=wp)
         else:
             merged[wp] = spec
+    return merged
+
+
+def _apply_setting_overrides(
+    base: dict[str, SettingSpec],
+    overrides: dict[str, SettingSpec | None],
+) -> dict[str, SettingSpec]:
+    """Merge SETTINGS_OVERRIDES onto the data.json settings map.
+
+    Mirrors _apply_overrides (rid present -> replace, None -> drop, new rid ->
+    add) but with NO wire_path coercion: settings are rid-keyed and have no
+    wire_path field.
+    """
+    merged = dict(base)
+    for rid, spec in overrides.items():
+        if spec is None:
+            merged.pop(rid, None)
+        else:
+            merged[rid] = spec
     return merged

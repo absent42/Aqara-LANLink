@@ -51,12 +51,18 @@ class AqaraSwitch(AqaraEntity, SwitchEntity):
         await self.device.async_write(
             {self._write_attr: self.descriptor.on_value}
         )
+        if self.descriptor.optimistic:
+            self._attr_is_on = True
+            self.write_state_if_added()
 
     async def async_turn_off(self, **kwargs) -> None:
         """Send the off-value via the device's `async_write`."""
         await self.device.async_write(
             {self._write_attr: self.descriptor.off_value}
         )
+        if self.descriptor.optimistic:
+            self._attr_is_on = False
+            self.write_state_if_added()
 
 
 __all__ = ["AqaraSwitch", "async_setup_entry"]

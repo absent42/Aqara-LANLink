@@ -173,6 +173,7 @@ rZzBHsMuBwA4LQdxBwIDAQAB
 _LOGIN_PATH = "/app/v1.0/lumi/user/login"
 _DEVICE_LIST_PATH = "/app/v1.0/lumi/app/position/device/query"
 _TRAIT_READ_PATH = "/app/v1.0/lumi/app/qlink/trait/read"
+_RES_QUERY_BY_RID_PATH = "/app/v1.0/lumi/res/query/by/resourceId"
 _DEV_QUERY_DETAIL_PATH = "/app/v1.0/lumi/app/dev/query/detail"
 _CUSTOM_ACTION_QUERY_PATH = "/app/v1.0/lumi/app/customaction/query"
 _SEQUENCE_RUN_PATH = "/app/v1.0/lumi/app/sequence/run"
@@ -536,6 +537,60 @@ class AqaraCloudClient:
                 f"(keys: {sorted(result[0])})"
             )
         return traits
+
+    async def query_resources_by_rid(
+        self, token: str, did: str, rids: Iterable[str],
+    ) -> dict[str, str]:
+        """Return current setting values keyed by resource ID for one device.
+
+        Calls ``POST /app/v1.0/lumi/res/query/by/resourceId`` with body
+        ``{"data": [{"options": [<rids>], "subjectId": <did>}]}``.
+
+        Args:
+            token: Authentication token from login.
+            did: Device ID (subjectId).
+            rids: Iterable of resource-id strings (e.g., ["4.4.85", "8.0.2032"]).
+
+        Sign source is the JSON body verbatim (default ``json.dumps``
+        spacing - space after ``,`` and ``:``). Matching that default is
+        important since the server validates the sign against the bytes
+        on the wire.
+
+        Parses the response ``result`` list into ``{resourceId: value}``.
+        Items lacking either key are skipped; a partial or empty result
+        simply yields fewer (or no) entries.
+
+        Raises :class:`AqaraAuthError` on auth, HTTP, or server-error
+        responses.
+        """
+        rids_list = list(rids)
+        body_dict = {
+            "data": [{"options": rids_list, "subjectId": did}],
+        }
+        # Use default json.dumps spacing - matches the byte sequence the
+        # server expects when computing the sign.
+        body_str = json.dumps(body_dict)
+        headers = self._build_headers(body_str, token=token)
+        url = f"{self._area.server}{_RES_QUERY_BY_RID_PATH}"
+
+        _LOGGER.debug(
+            "query_resources_by_rid: POST %s body=%s",
+            _RES_QUERY_BY_RID_PATH, body_str,
+        )
+        payload = await self._request("POST", url, headers, data=body_str)
+        self._raise_if_error(payload)
+        result = payload.get("result")
+        values: dict[str, str] = {}
+        if isinstance(result, list):
+            for item in result:
+                if not isinstance(item, dict):
+                    continue
+                rid = item.get("resourceId")
+                value = item.get("value")
+                if rid is None or value is None:
+                    continue
+                values[rid] = value
+        return values
 
     async def query_device_detail(
         self, token: str, did: str,

@@ -39,6 +39,8 @@ class AttrSpec:
 
     name: str
     id: str = ""
+    # set on rid-keyed setting writes; `coordinator.async_write` sends it bare instead of `_to_wire_path(name)`.
+    resource_id: str | None = None
     description: str = ""
     data_type: str = "unknown"
     unit: str | None = None

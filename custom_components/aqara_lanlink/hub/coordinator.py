@@ -448,8 +448,12 @@ class HubCoordinator:
         client = self._client
         if client is None or not self._connected_event.is_set():
             raise HomeAssistantError("hub not connected")
+        # rid-keyed settings carry a resource_id; send it bare (the hub's
+        # al2bc actuates the bare rid). Wire-path traits get _to_wire_path's
+        # `.1` suffix. See docs/dev/LOCAL_RID_WRITE_FINDINGS.md.
         payload = {
-            _to_wire_path(spec.name): value for spec, value in attrs.items()
+            (getattr(spec, "resource_id", None) or _to_wire_path(spec.name)): value
+            for spec, value in attrs.items()
         }
         _LOGGER.debug(
             "async_write: did=%s parent_did=%s model=%s payload=%s",
@@ -462,6 +466,9 @@ class HubCoordinator:
         msg = build_write(seq, wire_did, model, payload, sdid=sdid)
         response = await self._send_awaiting(client, msg, op="write")
         data = response.get("data") or {}
+        # Only `code` signals failure. `result` is intentionally NOT read:
+        # rid writes ack with result:null even when they actuate (false
+        # negative). See docs/dev/LOCAL_RID_WRITE_FINDINGS.md.
         code = data.get("code", 0)
         _LOGGER.debug(
             "async_write: did=%s response code=%s data=%s",

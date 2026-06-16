@@ -83,6 +83,7 @@ class SwitchDescriptor(SwitchEntityDescription):
     attr_write: AttrSpec | None = None
     on_value: str = "1"
     off_value: str = "0"
+    optimistic: bool = False
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -105,6 +106,7 @@ class SelectDescriptor(SelectEntityDescription):
     attr: AttrSpec
     attr_write: AttrSpec | None = None
     options_map: tuple[tuple[str, str], ...]
+    optimistic: bool = False
 
     def options_dict(self) -> dict[str, str]:
         """Return ``options_map`` as a fresh dict for callers that need it."""
@@ -128,6 +130,7 @@ class NumberDescriptor(NumberEntityDescription):
     transform_in: Callable[[str], int | float] | None = None
     transform_out: Callable[[int | float], str] | None = None
     scale: float | None = None
+    optimistic: bool = False
 
     def __post_init__(self) -> None:
         """Normalize the unit so HA NumberEntity device-class validation passes."""

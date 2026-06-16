@@ -100,6 +100,9 @@ class AqaraSelect(AqaraEntity, SelectEntity):
         for label, wire_value in self.descriptor.options_map:
             if label == option:
                 await self.device.async_write({self._write_attr: wire_value})
+                if self.descriptor.optimistic:
+                    self._attr_current_option = option
+                    self.write_state_if_added()
                 return
         raise KeyError(option)
 

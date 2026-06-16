@@ -22,15 +22,105 @@ from __future__ import annotations
 import logging
 from typing import TYPE_CHECKING
 
+from homeassistant.const import EntityCategory
+
 from . import catalog
+from .attrs import AttrSpec
 from .classify_v3 import classify_v3
-from .descriptors import AnyDescriptor
+from .descriptors import (
+    AnyDescriptor,
+    ButtonDescriptor,
+    NumberDescriptor,
+    SelectDescriptor,
+    SwitchDescriptor,
+)
 from .traits import TraitSpec
 
 if TYPE_CHECKING:
     from .overlay import Overlay
 
 _LOGGER = logging.getLogger(__name__)
+
+# SettingSpec.entity_category is a bare string; descriptors carry HA's enum.
+_ENTITY_CATEGORY = {
+    "config": EntityCategory.CONFIG,
+    "diagnostic": EntityCategory.DIAGNOSTIC,
+}
+
+
+def build_setting_descriptors(model: str) -> list[AnyDescriptor]:
+    """Turn `model`'s rid-keyed SettingSpecs into HA entity descriptors.
+
+    Reads `catalog.settings_for_model(model)` and emits one descriptor per
+    SettingSpec, dispatched on `platform`. Each descriptor binds to an
+    `AttrSpec(name=rid, resource_id=rid)` so `coordinator.async_write` sends
+    the bare rid over LANLink instead of a wire path. Unknown platforms are
+    skipped with a warning rather than crashing the derive.
+
+    State model for these rid-keyed settings (child lock, indicator, button
+    mode, power-off memory, max power, find/restart):
+
+    - Writes are fully local: the 3-part resource ID is sent over LANLink with
+      no cloud on the write path.
+    - State is cloud-seeded once at load (config-entry setup, via
+      `res/query/by/resourceId`) and then set optimistically after each HA
+      write. So an entity shows real state at load and after every HA write.
+    - LIMITATION: changes made in the Aqara app mid-session are NOT reflected
+      until the integration reloads. There is no continuous polling, and these
+      settings receive no local push reports (reports are wire-path-keyed,
+      settings are rid-keyed, and there is no bridge between the two).
+    - Deferral note: a LAN-only install with no cloud configured could mark
+      these entities `assumed_state=True`. v1 ships the cloud-seeded path and
+      leaves `assumed_state` as-is; the LAN-only refinement is future work.
+    """
+    out: list[AnyDescriptor] = []
+    for rid, spec in catalog.settings_for_model(model).items():
+        attr = AttrSpec(name=rid, resource_id=rid)
+        category = _ENTITY_CATEGORY.get(spec.entity_category, EntityCategory.CONFIG)
+        common = dict(
+            key=rid,
+            name=spec.name,
+            entity_category=category,
+            entity_registry_enabled_default=spec.default_enabled,
+            attr=attr,
+        )
+        if spec.platform == "switch":
+            out.append(
+                SwitchDescriptor(
+                    **common, on_value=spec.on_value, off_value=spec.off_value,
+                    optimistic=spec.optimistic,
+                )
+            )
+        elif spec.platform == "select":
+            options_map = tuple(
+                (label, wire)
+                for wire, label in (spec.enum_values or {}).items()
+            )
+            out.append(
+                SelectDescriptor(
+                    **common, options_map=options_map, optimistic=spec.optimistic,
+                )
+            )
+        elif spec.platform == "number":
+            out.append(
+                NumberDescriptor(
+                    **common,
+                    min_value=spec.min,
+                    max_value=spec.max,
+                    native_unit_of_measurement=spec.unit,
+                    optimistic=spec.optimistic,
+                )
+            )
+        elif spec.platform == "button":
+            out.append(
+                ButtonDescriptor(**common, press_value=spec.press_value or "1")
+            )
+        else:
+            _LOGGER.warning(
+                "Skipping setting %s on %s: unknown platform %r",
+                rid, model, spec.platform,
+            )
+    return out
 
 
 def _merge_overlay_into_catalogue(
@@ -70,4 +160,4 @@ def build_descriptors(model: str, overlay: Overlay) -> list[AnyDescriptor]:
     overlay_traits = overlay.traits_for_model(model)
     merged = _merge_overlay_into_catalogue(catalogue, overlay_traits)
     endpoints = catalog.endpoints_for_model(model)
-    return classify_v3(model, endpoints, merged)
+    return classify_v3(model, endpoints, merged) + build_setting_descriptors(model)

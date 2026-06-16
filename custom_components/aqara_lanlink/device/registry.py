@@ -37,6 +37,7 @@ from collections.abc import Callable
 from .base import Device
 
 if TYPE_CHECKING:
+    from .settings import SettingSpec
     from .traits import TraitSpec
 
 _LOGGER = logging.getLogger(__name__)
@@ -71,6 +72,11 @@ _CAPABILITIES_INDEX: dict[str, dict] = {}
 # catalogue. Consumed by ObservedPathCache + gap_report so dropped paths
 # don't surface as new-trait candidates the user would be asked to accept.
 _DROPPED_PATHS_INDEX: dict[str, frozenset[str]] = {}
+# Maps model -> {rid: SettingSpec}. Rid-keyed device settings written bare
+# over LANLink (no wire_path); separate from the trait pipeline.
+_SETTINGS_INDEX: dict[str, dict[str, "SettingSpec"]] = {}
+# Maps model -> power_class string ("mains"/"battery"/...) or None.
+_POWER_CLASS_INDEX: dict[str, str | None] = {}
 
 
 def _put_trait(model: str, trait_id: str, spec: "TraitSpec") -> None:
@@ -179,6 +185,8 @@ def reset_for_tests() -> None:
     _DEVICE_TYPES_INDEX.clear()
     _CAPABILITIES_INDEX.clear()
     _DROPPED_PATHS_INDEX.clear()
+    _SETTINGS_INDEX.clear()
+    _POWER_CLASS_INDEX.clear()
     _discovered = False
 
 
@@ -447,6 +455,17 @@ def _populate_model_indices(
         for m in models:
             _DROPPED_PATHS_INDEX[m] = frozenset(dropped_paths)  # type: ignore[arg-type]
 
+    # SETTINGS / POWER_CLASS: rid-keyed device settings + power source. Per-model
+    # copies; a missing attribute leaves no entry (catalog returns the default).
+    settings: object = getattr(mod, "SETTINGS", None)
+    if settings is not None:
+        for m in models:
+            _SETTINGS_INDEX[m] = dict(settings)  # type: ignore[arg-type]
+    power_class: object = getattr(mod, "POWER_CLASS", None)
+    if power_class is not None:
+        for m in models:
+            _POWER_CLASS_INDEX[m] = power_class  # type: ignore[assignment]
+
 __all__ = [
     "_ALLOW_UNAUTHORED_INDEX",
     "_CAPABILITIES_INDEX",
@@ -454,6 +473,8 @@ __all__ = [
     "_DISPLAY_INDEX",
     "_ENDPOINTS_INDEX",
     "_NOISE_OVERRIDE_INDEX",
+    "_POWER_CLASS_INDEX",
+    "_SETTINGS_INDEX",
     "_TRAITS_BY_MODEL",
     "_TRAIT_INDEX",
     "get_device_class",

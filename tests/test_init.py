@@ -1312,6 +1312,193 @@ async def test_subscribe_and_seed_skips_empty_string_values(
     assert "2.7.85" not in seeded_paths, "empty-string value must be skipped"
 
 
+# -----------------------------------------------------------------------------
+# Settings seed from cloud (rid-keyed device-setting state).
+# -----------------------------------------------------------------------------
+
+
+async def test_setup_seeds_settings_from_cloud_by_rid(
+    hass, patch_clientsession,
+) -> None:
+    """At setup, a device whose model has catalogued settings must read its
+    current setting values by resource id (query_resources_by_rid) and stage
+    each {rid: value} via device.seed_initial_value, so setting entities show
+    real state at load time.
+    """
+    entry = _hub_entry(hass)
+    # lumi.plug.aeu002 has catalogued SETTINGS (rid-keyed).
+    sub = _make_subentry(
+        subentry_id="sub-plug", did="lumi1.plug", model="lumi.plug.aeu002",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+
+    coord = _make_coordinator_mock()
+
+    fake_cloud = MagicMock()
+    fake_cloud.query_collection_panels = AsyncMock(return_value={})
+    fake_cloud.query_device_traits = AsyncMock(return_value=[])
+    # Cloud returns values for stateful rids AND the button rid; buttons must
+    # never be queried or seeded (stateless, no apply_value -> would raise).
+    fake_cloud.query_resources_by_rid = AsyncMock(
+        return_value={
+            "4.4.85": "1",
+            "8.0.2032": "0",
+            "8.0.2096": "0",
+        },
+    )
+
+    seeded: list = []
+
+    def _capture_seed(path, value):
+        seeded.append((path, value))
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient",
+        return_value=fake_cloud,
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ), patch(
+        "custom_components.aqara_lanlink.device.base.Device.seed_initial_value",
+        side_effect=_capture_seed,
+    ):
+        result = await async_setup_entry(hass, entry)
+
+    assert result is True
+    # The rid-keyed read targeted this device, with its catalogued rids.
+    fake_cloud.query_resources_by_rid.assert_awaited()
+    call = fake_cloud.query_resources_by_rid.await_args
+    assert call.args[1] == "lumi1.plug"
+    queried_rids = call.args[2]
+    # All 8 stateful rids are queried.
+    stateful_rids = {
+        "4.4.85", "4.5.85", "8.0.2032", "8.0.2114", "8.0.2259",
+        "14.11.85", "14.12.85", "8.0.2042",
+    }
+    assert stateful_rids.issubset(set(queried_rids))
+    # The button rid (find-device) is EXCLUDED from the rid-keyed read.
+    assert "8.0.2096" not in queried_rids
+    # Each returned stateful {rid: value} was staged as a rid-keyed seed.
+    assert ("4.4.85", "1") in seeded
+    assert ("8.0.2032", "0") in seeded
+    # No button rid is ever seeded (would raise on stateless button entity).
+    seeded_rids = {rid for rid, _ in seeded}
+    assert "8.0.2096" not in seeded_rids
+
+
+async def test_setup_skips_settings_seed_when_no_cloud_token(
+    hass, patch_clientsession,
+) -> None:
+    """With no cloud token, the settings seed must be skipped silently and
+    setup must still proceed -- no cloud call, no error.
+    """
+    entry = _hub_entry(hass)
+    # No token -> no cloud session.
+    hass.config_entries.async_update_entry(
+        entry, data={**entry.data, CONF_AQARA_TOKEN: ""},
+    )
+    sub = _make_subentry(
+        subentry_id="sub-plug", did="lumi1.plug", model="lumi.plug.aeu002",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+
+    coord = _make_coordinator_mock()
+
+    fake_cloud = MagicMock()
+    fake_cloud.query_collection_panels = AsyncMock(return_value={})
+    fake_cloud.query_device_traits = AsyncMock(return_value=[])
+    fake_cloud.query_resources_by_rid = AsyncMock(
+        side_effect=AssertionError("query_resources_by_rid called without token"),
+    )
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient",
+        return_value=fake_cloud,
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ):
+        result = await async_setup_entry(hass, entry)
+
+    assert result is True
+    fake_cloud.query_resources_by_rid.assert_not_called()
+
+
+async def test_setup_settings_seed_cloud_error_does_not_block_setup(
+    hass, patch_clientsession,
+) -> None:
+    """A failing query_resources_by_rid must be logged and swallowed: setup
+    completes and no exception escapes.
+    """
+    entry = _hub_entry(hass)
+    sub = _make_subentry(
+        subentry_id="sub-plug", did="lumi1.plug", model="lumi.plug.aeu002",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+
+    coord = _make_coordinator_mock()
+
+    fake_cloud = MagicMock()
+    fake_cloud.query_collection_panels = AsyncMock(return_value={})
+    fake_cloud.query_device_traits = AsyncMock(return_value=[])
+    fake_cloud.query_resources_by_rid = AsyncMock(
+        side_effect=RuntimeError("boom"),
+    )
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient",
+        return_value=fake_cloud,
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ):
+        result = await async_setup_entry(hass, entry)
+
+    assert result is True
+    fake_cloud.query_resources_by_rid.assert_awaited()
+
+
+async def test_setup_no_settings_makes_no_rid_cloud_call(
+    hass, patch_clientsession,
+) -> None:
+    """A device whose model has no catalogued settings must not issue a
+    rid-keyed cloud read.
+    """
+    entry = _hub_entry(hass)
+    # lumi.motion.agl001 has no catalogued SETTINGS.
+    sub = _make_subentry(
+        subentry_id="sub-fp2", did="lumi1.fp2", model="lumi.motion.agl001",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+
+    coord = _make_coordinator_mock()
+
+    fake_cloud = MagicMock()
+    fake_cloud.query_collection_panels = AsyncMock(return_value={})
+    fake_cloud.query_device_traits = AsyncMock(return_value=[])
+    fake_cloud.query_resources_by_rid = AsyncMock(return_value={})
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient",
+        return_value=fake_cloud,
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ):
+        result = await async_setup_entry(hass, entry)
+
+    assert result is True
+    fake_cloud.query_resources_by_rid.assert_not_called()
+
+
 def test_dead_modules_are_deleted():
     """Internal modules retired across V1->V3 must stay gone. This is a
     structural regression guard against accidentally re-importing them

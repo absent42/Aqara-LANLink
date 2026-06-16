@@ -118,6 +118,9 @@ class AqaraNumber(AqaraEntity, NumberEntity):
                 pass  # leave value as-is if non-numeric
         transform = self.descriptor.transform_out or _default_transform_out
         await self.device.async_write({self._write_attr: transform(wire_value)})
+        if self.descriptor.optimistic:
+            self._attr_native_value = value
+            self.write_state_if_added()
 
 
 class AqaraPtzZoomNumber(AqaraEntity, NumberEntity):
