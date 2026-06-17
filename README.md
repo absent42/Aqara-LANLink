@@ -103,15 +103,15 @@ sub-entries.
 
 1. Go to **Settings > Devices & Services > Add Integration**.
 2. Search for and select **Aqara LANLink**.
-3. If your hub is on the same LAN as Home Assistant it will appear in a
+3. Click **Add hub**. If your hub is on the same LAN as Home Assistant it will appear in a
    discovered list. Select it. If it does not appear, select **Enter manually**
-   and type the hub's IP address and DID (printed on the hub or visible in the
+   and type the hub's IP address and DID (visible in the
    Aqara app under hub settings; starts with `lumi1.`).
-4. On the credentials step, enter either:
+5. On the credentials step, enter either:
    - Your Aqara account email, password, and region (exchanged for a session
      token; credentials are not stored), or
    - A user ID and token pasted directly, to skip the cloud login step.
-5. Confirm the hub details. A preview of how many devices belong to this hub is
+6. Confirm the hub details. A preview of how many devices belong to this hub is
    shown if the cloud is reachable.
 
 The hub entry is created and Home Assistant connects immediately.
