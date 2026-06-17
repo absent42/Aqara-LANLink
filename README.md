@@ -13,11 +13,12 @@ Aqara does not endorse or support this integration. The LANLink protocol was rev
 - **Local push, no polling** - device state is pushed from the hub over a persistent encrypted LANLink tunnel; state changes reach Home Assistant with no cloud round-trip.
 - **Multiple Aqara hubs in a cluster**, and mutliple hubs bound to different regions.
 - **Multiple entity types** - switches, sensors, binary sensors, lights, numbers, selects, buttons, and events are derived from each device's catalogue with names, values and labels.
+- **Local device settings** - sub-device configuration that the trait catalogue does not cover (child lock, indicator light, button mode, power-off memory, max power, find/restart) is exposed as switch, select, number, and button entities and written fully locally over LANLink by resource ID.
 - **Cameras and doorbells** - RTSP streaming via go2rtc, doorbell ring events, motion/occupancy/gesture etc detection events and sensors, and two-way audio (talk-back) through the go2rtc backchannel.
 - **Local camera PTZ** - pan/tilt/zoom and saved-position presets for supported cameras, as buttons, a preset selector, and services.
 - **Rich lights** - brightness, colour temperature, and full colour fused into a single light entity, plus Aqara and user created dynamic and static effects in the effect picker.
 - **Privacy-conscious** - only a session token is stored, never your password; steady-state operation stays on your LAN.
-- **Contributor-friendly device support** - per-model overrides for labels, entity types and more, plus manual cloud discovery (`scan_device`) service and one-click export of new traits for a PR.
+- **Contributor-friendly device support** - per-model overrides for labels, entity types and more, plus manual cloud discovery (`scan_device`) service that exports both new traits and resource-ID pairs for a PR.
 - **Self-healing and guided** - automatic reconnect, push-liveness recovery, and Home Assistant Repairs that flag stalled hubs or newly discovered device capabilities.
 
 ## How it works

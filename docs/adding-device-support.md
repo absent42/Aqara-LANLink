@@ -138,6 +138,13 @@ discover and validate locally using the overlay, then export the result into
    cloud scan, compares the result against the local catalogue, and reports any
    gaps.
 
+   The scan also posts a separate Persistent Notification titled "Aqara LAN
+   Link RID discovery: &lt;model&gt;" containing a `RESOURCE_IDS` dict of
+   `wire_path -> resource_id` pairs read from the device. This is only needed
+   when authoring local device settings or adding a `resource_id` to a trait;
+   it can be ignored for ordinary trait additions. See
+   [Adding local device settings](#adding-local-device-settings-rid-keyed).
+
 2. Go to Settings > Devices & Services > Repairs. If gaps were found, a repair
    issue named "scan_review" appears. Open it.
 
@@ -221,6 +228,71 @@ Only declare sub-features the camera actually supports (`pan_tilt`, `zoom`,
 `presets`). The PTZ control plane also requires the camera's IP address to be
 set in the integration options for that subentry. See [ptz.md](ptz.md) for the
 full protocol details and what each sub-feature enables in Home Assistant.
+
+---
+
+## Adding local device settings (rid-keyed)
+
+Some sub-device configuration - child lock, indicator light, button mode,
+power-off memory, max power, find/restart - is not in the V3 wire-path trait
+catalogue. The hub actuates these by a 3-part **resource ID** (rid, e.g.
+`4.4.85`), and the integration exposes them as switch / select / number /
+button entities written fully locally over LANLink. Settings are seeded from
+the cloud once at load and updated optimistically after each Home Assistant
+write; they do not receive live push updates (see
+[architecture.md](architecture.md) section 12).
+
+These are authored as `SettingSpec`s, not `TraitSpec`s, in a `SETTINGS_OVERRIDES`
+dict in the model's `overrides.py`. The catalogue generator is not yet
+settings-aware, so `SETTINGS_OVERRIDES` is the contributor-editable home: author
+and validate settings there, and a maintainer folds confirmed entries into the
+model's `data.json` `settings` block.
+
+### Step 1: discover the resource IDs
+
+Call `aqara_lanlink.scan_device` against the device (as in Tier B above). It
+posts a Persistent Notification titled "Aqara LAN Link RID discovery:
+&lt;model&gt;" with a `RESOURCE_IDS` dict mapping each `wire_path` to the
+authoritative `resource_id` read from the device's `propertyId`:
+
+```python
+RESOURCE_IDS: dict[str, str] = {
+    "4.4.85": "4.4.85",
+    "8.0.2042": "8.0.2042",
+    ...
+}
+```
+
+Use this to find the rid for the setting you want to expose. (Some settings are
+rid-only and will not have a separate wire path; identify those from the Aqara
+app's behaviour and confirm the rid actuates on hardware.)
+
+### Step 2: author the setting and validate
+
+Add a `SETTINGS_OVERRIDES` entry to the model's `overrides.py`:
+
+```python
+from custom_components.aqara_lanlink.device.settings import SettingSpec
+
+SETTINGS_OVERRIDES: dict[str, SettingSpec | None] = {
+    "4.4.85": SettingSpec(
+        rid="4.4.85", name="Child lock", platform="switch",
+        entity_category="config",
+    ),
+}
+```
+
+Reload the integration and confirm the entity actuates the device on hardware.
+A rid write acks with `result: null` even when it works, so verify by observing
+the physical device, not the response. For the full `SettingSpec` field
+reference, see [overrides.md](overrides.md).
+
+### Step 3: submit
+
+Open a PR with the `SETTINGS_OVERRIDES` entries. Note in the description that
+the settings were confirmed on hardware and which model and rid each one
+targets. A maintainer folds confirmed settings into the model's `data.json`
+`settings` block.
 
 ---
 

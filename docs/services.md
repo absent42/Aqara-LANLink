@@ -39,6 +39,16 @@ already catalogued. Not required for normal use.
 5. If no gaps are found the service logs an info message and removes any prior
    scan_review Repair for that device.
 
+Independently of the gap report, every successful scan also posts a Persistent
+Notification titled "Aqara LAN Link RID discovery: &lt;model&gt;". Its body is a
+`RESOURCE_IDS` dict of `wire_path -> resource_id` pairs read from the device's
+`propertyId` (authoritative), enriched over the model's catalogue trait wire
+paths. This is a contributor aid for authoring local device settings or adding
+a `resource_id` to a trait, and can be ignored for ordinary trait additions.
+This step is best-effort and additive: any failure is logged and never breaks
+the trait scan. See
+[adding-device-support.md](adding-device-support.md#adding-local-device-settings-rid-keyed).
+
 If the cloud authentication token is expired, the service triggers the standard
 re-authentication flow instead of raising a scan-failure Repair.
 

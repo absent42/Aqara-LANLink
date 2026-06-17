@@ -134,6 +134,63 @@ reads `CAPABILITIES` alongside `OVERRIDES` and indexes it in the registry;
 separate from the catalogue because it operates over a distinct local P2P
 control plane (not LANLink). See [ptz.md](ptz.md) for the full picture.
 
+## Local device settings: SETTINGS_OVERRIDES
+
+Some sub-device configuration - child lock, indicator light, button mode,
+power-off memory, max power, find/restart - is not in the V3 wire-path trait
+catalogue. The hub actuates these by a 3-part **resource ID** (rid, e.g.
+`4.4.85`) rather than a wire path, and the integration exposes them as
+switch / select / number / button entities written fully locally over LANLink.
+For the protocol and state model, see [architecture.md](architecture.md)
+section 12.
+
+Settings are not `TraitSpec`s. Each is a `SettingSpec` keyed by rid, and they
+live in their own map, parallel to `OVERRIDES`:
+
+- The confirmed, shipped settings for a model live in a `settings` block in the
+  model package's `data.json`.
+- A model's `overrides.py` may export a `SETTINGS_OVERRIDES` dict that tunes
+  that block at load time, with the same replace / drop / add semantics as
+  `OVERRIDES` but **no wire-path coercion** (settings have no `wire_path`).
+
+```python
+from custom_components.aqara_lanlink.device.settings import SettingSpec
+
+SETTINGS_OVERRIDES: dict[str, SettingSpec | None] = {
+    # replace the data.json entry at this rid
+    "8.0.2042": SettingSpec(
+        rid="8.0.2042", name="Max power", platform="number",
+        min=100, max=4000, unit="W",
+    ),
+    # drop a data.json entry so no entity is created
+    "8.0.2096": None,
+    # add a rid not present in data.json
+    "9.9.99": SettingSpec(rid="9.9.99", name="New setting", platform="switch"),
+}
+```
+
+`SettingSpec` fields:
+
+| Field | Applies to | Meaning |
+|-------|-----------|---------|
+| `rid` | all | The 3-part resource ID, written bare over LANLink. Must match the dict key. |
+| `name` | all | Entity name. |
+| `platform` | all | One of `switch`, `select`, `number`, `button`. |
+| `enum_values` | select | `{wire_value: label}` map for the options. |
+| `min` / `max` / `unit` | number | Numeric bounds and display unit. |
+| `press_value` | button | Value written on press (default `"1"`). |
+| `on_value` / `off_value` | switch | Wire values; some settings invert (e.g. indicator `on == "0"`). |
+| `entity_category` | all | `"config"` (default) or `"diagnostic"`. |
+| `default_enabled` | all | Whether the entity is enabled by default. |
+| `optimistic` | switch/select/number | Set own state after a write (default `True`). |
+
+Because the catalogue generator is not yet settings-aware, `SETTINGS_OVERRIDES`
+is the contributor-editable home for new settings: author and validate them
+here, and a maintainer folds confirmed entries into the model's `data.json`
+`settings` block. See [adding-device-support.md](adding-device-support.md) for
+discovering the rid for a setting via the `scan_device` resource-ID discovery
+notification.
+
 ## Limitations
 
 - **Fused entities can't be reshaped.** Endpoints whose composer merges

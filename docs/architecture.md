@@ -124,6 +124,7 @@ The pipeline steps in detail:
 - `overlay.traits_for_model(model)` returns the per-install overlay traits for the same model (empty dict if none exist).
 - `build_descriptors` merges the two with override-on-top semantics: an overlay entry replaces the catalogue entry at the same wire path; a `None` overlay entry removes a catalogue entry. The merge result is passed to `classify_v3`.
 - `classify_v3` groups traits by endpoint ID, looks up each endpoint's `deviceType`, and calls the matching composer from `device/device_types/`. Composers such as `Light` fuse multiple traits (OnOff, LevelControl, ColorControl) into a single `LightDescriptor`. A `_fallback` composer handles endpoints with unrecognised device types by producing one entity per trait.
+- `build_descriptors` also appends `build_setting_descriptors(model)` to the classified output. These are rid-keyed device settings (child lock, indicator light, etc.) that have no wire-path trait representation; they are authored separately and written locally by resource ID. See section 12.
 - The resulting `list[AnyDescriptor]` is deterministic: identical catalogue + overlay inputs always produce identical output.
 
 For the data-model vocabulary (TraitSpec fields, descriptor types, wire paths, trait policies, dropped paths), see [catalogue-and-traits.md](catalogue-and-traits.md).
@@ -201,9 +202,9 @@ Only the `token` (not the password) is persisted in the HA config entry. The pas
 ### What leaves the local network and when
 
 - **Config-flow time:** cloud login (email/password path only) and device enumeration/preview. These happen when the user runs the config-flow wizard to add the hub or a device subentry.
-- **Every HA startup / reload / reconnect:** per-device subscribe+seed (re-arming the push subscription and fetching current trait values) and light-effects enrichment. These calls happen on every entry load and after every tunnel reconnect or topology change, not only during the initial config-flow.
-- **Steady-state runtime:** nothing leaves the local network. Individual device state changes are pushed from the hub over the LAN; write commands are sent directly over the LANLink TCP session with no cloud relay.
-- **If `scan_device` is invoked:** one additional cloud round-trip per scan.
+- **Every HA startup / reload / reconnect:** per-device subscribe+seed (re-arming the push subscription and fetching current trait values), light-effects enrichment, and a one-shot rid-keyed setting seed (`res/query/by/resourceId`) for any model that declares settings. These calls happen on every entry load and after every tunnel reconnect or topology change, not only during the initial config-flow.
+- **Steady-state runtime:** nothing leaves the local network. Individual device state changes are pushed from the hub over the LAN; write commands - including rid-keyed device-setting writes - are sent directly over the LANLink TCP session with no cloud relay.
+- **If `scan_device` is invoked:** one additional cloud round-trip for the trait scan, plus a second best-effort cloud read of the model's catalogue wire paths for resource-ID discovery (see section 12 and [services.md](services.md)).
 
 ### Unofficial status
 
@@ -222,6 +223,45 @@ the model loader indexes the declared sub-features and exposes them through
 cloud-assisted, so a valid cloud login is required even though movement
 commands are sent directly over the LAN. See [ptz.md](ptz.md) for the full
 protocol description.
+
+---
+
+## 12. Local device settings (rid-keyed)
+
+Some Aqara sub-device configuration -- child lock, indicator light, button mode, power-off memory, max power, find/restart -- is not exposed through the V3 wire-path trait catalogue. The hub actuates these by a 3-part **resource ID** (rid, e.g. `4.4.85`), not a wire path. The integration exposes them as ordinary Home Assistant entities (switch, select, number, button) that write fully locally over LANLink.
+
+### Authoring
+
+Settings are authored per model in a `settings` block in the model package's `data.json`, keyed by rid:
+
+```json
+"settings": {
+  "4.4.85": {"name": "Child lock socket 1", "platform": "switch", "entity_category": "config"},
+  "8.0.2032": {"name": "Indicator light", "platform": "switch", "on_value": "0", "off_value": "1"},
+  "8.0.2259": {"name": "Power-off memory", "platform": "select", "enum_values": {"0": "On", "1": "Previous", "2": "Off"}},
+  "8.0.2042": {"name": "Max power", "platform": "number", "min": 100, "max": 3250, "unit": "W"},
+  "8.0.2096": {"name": "Find device", "platform": "button", "press_value": "1"}
+}
+```
+
+Each entry deserialises to a `SettingSpec` (`device/settings.py`) -- the settings-catalogue analogue of `TraitSpec`. A model's `overrides.py` may also export a `SETTINGS_OVERRIDES` dict that tunes the `data.json` block at load time with the same replace/drop/add semantics as `OVERRIDES`. The reference model is `lumi.plug.aeu002` (9 settings, confirmed on hardware). The catalogue generator is not yet settings-aware, so the `settings` block is currently hand-maintained; see [overrides.md](overrides.md) and [adding-device-support.md](adding-device-support.md).
+
+### The write path
+
+`build_setting_descriptors(model)` turns each `SettingSpec` into a descriptor (dispatched on `platform`) and appends them to the output of `build_descriptors`, so settings flow through the same entity pipeline as traits. Each descriptor binds an `AttrSpec(name=rid, resource_id=rid)`. On write, `coordinator.async_write` sees the `resource_id` and sends the **bare rid** over LANLink (the hub's al2bc mapping actuates it) instead of applying the `.1` wire-path suffix that wire-path traits receive.
+
+A rid write acks with `result: null` even when it actuates, so only the response `code` is treated as failure; `result` is intentionally not read (reading it would turn a successful write into a false-negative failure).
+
+### State model
+
+Settings receive no local push reports: reports are wire-path-keyed, settings are rid-keyed, and there is no bridge between the two. State is handled in two parts:
+
+- **Seeded once at load.** During setup `_seed_settings_from_cloud` reads current values by rid from the cloud (`cloud_client.query_resources_by_rid`, calling `res/query/by/resourceId`) and seeds them onto the entities so they show real state at load rather than unknown. Read-only and best-effort: an auth error triggers re-auth once; any other failure is logged and setup continues. Buttons are excluded (momentary, no readable value), and a model with no settings makes no cloud call.
+- **Optimistic after writes.** switch/select/number setting entities set their own state immediately after a successful Home Assistant write (`optimistic=True` on the descriptor).
+
+LIMITATION: a change made in the Aqara app while Home Assistant is running is not reflected until the integration reloads; there is no continuous polling of settings. A change made from Home Assistant appears immediately.
+
+DEFERRAL: a LAN-only install with no cloud configured currently shows these entities without seeded state until the first write (they are not marked `assumed_state`). The cloud-seeded path ships now; the LAN-only refinement is future work.
 
 ---
 
