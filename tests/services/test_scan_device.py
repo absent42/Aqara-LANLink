@@ -142,6 +142,114 @@ async def test_scan_device_creates_no_issue_when_catalogue_already_covers_all(
     )
 
 
+async def test_scan_device_posts_rid_discovery_notification(hass, monkeypatch):
+    """After the trait-gap report, an additive rid-discovery step posts a
+    persistent notification carrying the RESOURCE_IDS map (and NOT a
+    SETTINGS_OVERRIDES block - Part 2 is deferred).
+
+    `query_device_traits` is called twice: once for the panel paths and once
+    for the model's catalogue wire-paths (the path-union enrichment). Both
+    return a propertyId-bearing trait list so the merged RESOURCE_IDS map
+    carries the pairs.
+    """
+    import custom_components.aqara_lanlink.services.scan_device as scan_mod
+    from custom_components.aqara_lanlink.services.scan_device import async_handle_scan
+    from custom_components.aqara_lanlink.device import registry
+    from custom_components.aqara_lanlink.device.traits import TraitSpec
+
+    model = "lumi.ridtest.a"
+    entry = _build_test_entry(hass, model=model)
+
+    # Seed a catalogue trait so the path-union enrichment has a wire-path to
+    # read (all_traits_for_model returns {trait_id: TraitSpec}).
+    cat_wp = "2.160.33000"
+    monkeypatch.setattr(registry, "_discovered", True)
+    registry._put_trait(
+        model,
+        cat_wp,
+        TraitSpec(
+            id=cat_wp, name="Seeded trait", wire_path=cat_wp,
+            data_type="bool", endpoint_id=2,
+        ),
+    )
+
+    panel_wp = "4.143.32952"
+    entry.runtime_data.cloud_client.query_collection_panels = AsyncMock(
+        return_value={4: _build_panel(paths=(panel_wp,))},
+    )
+
+    def _traits(token, did, *, paths):
+        # The catalogue read passes the seeded wire-path; everything else is
+        # the panel scan. Return a propertyId-bearing trait list for each.
+        if cat_wp in paths:
+            return [{"path": cat_wp, "propertyId": ["9.1.85"], "value": "1"}]
+        return [
+            {"path": panel_wp, "propertyId": ["14.35.85"], "value": "1", "unit": "C"},
+        ]
+
+    entry.runtime_data.cloud_client.query_device_traits = AsyncMock(
+        side_effect=_traits,
+    )
+
+    captured: dict[str, str] = {}
+
+    def _fake_create(hass_, message, *, title=None, notification_id=None):
+        captured["message"] = message
+        captured["title"] = title
+        captured["notification_id"] = notification_id
+
+    monkeypatch.setattr(scan_mod.pn, "async_create", _fake_create)
+
+    call = _make_service_call(hass, {"device_id": _device_id_of(entry)})
+    await async_handle_scan(hass, call)
+
+    assert "message" in captured, "no persistent notification was posted"
+    body = captured["message"]
+    assert "RESOURCE_IDS" in body
+    assert "SETTINGS_OVERRIDES" not in body
+    assert "4.143.32952" in body  # the panel wire_path
+    assert "14.35.85" in body  # the panel rid
+    assert cat_wp in body  # the catalogue wire_path (path-union enrichment)
+    assert "9.1.85" in body  # the catalogue rid
+    assert captured["title"] == f"Aqara LAN Link RID discovery: {model}"
+    assert captured["notification_id"].startswith("aqara_lanlink_rid_discovery_")
+
+
+async def test_scan_device_rid_discovery_failure_does_not_block_gap_issue(
+    hass, monkeypatch,
+):
+    """If the rid-discovery step raises, the trait-gap Repair issue is still
+    created (the step is additive and best-effort).
+    """
+    import custom_components.aqara_lanlink.services.scan_device as scan_mod
+    from custom_components.aqara_lanlink.services.scan_device import async_handle_scan
+    from homeassistant.helpers import issue_registry as ir
+
+    entry = _build_test_entry(hass, model="lumi.test")
+    entry.runtime_data.cloud_client.query_collection_panels = AsyncMock(
+        return_value={4: _build_panel(paths=("4.143.32952",))},
+    )
+    entry.runtime_data.cloud_client.query_device_traits = AsyncMock(
+        return_value=[
+            {"path": "4.143.32952", "propertyId": ["0.1.85"], "value": "23.5", "unit": "C"},
+        ],
+    )
+
+    # Force the rid-discovery step to blow up.
+    def _boom(*a, **k):
+        raise RuntimeError("discovery exploded")
+
+    monkeypatch.setattr(scan_mod, "extract_resource_id_map", _boom)
+
+    call = _make_service_call(hass, {"device_id": _device_id_of(entry)})
+    await async_handle_scan(hass, call)
+
+    issues = ir.async_get(hass).issues
+    assert any(
+        i.issue_id.startswith("scan_review_") for i in issues.values()
+    ), "the trait-gap issue must still be created despite rid-discovery failure"
+
+
 async def test_scan_device_handles_cloud_failure_with_repair_issue(hass):
     """When query_collection_panels raises, a Repair issue describing
     the failure is created (rather than a silent error).

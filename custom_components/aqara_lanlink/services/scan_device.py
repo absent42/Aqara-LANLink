@@ -14,13 +14,16 @@ from __future__ import annotations
 
 import logging
 
+from homeassistant.components import persistent_notification as pn
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.helpers import device_registry as dr, issue_registry as ir
 
 from ..const import DOMAIN
 from ..device import catalog
+from ..device.setting_discovery import extract_resource_id_map
 from ..gap_report import build_gap_report_from_cloud
 from ..hub.cloud_client import AqaraCloudAuthError
+from .export_overlay import render_resource_id_map
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -96,6 +99,12 @@ async def async_handle_scan(hass: HomeAssistant, call: ServiceCall) -> None:
     if not ok:
         return
 
+    # Additive, best-effort owner-side rid discovery. Runs before the
+    # gap-report branches (which have early returns) so it always fires once
+    # the trait scan succeeds. Wrapped so any failure logs and is swallowed -
+    # it must never break the trait scan.
+    await _rid_discovery(hass, entry, runtime, cloud, did, model, traits_response)
+
     catalogue = catalog.all_traits_for_model(model)
     report = build_gap_report_from_cloud(
         panels=panels,
@@ -137,6 +146,65 @@ async def async_handle_scan(hass: HomeAssistant, call: ServiceCall) -> None:
         "scan_device: %s (model=%s) has %d gaps; review-and-select issue created",
         did, model, len(report.entries),
     )
+
+
+async def _rid_discovery(
+    hass, entry, runtime, cloud, did: str, model: str, traits_response,
+) -> None:
+    """Post an owner-side rid-discovery notification (additive, best-effort).
+
+    Renders the authoritative wire_path -> rid map: the `propertyId` pairs from
+    the panel-path scan, enriched with the same pairs read from the model's
+    catalogue trait wire-paths, and posts them as a persistent notification for
+    catalogue submission. Any failure is logged and swallowed - this never
+    breaks the trait scan.
+    """
+    try:
+        # `query_device_traits` returns the flat `result[0].traits` list, but
+        # `extract_resource_id_map` consumes the full envelope shape. Re-wrap
+        # at the wiring layer rather than touching the pure A-side function.
+        resource_id_map = extract_resource_id_map(
+            {"result": [{"traits": traits_response}]}
+        )
+
+        # Path-union enrichment: the panel paths cover only the device's
+        # collection panels, so also read the model's catalogue trait
+        # wire-paths and merge their propertyId pairs. Best-effort: a failed
+        # catalogue read must not break the rid map already built above.
+        cat_paths = list(catalog.all_traits_for_model(model).keys())
+        if cat_paths:
+            try:
+                cat_resp = await cloud.query_device_traits(
+                    runtime.cloud_token, did, paths=cat_paths,
+                )
+                resource_id_map.update(
+                    extract_resource_id_map({"result": [{"traits": cat_resp}]})
+                )
+            except Exception as exc:  # noqa: BLE001 - cloud is external
+                _LOGGER.debug(
+                    "scan_device: catalogue rid read failed for did=%s (%s)",
+                    did, exc,
+                )
+
+        body = render_resource_id_map(model, resource_id_map)
+
+        pn.async_create(
+            hass,
+            body,
+            title=f"Aqara LAN Link RID discovery: {model}",
+            notification_id=(
+                f"aqara_lanlink_rid_discovery_{entry.entry_id}_{did}"
+            ),
+        )
+        _LOGGER.info(
+            "scan_device: %s (model=%s) rid discovery: %d resource_id pairs",
+            did, model, len(resource_id_map),
+        )
+    except Exception as exc:  # noqa: BLE001 - additive step must never break scan
+        _LOGGER.warning(
+            "scan_device: rid discovery failed for did=%s model=%s (%s)",
+            did, model, exc,
+        )
 
 
 def _resolve_device(hass, device_id: str):

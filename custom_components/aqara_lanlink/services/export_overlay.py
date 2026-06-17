@@ -107,6 +107,32 @@ def _no_entries_message(model: str | None) -> str:
     return f"# Overlay has no overlay entries for {model}."
 
 
+def render_resource_id_map(model: str, resource_id_map: dict[str, str]) -> str:
+    """Render the owner-discovered wire_path -> resource_id pairs (Part 1).
+
+    `resource_id_map` is `{wire_path: rid}`, harvested from an OWNED device's
+    qlink/trait/read propertyId (authoritative). The maintainer folds these in
+    as the `resource_id` on the matching catalogue traits - the reliable
+    pairings the build-time joiner could not produce.
+    """
+    if not resource_id_map:
+        return f"# {model} - no wire_path<->rid pairs discovered."
+    header = (
+        f"# {model} - wire_path -> resource_id pairs discovered from an OWNED "
+        f"device's\n"
+        f"# qlink/trait/read propertyId (authoritative). The maintainer adds "
+        f"these as\n"
+        f"# resource_id on the matching catalogue traits. Review before "
+        f"submitting a PR.\n"
+        f"RESOURCE_IDS: dict[str, str] = {{"
+    )
+    rows = [
+        f"    {_quote(wire_path)}: {_quote(resource_id_map[wire_path])},"
+        for wire_path in sorted(resource_id_map)
+    ]
+    return header + "\n" + "\n".join(rows) + "\n}"
+
+
 async def async_handle_export(hass: HomeAssistant, call: ServiceCall) -> None:
     """Render the overlay for the integration's first config entry and
     post a Persistent Notification with the result.
