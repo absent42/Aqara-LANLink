@@ -23,9 +23,11 @@ Aqara does not endorse or support this integration. The LANLink protocol was rev
 
 ## How it works
 
-Once the encrypted tunnel between Home Assistant and an Aqara hub has been created, individual device state changes travel entirely over the LAN with no cloud round-trip. Live state changes and automations operate fully locally with every read and write going over LAN, not via the Aqara cloud servers.
+The integration creates an encrypted tunnel between Home Assistant and an Aqara hub using a reverse engineered version of Aqara's LANLink protocol.
 
-The cloud is required at two points:
+Once the tunnel is in place individual sub-device state changes and automations operate fully locally with every read and write going over the LAN tunnel to the hub which then relays them locally to the sub-device, with no roundtrip via the Aqara cloud servers.
+
+The cloud is still required at two points:
 
 - **Setup** - Adding a hub or a device makes a small number of HTTPS calls to
   Aqara's regional API: a login (to exchange credentials for a session token),
