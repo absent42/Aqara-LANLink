@@ -72,6 +72,10 @@ _CAPABILITIES_INDEX: dict[str, dict] = {}
 # catalogue. Consumed by ObservedPathCache + gap_report so dropped paths
 # don't surface as new-trait candidates the user would be asked to accept.
 _DROPPED_PATHS_INDEX: dict[str, frozenset[str]] = {}
+# Maps model -> {rid: reason} of resource ids the settings generator excluded
+# (sensor/event/diagnostic/dual). Mirrors _DROPPED_PATHS_INDEX but is a dict so
+# the drop reason is carried for the scan-device consumer.
+_DROPPED_RIDS_INDEX: dict[str, dict[str, str]] = {}
 # Maps model -> {rid: SettingSpec}. Rid-keyed device settings written bare
 # over LANLink (no wire_path); separate from the trait pipeline.
 _SETTINGS_INDEX: dict[str, dict[str, "SettingSpec"]] = {}
@@ -185,6 +189,7 @@ def reset_for_tests() -> None:
     _DEVICE_TYPES_INDEX.clear()
     _CAPABILITIES_INDEX.clear()
     _DROPPED_PATHS_INDEX.clear()
+    _DROPPED_RIDS_INDEX.clear()
     _SETTINGS_INDEX.clear()
     _POWER_CLASS_INDEX.clear()
     _discovered = False
@@ -454,6 +459,10 @@ def _populate_model_indices(
     if dropped_paths is not None:
         for m in models:
             _DROPPED_PATHS_INDEX[m] = frozenset(dropped_paths)  # type: ignore[arg-type]
+    dropped_rids: object = getattr(mod, "DROPPED_RIDS", None)
+    if dropped_rids is not None:
+        for m in models:
+            _DROPPED_RIDS_INDEX[m] = dict(dropped_rids)  # type: ignore[arg-type]
 
     # SETTINGS / POWER_CLASS: rid-keyed device settings + power source. Per-model
     # copies; a missing attribute leaves no entry (catalog returns the default).

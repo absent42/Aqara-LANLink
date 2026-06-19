@@ -62,6 +62,11 @@ def load_model_data(pkg_dir: Path) -> dict:
     # consumed instead of surfacing as candidate-paths repair issues.
     if raw.get("dropped_paths"):
         out["DROPPED_PATHS"] = tuple(raw["dropped_paths"])
+    # dropped_rids is the {rid: reason} map of resource ids the settings
+    # generator excluded (sensor/event/diagnostic/dual). Mirrors dropped_paths
+    # but keyed by rid with the reason carried for the scan-device consumer.
+    if raw.get("dropped_rids"):
+        out["DROPPED_RIDS"] = dict(raw["dropped_rids"])
     return out
 
 

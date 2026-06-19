@@ -193,6 +193,20 @@ def dropped_paths_for_model(model: str) -> frozenset[str]:
     return _reg()._DROPPED_PATHS_INDEX.get(model, frozenset())
 
 
+def dropped_rids_for_model(model: str) -> dict[str, str]:
+    """Resource ids the settings generator excluded from `model`, with reasons.
+
+    A {rid: reason} map (sensor/event/diagnostic/dual). Unlike
+    dropped_paths_for_model this returns a dict, not a frozenset - the drop
+    reason is carried for the future scan-device consumer.
+
+    Returns a fresh dict; mutating it does not affect the underlying index.
+    Empty dict when the model is unknown or its package has no dropped_rids
+    (older shipped packages).
+    """
+    return dict(_reg()._DROPPED_RIDS_INDEX.get(model, {}))
+
+
 def reset_for_tests() -> None:
     """Clear all per-model indices. Tests only — production never calls this.
 
@@ -209,6 +223,7 @@ __all__ = [
     "allow_unauthored",
     "device_types_for_model",
     "dropped_paths_for_model",
+    "dropped_rids_for_model",
     "endpoints_for_model",
     "get_display_metadata",
     "get_enum_labels",
