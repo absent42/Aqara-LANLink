@@ -10,8 +10,8 @@ against the regenerated catalogue + the per-model `SETTINGS_OVERRIDES`:
   is a packed hex blob the generator cannot detect, so a per-model override
   forces it to `text` (BUG 3).
 - `14.164.85` (Dynamic_change_speed): a clean numeric with a plain Description
-  stays a `number`, and its built AqaraNumber has a functional slider
-  (min/max fall back to HA's 0/100, never None -- BUG 1).
+  stays a `number`. With no CSV range it becomes a free BOX input with wide
+  symmetric bounds (so a real seeded value is settable, not clamped to 0-100).
 
 If this gate fails after a catalogue regen, fix the generator / override, NOT
 this test.
@@ -64,17 +64,23 @@ def _build_acn132_device():
     return hub, sub, device
 
 
-def test_dynamic_change_speed_number_slider_is_functional():
+def test_dynamic_change_speed_number_is_box_with_wide_bounds():
+    from homeassistant.components.number import NumberMode
+
     hub, sub, device = _build_acn132_device()
     numbers = build_descriptor_entities(
         hub, device, sub, NumberDescriptor, AqaraNumber
     )
     num = next(e for e in numbers if e.descriptor.key == "14.164.85")
-    # BUG 1: a no-range number falls back to HA's 0/100/1, never None.
-    assert num.min_value == 0.0
-    assert num.max_value == 100.0
-    assert num.min_value is not None and num.max_value is not None
-    assert num.step == 1.0
+    # A no-range number is a free BOX input with wide symmetric bounds so any
+    # real seeded value is settable (HA's 0-100 slider would reject it).
+    assert num.mode == NumberMode.BOX
+    assert num.native_min_value == -1_000_000
+    assert num.native_max_value == 1_000_000
+    # 14.164.85 is uint32_t (int) -> step 1, not 0.01.
+    assert num.native_step == 1
+    # A real cloud-seeded value falls inside the bounds.
+    assert num.min_value <= 250 <= num.max_value
 
 
 def test_packed_rids_become_text_entities_end_to_end():

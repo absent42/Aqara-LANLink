@@ -87,6 +87,9 @@ class AqaraNumber(AqaraEntity, NumberEntity):
             self._attr_native_max_value = descriptor.max_value
         if descriptor.step is not None:
             self._attr_native_step = descriptor.step
+        # AUTO (the default) lets HA pick slider-vs-box; a no-range setting-number
+        # supplies BOX so its wide bounds render as a free input, not a slider.
+        self._attr_mode = descriptor.mode
         self._attr_native_value = None
 
     def apply_value(self, raw: str) -> None:

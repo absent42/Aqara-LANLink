@@ -33,6 +33,9 @@ class SettingSpec:
     min: float | None = None
     max: float | None = None
     unit: str | None = None
+    # True when the underlying CSV `Value Type` is float. Only the number
+    # platform consumes it: a float gets a 0.01 step, an int a step of 1.
+    is_float: bool = False
     press_value: str | None = None
     entity_category: str = "config"
     default_enabled: bool = True

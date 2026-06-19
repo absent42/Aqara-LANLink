@@ -22,6 +22,7 @@ from __future__ import annotations
 import logging
 from typing import TYPE_CHECKING
 
+from homeassistant.components.number import NumberMode
 from homeassistant.const import EntityCategory
 
 from . import catalog
@@ -47,6 +48,15 @@ _ENTITY_CATEGORY = {
     "config": EntityCategory.CONFIG,
     "diagnostic": EntityCategory.DIAGNOSTIC,
 }
+
+# Wide symmetric bounds for a setting-number whose CSV carries no range. HA's
+# `number.set_value` rejects any value outside [min, max] (mode-independent), so
+# the default 0-100 slider makes a real cloud-seeded value (e.g.
+# `set_voltage_up_limit`=250) unsettable. The symmetric lower bound also admits
+# negative-valued settings (temperature offsets). A BOX-mode entity with these
+# bounds is a free numeric input, not a bogus slider.
+WIDE_MIN = -1_000_000
+WIDE_MAX = 1_000_000
 
 
 def build_setting_descriptors(model: str) -> list[AnyDescriptor]:
@@ -103,11 +113,28 @@ def build_setting_descriptors(model: str) -> list[AnyDescriptor]:
                 )
             )
         elif spec.platform == "number":
+            step = 0.01 if spec.is_float else 1
+            if spec.min is None and spec.max is None:
+                # No range at all: a free numeric BOX input with wide symmetric
+                # bounds so any real seeded value is settable (a 0-100 slider
+                # would reject it).
+                mode = NumberMode.BOX
+                min_value: int | float = WIDE_MIN
+                max_value: int | float = WIDE_MAX
+            else:
+                # At least one side known: keep a normal slider but fill the
+                # missing side with a wide bound so a half-specified range can't
+                # reintroduce HA's 0-100 clamp on the open end.
+                mode = NumberMode.AUTO
+                min_value = spec.min if spec.min is not None else WIDE_MIN
+                max_value = spec.max if spec.max is not None else WIDE_MAX
             out.append(
                 NumberDescriptor(
                     **common,
-                    min_value=spec.min,
-                    max_value=spec.max,
+                    min_value=min_value,
+                    max_value=max_value,
+                    step=step,
+                    mode=mode,
                     native_unit_of_measurement=spec.unit,
                     optimistic=spec.optimistic,
                 )

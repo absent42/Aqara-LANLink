@@ -22,7 +22,7 @@ from homeassistant.components.binary_sensor import BinarySensorEntityDescription
 from homeassistant.components.button import ButtonEntityDescription
 from homeassistant.components.event import EventEntityDescription
 from homeassistant.components.light import LightEntityDescription
-from homeassistant.components.number import NumberEntityDescription
+from homeassistant.components.number import NumberEntityDescription, NumberMode
 from homeassistant.components.select import SelectEntityDescription
 from homeassistant.components.sensor import SensorEntityDescription
 from homeassistant.components.switch import SwitchEntityDescription
@@ -128,6 +128,10 @@ class NumberDescriptor(NumberEntityDescription):
     min_value: int | float
     max_value: int | float
     step: int | float = 1
+    # AUTO leaves HA to pick slider-vs-box; BOX forces a free numeric input.
+    # A no-range setting-number uses BOX so its wide bounds don't render as a
+    # meaningless slider (see build_descriptors.build_setting_descriptors).
+    mode: NumberMode = NumberMode.AUTO
     transform_in: Callable[[str], int | float] | None = None
     transform_out: Callable[[int | float], str] | None = None
     scale: float | None = None

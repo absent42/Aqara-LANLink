@@ -300,20 +300,27 @@ async def test_text_set_value_writes_full_value_but_caps_cached_state():
     assert TextEntity.state.fget(text) == text.native_value
 
 
-# --- BUG 1: a no-range number SettingSpec must fall back to HA's 0/100/1 ------
-# defaults, NOT carry None min/max (which makes the frontend slider unusable).
+# --- A no-range number SettingSpec must become a free BOX input with wide -----
+# symmetric bounds, NOT a bogus 0-100 slider. HA's `number.set_value` rejects
+# any value outside [min, max] (mode-independent), so a cloud-seeded value like
+# `set_voltage_up_limit`=250 must fall inside the bounds to be settable, and a
+# negative-valued setting (temperature offset) needs the symmetric lower bound.
 
 from custom_components.aqara_lanlink.device import registry  # noqa: E402
 from custom_components.aqara_lanlink.device.build_descriptors import (  # noqa: E402
+    WIDE_MAX,
+    WIDE_MIN,
     build_setting_descriptors,
 )
 from custom_components.aqara_lanlink.device.settings import SettingSpec  # noqa: E402
+
+from homeassistant.components.number import NumberMode  # noqa: E402
 
 _NUMBER_MODEL = "lumi.fake.numsetting"
 
 
 def _index_number_settings_pkg():
-    """Index a fake package with one no-range and one ranged number setting."""
+    """Index a fake package: a no-range float, a no-range int, and a ranged number."""
     import types
 
     fake = types.ModuleType("fake_numsetting_pkg")
@@ -321,9 +328,15 @@ def _index_number_settings_pkg():
     fake.MANUFACTURER = "Aqara"
     fake.DISPLAY_NAME = "Fake Number Settings"
     fake.SETTINGS = {
-        # No min/max/unit -- the common rid-setting case (e.g. acn132 14.164.85).
+        # No min/max/unit, FLOAT -- the common rid-setting case (voltage limits,
+        # report frequencies; e.g. acn132 14.164.85, motion 1.10.85 bed height).
         "14.164.85": SettingSpec(
             rid="14.164.85", name="Dynamic change speed", platform="number",
+            is_float=True,
+        ),
+        # No min/max/unit, INT -- e.g. a fall-detection delay with no CSV range.
+        "14.59.85": SettingSpec(
+            rid="14.59.85", name="Fall detection delay", platform="number",
         ),
         # A ranged number (e.g. aeu002 8.0.2042) keeps its real min/max.
         "8.0.2042": SettingSpec(
@@ -343,39 +356,67 @@ def _build_number_setting_device():
     return hub, sub, device
 
 
-def test_no_range_number_falls_back_to_ha_defaults():
-    """A no-range number's slider must use HA's 0/100/1, never None.
+def _num_by_key(hub, device, sub, key: str) -> AqaraNumber:
+    (num,) = [
+        e
+        for e in build_descriptor_entities(hub, device, sub, NumberDescriptor, AqaraNumber)
+        if e.descriptor.key == key
+    ]
+    return num
 
-    Setting `_attr_native_min_value = None` overrides HA's NumberEntity
-    defaults with None, making `min_value`/`max_value` return None (and
-    `step` even raise), so the frontend slider cannot move. The fix leaves
-    the attrs unset when the descriptor value is None.
+
+def test_no_range_float_number_is_box_with_wide_bounds():
+    """A no-range float becomes a BOX input with +-1_000_000 bounds, step 0.01.
+
+    HA's 0-100 default slider would reject any real seeded value outside that
+    span, making the entity non-functional. A BOX with wide symmetric bounds is
+    a free numeric input that accepts the real value.
     """
     hub, sub, device = _build_number_setting_device()
-    (num,) = [
-        e
-        for e in build_descriptor_entities(hub, device, sub, NumberDescriptor, AqaraNumber)
-        if e.descriptor.key == "14.164.85"
-    ]
+    num = _num_by_key(hub, device, sub, "14.164.85")
 
-    # The usable HA properties fall back to defaults -- NOT None.
-    assert num.min_value == 0.0
-    assert num.max_value == 100.0
-    assert num.min_value is not None
-    assert num.max_value is not None
-    # step derives from min/max; with None it raises TypeError. 1.0 is the
-    # default for a 0..100 range and proves the slider is fully functional.
-    assert num.step == 1.0
+    assert num.mode == NumberMode.BOX
+    assert num.native_min_value == -1_000_000
+    assert num.native_max_value == 1_000_000
+    assert num.native_step == 0.01
 
 
-def test_ranged_number_keeps_its_real_min_max():
-    """A number WITH a CSV range still gets its real min/max, not the defaults."""
+def test_no_range_float_number_brackets_real_seeded_values():
+    """The wide bounds must bracket a real positive AND a real negative value.
+
+    `set_voltage_up_limit`=250 (cloud-seeded) and a temperature offset of -50
+    must both fall inside [min, max] so `number.set_value` accepts them.
+    """
     hub, sub, device = _build_number_setting_device()
-    (num,) = [
-        e
-        for e in build_descriptor_entities(hub, device, sub, NumberDescriptor, AqaraNumber)
-        if e.descriptor.key == "8.0.2042"
-    ]
-    assert num.min_value == 100
-    assert num.max_value == 3250
+    num = _num_by_key(hub, device, sub, "14.164.85")
+
+    assert num.min_value <= 250 <= num.max_value
+    assert num.min_value <= -50 <= num.max_value
+
+
+def test_no_range_int_number_is_box_with_step_one():
+    """A no-range int becomes a BOX with step 1 (not 0.01) and wide bounds."""
+    hub, sub, device = _build_number_setting_device()
+    num = _num_by_key(hub, device, sub, "14.59.85")
+
+    assert num.mode == NumberMode.BOX
+    assert num.native_step == 1
+    assert num.native_min_value == -1_000_000
+    assert num.native_max_value == 1_000_000
+
+
+def test_ranged_number_keeps_its_real_min_max_and_stays_auto():
+    """A number WITH a CSV range keeps its real min/max and stays an AUTO slider.
+
+    The widen-only-when-unknown rule must NOT touch a fully-specified range:
+    bounds stay 100/3250, mode stays AUTO (a normal slider), not widened/BOX.
+    """
+    hub, sub, device = _build_number_setting_device()
+    num = _num_by_key(hub, device, sub, "8.0.2042")
+
+    assert num.mode == NumberMode.AUTO
+    assert num.native_min_value == 100
+    assert num.native_max_value == 3250
+    assert num.native_min_value != WIDE_MIN
+    assert num.native_max_value != WIDE_MAX
     assert num.native_unit_of_measurement == "W"
