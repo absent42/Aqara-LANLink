@@ -113,7 +113,7 @@
     "14.165.85": {
       "entity_category": "config",
       "name": "Mode Switching",
-      "platform": "number",
+      "platform": "text",
       "resource_code": "mode_light"
     },
     "14.7.85": {

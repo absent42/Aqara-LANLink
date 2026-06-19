@@ -75,9 +75,18 @@ class AqaraNumber(AqaraEntity, NumberEntity):
     def __init__(self, hub, device, subentry, descriptor: NumberDescriptor):
         super().__init__(hub, device, subentry, descriptor)
         self.entity_description = descriptor
-        self._attr_native_min_value = descriptor.min_value
-        self._attr_native_max_value = descriptor.max_value
-        self._attr_native_step = descriptor.step
+        # Only override HA's NumberEntity defaults (0.0 / 100.0 / 1.0) when the
+        # descriptor actually carries a value. A rid-setting number with no CSV
+        # range leaves min/max/step None; assigning None to these `_attr_*`
+        # fields makes `native_min_value`/`native_max_value` return None, which
+        # breaks the frontend slider (the value can't be changed and `step`
+        # even raises). Leaving them unset lets HA fall back to 0/100/1.
+        if descriptor.min_value is not None:
+            self._attr_native_min_value = descriptor.min_value
+        if descriptor.max_value is not None:
+            self._attr_native_max_value = descriptor.max_value
+        if descriptor.step is not None:
+            self._attr_native_step = descriptor.step
         self._attr_native_value = None
 
     def apply_value(self, raw: str) -> None:

@@ -298,3 +298,84 @@ async def test_text_set_value_writes_full_value_but_caps_cached_state():
     # Cached state is capped so HA's final `state` does not raise.
     assert len(text.native_value) <= 255
     assert TextEntity.state.fget(text) == text.native_value
+
+
+# --- BUG 1: a no-range number SettingSpec must fall back to HA's 0/100/1 ------
+# defaults, NOT carry None min/max (which makes the frontend slider unusable).
+
+from custom_components.aqara_lanlink.device import registry  # noqa: E402
+from custom_components.aqara_lanlink.device.build_descriptors import (  # noqa: E402
+    build_setting_descriptors,
+)
+from custom_components.aqara_lanlink.device.settings import SettingSpec  # noqa: E402
+
+_NUMBER_MODEL = "lumi.fake.numsetting"
+
+
+def _index_number_settings_pkg():
+    """Index a fake package with one no-range and one ranged number setting."""
+    import types
+
+    fake = types.ModuleType("fake_numsetting_pkg")
+    fake.MODELS = (_NUMBER_MODEL,)
+    fake.MANUFACTURER = "Aqara"
+    fake.DISPLAY_NAME = "Fake Number Settings"
+    fake.SETTINGS = {
+        # No min/max/unit -- the common rid-setting case (e.g. acn132 14.164.85).
+        "14.164.85": SettingSpec(
+            rid="14.164.85", name="Dynamic change speed", platform="number",
+        ),
+        # A ranged number (e.g. aeu002 8.0.2042) keeps its real min/max.
+        "8.0.2042": SettingSpec(
+            rid="8.0.2042", name="Max power", platform="number",
+            min=100, max=3250, unit="W",
+        ),
+    }
+    registry._index_package(fake, "fake_numsetting_pkg")
+
+
+def _build_number_setting_device():
+    _index_number_settings_pkg()
+    descriptors = build_setting_descriptors(_NUMBER_MODEL)
+    hub = make_hub()
+    sub = make_subentry(subentry_id="sub-num", did="did-num", model=_NUMBER_MODEL)
+    device = make_device(descriptors, subentry=sub, model=_NUMBER_MODEL)
+    return hub, sub, device
+
+
+def test_no_range_number_falls_back_to_ha_defaults():
+    """A no-range number's slider must use HA's 0/100/1, never None.
+
+    Setting `_attr_native_min_value = None` overrides HA's NumberEntity
+    defaults with None, making `min_value`/`max_value` return None (and
+    `step` even raise), so the frontend slider cannot move. The fix leaves
+    the attrs unset when the descriptor value is None.
+    """
+    hub, sub, device = _build_number_setting_device()
+    (num,) = [
+        e
+        for e in build_descriptor_entities(hub, device, sub, NumberDescriptor, AqaraNumber)
+        if e.descriptor.key == "14.164.85"
+    ]
+
+    # The usable HA properties fall back to defaults -- NOT None.
+    assert num.min_value == 0.0
+    assert num.max_value == 100.0
+    assert num.min_value is not None
+    assert num.max_value is not None
+    # step derives from min/max; with None it raises TypeError. 1.0 is the
+    # default for a 0..100 range and proves the slider is fully functional.
+    assert num.step == 1.0
+
+
+def test_ranged_number_keeps_its_real_min_max():
+    """A number WITH a CSV range still gets its real min/max, not the defaults."""
+    hub, sub, device = _build_number_setting_device()
+    (num,) = [
+        e
+        for e in build_descriptor_entities(hub, device, sub, NumberDescriptor, AqaraNumber)
+        if e.descriptor.key == "8.0.2042"
+    ]
+    assert num.min_value == 100
+    assert num.max_value == 3250
+    assert num.native_unit_of_measurement == "W"

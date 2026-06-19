@@ -16,4 +16,12 @@ OVERRIDES: dict[str, TraitSpec | None] = {
 SETTINGS_OVERRIDES: dict[str, SettingSpec | None] = {
     "4.160.85": None,   # music_action_switch == trait 2.134.20205 Lighting music sync enable
     "14.160.85": None,  # device_paragraph    == trait 2.134.20459 Light strip segment count
+    # 14.7.85 "Dynamic-sequence operation" is Value Type=uint32_t with a plain
+    # Description, but its real value is a packed hex blob (e.g. 87038001010101)
+    # the generator cannot detect from the Description alone. Force it to text so
+    # the entity edits the raw packed string instead of presenting a bogus slider.
+    "14.7.85": SettingSpec(
+        rid="14.7.85", name="Dynamic-sequence operation", platform="text",
+        resource_code="scene_set", entity_category="config",
+    ),
 }
