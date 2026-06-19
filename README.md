@@ -13,7 +13,7 @@ Aqara does not endorse or support this integration. The LANLink protocol was rev
 - **Local push, no polling** - device state is pushed from the hub over a persistent encrypted LANLink tunnel; state changes reach Home Assistant with no cloud round-trip.
 - **Multiple Aqara hubs in a cluster**, and mutliple hubs bound to different regions.
 - **Multiple entity types** - switches, sensors, binary sensors, lights, numbers, selects, buttons, and events are derived from each device's catalogue with names, values and labels.
-- **Local device settings** - sub-device configuration that the trait catalogue does not cover (child lock, indicator light, button mode, power-off memory, max power, find/restart) is exposed as switch, select, number, and button entities and written fully locally over LANLink by resource ID.
+- **Local device settings** - sub-device configuration settings (child lock, indicator light, button mode, power-off memory, max power, find/restart etc) are exposed as switch, select, number, text, and button entities and written fully locally over LANLink by resource ID.
 - **Cameras and doorbells** - RTSP streaming via go2rtc, doorbell ring events, motion/occupancy/gesture etc detection events and sensors, and two-way audio (talk-back) through the go2rtc backchannel.
 - **Local camera PTZ** - pan/tilt/zoom and saved-position presets for supported cameras, as buttons, a preset selector, and services.
 - **Rich lights** - brightness, colour temperature, and full colour fused into a single light entity, plus Aqara and user created dynamic and static effects in the effect picker.
