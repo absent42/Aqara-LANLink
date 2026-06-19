@@ -6,6 +6,7 @@ def test_setting_spec_defaults():
     assert s.rid == "4.4.85"
     assert s.name == "Child lock socket 1"
     assert s.platform == "switch"
+    assert s.resource_code is None
     assert s.enum_values is None
     assert s.min is None
     assert s.max is None
@@ -16,6 +17,28 @@ def test_setting_spec_defaults():
     assert s.optimistic is True
     assert s.on_value == "1"
     assert s.off_value == "0"
+
+
+def test_setting_spec_round_trips_resource_code():
+    # `resource_code` is the snake stable-id metadata (parallel to TraitSpec.trait_code).
+    s = SettingSpec(
+        rid="14.6.85",
+        name="Door/window type",
+        platform="select",
+        resource_code="door_modex",
+        enum_values={"1": "Open", "2": "Close"},
+    )
+    assert s.resource_code == "door_modex"
+    assert s.name == "Door/window type"
+
+
+def test_setting_spec_accepts_resource_code_via_kwargs():
+    # Mirrors the loader's SettingSpec(rid=rid, **fields) path with a data.json
+    # value dict that carries an optional "resource_code".
+    fields = {"name": "Music rhythm mode", "platform": "select",
+              "resource_code": "music_action_pattern"}
+    s = SettingSpec(rid="14.162.85", **fields)
+    assert s.resource_code == "music_action_pattern"
 
 
 def test_setting_spec_inverted_switch_values():

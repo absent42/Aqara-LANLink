@@ -24,6 +24,11 @@ class SettingSpec:
     rid: str
     name: str
     platform: str
+    # Stable snake `Resource Name` (e.g. `door_modex`), parallel to a trait's
+    # `trait_code`; `name` is the friendly `Attr name` HA label. Kept next to the
+    # identity fields but defaulted (so it follows the required positionals rid/
+    # name/platform). Pure metadata - no descriptor/entity consumes it.
+    resource_code: str | None = None
     enum_values: dict[str, str] | None = None
     min: float | None = None
     max: float | None = None

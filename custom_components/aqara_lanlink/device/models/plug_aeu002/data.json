@@ -101,7 +101,8 @@
         "2": "Multi-Function"
       },
       "name": "Button mode socket 1",
-      "platform": "select"
+      "platform": "select",
+      "resource_code": "Button mode socket 1"
     },
     "14.12.85": {
       "entity_category": "config",
@@ -110,28 +111,32 @@
         "2": "Multi-Function"
       },
       "name": "Button mode socket 2",
-      "platform": "select"
+      "platform": "select",
+      "resource_code": "Button mode socket 2"
     },
     "4.4.85": {
       "entity_category": "config",
       "name": "Child lock socket 1",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "Child lock socket 1"
     },
     "4.5.85": {
       "entity_category": "config",
       "name": "Child lock socket 2",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "Child lock socket 2"
     },
     "8.0.2032": {
       "entity_category": "config",
       "name": "Indicator light",
       "off_value": "1",
       "on_value": "0",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "Indicator light"
     },
     "8.0.2042": {
       "entity_category": "config",
@@ -139,20 +144,23 @@
       "min": 100,
       "name": "Max power",
       "platform": "number",
+      "resource_code": "Max power",
       "unit": "W"
     },
     "8.0.2096": {
       "entity_category": "config",
       "name": "Find device",
       "platform": "button",
-      "press_value": "1"
+      "press_value": "1",
+      "resource_code": "Find device"
     },
     "8.0.2114": {
       "entity_category": "config",
       "name": "Indicator reverse",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "Indicator reverse"
     },
     "8.0.2259": {
       "entity_category": "config",
@@ -163,7 +171,8 @@
         "3": "Inverted"
       },
       "name": "Power-off memory",
-      "platform": "select"
+      "platform": "select",
+      "resource_code": "Power-off memory"
     }
   },
   "source_region": "default",

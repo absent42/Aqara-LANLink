@@ -108,8 +108,9 @@
         "2": "Medium sensitivity",
         "3": "High sensitivity"
       },
-      "name": "sensitivity",
-      "platform": "select"
+      "name": "Human detection sensitivity",
+      "platform": "select",
+      "resource_code": "sensitivity"
     },
     "14.28.85": {
       "entity_category": "config",
@@ -120,8 +121,9 @@
         "3": "High frequency mode",
         "4": "Custom mode"
       },
-      "name": "light_detect_mode",
-      "platform": "select"
+      "name": "Light detection mode",
+      "platform": "select",
+      "resource_code": "light_detect_mode"
     },
     "14.59.85": {
       "entity_category": "config",
@@ -130,29 +132,33 @@
         "1": "Radar only",
         "2": "Infrared only"
       },
-      "name": "work_mode",
-      "platform": "select"
+      "name": "Device working mode",
+      "platform": "select",
+      "resource_code": "work_mode"
     },
     "4.3.85": {
       "entity_category": "config",
-      "name": "radar_switch",
+      "name": "Radar switch setting",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "radar_switch"
     },
     "4.4.85": {
       "entity_category": "config",
-      "name": "adaptive_sensitivityr_switch",
+      "name": "AI sensitivity adaptive switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "adaptive_sensitivityr_switch"
     },
     "4.72.85": {
       "entity_category": "config",
-      "name": "distinguish_human_nonhuman",
+      "name": "AI interference source self-identification switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "distinguish_human_nonhuman"
     }
   },
   "source_region": "default",

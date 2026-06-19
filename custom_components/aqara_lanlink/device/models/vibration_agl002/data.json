@@ -107,8 +107,9 @@
       "entity_category": "config",
       "max": 10,
       "min": 1,
-      "name": "sensitivity",
-      "platform": "number"
+      "name": "Detection sensitivity",
+      "platform": "number",
+      "resource_code": "sensitivity"
     },
     "14.6.85": {
       "entity_category": "config",
@@ -118,51 +119,58 @@
         "3": "Roll-up/down shutter",
         "4": "Single-track sliding door"
       },
-      "name": "door_modex",
-      "platform": "select"
+      "name": "Door/window type",
+      "platform": "select",
+      "resource_code": "door_modex"
     },
     "4.10.85": {
       "entity_category": "config",
-      "name": "vibrate_switch",
+      "name": "Vibration detection switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "vibrate_switch"
     },
     "4.11.85": {
       "entity_category": "config",
-      "name": "knock_switch",
+      "name": "Triple-knock detection switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "knock_switch"
     },
     "4.22.85": {
       "entity_category": "config",
       "enum_values": {
         "1": "Execlute"
       },
-      "name": "ctrl_ch22_status",
-      "platform": "select"
+      "name": "Remote posture calibration",
+      "platform": "select",
+      "resource_code": "ctrl_ch22_status"
     },
     "4.7.85": {
       "entity_category": "config",
-      "name": "post_switch",
+      "name": "Posture detection switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "post_switch"
     },
     "4.8.85": {
       "entity_category": "config",
-      "name": "move_switch",
+      "name": "Move detection switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "move_switch"
     },
     "4.9.85": {
       "entity_category": "config",
-      "name": "down_switch",
+      "name": "Drop detection switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "down_switch"
     }
   },
   "source_region": "default",

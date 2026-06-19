@@ -55,8 +55,10 @@
     "1.12.85": "sensor",
     "1.7.85": "sensor",
     "1.9.85": "sensor",
+    "14.160.85": "dual",
     "14.161.85": "dual",
     "14.163.85": "dual",
+    "14.8.85": "dual",
     "4.1.85": "dual",
     "8.0.8101": "metadata",
     "8.0.8102": "metadata"
@@ -81,20 +83,15 @@
   "settings": {
     "14.15.85": {
       "entity_category": "config",
-      "name": "scence_ota",
-      "platform": "text"
+      "name": "Dynamic sequence scene settings",
+      "platform": "text",
+      "resource_code": "scence_ota"
     },
     "14.160.700": {
       "entity_category": "config",
-      "name": "device_paragraph_on",
-      "platform": "text"
-    },
-    "14.160.85": {
-      "entity_category": "config",
-      "max": 50,
-      "min": 0,
-      "name": "device_paragraph",
-      "platform": "number"
+      "name": "Light segments to which the dynamic scene mode applies",
+      "platform": "text",
+      "resource_code": "device_paragraph_on"
     },
     "14.162.85": {
       "entity_category": "config",
@@ -103,40 +100,41 @@
         "1": "Medium",
         "2": "High"
       },
-      "name": "music_action_sensitivity",
-      "platform": "select"
+      "name": "Music Rhythm Sensitivity Mode",
+      "platform": "select",
+      "resource_code": "music_action_sensitivity"
     },
     "14.164.85": {
       "entity_category": "config",
-      "name": "Dynamic_change_speed",
-      "platform": "number"
+      "name": "Dynamic change speed",
+      "platform": "number",
+      "resource_code": "Dynamic_change_speed"
     },
     "14.165.85": {
       "entity_category": "config",
-      "name": "mode_light",
-      "platform": "number"
+      "name": "Mode Switching",
+      "platform": "number",
+      "resource_code": "mode_light"
     },
     "14.7.85": {
       "entity_category": "config",
-      "name": "scene_set",
-      "platform": "number"
+      "name": "Dynamic-sequence operation",
+      "platform": "number",
+      "resource_code": "scene_set"
     },
     "14.8.701": {
       "entity_category": "config",
-      "name": "color_paragraph",
-      "platform": "text"
-    },
-    "14.8.85": {
-      "entity_category": "config",
-      "name": "light_xy",
-      "platform": "number"
+      "name": "Static light segment single color configuration",
+      "platform": "text",
+      "resource_code": "color_paragraph"
     },
     "4.160.85": {
       "entity_category": "config",
-      "name": "music_action_switch",
+      "name": "Music rhythm switch",
       "off_value": "0",
       "on_value": "1",
-      "platform": "switch"
+      "platform": "switch",
+      "resource_code": "music_action_switch"
     },
     "4.17.85": {
       "entity_category": "config",
@@ -144,8 +142,9 @@
         "0": "Normal mode",
         "1": "Dynamic scene mode"
       },
-      "name": "light_work_mode",
-      "platform": "select"
+      "name": "Whether to enter dynamic scene mode",
+      "platform": "select",
+      "resource_code": "light_work_mode"
     }
   },
   "source_region": "default",
