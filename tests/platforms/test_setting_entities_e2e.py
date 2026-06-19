@@ -258,3 +258,43 @@ async def test_text_set_value_writes_bare_rid():
     assert payload[attr_key] == "FFEE00"
     # Optimistic: the new value is reflected immediately.
     assert text.native_value == "FFEE00"
+
+
+def test_text_apply_value_caps_cached_state_at_255():
+    """A 300-char seed must not leave a state that HA's `state` rejects.
+
+    HA's final `TextEntity.state` raises ValueError when native_value
+    exceeds `max` (capped at 255). Guard the cached mirror so the seed
+    path never throws on `async_write_ha_state`.
+    """
+    from homeassistant.components.text import TextEntity
+
+    hub, sub, device = _build_text_setting_device()
+    (text,) = build_descriptor_entities(hub, device, sub, TextDescriptor, AqaraText)
+
+    text.apply_value("A" * 300)
+
+    assert len(text.native_value) <= 255
+    # Reading HA's final `state` property must not raise.
+    assert TextEntity.state.fget(text) == text.native_value
+
+
+@pytest.mark.asyncio
+async def test_text_set_value_writes_full_value_but_caps_cached_state():
+    """A long input writes the FULL string to the device; cached state caps."""
+    from homeassistant.components.text import TextEntity
+
+    hub, sub, device = _build_text_setting_device()
+    (text,) = build_descriptor_entities(hub, device, sub, TextDescriptor, AqaraText)
+    device.async_write = AsyncMock()  # type: ignore[method-assign]
+
+    long_value = "B" * 300
+    await text.async_set_value(long_value)
+
+    # Full value reaches the coordinator (no truncation of the write).
+    (payload,), _ = device.async_write.await_args
+    (attr_key,) = payload.keys()
+    assert payload[attr_key] == long_value
+    # Cached state is capped so HA's final `state` does not raise.
+    assert len(text.native_value) <= 255
+    assert TextEntity.state.fget(text) == text.native_value
