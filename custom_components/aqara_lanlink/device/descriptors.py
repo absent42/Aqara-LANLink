@@ -26,6 +26,7 @@ from homeassistant.components.number import NumberEntityDescription
 from homeassistant.components.select import SelectEntityDescription
 from homeassistant.components.sensor import SensorEntityDescription
 from homeassistant.components.switch import SwitchEntityDescription
+from homeassistant.components.text import TextEntityDescription
 
 from .attrs import AttrSpec
 from .traits import TraitSpec
@@ -138,6 +139,22 @@ class NumberDescriptor(NumberEntityDescription):
             self, "native_unit_of_measurement",
             normalize_unit(self.native_unit_of_measurement),
         )
+
+
+@dataclass(frozen=True, kw_only=True)
+class TextDescriptor(TextEntityDescription):
+    """A free-text input backed by an attr name.
+
+    Used for string/packed rid-settings (e.g. hex-encoded light segment
+    paragraphs) that have no clean enum/range, so they cannot be a
+    switch/select/number. The bare rid is carried on `attr` for the write
+    path, mirroring the other setting descriptors. Optimistic by default:
+    settings receive no push reports, so the entity sets its own state.
+    """
+
+    attr: AttrSpec
+    attr_write: AttrSpec | None = None
+    optimistic: bool = False
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -255,6 +272,7 @@ AnyDescriptor = Union[
     SelectDescriptor,
     NumberDescriptor,
     SensorDescriptor,
+    TextDescriptor,
     EventDescriptor,
     LightDescriptor,
 ]
@@ -272,4 +290,5 @@ __all__ = [
     "SelectDescriptor",
     "SensorDescriptor",
     "SwitchDescriptor",
+    "TextDescriptor",
 ]

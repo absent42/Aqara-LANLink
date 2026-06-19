@@ -20,17 +20,22 @@ import pytest
 from custom_components.aqara_lanlink.button import AqaraButton
 from custom_components.aqara_lanlink.device import catalog, registry
 from custom_components.aqara_lanlink.device.build_descriptors import build_descriptors
+from custom_components.aqara_lanlink.device.attrs import AttrSpec
 from custom_components.aqara_lanlink.device.descriptors import (
     ButtonDescriptor,
     NumberDescriptor,
     SelectDescriptor,
     SwitchDescriptor,
+    TextDescriptor,
 )
 from custom_components.aqara_lanlink.device.overlay import Overlay
 from custom_components.aqara_lanlink.entity import build_descriptor_entities
 from custom_components.aqara_lanlink.number import AqaraNumber
 from custom_components.aqara_lanlink.select import AqaraSelect
 from custom_components.aqara_lanlink.switch import AqaraSwitch
+from custom_components.aqara_lanlink.text import AqaraText
+
+from homeassistant.const import EntityCategory
 
 from .conftest import make_device, make_hub, make_subentry
 
@@ -212,3 +217,44 @@ def test_find_device_button_enabled_by_default():
     find_device = next(e for e in ents["button"] if e.descriptor.key == "8.0.2096")
     assert find_device.entity_registry_enabled_default is True
     assert find_device.descriptor.press_value == "1"
+
+
+def _build_text_setting_device():
+    """A synthetic device carrying one text-setting descriptor (bare rid)."""
+    descriptor = TextDescriptor(
+        key="14.8.701",
+        name="Color paragraph",
+        entity_category=EntityCategory.CONFIG,
+        attr=AttrSpec(name="14.8.701", resource_id="14.8.701"),
+        optimistic=True,
+    )
+    hub = make_hub()
+    sub = make_subentry(subentry_id="sub-text", did="did-text", model=_MODEL)
+    device = make_device([descriptor], subentry=sub, model=_MODEL)
+    return hub, sub, device
+
+
+def test_text_setting_becomes_text_entity():
+    hub, sub, device = _build_text_setting_device()
+    ents = build_descriptor_entities(hub, device, sub, TextDescriptor, AqaraText)
+    assert len(ents) == 1
+    assert isinstance(ents[0], AqaraText)
+    assert ents[0].descriptor.key == "14.8.701"
+    assert ents[0].unique_id == "sub-text_14.8.701"
+
+
+@pytest.mark.asyncio
+async def test_text_set_value_writes_bare_rid():
+    hub, sub, device = _build_text_setting_device()
+    (text,) = build_descriptor_entities(hub, device, sub, TextDescriptor, AqaraText)
+    device.async_write = AsyncMock()  # type: ignore[method-assign]
+
+    await text.async_set_value("FFEE00")
+
+    device.async_write.assert_awaited_once()
+    (payload,), _ = device.async_write.await_args
+    (attr_key,) = payload.keys()
+    assert attr_key.resource_id == "14.8.701"
+    assert payload[attr_key] == "FFEE00"
+    # Optimistic: the new value is reflected immediately.
+    assert text.native_value == "FFEE00"

@@ -33,6 +33,7 @@ from .descriptors import (
     NumberDescriptor,
     SelectDescriptor,
     SwitchDescriptor,
+    TextDescriptor,
 )
 from .traits import TraitSpec
 
@@ -110,6 +111,10 @@ def build_setting_descriptors(model: str) -> list[AnyDescriptor]:
                     native_unit_of_measurement=spec.unit,
                     optimistic=spec.optimistic,
                 )
+            )
+        elif spec.platform == "text":
+            out.append(
+                TextDescriptor(**common, optimistic=True)
             )
         elif spec.platform == "button":
             out.append(

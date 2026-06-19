@@ -17,6 +17,7 @@ from custom_components.aqara_lanlink.device.descriptors import (
     NumberDescriptor,
     SelectDescriptor,
     SwitchDescriptor,
+    TextDescriptor,
 )
 from custom_components.aqara_lanlink.device.overlay import Overlay
 from custom_components.aqara_lanlink.device.settings import SettingSpec
@@ -75,6 +76,9 @@ def _index_settings_pkg():
             platform="switch",
             on_value="0",
             off_value="1",
+        ),
+        "14.8.701": SettingSpec(
+            rid="14.8.701", name="Color paragraph", platform="text",
         ),
     }
     registry._index_package(fake, "fake_setdesc_pkg")
@@ -137,6 +141,17 @@ def test_button_descriptor_press_value():
     assert d.press_value == "7"
     assert d.attr.resource_id == "4.7.85"
     assert d.attr.name == "4.7.85"
+
+
+def test_text_descriptor_built():
+    _index_settings_pkg()
+    d = _by_key(build_setting_descriptors(_MODEL))["14.8.701"]
+    assert isinstance(d, TextDescriptor)
+    assert d.name == "Color paragraph"
+    assert d.attr.resource_id == "14.8.701"
+    assert d.attr.name == "14.8.701"
+    assert d.optimistic is True
+    assert d.entity_category == EntityCategory.CONFIG
 
 
 def test_default_enabled_false_propagates():

@@ -18,6 +18,7 @@ from custom_components.aqara_lanlink.device.descriptors import (
     SelectDescriptor,
     SensorDescriptor,
     SwitchDescriptor,
+    TextDescriptor,
 )
 from custom_components.aqara_lanlink.device.traits import TraitSpec
 
@@ -333,6 +334,7 @@ def test_any_descriptor_union_includes_all_descriptor_types():
         SelectDescriptor,
         NumberDescriptor,
         SensorDescriptor,
+        TextDescriptor,
         EventDescriptor,
         LightDescriptor,
     }

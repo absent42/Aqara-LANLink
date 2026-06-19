@@ -55,11 +55,8 @@
     "1.12.85": "sensor",
     "1.7.85": "sensor",
     "1.9.85": "sensor",
-    "14.15.85": "raw",
-    "14.160.700": "raw",
     "14.161.85": "dual",
     "14.163.85": "dual",
-    "14.8.701": "raw",
     "4.1.85": "dual",
     "8.0.8101": "metadata",
     "8.0.8102": "metadata"
@@ -82,6 +79,16 @@
   ],
   "regions": [],
   "settings": {
+    "14.15.85": {
+      "entity_category": "config",
+      "name": "scence_ota",
+      "platform": "text"
+    },
+    "14.160.700": {
+      "entity_category": "config",
+      "name": "device_paragraph_on",
+      "platform": "text"
+    },
     "14.160.85": {
       "entity_category": "config",
       "max": 50,
@@ -113,6 +120,11 @@
       "entity_category": "config",
       "name": "scene_set",
       "platform": "number"
+    },
+    "14.8.701": {
+      "entity_category": "config",
+      "name": "color_paragraph",
+      "platform": "text"
     },
     "14.8.85": {
       "entity_category": "config",
