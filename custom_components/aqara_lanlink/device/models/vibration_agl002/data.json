@@ -56,6 +56,27 @@
     "3.130.32929",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "0.2.700": "sensor",
+    "0.2.85": "sensor",
+    "0.4.85": "sensor",
+    "0.6.85": "sensor",
+    "0.7.85": "sensor",
+    "0.8.85": "sensor",
+    "0.9.85": "sensor",
+    "1.2.85": "dual",
+    "13.4.85": "event",
+    "13.7.85": "event",
+    "13.8.85": "event",
+    "13.9.85": "event",
+    "14.5.85": "dual",
+    "3.1.85": "sensor",
+    "8.0.1161": "needs-review",
+    "8.0.2001": "needs-review",
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.2392": "diagnostic:telemetry",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -81,6 +102,69 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "max": 10,
+      "min": 1,
+      "name": "sensitivity",
+      "platform": "number"
+    },
+    "14.6.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Regular flat sliding door/window",
+        "2": "Top-hinged/bottom-hinged window",
+        "3": "Roll-up/down shutter",
+        "4": "Single-track sliding door"
+      },
+      "name": "door_modex",
+      "platform": "select"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "vibrate_switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "4.11.85": {
+      "entity_category": "config",
+      "name": "knock_switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Execlute"
+      },
+      "name": "ctrl_ch22_status",
+      "platform": "select"
+    },
+    "4.7.85": {
+      "entity_category": "config",
+      "name": "post_switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "4.8.85": {
+      "entity_category": "config",
+      "name": "move_switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "4.9.85": {
+      "entity_category": "config",
+      "name": "down_switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32944": {

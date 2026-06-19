@@ -94,15 +94,77 @@
     "unknown"
   ],
   "settings": {
-    "4.4.85": {"name": "Child lock socket 1", "platform": "switch", "entity_category": "config"},
-    "4.5.85": {"name": "Child lock socket 2", "platform": "switch", "entity_category": "config"},
-    "8.0.2032": {"name": "Indicator light", "platform": "switch", "entity_category": "config", "on_value": "0", "off_value": "1"},
-    "8.0.2114": {"name": "Indicator reverse", "platform": "switch", "entity_category": "config"},
-    "8.0.2259": {"name": "Power-off memory", "platform": "select", "entity_category": "config", "enum_values": {"0": "On", "1": "Previous", "2": "Off", "3": "Inverted"}},
-    "14.11.85": {"name": "Button mode socket 1", "platform": "select", "entity_category": "config", "enum_values": {"1": "Single-Press", "2": "Multi-Function"}},
-    "14.12.85": {"name": "Button mode socket 2", "platform": "select", "entity_category": "config", "enum_values": {"1": "Single-Press", "2": "Multi-Function"}},
-    "8.0.2042": {"name": "Max power", "platform": "number", "entity_category": "config", "min": 100, "max": 3250, "unit": "W"},
-    "8.0.2096": {"name": "Find device", "platform": "button", "press_value": "1", "entity_category": "config"}
+    "14.11.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Single-Press",
+        "2": "Multi-Function"
+      },
+      "name": "Button mode socket 1",
+      "platform": "select"
+    },
+    "14.12.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Single-Press",
+        "2": "Multi-Function"
+      },
+      "name": "Button mode socket 2",
+      "platform": "select"
+    },
+    "4.4.85": {
+      "entity_category": "config",
+      "name": "Child lock socket 1",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "4.5.85": {
+      "entity_category": "config",
+      "name": "Child lock socket 2",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Indicator light",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch"
+    },
+    "8.0.2042": {
+      "entity_category": "config",
+      "max": 3250,
+      "min": 100,
+      "name": "Max power",
+      "platform": "number",
+      "unit": "W"
+    },
+    "8.0.2096": {
+      "entity_category": "config",
+      "name": "Find device",
+      "platform": "button",
+      "press_value": "1"
+    },
+    "8.0.2114": {
+      "entity_category": "config",
+      "name": "Indicator reverse",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "8.0.2259": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "On",
+        "1": "Previous",
+        "2": "Off",
+        "3": "Inverted"
+      },
+      "name": "Power-off memory",
+      "platform": "select"
+    }
   },
   "source_region": "default",
   "traits": {

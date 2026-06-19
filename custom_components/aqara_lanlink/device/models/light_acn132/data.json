@@ -50,6 +50,18 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "1.11.85": "sensor",
+    "1.12.85": "sensor",
+    "1.7.85": "sensor",
+    "1.9.85": "sensor",
+    "14.15.85": "raw",
+    "14.160.700": "raw",
+    "14.161.85": "dual",
+    "4.1.85": "dual",
+    "8.0.8101": "metadata",
+    "8.0.8102": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -67,6 +79,84 @@
     "lumi.light.acn132"
   ],
   "regions": [],
+  "settings": {
+    "14.160.85": {
+      "entity_category": "config",
+      "max": 50,
+      "min": 0,
+      "name": "device_paragraph",
+      "platform": "number"
+    },
+    "14.162.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+      },
+      "name": "music_action_sensitivity",
+      "platform": "select"
+    },
+    "14.163.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Random",
+        "1": "Breathing",
+        "2": "Rainbow",
+        "3": "Flow"
+      },
+      "name": "music_action_pattern",
+      "platform": "select"
+    },
+    "14.164.85": {
+      "entity_category": "config",
+      "name": "Dynamic_change_speed",
+      "platform": "number"
+    },
+    "14.165.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "31": "reserved bit0~bit7: 0x00: Level mode (not used by Ambilight strip T1) 0x01: Color temperature mode 0x02: RGB mode (default) 0x03: RGBW mode (not used by Ambilight strip T1)"
+      },
+      "name": "mode_light",
+      "platform": "select"
+    },
+    "14.7.85": {
+      "entity_category": "config",
+      "name": "scene_set",
+      "platform": "number"
+    },
+    "14.8.701": {
+      "entity_category": "config",
+      "enum_values": {
+        "7": "Light segment control   each 1bit represents one light segment",
+        "9": "Color X value  Byte10~Byte11: Color Y value  Byte12~Byte13: Transition time (in ms)"
+      },
+      "name": "color_paragraph",
+      "platform": "select"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "name": "light_xy",
+      "platform": "number"
+    },
+    "4.160.85": {
+      "entity_category": "config",
+      "name": "music_action_switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch"
+    },
+    "4.17.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Normal mode",
+        "1": "Dynamic scene mode"
+      },
+      "name": "light_work_mode",
+      "platform": "select"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {
