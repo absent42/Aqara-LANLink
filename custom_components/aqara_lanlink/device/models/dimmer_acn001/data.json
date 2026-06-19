@@ -43,6 +43,17 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "1.9.85": "dual",
+    "13.1.85": "event",
+    "8.0.2009": "needs-review",
+    "8.0.2022": "needs-review",
+    "8.0.2045": "diagnostic:telemetry",
+    "8.0.2105": "command",
+    "8.0.2165": "command",
+    "8.0.8107": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -60,6 +71,17 @@
     "lumi.dimmer.acn001"
   ],
   "regions": [],
+  "settings": {
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": 1,
+      "name": "Set brightness",
+      "platform": "number",
+      "resource_code": "light_level"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32945": {

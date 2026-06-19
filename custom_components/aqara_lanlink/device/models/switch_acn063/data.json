@@ -72,6 +72,16 @@
     "4.130.33012",
     "4.130.33016"
   ],
+  "dropped_rids": {
+    "0.11.85": "sensor",
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "0.14.85": "sensor",
+    "13.1.85": "event",
+    "8.0.2014": "needs-review",
+    "8.0.2162": "command",
+    "8.1.2162": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -95,6 +105,104 @@
     "lumi.switch.acn063"
   ],
   "regions": [],
+  "settings": {
+    "14.52.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+      },
+      "name": "Slider travel sensitivity",
+      "platform": "select",
+      "resource_code": "set_sensitivity_mode"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 0 switch",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Channel 0 turn-into-wireless-switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "4.11.85": {
+      "entity_category": "config",
+      "name": "Channel 1 turn-into-wireless-switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "disable_btn1"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Channel 1 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.4.85": {
+      "entity_category": "config",
+      "name": "Relay lock for channel 0",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_lock"
+    },
+    "4.5.85": {
+      "entity_category": "config",
+      "name": "Relay lock for channel 1",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_lock"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Night-time indicator-light-off function",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    },
+    "8.0.2259": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Restore",
+        "1": "On",
+        "2": "Off",
+        "3": "Reverse"
+      },
+      "name": "Power-on state setting",
+      "platform": "select",
+      "resource_code": "power_on_state"
+    },
+    "8.0.2293": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Single-live-wire power input for channel 0",
+      "platform": "number",
+      "resource_code": "device_load0_power"
+    },
+    "8.0.2304": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Single-live-wire power input for channel 1",
+      "platform": "number",
+      "resource_code": "device_load1_power"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.20029": {

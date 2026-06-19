@@ -43,6 +43,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "0.55.85": "sensor"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -60,6 +64,39 @@
     "lumi.curtain.acn015"
   ],
   "regions": [],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Curtain-open percentage",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Close",
+        "1": "Open",
+        "2": "Stop",
+        "3": "Auto",
+        "7": "Open/stop toggle",
+        "8": "Close/stop toggle"
+      },
+      "name": "Curtain control and state",
+      "platform": "select",
+      "resource_code": "curtain_status"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Travel not set",
+        "1": "Travel set"
+      },
+      "name": "Motor travel configuration state",
+      "platform": "select",
+      "resource_code": "pos_limit"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.137.20031": {

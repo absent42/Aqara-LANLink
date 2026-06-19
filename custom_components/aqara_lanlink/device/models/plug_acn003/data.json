@@ -41,6 +41,10 @@
     "2.130.32929",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -58,6 +62,110 @@
     "lumi.plug.acn003"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Invalid",
+        "1": "Key press effective",
+        "2": "Key release effective"
+      },
+      "name": "Button trigger relay configuration",
+      "platform": "select",
+      "resource_code": "button_event"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Invalid",
+        "1": "Do not report key events",
+        "2": "Report key events"
+      },
+      "name": "Button event configuration",
+      "platform": "select",
+      "resource_code": "button_event_cfg"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No delay",
+        "100": "100ms delay",
+        "500": "500ms delay"
+      },
+      "name": "Relay action delay configuration",
+      "platform": "select",
+      "resource_code": "relay_action_delay_cfg"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "name": "Button control USB port and relay configuration",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "button_control_cfg"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Socket Switch Status",
+      "platform": "select",
+      "resource_code": "plug_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Key enable",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "USB jack switch status",
+      "platform": "select",
+      "resource_code": "usb_status"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-Off Memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    },
+    "8.0.2031": {
+      "entity_category": "config",
+      "name": "Charging Protection",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_charge_protect"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Switch indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    },
+    "8.0.2042": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Maximum Power",
+      "platform": "number",
+      "resource_code": "device_max_power"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

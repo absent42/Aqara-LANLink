@@ -74,6 +74,158 @@
     "aqara.speaker.hpcn02"
   ],
   "regions": [],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 15,
+      "min": 0,
+      "name": "Zone 2 - adjust volume",
+      "platform": "number",
+      "resource_code": "set_num_sixth"
+    },
+    "1.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 15,
+      "min": 0,
+      "name": "Zone 3 - volume adjustment (source 2)",
+      "platform": "number",
+      "resource_code": "set_num_seventh"
+    },
+    "1.5.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Zone 1 - adjust volume (source 1)",
+      "platform": "number",
+      "resource_code": "set_volunm"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "name": "Source 1 - song control",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "set_device_mode2"
+    },
+    "14.48.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2"
+      },
+      "name": "Switch audio source",
+      "platform": "select",
+      "resource_code": "set_device_mode3"
+    },
+    "14.50.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "name": "Source 1 - loop mode",
+      "platform": "select",
+      "resource_code": "set_device_mode5"
+    },
+    "14.52.85": {
+      "entity_category": "config",
+      "name": "Source 2 - song control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "set_device_mode7"
+    },
+    "14.53.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "name": "Source 2 - loop mode",
+      "platform": "select",
+      "resource_code": "set_device_mode8"
+    },
+    "4.101.85": {
+      "entity_category": "config",
+      "name": "Source 1 - play favorite song",
+      "platform": "text",
+      "resource_code": "spec_ctrl_text_01"
+    },
+    "4.102.85": {
+      "entity_category": "config",
+      "name": "Source 2 - play favorite song",
+      "platform": "text",
+      "resource_code": "spec_ctrl_text_02"
+    },
+    "4.21.85": {
+      "entity_category": "config",
+      "name": "Source 1 - playback control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "ctrl_ch21_status"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "Zone 2 - mute / unmute",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "ctrl_ch22_status"
+    },
+    "4.23.85": {
+      "entity_category": "config",
+      "name": "Source 2 - playback control",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch23_status"
+    },
+    "4.24.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Mute",
+        "1": "Unmute"
+      },
+      "name": "Zone 3 - set mute (source 2)",
+      "platform": "select",
+      "resource_code": "ctrl_ch24_status"
+    },
+    "4.25.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Up",
+        "1": "Down"
+      },
+      "name": "Source 1 volume up/down",
+      "platform": "select",
+      "resource_code": "ctrl_ch25_status"
+    },
+    "4.26.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Up",
+        "1": "Down"
+      },
+      "name": "Source 2 volume up/down",
+      "platform": "select",
+      "resource_code": "ctrl_ch26_status"
+    },
+    "4.46.85": {
+      "entity_category": "config",
+      "name": "Zone 1 - mute / unmute (source 1)",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "mute_mode"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.145.32954": {

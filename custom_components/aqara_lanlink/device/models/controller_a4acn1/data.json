@@ -56,6 +56,14 @@
     "4.130.32919",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "4.23.85": "dual",
+    "8.0.2024": "needs-review",
+    "8.0.2025": "needs-review",
+    "8.0.2026": "diagnostic:telemetry",
+    "8.0.2154": "command",
+    "8.0.2158": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -83,6 +91,129 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": 0,
+      "name": "Standby brightness",
+      "platform": "number",
+      "resource_code": "set_num_sixth"
+    },
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 1,
+      "name": "Backlight brightness",
+      "platform": "number",
+      "resource_code": "set_brightness"
+    },
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm"
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "7: 72",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8"
+      },
+      "name": "Alarm bell index",
+      "platform": "select",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume prompt tone",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.2.113": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Standby time",
+      "platform": "number",
+      "resource_code": "doorbell_time_length"
+    },
+    "14.54.85": {
+      "entity_category": "config",
+      "name": "Associated device information",
+      "platform": "text",
+      "resource_code": "connect_business"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2"
+      },
+      "name": "Screen style",
+      "platform": "select",
+      "resource_code": "set_mode"
+    },
+    "4.14.85": {
+      "entity_category": "config",
+      "name": "Automatic brightness switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "power_status"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "Do Not Disturb Mode",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch22_status"
+    },
+    "4.46.85": {
+      "entity_category": "config",
+      "name": "Standby screensaver switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "mute_mode"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Control switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "power_remenber"
+    },
+    "8.0.2207": {
+      "entity_category": "config",
+      "name": "Do-not-disturb period (supports setting a time range)",
+      "platform": "text",
+      "resource_code": "turn_off_light_as_time"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20118": {

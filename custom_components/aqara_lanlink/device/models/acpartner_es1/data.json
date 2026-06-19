@@ -42,6 +42,12 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "0.11.85": "sensor",
+    "0.13.85": "sensor",
+    "14.10.85": "dual",
+    "3.1.85": "sensor"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -62,6 +68,39 @@
     "lumi.acpartner.es1"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm."
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm ringtone",
+      "platform": "number",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32945": {

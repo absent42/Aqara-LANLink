@@ -46,6 +46,9 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "4.21.85": "dual"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -66,6 +69,39 @@
     "lumi.airer.acn001"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Clothes Dryer Motion Control",
+      "platform": "number",
+      "resource_code": "airer_control"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "Disinfection Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch22_status"
+    },
+    "4.66.85": {
+      "entity_category": "config",
+      "name": "Air Drying Clothes",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch66_status"
+    },
+    "4.67.85": {
+      "entity_category": "config",
+      "name": "Clothes Drying Machine",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch67_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.138.32931": {

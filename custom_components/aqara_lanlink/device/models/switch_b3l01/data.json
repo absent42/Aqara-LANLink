@@ -59,6 +59,16 @@
     "4.130.33012",
     "4.130.33016"
   ],
+  "dropped_rids": {
+    "13.1.85": "event",
+    "13.2.85": "event",
+    "13.3.85": "event",
+    "13.5.85": "event",
+    "13.6.85": "event",
+    "13.7.85": "event",
+    "8.0.2014": "needs-review",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -91,6 +101,72 @@
     "lumi.switch.b3l01"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Channel 1 switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Channel 1 physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "4.11.85": {
+      "entity_category": "config",
+      "name": "Channel 2 physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn1"
+    },
+    "4.12.85": {
+      "entity_category": "config",
+      "name": "Channel 3 physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn2"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Channel 2 switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "name": "Channel 3 switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch2_status"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-off memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Switch indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

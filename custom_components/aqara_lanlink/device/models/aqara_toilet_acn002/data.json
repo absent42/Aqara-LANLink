@@ -55,6 +55,108 @@
     "aqara.toilet.acn002"
   ],
   "regions": [],
+  "settings": {
+    "1.74.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 5,
+      "min": 5,
+      "name": "Set defecation duration",
+      "platform": "number",
+      "resource_code": "set_tb_clean_timelong",
+      "unit": "minutes"
+    },
+    "1.75.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10,
+      "min": 1,
+      "name": "Set drying duration",
+      "platform": "number",
+      "resource_code": "set_dry_timelong",
+      "unit": "minutes"
+    },
+    "14.39.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "Audo",
+        "2": "Manual"
+      },
+      "name": "Nozzle cleaning",
+      "platform": "select",
+      "resource_code": "set_direction"
+    },
+    "14.50.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Wash water temperature",
+      "platform": "number",
+      "resource_code": "set_device_mode5"
+    },
+    "14.51.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Weak",
+        "1": "Strong",
+        "2": "Stronger",
+        "3": "Weaker",
+        "4": "Medium"
+      },
+      "name": "Wash intensity",
+      "platform": "select",
+      "resource_code": "set_device_mode6"
+    },
+    "14.53.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Warm-air drying",
+      "platform": "number",
+      "resource_code": "set_device_mode8"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Power on / power off (standby)",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Event"
+      },
+      "name": "Urinary flush",
+      "platform": "select",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "Auto-open lid setting",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "ctrl_ch22_status"
+    },
+    "4.23.85": {
+      "entity_category": "config",
+      "name": "Auto-close lid setting",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch23_status"
+    },
+    "4.7.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Event"
+      },
+      "name": "Flush",
+      "platform": "select",
+      "resource_code": "switch_nostatus"
+    }
+  },
   "source_region": "default",
   "traits": {},
   "whitelabels": {}

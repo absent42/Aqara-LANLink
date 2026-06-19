@@ -140,6 +140,7 @@
     },
     "8.0.2042": {
       "entity_category": "config",
+      "is_float": false,
       "max": 3250,
       "min": 100,
       "name": "Max power",

@@ -612,6 +612,273 @@
     "97.130.33012",
     "97.130.33016"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "0.10.85": "sensor",
+    "0.11.85": "sensor",
+    "0.12.85": "sensor",
+    "0.129.65": "sensor",
+    "0.129.69": "sensor",
+    "0.13.85": "sensor",
+    "0.131.85": "sensor",
+    "0.132.85": "sensor",
+    "0.133.85": "sensor",
+    "0.134.85": "sensor",
+    "0.135.85": "sensor",
+    "0.136.85": "sensor",
+    "0.137.85": "sensor",
+    "0.138.85": "sensor",
+    "0.139.85": "sensor",
+    "0.14.85": "sensor",
+    "0.140.85": "sensor",
+    "0.141.85": "sensor",
+    "0.142.85": "sensor",
+    "0.143.85": "sensor",
+    "0.144.85": "sensor",
+    "0.145.85": "sensor",
+    "0.146.85": "sensor",
+    "0.15.85": "sensor",
+    "0.16.85": "sensor",
+    "0.165.85": "sensor",
+    "0.166.85": "sensor",
+    "0.167.85": "sensor",
+    "0.168.85": "sensor",
+    "0.169.85": "sensor",
+    "0.17.85": "sensor",
+    "0.170.85": "sensor",
+    "0.171.85": "sensor",
+    "0.172.85": "sensor",
+    "0.173.85": "sensor",
+    "0.174.85": "sensor",
+    "0.175.85": "sensor",
+    "0.176.85": "sensor",
+    "0.177.85": "sensor",
+    "0.178.85": "sensor",
+    "0.179.85": "sensor",
+    "0.18.85": "sensor",
+    "0.180.85": "sensor",
+    "0.181.65": "sensor",
+    "0.181.69": "sensor",
+    "0.19.85": "sensor",
+    "0.2.85": "sensor",
+    "0.20.85": "sensor",
+    "0.21.85": "sensor",
+    "0.22.85": "sensor",
+    "0.23.85": "sensor",
+    "0.24.85": "sensor",
+    "0.25.85": "sensor",
+    "0.26.85": "sensor",
+    "0.27.85": "sensor",
+    "0.28.85": "sensor",
+    "0.29.85": "sensor",
+    "0.3.85": "sensor",
+    "0.30.85": "sensor",
+    "0.31.85": "sensor",
+    "0.32.85": "sensor",
+    "0.33.85": "sensor",
+    "0.34.85": "sensor",
+    "0.35.85": "sensor",
+    "0.36.85": "sensor",
+    "0.37.85": "sensor",
+    "0.38.85": "sensor",
+    "0.39.85": "sensor",
+    "0.4.85": "sensor",
+    "0.40.85": "sensor",
+    "0.41.85": "sensor",
+    "0.42.85": "sensor",
+    "0.43.85": "sensor",
+    "0.44.85": "sensor",
+    "0.45.85": "sensor",
+    "0.46.85": "sensor",
+    "0.47.85": "sensor",
+    "0.48.85": "sensor",
+    "0.49.85": "sensor",
+    "0.5.85": "sensor",
+    "0.50.85": "sensor",
+    "0.51.85": "sensor",
+    "0.52.85": "sensor",
+    "0.53.85": "sensor",
+    "0.54.85": "sensor",
+    "0.55.85": "sensor",
+    "0.56.85": "sensor",
+    "0.57.85": "sensor",
+    "0.58.85": "sensor",
+    "0.59.85": "sensor",
+    "0.6.85": "sensor",
+    "0.60.85": "sensor",
+    "0.61.85": "sensor",
+    "0.62.85": "sensor",
+    "0.63.85": "sensor",
+    "0.64.85": "sensor",
+    "0.7.85": "sensor",
+    "0.8.85": "sensor",
+    "0.9.85": "sensor",
+    "1.174.85": "dual",
+    "1.177.85": "dual",
+    "1.178.602": "dual",
+    "1.181.85": "dual",
+    "13.1.85": "event",
+    "13.131.85": "event",
+    "13.132.85": "event",
+    "13.133.85": "event",
+    "13.134.85": "event",
+    "13.135.85": "event",
+    "13.136.85": "event",
+    "13.137.85": "event",
+    "13.138.85": "event",
+    "13.139.85": "event",
+    "13.140.85": "event",
+    "13.141.85": "event",
+    "13.142.85": "event",
+    "13.143.85": "event",
+    "13.144.85": "event",
+    "13.145.85": "event",
+    "13.146.85": "event",
+    "13.161.85": "event",
+    "13.162.85": "event",
+    "13.163.85": "event",
+    "13.165.85": "event",
+    "13.166.85": "event",
+    "13.167.85": "event",
+    "13.2.85": "event",
+    "13.3.85": "event",
+    "13.4.85": "event",
+    "13.5.85": "event",
+    "14.66.85": "dual",
+    "14.67.85": "dual",
+    "14.68.85": "dual",
+    "14.69.85": "dual",
+    "14.70.85": "dual",
+    "14.71.85": "dual",
+    "14.72.85": "dual",
+    "14.73.85": "dual",
+    "14.74.85": "dual",
+    "14.75.85": "dual",
+    "14.76.85": "dual",
+    "14.77.85": "dual",
+    "14.78.85": "dual",
+    "14.79.85": "dual",
+    "14.80.85": "dual",
+    "14.97.85": "dual",
+    "3.1.85": "sensor",
+    "3.10.85": "sensor",
+    "3.100.85": "sensor",
+    "3.101.85": "sensor",
+    "3.102.85": "sensor",
+    "3.11.85": "sensor",
+    "3.12.85": "sensor",
+    "3.13.85": "sensor",
+    "3.131.85": "sensor",
+    "3.132.85": "sensor",
+    "3.133.85": "sensor",
+    "3.134.85": "sensor",
+    "3.135.85": "sensor",
+    "3.136.85": "sensor",
+    "3.137.85": "sensor",
+    "3.138.85": "sensor",
+    "3.139.85": "sensor",
+    "3.14.85": "sensor",
+    "3.140.85": "sensor",
+    "3.141.85": "sensor",
+    "3.142.85": "sensor",
+    "3.143.85": "sensor",
+    "3.144.85": "sensor",
+    "3.145.85": "sensor",
+    "3.146.85": "sensor",
+    "3.15.85": "sensor",
+    "3.150.85": "sensor",
+    "3.151.85": "sensor",
+    "3.152.85": "sensor",
+    "3.153.85": "sensor",
+    "3.154.85": "sensor",
+    "3.155.85": "sensor",
+    "3.156.85": "sensor",
+    "3.157.85": "sensor",
+    "3.158.85": "sensor",
+    "3.159.85": "sensor",
+    "3.16.85": "sensor",
+    "3.160.85": "sensor",
+    "3.161.85": "sensor",
+    "3.162.85": "sensor",
+    "3.163.85": "sensor",
+    "3.164.85": "sensor",
+    "3.165.85": "sensor",
+    "3.17.85": "sensor",
+    "3.18.85": "sensor",
+    "3.19.85": "sensor",
+    "3.2.85": "sensor",
+    "3.20.85": "sensor",
+    "3.21.85": "sensor",
+    "3.22.85": "sensor",
+    "3.220.85": "sensor",
+    "3.221.85": "sensor",
+    "3.222.85": "sensor",
+    "3.223.85": "sensor",
+    "3.224.85": "sensor",
+    "3.225.85": "sensor",
+    "3.226.85": "sensor",
+    "3.227.85": "sensor",
+    "3.228.85": "sensor",
+    "3.229.85": "sensor",
+    "3.23.85": "sensor",
+    "3.230.85": "sensor",
+    "3.231.85": "sensor",
+    "3.232.85": "sensor",
+    "3.233.85": "sensor",
+    "3.234.85": "sensor",
+    "3.235.85": "sensor",
+    "3.24.85": "sensor",
+    "3.25.85": "sensor",
+    "3.26.85": "sensor",
+    "3.27.85": "sensor",
+    "3.28.85": "sensor",
+    "3.29.85": "sensor",
+    "3.3.85": "sensor",
+    "3.30.85": "sensor",
+    "3.31.85": "sensor",
+    "3.32.85": "sensor",
+    "3.33.85": "sensor",
+    "3.34.85": "sensor",
+    "3.35.85": "sensor",
+    "3.36.85": "sensor",
+    "3.37.85": "sensor",
+    "3.38.85": "sensor",
+    "3.39.85": "sensor",
+    "3.4.85": "sensor",
+    "3.40.85": "sensor",
+    "3.41.85": "sensor",
+    "3.42.85": "sensor",
+    "3.43.85": "sensor",
+    "3.44.85": "sensor",
+    "3.45.85": "sensor",
+    "3.46.85": "sensor",
+    "3.47.85": "sensor",
+    "3.48.85": "sensor",
+    "3.49.85": "sensor",
+    "3.5.85": "sensor",
+    "3.50.85": "sensor",
+    "3.51.85": "sensor",
+    "3.52.85": "sensor",
+    "3.53.85": "sensor",
+    "3.54.85": "sensor",
+    "3.55.85": "sensor",
+    "3.56.85": "sensor",
+    "3.57.85": "sensor",
+    "3.58.85": "sensor",
+    "3.59.85": "sensor",
+    "3.6.85": "sensor",
+    "3.60.85": "sensor",
+    "3.61.85": "sensor",
+    "3.62.85": "sensor",
+    "3.63.85": "sensor",
+    "3.64.85": "sensor",
+    "3.7.85": "sensor",
+    "3.8.85": "sensor",
+    "3.9.85": "sensor",
+    "4.129.85": "dual",
+    "4.163.85": "dual",
+    "8.0.2045": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -914,6 +1181,6707 @@
     "aqara.airrtc.ecn001"
   ],
   "regions": [],
+  "settings": {
+    "1.1.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC1 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental1"
+    },
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC1 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set1"
+    },
+    "1.10.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC10 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental10"
+    },
+    "1.10.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC10 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set10"
+    },
+    "1.11.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC11 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental11"
+    },
+    "1.11.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC11 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set11"
+    },
+    "1.12.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC12 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental12"
+    },
+    "1.12.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC12 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set12"
+    },
+    "1.129.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC temperature group control",
+      "platform": "number",
+      "resource_code": "ac_group_temperature_set"
+    },
+    "1.13.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC13 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental13"
+    },
+    "1.13.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC13 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set13"
+    },
+    "1.14.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC14 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental14"
+    },
+    "1.14.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC14 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set14"
+    },
+    "1.15.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC15 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental15"
+    },
+    "1.15.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC15 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set15"
+    },
+    "1.16.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC16 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental16"
+    },
+    "1.16.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC16 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set16"
+    },
+    "1.165.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating1 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental1"
+    },
+    "1.165.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating1 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set1"
+    },
+    "1.166.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating2 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental2"
+    },
+    "1.166.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating2 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set2"
+    },
+    "1.167.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating3 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental3"
+    },
+    "1.167.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating3 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set3"
+    },
+    "1.168.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating4 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental4"
+    },
+    "1.168.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating4 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set4"
+    },
+    "1.169.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating5 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental5"
+    },
+    "1.169.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating5 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set5"
+    },
+    "1.17.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC17 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental17"
+    },
+    "1.17.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC17 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set17"
+    },
+    "1.170.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating6 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental6"
+    },
+    "1.170.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating6 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set6"
+    },
+    "1.171.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating7 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental7"
+    },
+    "1.171.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating7 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set7"
+    },
+    "1.172.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating8 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental8"
+    },
+    "1.172.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating8 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set8"
+    },
+    "1.173.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating9 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental9"
+    },
+    "1.173.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating9 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set9"
+    },
+    "1.174.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating10 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental10"
+    },
+    "1.175.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating11 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental11"
+    },
+    "1.175.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating11 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set11"
+    },
+    "1.176.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating12 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental12"
+    },
+    "1.176.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating12 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set12"
+    },
+    "1.177.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating13 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental13"
+    },
+    "1.178.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating14 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set14"
+    },
+    "1.179.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating15 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental15"
+    },
+    "1.179.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating15 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set15"
+    },
+    "1.18.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC18 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental18"
+    },
+    "1.18.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC18 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set18"
+    },
+    "1.180.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": -100,
+      "name": "Underfloor heating16 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "fh_temperature_incremental16"
+    },
+    "1.180.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "Underfloor heating16 temperature setpoint",
+      "platform": "number",
+      "resource_code": "floor_heat_temperature_set16"
+    },
+    "1.19.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC19 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental19"
+    },
+    "1.19.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC19 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set19"
+    },
+    "1.2.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC2 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental2"
+    },
+    "1.2.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC2 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set2"
+    },
+    "1.20.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC20 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental20"
+    },
+    "1.20.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC20 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set20"
+    },
+    "1.21.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC21 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental21"
+    },
+    "1.21.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC21 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set21"
+    },
+    "1.22.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC22 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental22"
+    },
+    "1.22.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC22 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set22"
+    },
+    "1.23.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC23 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental23"
+    },
+    "1.23.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC23 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set23"
+    },
+    "1.24.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC24 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental24"
+    },
+    "1.24.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC24 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set24"
+    },
+    "1.25.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC25 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental25"
+    },
+    "1.25.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC25 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set25"
+    },
+    "1.26.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC26 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental26"
+    },
+    "1.26.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC26 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set26"
+    },
+    "1.27.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC27 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental27"
+    },
+    "1.27.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC27 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set27"
+    },
+    "1.28.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC28 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental28"
+    },
+    "1.28.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC28 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set28"
+    },
+    "1.29.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC29 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental29"
+    },
+    "1.29.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC29 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set29"
+    },
+    "1.3.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC3 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental3"
+    },
+    "1.3.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC3 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set3"
+    },
+    "1.30.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC30 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental30"
+    },
+    "1.30.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC30 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set30"
+    },
+    "1.31.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC31 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental31"
+    },
+    "1.31.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC31 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set31"
+    },
+    "1.32.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC32 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental32"
+    },
+    "1.32.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC32 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set32"
+    },
+    "1.33.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC33 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental33"
+    },
+    "1.33.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC33 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set33"
+    },
+    "1.34.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC34 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental34"
+    },
+    "1.34.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC34 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set34"
+    },
+    "1.35.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC35 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental35"
+    },
+    "1.35.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC35 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set35"
+    },
+    "1.36.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC36 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental36"
+    },
+    "1.36.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC36 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set36"
+    },
+    "1.37.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC37 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental37"
+    },
+    "1.37.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC37 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set37"
+    },
+    "1.38.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC38 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental38"
+    },
+    "1.38.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC38 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set38"
+    },
+    "1.39.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC39 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental39"
+    },
+    "1.39.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC39 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set39"
+    },
+    "1.4.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC4 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental4"
+    },
+    "1.4.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC4 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set4"
+    },
+    "1.40.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC40 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental40"
+    },
+    "1.40.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC40 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set40"
+    },
+    "1.41.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC41 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental41"
+    },
+    "1.41.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC41 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set41"
+    },
+    "1.42.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC42 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental42"
+    },
+    "1.42.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC42 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set42"
+    },
+    "1.43.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC43 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental43"
+    },
+    "1.43.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC43 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set43"
+    },
+    "1.44.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC44 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental44"
+    },
+    "1.44.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC44 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set44"
+    },
+    "1.45.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC45 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental45"
+    },
+    "1.45.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC45 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set45"
+    },
+    "1.46.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC46 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental46"
+    },
+    "1.46.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC46 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set46"
+    },
+    "1.47.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC47 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental47"
+    },
+    "1.47.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC47 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set47"
+    },
+    "1.48.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC48 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental48"
+    },
+    "1.48.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC48 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set48"
+    },
+    "1.49.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC49 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental49"
+    },
+    "1.49.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC49 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set49"
+    },
+    "1.5.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC5 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental5"
+    },
+    "1.5.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC5 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set5"
+    },
+    "1.50.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC50 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental50"
+    },
+    "1.50.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC50 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set50"
+    },
+    "1.51.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC51 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental51"
+    },
+    "1.51.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC51 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set51"
+    },
+    "1.52.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC52 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental52"
+    },
+    "1.52.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC52 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set52"
+    },
+    "1.53.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC53 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental53"
+    },
+    "1.53.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC53 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set53"
+    },
+    "1.54.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC54 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental54"
+    },
+    "1.54.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC54 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set54"
+    },
+    "1.55.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC55 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental55"
+    },
+    "1.55.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC55 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set55"
+    },
+    "1.56.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC56 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental56"
+    },
+    "1.56.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC56 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set56"
+    },
+    "1.57.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC57 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental57"
+    },
+    "1.57.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC57 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set57"
+    },
+    "1.58.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC58 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental58"
+    },
+    "1.58.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC58 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set58"
+    },
+    "1.59.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC59 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental59"
+    },
+    "1.59.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC59 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set59"
+    },
+    "1.6.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC6 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental6"
+    },
+    "1.6.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC6 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set6"
+    },
+    "1.60.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC60 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental60"
+    },
+    "1.60.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC60 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set60"
+    },
+    "1.61.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC61 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental61"
+    },
+    "1.61.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC61 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set61"
+    },
+    "1.62.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC62 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental62"
+    },
+    "1.62.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC62 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set62"
+    },
+    "1.63.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC63 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental63"
+    },
+    "1.63.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC63 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set63"
+    },
+    "1.64.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC64 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental64"
+    },
+    "1.64.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC64 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set64"
+    },
+    "1.7.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC7 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental7"
+    },
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC7 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set7"
+    },
+    "1.8.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC8 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental8"
+    },
+    "1.8.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC8 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set8"
+    },
+    "1.9.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC9 temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental9"
+    },
+    "1.9.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC9 temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set9"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC1 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind1"
+    },
+    "14.10.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC10 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind10"
+    },
+    "14.100.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Default",
+        "1": "Yilin",
+        "11": "Aldes",
+        "12": "Lafayette",
+        "13": "Honeywell (Venus)",
+        "14": "Zehnder",
+        "15": "Yilin AC331",
+        "16": "Brown",
+        "17": "Broan (NOAH)",
+        "18": "Fresh-air simulator",
+        "19": "Honeywell VEC8675",
+        "20": "Simon 3-in-1",
+        "21": "Qualang",
+        "22": "Broan (Q-Touch)",
+        "23": "Dinnar",
+        "24": "Broan (IAQ485-M)",
+        "25": "Broan (KM-XF-108)",
+        "26": "Langsiwei",
+        "27": "Simon i7",
+        "28": "Colinbex",
+        "29": "Aldes (AEC1200W)",
+        "30": "Lanshe (L-2-E)",
+        "31": "Mende (LS7.33)",
+        "32": "Brolo (CS2)",
+        "33": "Thomas",
+        "34": "Shiteng (KF900C)",
+        "35": "Aldes (KF800F)",
+        "36": "Shiteng fresh-air dehumidifier",
+        "37": "Vaillant",
+        "38": "Zaomengzhe",
+        "39": "Witteqi",
+        "40": "KF900A_Y2",
+        "41": "Yake",
+        "42": "ORKAN (ORC3900)",
+        "43": "Mende (DEH40)",
+        "44": "Tuoli (CA_A301R)",
+        "45": "Haike (HK-X4S)",
+        "46": "Honeywell (8826XF)",
+        "47": "Broan (A_Touch_PLUS)",
+        "48": "Caloni (A18)",
+        "49": "Zhongke Ruisai",
+        "5": "Lanshe KD-1-E",
+        "50": "Topu (HDV_19V)",
+        "6": "Panasonic",
+        "7": "Hitachi P1KQN"
+      },
+      "name": "Fresh-air brand",
+      "platform": "select",
+      "resource_code": "air_fresh_brand"
+    },
+    "14.101.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Default",
+        "1": "Müller",
+        "11": "Honeywell (HDT204)",
+        "12": "Mende LS7",
+        "13": "Mende ssymrd",
+        "14": "Underfloor-heating simulator",
+        "15": "Yilin R6300",
+        "3": "Simon V2/i7",
+        "7": "Bolian P101",
+        "8": "Mende",
+        "9": "Hailin (808)"
+      },
+      "name": "Underfloor heating brand",
+      "platform": "select",
+      "resource_code": "floor_heat_brand"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC11 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind11"
+    },
+    "14.12.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC12 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind12"
+    },
+    "14.13.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC13 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind13"
+    },
+    "14.14.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC14 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind14"
+    },
+    "14.140.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC1 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode1"
+    },
+    "14.141.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC2 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode2"
+    },
+    "14.142.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC3 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode3"
+    },
+    "14.143.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC4 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode4"
+    },
+    "14.144.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC5 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode5"
+    },
+    "14.145.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC6 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode6"
+    },
+    "14.146.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC7 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode7"
+    },
+    "14.147.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC8 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode8"
+    },
+    "14.148.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC9 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode9"
+    },
+    "14.149.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC10 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode10"
+    },
+    "14.15.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC15 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind15"
+    },
+    "14.150.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC11 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode11"
+    },
+    "14.151.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC12 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode12"
+    },
+    "14.152.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC13 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode13"
+    },
+    "14.153.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC14 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode14"
+    },
+    "14.154.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC15 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode15"
+    },
+    "14.155.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC16 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode16"
+    },
+    "14.156.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC17 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode17"
+    },
+    "14.157.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC18 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode18"
+    },
+    "14.158.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC19 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode19"
+    },
+    "14.159.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC20 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode20"
+    },
+    "14.16.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC16 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind16"
+    },
+    "14.160.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC21 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode21"
+    },
+    "14.161.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC22 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode22"
+    },
+    "14.162.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC23 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode23"
+    },
+    "14.163.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC24 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode24"
+    },
+    "14.164.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC25 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode25"
+    },
+    "14.165.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC26 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode26"
+    },
+    "14.166.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC27 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode27"
+    },
+    "14.167.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC28 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode28"
+    },
+    "14.168.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC29 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode29"
+    },
+    "14.169.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC30 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode30"
+    },
+    "14.17.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC17 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind17"
+    },
+    "14.170.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC31 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode31"
+    },
+    "14.171.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC32 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode32"
+    },
+    "14.172.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC33 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode33"
+    },
+    "14.173.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC34 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode34"
+    },
+    "14.174.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC35 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode35"
+    },
+    "14.175.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC36 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode36"
+    },
+    "14.176.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC37 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode37"
+    },
+    "14.177.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC38 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode38"
+    },
+    "14.178.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC39 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode39"
+    },
+    "14.179.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC40 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode40"
+    },
+    "14.18.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC18 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind18"
+    },
+    "14.180.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC41 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode41"
+    },
+    "14.181.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC42 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode42"
+    },
+    "14.182.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC43 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode43"
+    },
+    "14.183.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC44 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode44"
+    },
+    "14.184.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC45 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode45"
+    },
+    "14.185.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC46 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode46"
+    },
+    "14.186.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC47 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode47"
+    },
+    "14.187.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC48 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode48"
+    },
+    "14.188.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC49 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode49"
+    },
+    "14.189.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC50 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode50"
+    },
+    "14.19.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC19 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind19"
+    },
+    "14.190.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC51 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode51"
+    },
+    "14.191.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC52 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode52"
+    },
+    "14.192.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC53 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode53"
+    },
+    "14.193.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC54 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode54"
+    },
+    "14.194.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC55 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode55"
+    },
+    "14.195.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC56 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode56"
+    },
+    "14.196.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC57 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode57"
+    },
+    "14.197.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC58 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode58"
+    },
+    "14.198.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC59 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode59"
+    },
+    "14.199.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC60 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode60"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC2 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind2"
+    },
+    "14.20.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC20 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind20"
+    },
+    "14.200.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC61 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode61"
+    },
+    "14.201.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC62 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode62"
+    },
+    "14.202.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC63 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode63"
+    },
+    "14.203.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC64 mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode64"
+    },
+    "14.204.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC group fan-speed control",
+      "platform": "select",
+      "resource_code": "air_conditioner_group_wind"
+    },
+    "14.205.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC group mode control",
+      "platform": "select",
+      "resource_code": "air_conditioner_group_mode"
+    },
+    "14.21.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC21 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind21"
+    },
+    "14.22.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC22 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind22"
+    },
+    "14.23.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC23 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind23"
+    },
+    "14.24.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC24 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind24"
+    },
+    "14.25.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC25 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind25"
+    },
+    "14.255.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "AC state of all channels",
+      "platform": "number",
+      "resource_code": "ac_state_all"
+    },
+    "14.26.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC26 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind26"
+    },
+    "14.27.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC27 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind27"
+    },
+    "14.28.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC28 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind28"
+    },
+    "14.29.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC29 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind29"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC3 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind3"
+    },
+    "14.30.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC30 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind30"
+    },
+    "14.31.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC31 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind31"
+    },
+    "14.32.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Underfloor heating",
+        "6": "Strong heat (underfloor + heat)"
+      },
+      "name": "AC32 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind32"
+    },
+    "14.33.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC33 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind33"
+    },
+    "14.34.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC34 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind34"
+    },
+    "14.35.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC35 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind35"
+    },
+    "14.36.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC36 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind36"
+    },
+    "14.37.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC37 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind37"
+    },
+    "14.38.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC38 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind38"
+    },
+    "14.39.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC39 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind39"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC4 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind4"
+    },
+    "14.40.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC40 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind40"
+    },
+    "14.41.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC41 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind41"
+    },
+    "14.42.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC42 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind42"
+    },
+    "14.43.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC43 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind43"
+    },
+    "14.44.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC44 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind44"
+    },
+    "14.45.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC45 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind45"
+    },
+    "14.46.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC46 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind46"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC47 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind47"
+    },
+    "14.48.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC48 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind48"
+    },
+    "14.49.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC49 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind49"
+    },
+    "14.5.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC5 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind5"
+    },
+    "14.50.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC50 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind50"
+    },
+    "14.51.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC51 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind51"
+    },
+    "14.52.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC52 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind52"
+    },
+    "14.53.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC53 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind53"
+    },
+    "14.54.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC54 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind54"
+    },
+    "14.55.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC55 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind55"
+    },
+    "14.56.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC56 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind56"
+    },
+    "14.57.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC57 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind57"
+    },
+    "14.58.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC58 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind58"
+    },
+    "14.59.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC59 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind59"
+    },
+    "14.6.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC6 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind6"
+    },
+    "14.60.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC60 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind60"
+    },
+    "14.61.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC61 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind61"
+    },
+    "14.62.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC62 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind62"
+    },
+    "14.63.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC63 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind63"
+    },
+    "14.64.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC64 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind64"
+    },
+    "14.65.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "High",
+        "1": "Medium",
+        "2": "Low"
+      },
+      "name": "Fresh-air 1 fan speed",
+      "platform": "select",
+      "resource_code": "air_fresh_wind1"
+    },
+    "14.7.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC7 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind7"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC8 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind8"
+    },
+    "14.81.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air1 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode1"
+    },
+    "14.82.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air2 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode2"
+    },
+    "14.83.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air3 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode3"
+    },
+    "14.84.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air4 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode4"
+    },
+    "14.85.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air5 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode5"
+    },
+    "14.86.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air6 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode6"
+    },
+    "14.87.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air7 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode7"
+    },
+    "14.88.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air8 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode8"
+    },
+    "14.89.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air mode 9",
+      "platform": "select",
+      "resource_code": "air_fresh_mode9"
+    },
+    "14.9.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC9 fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind9"
+    },
+    "14.90.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air mode 10",
+      "platform": "select",
+      "resource_code": "air_fresh_mode10"
+    },
+    "14.91.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air11 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode11"
+    },
+    "14.92.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air12 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode12"
+    },
+    "14.93.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air13 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode13"
+    },
+    "14.94.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air14 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode14"
+    },
+    "14.95.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air15 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode15"
+    },
+    "14.96.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air16 mode",
+      "platform": "select",
+      "resource_code": "air_fresh_mode16"
+    },
+    "14.98.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat exchange",
+        "4": "Internal circulation",
+        "5": "External circulation",
+        "6": "Energy-saving",
+        "7": "Strong",
+        "8": "Fresh-air",
+        "9": "Bypass"
+      },
+      "name": "Fresh-air group mode control",
+      "platform": "select",
+      "resource_code": "air_fresh_group_mode"
+    },
+    "14.99.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Hitachi",
+        "10": "LG",
+        "101": "Emerson water unit",
+        "102": "McQuay water unit",
+        "103": "Trane",
+        "104": "Carrier water unit",
+        "13": "Samsung",
+        "14": "AUX",
+        "15": "Panasonic",
+        "16": "York",
+        "19": "Gree 4th gen",
+        "2": "Daikin",
+        "21": "McQuay",
+        "24": "TCL",
+        "25": "Chigo",
+        "252": "Fujitsu-protocol converter",
+        "253": "Mitsubishi Heavy Industries (KX4)",
+        "255": "Simulator",
+        "26": "Tianjia",
+        "3": "Toshiba",
+        "35": "York water unit",
+        "36": "Coolfan",
+        "37": "Qingdao York",
+        "38": "Fujitsu",
+        "39": "Samsung (NotNASA_BMS)",
+        "4": "Mitsubishi Heavy Industries",
+        "40": "Samsung (NASA_BMS)",
+        "41": "Gree duct",
+        "42": "FDV",
+        "43": "B23",
+        "5": "Mitsubishi Electric",
+        "6": "Gree",
+        "7": "Hisense",
+        "8": "Midea",
+        "9": "Haier"
+      },
+      "name": "Air-conditioner brand",
+      "platform": "select",
+      "resource_code": "air_conditioner_brand"
+    },
+    "4.1.28": {
+      "entity_category": "config",
+      "name": "AC1 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description1"
+    },
+    "4.1.58": {
+      "entity_category": "config",
+      "name": "AC1 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position1"
+    },
+    "4.1.600": {
+      "entity_category": "config",
+      "name": "AC1 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon1"
+    },
+    "4.1.8108": {
+      "entity_category": "config",
+      "name": "AC1 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id1"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "AC1 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status1"
+    },
+    "4.10.28": {
+      "entity_category": "config",
+      "name": "AC10 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description10"
+    },
+    "4.10.58": {
+      "entity_category": "config",
+      "name": "AC10 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position10"
+    },
+    "4.10.600": {
+      "entity_category": "config",
+      "name": "AC10 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon10"
+    },
+    "4.10.8108": {
+      "entity_category": "config",
+      "name": "AC10 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id10"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "AC10 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status10"
+    },
+    "4.11.28": {
+      "entity_category": "config",
+      "name": "AC11 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description11"
+    },
+    "4.11.58": {
+      "entity_category": "config",
+      "name": "AC11 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position11"
+    },
+    "4.11.600": {
+      "entity_category": "config",
+      "name": "AC11 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon11"
+    },
+    "4.11.8108": {
+      "entity_category": "config",
+      "name": "AC11 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id11"
+    },
+    "4.11.85": {
+      "entity_category": "config",
+      "name": "AC11 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status11"
+    },
+    "4.12.28": {
+      "entity_category": "config",
+      "name": "AC12 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description12"
+    },
+    "4.12.58": {
+      "entity_category": "config",
+      "name": "AC12 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position12"
+    },
+    "4.12.600": {
+      "entity_category": "config",
+      "name": "AC12 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon12"
+    },
+    "4.12.8108": {
+      "entity_category": "config",
+      "name": "AC12 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id12"
+    },
+    "4.12.85": {
+      "entity_category": "config",
+      "name": "AC12 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status12"
+    },
+    "4.13.28": {
+      "entity_category": "config",
+      "name": "AC13 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description13"
+    },
+    "4.13.58": {
+      "entity_category": "config",
+      "name": "AC13 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position13"
+    },
+    "4.13.600": {
+      "entity_category": "config",
+      "name": "AC13 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon13"
+    },
+    "4.13.8108": {
+      "entity_category": "config",
+      "name": "AC13 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id13"
+    },
+    "4.13.85": {
+      "entity_category": "config",
+      "name": "AC13 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status13"
+    },
+    "4.131.28": {
+      "entity_category": "config",
+      "name": "Fresh-air1 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description1"
+    },
+    "4.131.58": {
+      "entity_category": "config",
+      "name": "Fresh-air1 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position1"
+    },
+    "4.131.600": {
+      "entity_category": "config",
+      "name": "Fresh-air1 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon1"
+    },
+    "4.131.8108": {
+      "entity_category": "config",
+      "name": "Fresh air 1 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id1"
+    },
+    "4.131.85": {
+      "entity_category": "config",
+      "name": "Fresh-air1 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status1"
+    },
+    "4.132.28": {
+      "entity_category": "config",
+      "name": "Fresh-air2 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description2"
+    },
+    "4.132.58": {
+      "entity_category": "config",
+      "name": "Fresh-air2 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position2"
+    },
+    "4.132.600": {
+      "entity_category": "config",
+      "name": "Fresh-air2 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon2"
+    },
+    "4.132.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air2 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id2"
+    },
+    "4.132.85": {
+      "entity_category": "config",
+      "name": "Fresh-air2 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status2"
+    },
+    "4.133.28": {
+      "entity_category": "config",
+      "name": "Fresh-air3 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description3"
+    },
+    "4.133.58": {
+      "entity_category": "config",
+      "name": "Fresh-air3 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position3"
+    },
+    "4.133.600": {
+      "entity_category": "config",
+      "name": "Fresh-air 3 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon3"
+    },
+    "4.133.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air3 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id3"
+    },
+    "4.133.85": {
+      "entity_category": "config",
+      "name": "Fresh-air3 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status3"
+    },
+    "4.134.28": {
+      "entity_category": "config",
+      "name": "Fresh-air4 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description4"
+    },
+    "4.134.58": {
+      "entity_category": "config",
+      "name": "Fresh-air4 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position4"
+    },
+    "4.134.600": {
+      "entity_category": "config",
+      "name": "Fresh-air4 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon4"
+    },
+    "4.134.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air4 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id4"
+    },
+    "4.134.85": {
+      "entity_category": "config",
+      "name": "Fresh-air4 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status4"
+    },
+    "4.135.28": {
+      "entity_category": "config",
+      "name": "Fresh-air5 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description5"
+    },
+    "4.135.58": {
+      "entity_category": "config",
+      "name": "Fresh-air5 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position5"
+    },
+    "4.135.600": {
+      "entity_category": "config",
+      "name": "Fresh-air5 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon5"
+    },
+    "4.135.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air5 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id5"
+    },
+    "4.135.85": {
+      "entity_category": "config",
+      "name": "Fresh-air5 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status5"
+    },
+    "4.136.28": {
+      "entity_category": "config",
+      "name": "Fresh-air6 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description6"
+    },
+    "4.136.58": {
+      "entity_category": "config",
+      "name": "Fresh-air6 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position6"
+    },
+    "4.136.600": {
+      "entity_category": "config",
+      "name": "Fresh-air6 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon6"
+    },
+    "4.136.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air6 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id6"
+    },
+    "4.136.85": {
+      "entity_category": "config",
+      "name": "Fresh-air6 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status6"
+    },
+    "4.137.28": {
+      "entity_category": "config",
+      "name": "Fresh-air7 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description7"
+    },
+    "4.137.58": {
+      "entity_category": "config",
+      "name": "Fresh-air7 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position7"
+    },
+    "4.137.600": {
+      "entity_category": "config",
+      "name": "Fresh-air7 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon7"
+    },
+    "4.137.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air7 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id7"
+    },
+    "4.137.85": {
+      "entity_category": "config",
+      "name": "Fresh-air7 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status7"
+    },
+    "4.138.28": {
+      "entity_category": "config",
+      "name": "Fresh-air8 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description8"
+    },
+    "4.138.58": {
+      "entity_category": "config",
+      "name": "Fresh-air8 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position8"
+    },
+    "4.138.600": {
+      "entity_category": "config",
+      "name": "Fresh-air8 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon8"
+    },
+    "4.138.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air8 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id8"
+    },
+    "4.138.85": {
+      "entity_category": "config",
+      "name": "Fresh-air8 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status8"
+    },
+    "4.139.28": {
+      "entity_category": "config",
+      "name": "Fresh-air9 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description9"
+    },
+    "4.139.58": {
+      "entity_category": "config",
+      "name": "Fresh-air9 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position9"
+    },
+    "4.139.600": {
+      "entity_category": "config",
+      "name": "Fresh-air9 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon9"
+    },
+    "4.139.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air9 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id9"
+    },
+    "4.139.85": {
+      "entity_category": "config",
+      "name": "Fresh-air9 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status9"
+    },
+    "4.14.28": {
+      "entity_category": "config",
+      "name": "AC14 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description14"
+    },
+    "4.14.58": {
+      "entity_category": "config",
+      "name": "AC14 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position14"
+    },
+    "4.14.600": {
+      "entity_category": "config",
+      "name": "AC14 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon14"
+    },
+    "4.14.8108": {
+      "entity_category": "config",
+      "name": "AC14 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id14"
+    },
+    "4.14.85": {
+      "entity_category": "config",
+      "name": "AC14 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status14"
+    },
+    "4.140.28": {
+      "entity_category": "config",
+      "name": "Fresh-air10 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description10"
+    },
+    "4.140.58": {
+      "entity_category": "config",
+      "name": "Fresh-air10 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position10"
+    },
+    "4.140.600": {
+      "entity_category": "config",
+      "name": "Fresh-air10 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon10"
+    },
+    "4.140.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air10 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id10"
+    },
+    "4.140.85": {
+      "entity_category": "config",
+      "name": "Fresh-air10 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status10"
+    },
+    "4.141.28": {
+      "entity_category": "config",
+      "name": "Fresh-air11 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description11"
+    },
+    "4.141.58": {
+      "entity_category": "config",
+      "name": "Fresh-air11 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position11"
+    },
+    "4.141.600": {
+      "entity_category": "config",
+      "name": "Fresh-air11 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon11"
+    },
+    "4.141.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air11 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id11"
+    },
+    "4.141.85": {
+      "entity_category": "config",
+      "name": "Fresh-air11 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status11"
+    },
+    "4.142.28": {
+      "entity_category": "config",
+      "name": "Fresh-air12 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description12"
+    },
+    "4.142.58": {
+      "entity_category": "config",
+      "name": "Fresh-air12 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position12"
+    },
+    "4.142.600": {
+      "entity_category": "config",
+      "name": "Fresh-air12 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon12"
+    },
+    "4.142.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air12 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id12"
+    },
+    "4.142.85": {
+      "entity_category": "config",
+      "name": "Fresh-air12 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status12"
+    },
+    "4.143.28": {
+      "entity_category": "config",
+      "name": "Fresh-air13 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description13"
+    },
+    "4.143.58": {
+      "entity_category": "config",
+      "name": "Fresh-air13 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position13"
+    },
+    "4.143.600": {
+      "entity_category": "config",
+      "name": "Fresh-air13 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon13"
+    },
+    "4.143.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air13 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id13"
+    },
+    "4.143.85": {
+      "entity_category": "config",
+      "name": "Fresh-air13 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status13"
+    },
+    "4.144.28": {
+      "entity_category": "config",
+      "name": "Fresh-air14 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description14"
+    },
+    "4.144.58": {
+      "entity_category": "config",
+      "name": "Fresh-air14 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position14"
+    },
+    "4.144.600": {
+      "entity_category": "config",
+      "name": "Fresh-air14 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon14"
+    },
+    "4.144.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air14 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id14"
+    },
+    "4.144.85": {
+      "entity_category": "config",
+      "name": "Fresh-air14 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status14"
+    },
+    "4.145.28": {
+      "entity_category": "config",
+      "name": "Fresh-air15 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description15"
+    },
+    "4.145.58": {
+      "entity_category": "config",
+      "name": "Fresh-air15 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position15"
+    },
+    "4.145.600": {
+      "entity_category": "config",
+      "name": "Fresh-air15 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon15"
+    },
+    "4.145.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air15 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id15"
+    },
+    "4.145.85": {
+      "entity_category": "config",
+      "name": "Fresh-air 15 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status15"
+    },
+    "4.146.28": {
+      "entity_category": "config",
+      "name": "Fresh-air16 name",
+      "platform": "text",
+      "resource_code": "air_fresh_description16"
+    },
+    "4.146.58": {
+      "entity_category": "config",
+      "name": "Fresh-air16 location",
+      "platform": "text",
+      "resource_code": "air_fresh_position16"
+    },
+    "4.146.600": {
+      "entity_category": "config",
+      "name": "Fresh-air16 icon",
+      "platform": "text",
+      "resource_code": "air_fresh_icon16"
+    },
+    "4.146.8108": {
+      "entity_category": "config",
+      "name": "Fresh-air16 location ID",
+      "platform": "text",
+      "resource_code": "air_fresh_position_id16"
+    },
+    "4.146.85": {
+      "entity_category": "config",
+      "name": "Fresh-air16 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_fresh_status16"
+    },
+    "4.15.28": {
+      "entity_category": "config",
+      "name": "AC15 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description15"
+    },
+    "4.15.58": {
+      "entity_category": "config",
+      "name": "AC15 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position15"
+    },
+    "4.15.600": {
+      "entity_category": "config",
+      "name": "AC15 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon15"
+    },
+    "4.15.8108": {
+      "entity_category": "config",
+      "name": "AC15 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id15"
+    },
+    "4.15.85": {
+      "entity_category": "config",
+      "name": "AC15 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status15"
+    },
+    "4.16.28": {
+      "entity_category": "config",
+      "name": "AC16 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description16"
+    },
+    "4.16.58": {
+      "entity_category": "config",
+      "name": "AC16 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position16"
+    },
+    "4.16.600": {
+      "entity_category": "config",
+      "name": "AC16 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon16"
+    },
+    "4.16.8108": {
+      "entity_category": "config",
+      "name": "AC16 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id16"
+    },
+    "4.16.85": {
+      "entity_category": "config",
+      "name": "AC16 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status16"
+    },
+    "4.165.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating1 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description1"
+    },
+    "4.165.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating1 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position1"
+    },
+    "4.165.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating1 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon1"
+    },
+    "4.165.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating1 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id1"
+    },
+    "4.165.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating1 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status1"
+    },
+    "4.166.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating2 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description2"
+    },
+    "4.166.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating2 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position2"
+    },
+    "4.166.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating2 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon2"
+    },
+    "4.166.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating2 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id2"
+    },
+    "4.166.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating 2 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status2"
+    },
+    "4.167.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating3 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description3"
+    },
+    "4.167.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating3 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position3"
+    },
+    "4.167.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating3 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon3"
+    },
+    "4.167.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating3 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id3"
+    },
+    "4.167.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating3 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status3"
+    },
+    "4.168.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating4 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description4"
+    },
+    "4.168.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating4 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position4"
+    },
+    "4.168.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating4 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon4"
+    },
+    "4.168.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating4 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id4"
+    },
+    "4.168.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating4 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status4"
+    },
+    "4.169.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating5 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description5"
+    },
+    "4.169.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating 5 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position5"
+    },
+    "4.169.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating5 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon5"
+    },
+    "4.169.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating5 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id5"
+    },
+    "4.169.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating 5 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status5"
+    },
+    "4.17.28": {
+      "entity_category": "config",
+      "name": "AC17 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description17"
+    },
+    "4.17.58": {
+      "entity_category": "config",
+      "name": "AC17 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position17"
+    },
+    "4.17.600": {
+      "entity_category": "config",
+      "name": "AC17 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon17"
+    },
+    "4.17.8108": {
+      "entity_category": "config",
+      "name": "AC17 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id17"
+    },
+    "4.17.85": {
+      "entity_category": "config",
+      "name": "AC17 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status17"
+    },
+    "4.170.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating 6 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description6"
+    },
+    "4.170.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating 6 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position6"
+    },
+    "4.170.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating6 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon6"
+    },
+    "4.170.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating6 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id6"
+    },
+    "4.170.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating 6 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status6"
+    },
+    "4.171.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating7 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description7"
+    },
+    "4.171.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating7 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position7"
+    },
+    "4.171.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating7 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon7"
+    },
+    "4.171.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating7 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id7"
+    },
+    "4.171.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating7 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status7"
+    },
+    "4.172.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating8 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description8"
+    },
+    "4.172.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating8 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position8"
+    },
+    "4.172.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating8 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon8"
+    },
+    "4.172.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating8 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id8"
+    },
+    "4.172.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating8 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status8"
+    },
+    "4.173.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating9 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description9"
+    },
+    "4.173.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating9 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position9"
+    },
+    "4.173.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating9 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon9"
+    },
+    "4.173.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating9 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id9"
+    },
+    "4.173.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating9 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status9"
+    },
+    "4.174.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating10 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description10"
+    },
+    "4.174.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating10 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position10"
+    },
+    "4.174.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating10 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon10"
+    },
+    "4.174.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating10 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id10"
+    },
+    "4.174.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating10 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status10"
+    },
+    "4.175.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating11 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description11"
+    },
+    "4.175.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating11 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position11"
+    },
+    "4.175.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating11 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon11"
+    },
+    "4.175.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating11 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id11"
+    },
+    "4.175.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating11 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status11"
+    },
+    "4.176.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating12 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description12"
+    },
+    "4.176.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating12 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position12"
+    },
+    "4.176.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating12 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon12"
+    },
+    "4.176.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating12 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id12"
+    },
+    "4.176.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating12 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status12"
+    },
+    "4.177.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating13 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description13"
+    },
+    "4.177.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating13 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position13"
+    },
+    "4.177.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating13 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon13"
+    },
+    "4.177.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating13 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id13"
+    },
+    "4.177.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating13 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status13"
+    },
+    "4.178.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating14 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description14"
+    },
+    "4.178.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating 14 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position14"
+    },
+    "4.178.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating14 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon14"
+    },
+    "4.178.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating14 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id14"
+    },
+    "4.178.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating 14 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status14"
+    },
+    "4.179.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating15 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description15"
+    },
+    "4.179.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating15 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position15"
+    },
+    "4.179.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating15 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon15"
+    },
+    "4.179.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating15 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id15"
+    },
+    "4.179.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating15 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status15"
+    },
+    "4.18.28": {
+      "entity_category": "config",
+      "name": "AC18 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description18"
+    },
+    "4.18.58": {
+      "entity_category": "config",
+      "name": "AC18 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position18"
+    },
+    "4.18.600": {
+      "entity_category": "config",
+      "name": "AC18 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon18"
+    },
+    "4.18.8108": {
+      "entity_category": "config",
+      "name": "AC18 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id18"
+    },
+    "4.18.85": {
+      "entity_category": "config",
+      "name": "AC18 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status18"
+    },
+    "4.180.28": {
+      "entity_category": "config",
+      "name": "Underfloor heating16 name",
+      "platform": "text",
+      "resource_code": "floor_heat_description16"
+    },
+    "4.180.58": {
+      "entity_category": "config",
+      "name": "Underfloor heating16 location",
+      "platform": "text",
+      "resource_code": "floor_heat_position16"
+    },
+    "4.180.600": {
+      "entity_category": "config",
+      "name": "Underfloor heating16 icon",
+      "platform": "text",
+      "resource_code": "floor_heat_icon16"
+    },
+    "4.180.8108": {
+      "entity_category": "config",
+      "name": "Underfloor heating16 location ID",
+      "platform": "text",
+      "resource_code": "floor_heat_position_id16"
+    },
+    "4.180.85": {
+      "entity_category": "config",
+      "name": "Underfloor heating16 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_status16"
+    },
+    "4.181.85": {
+      "entity_category": "config",
+      "name": "Underfloor-heating switch group control",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floor_heat_group_status"
+    },
+    "4.19.28": {
+      "entity_category": "config",
+      "name": "AC19 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description19"
+    },
+    "4.19.58": {
+      "entity_category": "config",
+      "name": "AC19 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position19"
+    },
+    "4.19.600": {
+      "entity_category": "config",
+      "name": "AC19 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon19"
+    },
+    "4.19.8108": {
+      "entity_category": "config",
+      "name": "AC19 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id19"
+    },
+    "4.19.85": {
+      "entity_category": "config",
+      "name": "AC19 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status19"
+    },
+    "4.2.28": {
+      "entity_category": "config",
+      "name": "AC2 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description2"
+    },
+    "4.2.58": {
+      "entity_category": "config",
+      "name": "AC2 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position2"
+    },
+    "4.2.600": {
+      "entity_category": "config",
+      "name": "AC2 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon2"
+    },
+    "4.2.8108": {
+      "entity_category": "config",
+      "name": "AC2 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id2"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "AC2 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status2"
+    },
+    "4.20.28": {
+      "entity_category": "config",
+      "name": "AC20 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description20"
+    },
+    "4.20.58": {
+      "entity_category": "config",
+      "name": "AC20 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position20"
+    },
+    "4.20.600": {
+      "entity_category": "config",
+      "name": "AC20 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon20"
+    },
+    "4.20.8108": {
+      "entity_category": "config",
+      "name": "AC20 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id20"
+    },
+    "4.20.85": {
+      "entity_category": "config",
+      "name": "AC20 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status20"
+    },
+    "4.21.28": {
+      "entity_category": "config",
+      "name": "AC21 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description21"
+    },
+    "4.21.58": {
+      "entity_category": "config",
+      "name": "AC21 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position21"
+    },
+    "4.21.600": {
+      "entity_category": "config",
+      "name": "AC21 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon21"
+    },
+    "4.21.8108": {
+      "entity_category": "config",
+      "name": "AC21 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id21"
+    },
+    "4.21.85": {
+      "entity_category": "config",
+      "name": "AC21 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status21"
+    },
+    "4.22.28": {
+      "entity_category": "config",
+      "name": "AC22 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description22"
+    },
+    "4.22.58": {
+      "entity_category": "config",
+      "name": "AC22 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position22"
+    },
+    "4.22.600": {
+      "entity_category": "config",
+      "name": "AC22 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon22"
+    },
+    "4.22.8108": {
+      "entity_category": "config",
+      "name": "AC22 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id22"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "AC22 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status22"
+    },
+    "4.23.28": {
+      "entity_category": "config",
+      "name": "AC23 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description23"
+    },
+    "4.23.58": {
+      "entity_category": "config",
+      "name": "AC23 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position23"
+    },
+    "4.23.600": {
+      "entity_category": "config",
+      "name": "AC23 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon23"
+    },
+    "4.23.8108": {
+      "entity_category": "config",
+      "name": "AC23 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id23"
+    },
+    "4.23.85": {
+      "entity_category": "config",
+      "name": "AC23 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status23"
+    },
+    "4.24.28": {
+      "entity_category": "config",
+      "name": "AC24 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description24"
+    },
+    "4.24.58": {
+      "entity_category": "config",
+      "name": "AC24 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position24"
+    },
+    "4.24.600": {
+      "entity_category": "config",
+      "name": "AC24 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon24"
+    },
+    "4.24.8108": {
+      "entity_category": "config",
+      "name": "AC24 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id24"
+    },
+    "4.24.85": {
+      "entity_category": "config",
+      "name": "AC24 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status24"
+    },
+    "4.25.28": {
+      "entity_category": "config",
+      "name": "AC25 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description25"
+    },
+    "4.25.58": {
+      "entity_category": "config",
+      "name": "AC25 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position25"
+    },
+    "4.25.600": {
+      "entity_category": "config",
+      "name": "AC25 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon25"
+    },
+    "4.25.8108": {
+      "entity_category": "config",
+      "name": "AC25 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id25"
+    },
+    "4.25.85": {
+      "entity_category": "config",
+      "name": "AC25 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status25"
+    },
+    "4.26.28": {
+      "entity_category": "config",
+      "name": "AC26 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description26"
+    },
+    "4.26.58": {
+      "entity_category": "config",
+      "name": "AC26 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position26"
+    },
+    "4.26.600": {
+      "entity_category": "config",
+      "name": "AC26 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon26"
+    },
+    "4.26.8108": {
+      "entity_category": "config",
+      "name": "AC26 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id26"
+    },
+    "4.26.85": {
+      "entity_category": "config",
+      "name": "AC26 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status26"
+    },
+    "4.27.28": {
+      "entity_category": "config",
+      "name": "AC27 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description27"
+    },
+    "4.27.58": {
+      "entity_category": "config",
+      "name": "AC27 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position27"
+    },
+    "4.27.600": {
+      "entity_category": "config",
+      "name": "AC27 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon27"
+    },
+    "4.27.8108": {
+      "entity_category": "config",
+      "name": "AC27 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id27"
+    },
+    "4.27.85": {
+      "entity_category": "config",
+      "name": "AC27 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status27"
+    },
+    "4.28.28": {
+      "entity_category": "config",
+      "name": "AC28 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description28"
+    },
+    "4.28.58": {
+      "entity_category": "config",
+      "name": "AC28 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position28"
+    },
+    "4.28.600": {
+      "entity_category": "config",
+      "name": "AC28 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon28"
+    },
+    "4.28.8108": {
+      "entity_category": "config",
+      "name": "AC28 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id28"
+    },
+    "4.28.85": {
+      "entity_category": "config",
+      "name": "AC28 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status28"
+    },
+    "4.29.28": {
+      "entity_category": "config",
+      "name": "AC29 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description29"
+    },
+    "4.29.58": {
+      "entity_category": "config",
+      "name": "AC29 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position29"
+    },
+    "4.29.600": {
+      "entity_category": "config",
+      "name": "AC29 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon29"
+    },
+    "4.29.8108": {
+      "entity_category": "config",
+      "name": "AC29 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id29"
+    },
+    "4.29.85": {
+      "entity_category": "config",
+      "name": "AC29 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status29"
+    },
+    "4.3.28": {
+      "entity_category": "config",
+      "name": "AC3 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description3"
+    },
+    "4.3.58": {
+      "entity_category": "config",
+      "name": "AC3 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position3"
+    },
+    "4.3.600": {
+      "entity_category": "config",
+      "name": "AC3 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon3"
+    },
+    "4.3.8108": {
+      "entity_category": "config",
+      "name": "AC3 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id3"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "name": "AC3 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status3"
+    },
+    "4.30.28": {
+      "entity_category": "config",
+      "name": "AC30 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description30"
+    },
+    "4.30.58": {
+      "entity_category": "config",
+      "name": "AC30 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position30"
+    },
+    "4.30.600": {
+      "entity_category": "config",
+      "name": "AC30 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon30"
+    },
+    "4.30.8108": {
+      "entity_category": "config",
+      "name": "AC30 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id30"
+    },
+    "4.30.85": {
+      "entity_category": "config",
+      "name": "AC30 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status30"
+    },
+    "4.31.28": {
+      "entity_category": "config",
+      "name": "AC31 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description31"
+    },
+    "4.31.58": {
+      "entity_category": "config",
+      "name": "AC31 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position31"
+    },
+    "4.31.600": {
+      "entity_category": "config",
+      "name": "AC31 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon31"
+    },
+    "4.31.8108": {
+      "entity_category": "config",
+      "name": "AC31 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id31"
+    },
+    "4.31.85": {
+      "entity_category": "config",
+      "name": "AC31 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status31"
+    },
+    "4.32.28": {
+      "entity_category": "config",
+      "name": "AC32 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description32"
+    },
+    "4.32.58": {
+      "entity_category": "config",
+      "name": "AC32 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position32"
+    },
+    "4.32.600": {
+      "entity_category": "config",
+      "name": "AC32 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon32"
+    },
+    "4.32.8108": {
+      "entity_category": "config",
+      "name": "AC32 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id32"
+    },
+    "4.32.85": {
+      "entity_category": "config",
+      "name": "AC32 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status32"
+    },
+    "4.33.28": {
+      "entity_category": "config",
+      "name": "AC33 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description33"
+    },
+    "4.33.58": {
+      "entity_category": "config",
+      "name": "AC33 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position33"
+    },
+    "4.33.600": {
+      "entity_category": "config",
+      "name": "AC33 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon33"
+    },
+    "4.33.8108": {
+      "entity_category": "config",
+      "name": "AC33 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id33"
+    },
+    "4.33.85": {
+      "entity_category": "config",
+      "name": "AC33 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status33"
+    },
+    "4.34.28": {
+      "entity_category": "config",
+      "name": "AC34 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description34"
+    },
+    "4.34.58": {
+      "entity_category": "config",
+      "name": "AC34 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position34"
+    },
+    "4.34.600": {
+      "entity_category": "config",
+      "name": "AC34 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon34"
+    },
+    "4.34.8108": {
+      "entity_category": "config",
+      "name": "AC34 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id34"
+    },
+    "4.34.85": {
+      "entity_category": "config",
+      "name": "AC34 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status34"
+    },
+    "4.35.28": {
+      "entity_category": "config",
+      "name": "AC35 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description35"
+    },
+    "4.35.58": {
+      "entity_category": "config",
+      "name": "AC35 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position35"
+    },
+    "4.35.600": {
+      "entity_category": "config",
+      "name": "AC35 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon35"
+    },
+    "4.35.8108": {
+      "entity_category": "config",
+      "name": "AC35 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id35"
+    },
+    "4.35.85": {
+      "entity_category": "config",
+      "name": "AC35 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status35"
+    },
+    "4.36.28": {
+      "entity_category": "config",
+      "name": "AC36 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description36"
+    },
+    "4.36.58": {
+      "entity_category": "config",
+      "name": "AC36 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position36"
+    },
+    "4.36.600": {
+      "entity_category": "config",
+      "name": "AC36 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon36"
+    },
+    "4.36.8108": {
+      "entity_category": "config",
+      "name": "AC36 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id36"
+    },
+    "4.36.85": {
+      "entity_category": "config",
+      "name": "AC36 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status36"
+    },
+    "4.37.28": {
+      "entity_category": "config",
+      "name": "AC37 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description37"
+    },
+    "4.37.58": {
+      "entity_category": "config",
+      "name": "AC37 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position37"
+    },
+    "4.37.600": {
+      "entity_category": "config",
+      "name": "AC37 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon37"
+    },
+    "4.37.8108": {
+      "entity_category": "config",
+      "name": "AC37 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id37"
+    },
+    "4.37.85": {
+      "entity_category": "config",
+      "name": "AC37 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status37"
+    },
+    "4.38.28": {
+      "entity_category": "config",
+      "name": "AC38 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description38"
+    },
+    "4.38.58": {
+      "entity_category": "config",
+      "name": "AC38 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position38"
+    },
+    "4.38.600": {
+      "entity_category": "config",
+      "name": "AC38 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon38"
+    },
+    "4.38.8108": {
+      "entity_category": "config",
+      "name": "AC38 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id38"
+    },
+    "4.38.85": {
+      "entity_category": "config",
+      "name": "AC38 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status38"
+    },
+    "4.39.28": {
+      "entity_category": "config",
+      "name": "AC39 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description39"
+    },
+    "4.39.58": {
+      "entity_category": "config",
+      "name": "AC39 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position39"
+    },
+    "4.39.600": {
+      "entity_category": "config",
+      "name": "AC39 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon39"
+    },
+    "4.39.8108": {
+      "entity_category": "config",
+      "name": "AC39 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id39"
+    },
+    "4.39.85": {
+      "entity_category": "config",
+      "name": "AC39 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status39"
+    },
+    "4.4.28": {
+      "entity_category": "config",
+      "name": "AC4 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description4"
+    },
+    "4.4.58": {
+      "entity_category": "config",
+      "name": "AC4 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position4"
+    },
+    "4.4.600": {
+      "entity_category": "config",
+      "name": "AC4 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon4"
+    },
+    "4.4.8108": {
+      "entity_category": "config",
+      "name": "AC4 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id4"
+    },
+    "4.4.85": {
+      "entity_category": "config",
+      "name": "AC4 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status4"
+    },
+    "4.40.28": {
+      "entity_category": "config",
+      "name": "AC40 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description40"
+    },
+    "4.40.58": {
+      "entity_category": "config",
+      "name": "AC40 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position40"
+    },
+    "4.40.600": {
+      "entity_category": "config",
+      "name": "AC40 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon40"
+    },
+    "4.40.8108": {
+      "entity_category": "config",
+      "name": "AC40 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id40"
+    },
+    "4.40.85": {
+      "entity_category": "config",
+      "name": "AC40 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status40"
+    },
+    "4.41.28": {
+      "entity_category": "config",
+      "name": "AC41 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description41"
+    },
+    "4.41.58": {
+      "entity_category": "config",
+      "name": "AC41 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position41"
+    },
+    "4.41.600": {
+      "entity_category": "config",
+      "name": "AC41 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon41"
+    },
+    "4.41.8108": {
+      "entity_category": "config",
+      "name": "AC41 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id41"
+    },
+    "4.41.85": {
+      "entity_category": "config",
+      "name": "AC41 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status41"
+    },
+    "4.42.28": {
+      "entity_category": "config",
+      "name": "AC42 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description42"
+    },
+    "4.42.58": {
+      "entity_category": "config",
+      "name": "AC42 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position42"
+    },
+    "4.42.600": {
+      "entity_category": "config",
+      "name": "AC42 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon42"
+    },
+    "4.42.8108": {
+      "entity_category": "config",
+      "name": "AC42 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id42"
+    },
+    "4.42.85": {
+      "entity_category": "config",
+      "name": "AC42 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status42"
+    },
+    "4.43.28": {
+      "entity_category": "config",
+      "name": "AC43 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description43"
+    },
+    "4.43.58": {
+      "entity_category": "config",
+      "name": "AC43 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position43"
+    },
+    "4.43.600": {
+      "entity_category": "config",
+      "name": "AC43 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon43"
+    },
+    "4.43.8108": {
+      "entity_category": "config",
+      "name": "AC43 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id43"
+    },
+    "4.43.85": {
+      "entity_category": "config",
+      "name": "AC43 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status43"
+    },
+    "4.44.28": {
+      "entity_category": "config",
+      "name": "AC44 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description44"
+    },
+    "4.44.58": {
+      "entity_category": "config",
+      "name": "AC44 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position44"
+    },
+    "4.44.600": {
+      "entity_category": "config",
+      "name": "AC44 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon44"
+    },
+    "4.44.8108": {
+      "entity_category": "config",
+      "name": "AC44 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id44"
+    },
+    "4.44.85": {
+      "entity_category": "config",
+      "name": "AC44 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status44"
+    },
+    "4.45.28": {
+      "entity_category": "config",
+      "name": "AC45 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description45"
+    },
+    "4.45.58": {
+      "entity_category": "config",
+      "name": "AC45 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position45"
+    },
+    "4.45.600": {
+      "entity_category": "config",
+      "name": "AC45 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon45"
+    },
+    "4.45.8108": {
+      "entity_category": "config",
+      "name": "AC45 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id45"
+    },
+    "4.45.85": {
+      "entity_category": "config",
+      "name": "AC45 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status45"
+    },
+    "4.46.28": {
+      "entity_category": "config",
+      "name": "AC46 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description46"
+    },
+    "4.46.58": {
+      "entity_category": "config",
+      "name": "AC46 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position46"
+    },
+    "4.46.600": {
+      "entity_category": "config",
+      "name": "AC46 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon46"
+    },
+    "4.46.8108": {
+      "entity_category": "config",
+      "name": "AC46 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id46"
+    },
+    "4.46.85": {
+      "entity_category": "config",
+      "name": "AC46 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status46"
+    },
+    "4.47.28": {
+      "entity_category": "config",
+      "name": "AC47 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description47"
+    },
+    "4.47.58": {
+      "entity_category": "config",
+      "name": "AC47 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position47"
+    },
+    "4.47.600": {
+      "entity_category": "config",
+      "name": "AC47 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon47"
+    },
+    "4.47.8108": {
+      "entity_category": "config",
+      "name": "AC47 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id47"
+    },
+    "4.47.85": {
+      "entity_category": "config",
+      "name": "AC47 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status47"
+    },
+    "4.48.28": {
+      "entity_category": "config",
+      "name": "AC48 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description48"
+    },
+    "4.48.58": {
+      "entity_category": "config",
+      "name": "AC48 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position48"
+    },
+    "4.48.600": {
+      "entity_category": "config",
+      "name": "AC48 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon48"
+    },
+    "4.48.8108": {
+      "entity_category": "config",
+      "name": "AC48 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id48"
+    },
+    "4.48.85": {
+      "entity_category": "config",
+      "name": "AC48 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status48"
+    },
+    "4.49.28": {
+      "entity_category": "config",
+      "name": "AC49 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description49"
+    },
+    "4.49.58": {
+      "entity_category": "config",
+      "name": "AC49 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position49"
+    },
+    "4.49.600": {
+      "entity_category": "config",
+      "name": "AC49 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon49"
+    },
+    "4.49.8108": {
+      "entity_category": "config",
+      "name": "AC49 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id49"
+    },
+    "4.49.85": {
+      "entity_category": "config",
+      "name": "AC49 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status49"
+    },
+    "4.5.28": {
+      "entity_category": "config",
+      "name": "AC5 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description5"
+    },
+    "4.5.58": {
+      "entity_category": "config",
+      "name": "AC5 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position5"
+    },
+    "4.5.600": {
+      "entity_category": "config",
+      "name": "AC5 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon5"
+    },
+    "4.5.8108": {
+      "entity_category": "config",
+      "name": "AC5 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id5"
+    },
+    "4.5.85": {
+      "entity_category": "config",
+      "name": "AC5 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status5"
+    },
+    "4.50.28": {
+      "entity_category": "config",
+      "name": "AC50 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description50"
+    },
+    "4.50.58": {
+      "entity_category": "config",
+      "name": "AC50 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position50"
+    },
+    "4.50.600": {
+      "entity_category": "config",
+      "name": "AC50 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon50"
+    },
+    "4.50.8108": {
+      "entity_category": "config",
+      "name": "AC50 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id50"
+    },
+    "4.50.85": {
+      "entity_category": "config",
+      "name": "AC50 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status50"
+    },
+    "4.51.28": {
+      "entity_category": "config",
+      "name": "AC51 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description51"
+    },
+    "4.51.58": {
+      "entity_category": "config",
+      "name": "AC51 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position51"
+    },
+    "4.51.600": {
+      "entity_category": "config",
+      "name": "AC51 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon51"
+    },
+    "4.51.8108": {
+      "entity_category": "config",
+      "name": "AC51 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id51"
+    },
+    "4.51.85": {
+      "entity_category": "config",
+      "name": "AC51 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status51"
+    },
+    "4.52.28": {
+      "entity_category": "config",
+      "name": "AC52 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description52"
+    },
+    "4.52.58": {
+      "entity_category": "config",
+      "name": "AC52 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position52"
+    },
+    "4.52.600": {
+      "entity_category": "config",
+      "name": "AC52 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon52"
+    },
+    "4.52.8108": {
+      "entity_category": "config",
+      "name": "AC52 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id52"
+    },
+    "4.52.85": {
+      "entity_category": "config",
+      "name": "AC52 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status52"
+    },
+    "4.53.28": {
+      "entity_category": "config",
+      "name": "AC53 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description53"
+    },
+    "4.53.58": {
+      "entity_category": "config",
+      "name": "AC53 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position53"
+    },
+    "4.53.600": {
+      "entity_category": "config",
+      "name": "AC53 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon53"
+    },
+    "4.53.8108": {
+      "entity_category": "config",
+      "name": "AC53 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id53"
+    },
+    "4.53.85": {
+      "entity_category": "config",
+      "name": "AC53 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status53"
+    },
+    "4.54.28": {
+      "entity_category": "config",
+      "name": "AC54 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description54"
+    },
+    "4.54.58": {
+      "entity_category": "config",
+      "name": "AC54 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position54"
+    },
+    "4.54.600": {
+      "entity_category": "config",
+      "name": "AC54 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon54"
+    },
+    "4.54.8108": {
+      "entity_category": "config",
+      "name": "AC54 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id54"
+    },
+    "4.54.85": {
+      "entity_category": "config",
+      "name": "AC54 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status54"
+    },
+    "4.55.28": {
+      "entity_category": "config",
+      "name": "AC55 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description55"
+    },
+    "4.55.58": {
+      "entity_category": "config",
+      "name": "AC55 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position55"
+    },
+    "4.55.600": {
+      "entity_category": "config",
+      "name": "AC55 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon55"
+    },
+    "4.55.8108": {
+      "entity_category": "config",
+      "name": "AC55 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id55"
+    },
+    "4.55.85": {
+      "entity_category": "config",
+      "name": "AC55 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status55"
+    },
+    "4.56.28": {
+      "entity_category": "config",
+      "name": "AC56 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description56"
+    },
+    "4.56.58": {
+      "entity_category": "config",
+      "name": "AC56 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position56"
+    },
+    "4.56.600": {
+      "entity_category": "config",
+      "name": "AC56 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon56"
+    },
+    "4.56.8108": {
+      "entity_category": "config",
+      "name": "AC56 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id56"
+    },
+    "4.56.85": {
+      "entity_category": "config",
+      "name": "AC56 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status56"
+    },
+    "4.57.28": {
+      "entity_category": "config",
+      "name": "AC57 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description57"
+    },
+    "4.57.58": {
+      "entity_category": "config",
+      "name": "AC57 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position57"
+    },
+    "4.57.600": {
+      "entity_category": "config",
+      "name": "AC57 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon57"
+    },
+    "4.57.8108": {
+      "entity_category": "config",
+      "name": "AC57 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id57"
+    },
+    "4.57.85": {
+      "entity_category": "config",
+      "name": "AC57 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status57"
+    },
+    "4.58.28": {
+      "entity_category": "config",
+      "name": "AC58 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description58"
+    },
+    "4.58.58": {
+      "entity_category": "config",
+      "name": "AC58 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position58"
+    },
+    "4.58.600": {
+      "entity_category": "config",
+      "name": "AC58 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon58"
+    },
+    "4.58.8108": {
+      "entity_category": "config",
+      "name": "AC58 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id58"
+    },
+    "4.58.85": {
+      "entity_category": "config",
+      "name": "AC58 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status58"
+    },
+    "4.59.28": {
+      "entity_category": "config",
+      "name": "AC59 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description59"
+    },
+    "4.59.58": {
+      "entity_category": "config",
+      "name": "AC59 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position59"
+    },
+    "4.59.600": {
+      "entity_category": "config",
+      "name": "AC59 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon59"
+    },
+    "4.59.8108": {
+      "entity_category": "config",
+      "name": "AC59 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id59"
+    },
+    "4.59.85": {
+      "entity_category": "config",
+      "name": "AC59 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status59"
+    },
+    "4.6.28": {
+      "entity_category": "config",
+      "name": "AC6 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description6"
+    },
+    "4.6.58": {
+      "entity_category": "config",
+      "name": "AC6 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position6"
+    },
+    "4.6.600": {
+      "entity_category": "config",
+      "name": "AC6 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon6"
+    },
+    "4.6.8108": {
+      "entity_category": "config",
+      "name": "AC6 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id6"
+    },
+    "4.6.85": {
+      "entity_category": "config",
+      "name": "AC6 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status6"
+    },
+    "4.60.28": {
+      "entity_category": "config",
+      "name": "AC60 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description60"
+    },
+    "4.60.58": {
+      "entity_category": "config",
+      "name": "AC60 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position60"
+    },
+    "4.60.600": {
+      "entity_category": "config",
+      "name": "AC60 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon60"
+    },
+    "4.60.8108": {
+      "entity_category": "config",
+      "name": "AC60 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id60"
+    },
+    "4.60.85": {
+      "entity_category": "config",
+      "name": "AC60 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status60"
+    },
+    "4.61.28": {
+      "entity_category": "config",
+      "name": "AC61 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description61"
+    },
+    "4.61.58": {
+      "entity_category": "config",
+      "name": "AC61 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position61"
+    },
+    "4.61.600": {
+      "entity_category": "config",
+      "name": "AC61 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon61"
+    },
+    "4.61.8108": {
+      "entity_category": "config",
+      "name": "AC61 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id61"
+    },
+    "4.61.85": {
+      "entity_category": "config",
+      "name": "AC61 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status61"
+    },
+    "4.62.28": {
+      "entity_category": "config",
+      "name": "AC62 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description62"
+    },
+    "4.62.58": {
+      "entity_category": "config",
+      "name": "AC62 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position62"
+    },
+    "4.62.600": {
+      "entity_category": "config",
+      "name": "AC62 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon62"
+    },
+    "4.62.8108": {
+      "entity_category": "config",
+      "name": "AC62 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id62"
+    },
+    "4.62.85": {
+      "entity_category": "config",
+      "name": "AC62 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status62"
+    },
+    "4.63.28": {
+      "entity_category": "config",
+      "name": "AC63 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description63"
+    },
+    "4.63.58": {
+      "entity_category": "config",
+      "name": "AC63 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position63"
+    },
+    "4.63.600": {
+      "entity_category": "config",
+      "name": "AC63 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon63"
+    },
+    "4.63.8108": {
+      "entity_category": "config",
+      "name": "AC63 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id63"
+    },
+    "4.63.85": {
+      "entity_category": "config",
+      "name": "AC63 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status63"
+    },
+    "4.64.28": {
+      "entity_category": "config",
+      "name": "AC64 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description64"
+    },
+    "4.64.58": {
+      "entity_category": "config",
+      "name": "AC64 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position64"
+    },
+    "4.64.600": {
+      "entity_category": "config",
+      "name": "AC64 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon64"
+    },
+    "4.64.8108": {
+      "entity_category": "config",
+      "name": "AC64 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id64"
+    },
+    "4.64.85": {
+      "entity_category": "config",
+      "name": "AC64 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status64"
+    },
+    "4.7.28": {
+      "entity_category": "config",
+      "name": "AC7 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description7"
+    },
+    "4.7.58": {
+      "entity_category": "config",
+      "name": "AC7 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position7"
+    },
+    "4.7.600": {
+      "entity_category": "config",
+      "name": "AC7 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon7"
+    },
+    "4.7.8108": {
+      "entity_category": "config",
+      "name": "AC7 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id7"
+    },
+    "4.7.85": {
+      "entity_category": "config",
+      "name": "AC7 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status7"
+    },
+    "4.8.28": {
+      "entity_category": "config",
+      "name": "AC8 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description8"
+    },
+    "4.8.58": {
+      "entity_category": "config",
+      "name": "AC8 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position8"
+    },
+    "4.8.600": {
+      "entity_category": "config",
+      "name": "AC8 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon8"
+    },
+    "4.8.8108": {
+      "entity_category": "config",
+      "name": "AC8 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id8"
+    },
+    "4.8.85": {
+      "entity_category": "config",
+      "name": "AC8 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status8"
+    },
+    "4.9.28": {
+      "entity_category": "config",
+      "name": "AC9 name",
+      "platform": "text",
+      "resource_code": "air_conditioner_description9"
+    },
+    "4.9.58": {
+      "entity_category": "config",
+      "name": "AC9 location",
+      "platform": "text",
+      "resource_code": "air_conditioner_position9"
+    },
+    "4.9.600": {
+      "entity_category": "config",
+      "name": "AC9 icon",
+      "platform": "text",
+      "resource_code": "air_conditioner_icon9"
+    },
+    "4.9.8108": {
+      "entity_category": "config",
+      "name": "AC9 location ID",
+      "platform": "text",
+      "resource_code": "air_conditioner_position_id9"
+    },
+    "4.9.85": {
+      "entity_category": "config",
+      "name": "AC9 switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "air_conditioner_status9"
+    }
+  },
   "source_region": "default",
   "traits": {
     "10.132.32920": {

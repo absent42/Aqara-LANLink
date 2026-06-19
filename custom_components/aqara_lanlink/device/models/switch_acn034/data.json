@@ -108,6 +108,11 @@
     "9.130.33012",
     "9.130.33016"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "4.14.85": "dual"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -155,6 +160,99 @@
     "lumi.switch.acn034"
   ],
   "regions": [],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "screen off",
+        "1": "dimmest",
+        "100": "brightest)."
+      },
+      "name": "Standby Brightness",
+      "platform": "select",
+      "resource_code": "set_num_sixth"
+    },
+    "1.7.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "dimmest",
+        "100": "brightest)."
+      },
+      "name": "Backlight Brightness",
+      "platform": "select",
+      "resource_code": "set_brightness"
+    },
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm Volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm Status",
+      "platform": "number",
+      "resource_code": "alarm_status"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Switch (Channel 1)",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Switch (Channel 2)",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "Do Not Disturb Mode",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch22_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "name": "Switch (Channel 3)",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch2_status"
+    },
+    "4.31.85": {
+      "entity_category": "config",
+      "name": "Key Tone Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "bool_switch_first"
+    },
+    "4.46.85": {
+      "entity_category": "config",
+      "name": "Standby Screen Saver Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "mute_mode"
+    },
+    "8.0.2207": {
+      "entity_category": "config",
+      "name": "Do Not Disturb Period (Supports setting time period)",
+      "platform": "text",
+      "resource_code": "turn_off_light_as_time"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

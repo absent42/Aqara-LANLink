@@ -64,6 +64,10 @@
     "4.130.32915",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.28": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -87,6 +91,35 @@
     "lumi.switch.acn042"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Switch (channel 1)",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Switch (channel 2)",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Turn off indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

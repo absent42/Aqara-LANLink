@@ -49,6 +49,18 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "1.10.85": "dual",
+    "1.11.85": "dual",
+    "1.12.85": "dual",
+    "1.13.85": "dual",
+    "1.14.85": "dual",
+    "1.6.85": "dual",
+    "1.9.602": "dual",
+    "1.9.85": "dual",
+    "4.1.85": "dual",
+    "4.2.85": "dual"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -69,6 +81,33 @@
     "lumi.light.acn031"
   ],
   "regions": [],
+  "settings": {
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": 1,
+      "name": "Set brightness",
+      "platform": "number",
+      "resource_code": "light_level"
+    },
+    "1.8.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Sub-light incremental brightness adjustment percentage",
+      "platform": "number",
+      "resource_code": "adjust_level_2"
+    },
+    "1.8.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": 1,
+      "name": "Sub-light brightness",
+      "platform": "number",
+      "resource_code": "light_level1"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32945": {

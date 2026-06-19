@@ -55,6 +55,36 @@
     "6.130.33012",
     "6.130.33016"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "0.2.85": "sensor",
+    "0.21.85": "sensor",
+    "0.22.85": "sensor",
+    "0.8.85": "sensor",
+    "0.9.85": "sensor",
+    "1.21.376": "sensor",
+    "1.21.85": "dual",
+    "1.8.85": "dual",
+    "1.9.85": "dual",
+    "13.106.85": "event",
+    "13.12.85": "event",
+    "13.13.85": "event",
+    "13.14.85": "event",
+    "13.80.85": "event",
+    "13.81.85": "event",
+    "13.82.85": "event",
+    "13.83.85": "event",
+    "3.100.85": "sensor",
+    "3.101.85": "sensor",
+    "3.102.85": "sensor",
+    "3.202.85": "sensor",
+    "3.203.85": "sensor",
+    "3.204.85": "sensor",
+    "4.103.85": "dual",
+    "4.73.85": "dual",
+    "8.0.2199": "command",
+    "8.0.2342": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -83,6 +113,186 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Idle brightness",
+      "platform": "number",
+      "resource_code": "set_num_sixth"
+    },
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Backlight brightness",
+      "platform": "number",
+      "resource_code": "back_light"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low Fan",
+        "2": "Medium Fan",
+        "3": "High Fan",
+        "4": "Gentle Fan",
+        "5": "Ultra Low Fan",
+        "6": "Ultra High Fan",
+        "7": "Medium-Low Fan",
+        "8": "Medium-High Fan",
+        "9": "Stop"
+      },
+      "name": "Fresh air speed",
+      "platform": "select",
+      "resource_code": "airfresh_wind"
+    },
+    "14.5.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low Fan",
+        "2": "Medium Fan",
+        "3": "High Fan",
+        "4": "Gentle Fan",
+        "5": "Ultra Low Fan",
+        "6": "Ultra High Fan",
+        "7": "Medium-Low Fan",
+        "8": "Medium-High Fan",
+        "9": "Stop"
+      },
+      "name": "Air conditioning wind speed",
+      "platform": "select",
+      "resource_code": "ac_wind"
+    },
+    "14.6.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat",
+        "5": "Floor Heating",
+        "6": "Strong Heat"
+      },
+      "name": "Air conditioner mode",
+      "platform": "select",
+      "resource_code": "ac_mode"
+    },
+    "14.7.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual",
+        "1": "Auto",
+        "2": "Exhaust",
+        "3": "Heat Exchange",
+        "4": "Internal Circulation",
+        "5": "External Circulation",
+        "6": "Power Saving",
+        "7": "Strong",
+        "8": "Fresh Air",
+        "9": "Bypass"
+      },
+      "name": "Fresh air mode",
+      "platform": "select",
+      "resource_code": "airfresh_mode"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Digital Clock 1",
+        "2": "Digital Clock 2",
+        "3": "Indoor Environment",
+        "4": "Dial Clock 1",
+        "5": "Dial Clock 2",
+        "6": "Weather",
+        "7": "Custom",
+        "8": "Simple Clock"
+      },
+      "name": "Screen saver graphics",
+      "platform": "select",
+      "resource_code": "filqlo_set"
+    },
+    "14.92.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Standby time setting",
+      "platform": "number",
+      "resource_code": "set_sleep_time"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Air conditioner switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ac_status"
+    },
+    "4.106.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Closure",
+        "1": "Open"
+      },
+      "name": "Standby always-on switch",
+      "platform": "select",
+      "resource_code": "device_display_always_on_enable"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "AC self-cleaning switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ac_self_cleaning_status"
+    },
+    "4.23.85": {
+      "entity_category": "config",
+      "name": "Mute switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch23_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "name": "Fresh air system switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "airfresh_status"
+    },
+    "4.4.85": {
+      "entity_category": "config",
+      "name": "Floor heating switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "floorheating_status"
+    },
+    "4.46.85": {
+      "entity_category": "config",
+      "name": "Standby screen saver switch",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "mute_mode"
+    },
+    "4.51.85": {
+      "entity_category": "config",
+      "name": "Air conditioner rapid cooling switch when powered on",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "quick_cool_switch"
+    },
+    "8.0.2207": {
+      "entity_category": "config",
+      "name": "Sleep Mode",
+      "platform": "text",
+      "resource_code": "sleep_mode"
+    }
+  },
   "source_region": "default",
   "traits": {
     "3.132.32920": {

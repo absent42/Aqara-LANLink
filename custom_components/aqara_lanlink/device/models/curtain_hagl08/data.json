@@ -39,6 +39,9 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -61,6 +64,57 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Open percentage of the Curtain",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Close",
+        "1": "Open",
+        "3": "Auto"
+      },
+      "name": "Curtain status",
+      "platform": "select",
+      "resource_code": "curtain_status"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Offing",
+        "1": "Oning",
+        "2": "Stop"
+      },
+      "name": "Curtain operation status",
+      "platform": "select",
+      "resource_code": "curtain_running_status"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No trip",
+        "1": "Trip"
+      },
+      "name": "Motor Stroke",
+      "platform": "select",
+      "resource_code": "pos_limit"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Forward",
+        "1": "Reverse"
+      },
+      "name": "Motor rotation polarity",
+      "platform": "select",
+      "resource_code": "polarity"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20119": {

@@ -39,6 +39,14 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "13.17.85": "event",
+    "13.32.85": "event",
+    "13.88.85": "event",
+    "3.19.85": "sensor",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2045": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"

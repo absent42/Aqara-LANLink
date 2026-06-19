@@ -85,6 +85,10 @@
     "9.130.32919",
     "9.130.33012"
   ],
+  "dropped_rids": {
+    "14.74.85": "dual",
+    "8.0.2108": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -126,6 +130,120 @@
     "lumi.camera.acn003"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "name": "Alarm Volume",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.119.85": {
+      "entity_category": "config",
+      "name": "Abnormal Sound Detection Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "soundtrigger_enable"
+    },
+    "14.125.85": {
+      "entity_category": "config",
+      "name": "Timer Sleep Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "time_sleep_enable"
+    },
+    "14.3.1000": {
+      "entity_category": "config",
+      "name": "Music Volume",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "music_volume"
+    },
+    "14.65.85": {
+      "entity_category": "config",
+      "name": "Camera Volume",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "camera_volume"
+    },
+    "14.70.85": {
+      "entity_category": "config",
+      "name": "Motion Detection Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "mdtrigger_enable"
+    },
+    "4.27.85": {
+      "entity_category": "config",
+      "name": "Time-Lapse Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "camera_timelapse_switch"
+    },
+    "4.28.85": {
+      "entity_category": "config",
+      "name": "Time-Lapse Push Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "camera_timelapse_push"
+    },
+    "4.50.85": {
+      "entity_category": "config",
+      "name": "Motion Detection Recording Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "md_record_enable"
+    },
+    "4.51.85": {
+      "entity_category": "config",
+      "name": "Motion Detection Push Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "md_push_enable"
+    },
+    "4.52.85": {
+      "entity_category": "config",
+      "name": "Abnormal Sound Detection Recording Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "cry_record_enable"
+    },
+    "4.53.85": {
+      "entity_category": "config",
+      "name": "Abnormal Sound Detection Push Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "cry_push_enable"
+    },
+    "4.89.85": {
+      "entity_category": "config",
+      "name": "Device Off Push Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_offline_push_enable"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Off Indicator Light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.33089": {

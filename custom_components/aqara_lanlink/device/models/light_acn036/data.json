@@ -43,6 +43,18 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "1.11.85": "dual",
+    "1.12.85": "dual",
+    "1.9.65": "sensor",
+    "1.9.69": "sensor",
+    "1.9.85": "dual",
+    "13.1.85": "event",
+    "4.1.85": "dual",
+    "8.0.2009": "needs-review",
+    "8.0.2181": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -60,6 +72,31 @@
     "lumi.light.acn036"
   ],
   "regions": [],
+  "settings": {
+    "1.7.65": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Maximum brightness",
+      "platform": "number",
+      "resource_code": "light_actual_max_value"
+    },
+    "1.7.69": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Minimum brightness",
+      "platform": "number",
+      "resource_code": "light_actual_min_value"
+    },
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": 1,
+      "name": "Set brightness to",
+      "platform": "number",
+      "resource_code": "light_level"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32945": {

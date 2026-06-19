@@ -53,6 +53,26 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.21.85": "sensor",
+    "0.22.85": "sensor",
+    "0.23.85": "sensor",
+    "0.24.85": "sensor",
+    "0.25.85": "sensor",
+    "0.26.85": "sensor",
+    "0.27.85": "sensor",
+    "0.28.85": "sensor",
+    "0.29.85": "sensor",
+    "0.30.85": "sensor",
+    "0.50.85": "sensor",
+    "0.51.85": "sensor",
+    "1.17.85": "dual",
+    "1.18.85": "dual",
+    "13.1.85": "event",
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.2014": "needs-review",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -70,6 +90,36 @@
     "lumi.remote.rkba01"
   ],
   "regions": [],
+  "settings": {
+    "1.16.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Set sensitivity",
+      "platform": "number",
+      "resource_code": "set_sensitive"
+    },
+    "1.19.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Set knob switch rotation stop conditions",
+      "platform": "number",
+      "resource_code": "rotate_stop_interval"
+    },
+    "1.20.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Set the stop condition for holding down the knob switch to rotate",
+      "platform": "number",
+      "resource_code": "push_rotate_stop_interval"
+    },
+    "1.6.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Set angle report interval",
+      "platform": "number",
+      "resource_code": "set_num_sec"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.135.32928": {

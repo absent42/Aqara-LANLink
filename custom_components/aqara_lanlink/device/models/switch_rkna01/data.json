@@ -72,6 +72,20 @@
     "5.130.33012",
     "5.130.33016"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "13.10.85": "event",
+    "13.11.85": "event",
+    "13.12.85": "event",
+    "13.13.85": "event",
+    "13.2.85": "event",
+    "13.3.85": "event",
+    "13.5.85": "event",
+    "13.6.85": "event",
+    "13.9.85": "event",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -98,6 +112,56 @@
     "lumi.switch.rkna01"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 2 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 3 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch2_status"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-off memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    },
+    "8.0.2042": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Maximum power",
+      "platform": "number",
+      "resource_code": "device_max_power"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

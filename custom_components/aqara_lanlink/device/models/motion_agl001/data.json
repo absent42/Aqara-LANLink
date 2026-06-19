@@ -216,6 +216,106 @@
     "6.130.32919",
     "6.130.33012"
   ],
+  "dropped_rids": {
+    "0.11.85": "sensor",
+    "0.12.85": "sensor",
+    "0.121.85": "sensor",
+    "0.122.85": "sensor",
+    "0.123.85": "sensor",
+    "0.124.85": "sensor",
+    "0.125.85": "sensor",
+    "0.126.85": "sensor",
+    "0.127.85": "sensor",
+    "0.13.85": "sensor",
+    "0.14.85": "sensor",
+    "0.4.85": "sensor",
+    "0.514.85": "sensor",
+    "0.516.85": "sensor",
+    "0.517.85": "sensor",
+    "0.518.85": "sensor",
+    "0.519.85": "sensor",
+    "0.520.85": "sensor",
+    "0.60.85": "sensor",
+    "0.61.85": "sensor",
+    "0.63.85": "sensor",
+    "0.8.85": "sensor",
+    "0.9.85": "sensor",
+    "13.106.85": "event",
+    "13.11.85": "event",
+    "13.120.85": "event",
+    "13.121.85": "event",
+    "13.122.85": "event",
+    "13.123.85": "event",
+    "13.124.85": "event",
+    "13.125.85": "event",
+    "13.126.85": "event",
+    "13.127.85": "event",
+    "13.128.85": "event",
+    "13.129.85": "event",
+    "13.130.85": "event",
+    "13.131.85": "event",
+    "13.132.85": "event",
+    "13.133.85": "event",
+    "13.134.85": "event",
+    "13.135.85": "event",
+    "13.137.85": "event",
+    "13.138.85": "event",
+    "13.139.85": "event",
+    "13.140.85": "event",
+    "13.141.85": "event",
+    "13.142.85": "event",
+    "13.143.85": "event",
+    "13.144.85": "event",
+    "13.145.85": "event",
+    "13.146.85": "event",
+    "13.147.85": "event",
+    "13.148.85": "event",
+    "13.149.85": "event",
+    "13.150.85": "event",
+    "13.2.85": "event",
+    "13.21.703": "event",
+    "13.21.85": "event",
+    "13.27.85": "event",
+    "13.35.85": "event",
+    "13.40.702": "event",
+    "13.70.85": "event",
+    "3.1.85": "sensor",
+    "3.10.85": "sensor",
+    "3.11.85": "sensor",
+    "3.12.85": "sensor",
+    "3.13.85": "sensor",
+    "3.14.85": "sensor",
+    "3.15.85": "sensor",
+    "3.16.85": "sensor",
+    "3.17.85": "sensor",
+    "3.18.85": "sensor",
+    "3.19.85": "sensor",
+    "3.2.85": "sensor",
+    "3.20.85": "sensor",
+    "3.21.85": "sensor",
+    "3.22.85": "sensor",
+    "3.23.85": "sensor",
+    "3.24.85": "sensor",
+    "3.25.85": "sensor",
+    "3.26.85": "sensor",
+    "3.27.85": "sensor",
+    "3.28.85": "sensor",
+    "3.29.85": "sensor",
+    "3.3.85": "sensor",
+    "3.30.85": "sensor",
+    "3.4.85": "sensor",
+    "3.5.85": "sensor",
+    "3.51.85": "sensor",
+    "3.52.85": "sensor",
+    "3.6.85": "sensor",
+    "3.7.85": "sensor",
+    "3.8.85": "sensor",
+    "3.9.85": "sensor",
+    "4.31.85": "sensor",
+    "8.0.2026": "diagnostic:telemetry",
+    "8.0.2045": "diagnostic:telemetry",
+    "8.0.2116": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -341,6 +441,176 @@
     "lumi.motion.agl001"
   ],
   "regions": [],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Bed height setting",
+      "platform": "number",
+      "resource_code": "bed_height"
+    },
+    "1.11.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Device Installation Height",
+      "platform": "number",
+      "resource_code": "installation_height"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Low sensitivity",
+        "2": "Medium sensitivity",
+        "3": "High sensitivity"
+      },
+      "name": "Human detection sensitivity",
+      "platform": "select",
+      "resource_code": "sensitivity"
+    },
+    "14.30.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Low sensitivity",
+        "2": "Medium sensitivity",
+        "3": "High sensitivity"
+      },
+      "name": "Fall detection sensitivity",
+      "platform": "select",
+      "resource_code": "fall_sensitivity"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Far",
+        "1": "Middle",
+        "2": "Close"
+      },
+      "name": "Approach Sensing Distance",
+      "platform": "select",
+      "resource_code": "set_device_mode2"
+    },
+    "14.49.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Human body existence",
+        "17": "gesture",
+        "3": "Personnel positioning",
+        "5": "Fall Detection",
+        "9": "Sleep"
+      },
+      "name": "Working Mode",
+      "platform": "select",
+      "resource_code": "set_device_mode4"
+    },
+    "14.55.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Undirected Detection",
+        "1": "Left and right detection"
+      },
+      "name": "Detection mode settings",
+      "platform": "select",
+      "resource_code": "monitor_mode"
+    },
+    "14.57.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Unknown",
+        "1": "Wall",
+        "2": "Left corner of the wall",
+        "3": "Right corner of the wall"
+      },
+      "name": "Installation location settings",
+      "platform": "select",
+      "resource_code": "mounting_position"
+    },
+    "14.58.700": {
+      "entity_category": "config",
+      "name": "Bed size settings",
+      "platform": "text",
+      "resource_code": "bed_size_setting"
+    },
+    "14.58.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Unknown",
+        "1": "Left 1/4",
+        "2": "1/4 right",
+        "3": "Middle of bed"
+      },
+      "name": "Bedside installation position setting",
+      "platform": "select",
+      "resource_code": "bed_corner_position"
+    },
+    "14.59.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 60,
+      "min": 0,
+      "name": "Fall detection delay",
+      "platform": "number",
+      "resource_code": "falldown_delay"
+    },
+    "4.22.700": {
+      "entity_category": "config",
+      "name": "Coordinate information",
+      "platform": "text",
+      "resource_code": "data_report2"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "Real-time positioning data reporting switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch22_status"
+    },
+    "4.23.85": {
+      "entity_category": "config",
+      "name": "Do Not Disturb mode switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "no_disturb"
+    },
+    "4.66.85": {
+      "entity_category": "config",
+      "name": "Set to \"Absence\"",
+      "platform": "button",
+      "press_value": "1",
+      "resource_code": "ctrl_ch66_status"
+    },
+    "4.71.85": {
+      "entity_category": "config",
+      "name": "Head Counts function switch (Settings)",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "counting_presence"
+    },
+    "4.75.85": {
+      "entity_category": "config",
+      "name": "Cumulative walking distance statistics switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "moving_distance_static"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Switch indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    },
+    "8.0.2207": {
+      "entity_category": "config",
+      "name": "Do Not Disturb Time Settings",
+      "platform": "text",
+      "resource_code": "turn_off_light_as_time"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20119": {

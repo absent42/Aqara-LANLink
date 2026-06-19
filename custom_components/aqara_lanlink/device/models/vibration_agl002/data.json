@@ -105,6 +105,7 @@
   "settings": {
     "14.1.85": {
       "entity_category": "config",
+      "is_float": false,
       "max": 10,
       "min": 1,
       "name": "Detection sensitivity",

@@ -56,6 +56,26 @@
     "4.130.32919",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "0.2.85": "sensor",
+    "13.2.85": "event",
+    "8.0.2002": "diagnostic:telemetry",
+    "8.0.2006": "diagnostic:telemetry",
+    "8.0.2025": "needs-review",
+    "8.0.2029": "diagnostic:telemetry",
+    "8.0.2045": "diagnostic:telemetry",
+    "8.0.2047": "needs-review",
+    "8.0.2092": "needs-review",
+    "8.0.2093": "needs-review",
+    "8.0.2108": "command",
+    "8.0.2116": "command",
+    "8.0.2154": "command",
+    "8.0.2158": "command",
+    "8.0.2338": "needs-review",
+    "8.0.2345": "needs-review",
+    "8.0.8107": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -84,6 +104,162 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm"
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.113": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm duration",
+      "platform": "number",
+      "resource_code": "alarm_time_length"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Police car sound 1",
+        "1": "Police car sound 2",
+        "2": "Safety accident sound",
+        "3": "Missile countdown",
+        "4": "Ghost scream",
+        "5": "Sniper rifle",
+        "6": "Battle sound",
+        "7": "Air raid alarm",
+        "8": "Dog bark"
+      },
+      "name": "Alarm ringtone",
+      "platform": "select",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.10.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Hub language",
+      "platform": "number",
+      "resource_code": "gateway_language"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.12.85": {
+      "entity_category": "config",
+      "name": "Gateway Time Zone",
+      "platform": "text",
+      "resource_code": "gw_time_zone"
+    },
+    "14.17.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Quick cooling time configuration",
+      "platform": "number",
+      "resource_code": "quick_cool_time_cfg"
+    },
+    "14.18.85": {
+      "entity_category": "config",
+      "name": "Sleep function configurations",
+      "platform": "text",
+      "resource_code": "sleep_func_cfg"
+    },
+    "14.2.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Doorbell Volume",
+      "platform": "number",
+      "resource_code": "doorbell_bell_volume"
+    },
+    "14.2.113": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Doorbell duration",
+      "platform": "number",
+      "resource_code": "doorbell_time_length"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Doorbell ringtone",
+      "platform": "number",
+      "resource_code": "doorbell_bell_index"
+    },
+    "14.22.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Energy Saving Mode Time",
+      "platform": "number",
+      "resource_code": "relay_doff_time"
+    },
+    "14.25.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Mode not configured",
+        "1": "Air Conditioner Plugged In Mode",
+        "2": "Air Conditioner Not Plugged In Mode",
+        "3": "Infrared Water Heater Mode",
+        "4": "16A Socket Mode"
+      },
+      "name": "Air Conditioning Controller",
+      "platform": "select",
+      "resource_code": "ac_mode"
+    },
+    "14.26.85": {
+      "entity_category": "config",
+      "name": "Air conditioner control range",
+      "platform": "text",
+      "resource_code": "ac_ctr_range"
+    },
+    "14.3.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "music volume",
+      "platform": "number",
+      "resource_code": "music_volume"
+    },
+    "14.3.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Not playing",
+        "1": "Playing"
+      },
+      "name": "Music Status",
+      "platform": "select",
+      "resource_code": "music_status"
+    },
+    "14.40.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Chinese",
+        "1": "English"
+      },
+      "name": "Language settings",
+      "platform": "select",
+      "resource_code": "langue"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20118": {

@@ -40,6 +40,11 @@
     "2.130.32929",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -57,6 +62,24 @@
     "lumi.switch.b1laus01"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Button switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "button physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

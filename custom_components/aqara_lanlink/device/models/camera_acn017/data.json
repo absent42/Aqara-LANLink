@@ -10,6 +10,14 @@
     "4.130.32919",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "13.108.85": "event",
+    "13.12.85": "event",
+    "13.95.85": "event",
+    "14.66.85": "needs-review",
+    "8.0.2001": "needs-review",
+    "8.0.2108": "command"
+  },
   "endpoints": {
     "4": {
       "deviceType": "FaceScanner"
@@ -21,6 +29,169 @@
     "lumi.camera.acn017"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Alarm"
+      },
+      "name": "Alarm Status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Police car sound 1",
+        "1": "Police car sound 2",
+        "2": "Safety accident sound",
+        "3": "Missile countdown",
+        "4": "Ghost scream",
+        "5": "Sniper rifle",
+        "6": "Battle sound",
+        "7": "Air raid alarm",
+        "8": "Dog barking"
+      },
+      "name": "Alarm ringtone",
+      "platform": "select",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.110.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Face recognition interval",
+      "platform": "number",
+      "resource_code": "face_interval"
+    },
+    "14.125.85": {
+      "entity_category": "config",
+      "name": "Scheduled sleep switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "time_sleep_enable"
+    },
+    "14.65.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Camera Volume",
+      "platform": "number",
+      "resource_code": "camera_volume"
+    },
+    "14.68.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Flip Horizontally",
+        "2": "Flip Vertically",
+        "3": "Flip Horizontally and Vertically"
+      },
+      "name": "Screen Flip",
+      "platform": "select",
+      "resource_code": "image_flip"
+    },
+    "14.92.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Doorbell Do Not Disturb",
+      "platform": "number",
+      "resource_code": "do_not_disturb"
+    },
+    "4.138.85": {
+      "entity_category": "config",
+      "name": "Doorbell ring recording switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "doorbell_record_enable"
+    },
+    "4.154.85": {
+      "entity_category": "config",
+      "name": "Doorbell Notification Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "doorbell_push_enable"
+    },
+    "4.54.85": {
+      "entity_category": "config",
+      "name": "Face recognition recording switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "face_record_enable"
+    },
+    "4.55.85": {
+      "entity_category": "config",
+      "name": "Face recognition push switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "face_push_enable"
+    },
+    "4.66.85": {
+      "entity_category": "config",
+      "name": "Anti-Tamper Alarm Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "damage_alarm"
+    },
+    "4.67.85": {
+      "entity_category": "config",
+      "name": "High Temperature Alarm Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "high_temp_alarm"
+    },
+    "4.68.85": {
+      "entity_category": "config",
+      "name": "Low Temperature Alarm Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "low_temp_alarm"
+    },
+    "4.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Turn Off",
+        "1": "Turn On",
+        "255": "Normally Open"
+      },
+      "name": "Toggle camera",
+      "platform": "select",
+      "resource_code": "ctrl_camera"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Turn off indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    }
+  },
   "source_region": "default",
   "traits": {
     "4.219.20217": {

@@ -43,6 +43,11 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "4.1.85": "dual",
+    "8.0.2006": "diagnostic:telemetry",
+    "8.0.2009": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -60,6 +65,17 @@
     "lumi.light.cbacn1"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Brightness Percentage",
+      "platform": "number",
+      "resource_code": "light_level"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

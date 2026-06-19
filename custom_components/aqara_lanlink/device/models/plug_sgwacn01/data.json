@@ -41,6 +41,15 @@
     "3.130.32929",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "8.0.2014": "needs-review",
+    "8.0.2026": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.2154": "command",
+    "8.0.2158": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -61,6 +70,59 @@
     "lumi.plug.sgwacn01"
   ],
   "regions": [],
+  "settings": {
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm (buzzer, flash)",
+        "2": "Alarm (flash only)"
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Relay status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "relay_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Button physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-off memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    },
+    "8.0.2031": {
+      "entity_category": "config",
+      "name": "Charge protection",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_charge_protect"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Switch indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    }
+  },
   "source_region": "default",
   "traits": {
     "3.132.32920": {

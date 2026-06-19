@@ -44,6 +44,12 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "14.2.85": "dual",
+    "4.1.85": "dual",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -61,6 +67,23 @@
     "lumi.light.acn006"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Brightness Percentage",
+      "platform": "number",
+      "resource_code": "light_level"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-off Memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

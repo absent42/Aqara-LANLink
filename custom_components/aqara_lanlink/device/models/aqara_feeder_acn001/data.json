@@ -38,6 +38,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "4.21.85": "dual",
+    "8.0.2001": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -55,6 +59,16 @@
     "aqara.feeder.acn001"
   ],
   "regions": [],
+  "settings": {
+    "4.24.85": {
+      "entity_category": "config",
+      "name": "Feeding plan switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch24_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.166.33014": {

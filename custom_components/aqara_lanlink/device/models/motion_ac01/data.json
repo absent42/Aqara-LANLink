@@ -62,6 +62,12 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "13.27.85": "event",
+    "3.51.85": "sensor",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -87,6 +93,37 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "14.47.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Far",
+        "1": "Medium",
+        "2": "Near"
+      },
+      "name": "Inductive settings",
+      "platform": "select",
+      "resource_code": "set_device_mode2"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Undirected detection",
+        "1": "Left and right detection"
+      },
+      "name": "Monitoring mode",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Reverse setting",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.160.33000": {

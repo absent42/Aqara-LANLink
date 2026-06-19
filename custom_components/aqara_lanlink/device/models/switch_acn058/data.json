@@ -81,6 +81,15 @@
     "7.130.32915",
     "7.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "13.1.85": "event",
+    "13.21.85": "event",
+    "13.22.85": "event",
+    "13.23.85": "event",
+    "8.1.2014": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -113,6 +122,89 @@
     "lumi.switch.acn058"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 0 switch",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Channel 0 turn-into-wireless-switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "4.11.85": {
+      "entity_category": "config",
+      "name": "Channel 1 turn-into-wireless-switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "disable_btn1"
+    },
+    "4.12.85": {
+      "entity_category": "config",
+      "name": "Channel 2 turn-into-wireless-switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "disable_btn2"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 1 switch",
+      "platform": "select",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Idle",
+        "1": "Click",
+        "16": "Long click press",
+        "17": "Long click release",
+        "2": "Double click",
+        "20": "Rotating",
+        "21": "Rotating while pressed",
+        "22": "Clockwise rotation stop",
+        "23": "Counter-clockwise rotation stop",
+        "24": "Clockwise rotation stop while pressed",
+        "25": "Counter-clockwise rotation stop while pressed",
+        "26": "Rotation start",
+        "27": "Rotation start while pressed",
+        "3": "Triple click",
+        "4": "Slide"
+      },
+      "name": "Channel 2 switch",
+      "platform": "select",
+      "resource_code": "ctrl_ch2_status"
+    },
+    "8.0.2259": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Restore",
+        "1": "On",
+        "2": "Off",
+        "3": "Reverse"
+      },
+      "name": "Power-on state setting",
+      "platform": "select",
+      "resource_code": "power_on_state"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.20029": {

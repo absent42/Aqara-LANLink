@@ -41,6 +41,11 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.8112": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -58,6 +63,53 @@
     "lumi.curtain.v1"
   ],
   "regions": [],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Open percentage of the Curtain",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Close",
+        "1": "Open",
+        "2": "Stop",
+        "3": "Auto"
+      },
+      "name": "Curtain status",
+      "platform": "select",
+      "resource_code": "curtain_status"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "name": "Curtain configurations",
+      "platform": "text",
+      "resource_code": "cfg_param"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Offing",
+        "1": "Oning",
+        "2": "Stop",
+        "3": "Hinder stop"
+      },
+      "name": "Curtain status",
+      "platform": "select",
+      "resource_code": "curtain_running_status"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Curtain positioning alignment",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.137.20032": {

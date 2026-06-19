@@ -43,6 +43,9 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"

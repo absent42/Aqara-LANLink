@@ -35,6 +35,12 @@
     "2.130.32929",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "13.1.85": "event",
+    "8.0.2007": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -52,6 +58,32 @@
     "lumi.switch.n1aeu1"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Channel 1 switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power off memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "power_remenber"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Switch indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32945": {

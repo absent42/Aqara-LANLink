@@ -41,6 +41,11 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "14.2.85": "dual",
+    "4.1.85": "dual",
+    "8.0.2105": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -58,6 +63,15 @@
     "lumi.light.cwjwcn02"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Brightness Percentage",
+      "platform": "number",
+      "resource_code": "light_level"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

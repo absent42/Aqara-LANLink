@@ -51,15 +51,15 @@
     "2.130.33012"
   ],
   "dropped_rids": {
-    "1.11.85": "sensor",
-    "1.12.85": "sensor",
-    "1.7.85": "sensor",
-    "1.9.85": "sensor",
+    "1.11.85": "dual",
+    "1.12.85": "dual",
+    "1.9.85": "dual",
     "14.160.85": "dual",
     "14.161.85": "dual",
     "14.163.85": "dual",
     "14.8.85": "dual",
     "4.1.85": "dual",
+    "4.17.85": "sensor",
     "8.0.8101": "metadata",
     "8.0.8102": "metadata"
   },
@@ -81,6 +81,15 @@
   ],
   "regions": [],
   "settings": {
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": 1,
+      "name": "Set brightness",
+      "platform": "number",
+      "resource_code": "light_level"
+    },
     "14.15.85": {
       "entity_category": "config",
       "name": "Dynamic sequence scene settings",
@@ -106,6 +115,7 @@
     },
     "14.164.85": {
       "entity_category": "config",
+      "is_float": false,
       "name": "Dynamic change speed",
       "platform": "number",
       "resource_code": "Dynamic_change_speed"
@@ -118,6 +128,7 @@
     },
     "14.7.85": {
       "entity_category": "config",
+      "is_float": false,
       "name": "Dynamic-sequence operation",
       "platform": "number",
       "resource_code": "scene_set"
@@ -135,16 +146,6 @@
       "on_value": "1",
       "platform": "switch",
       "resource_code": "music_action_switch"
-    },
-    "4.17.85": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Normal mode",
-        "1": "Dynamic scene mode"
-      },
-      "name": "Whether to enter dynamic scene mode",
-      "platform": "select",
-      "resource_code": "light_work_mode"
     }
   },
   "source_region": "default",

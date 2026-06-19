@@ -129,6 +129,41 @@
     "lumi.switch.acn032"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 0 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 1 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 2 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch2_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

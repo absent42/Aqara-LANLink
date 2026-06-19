@@ -48,6 +48,15 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "13.1.85": "event",
+    "4.3.85": "dual",
+    "8.0.2001": "needs-review",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.8112": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -65,6 +74,70 @@
     "lumi.curtain.hagl04"
   ],
   "regions": [],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Curtain open percentage",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "2": "Close: 0, Open: 1, Stop",
+        "3": "Auto",
+        "4": "Jog to open",
+        "5": "Jog to close"
+      },
+      "name": "Curtain control commands",
+      "platform": "select",
+      "resource_code": "curtain_status"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Offing",
+        "1": "Oning",
+        "2": "Stop",
+        "3": "Hinder stop"
+      },
+      "name": "Curtain Operation Status",
+      "platform": "select",
+      "resource_code": "curtain_running_status"
+    },
+    "14.5.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Adapter power supply mode",
+        "3": "Battery power supply mode",
+        "4": "Battery powered and battery charging mode"
+      },
+      "name": "Power mode",
+      "platform": "select",
+      "resource_code": "power_mode"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No stroke",
+        "1": "Stroke"
+      },
+      "name": "Pos limit",
+      "platform": "select",
+      "resource_code": "pos_limit"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Positive",
+        "1": "Reverse"
+      },
+      "name": "Polarity",
+      "platform": "select",
+      "resource_code": "polarity"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.137.20032": {

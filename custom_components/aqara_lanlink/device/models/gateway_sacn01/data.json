@@ -41,6 +41,17 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "0.14.85": "sensor",
+    "8.0.2014": "needs-review",
+    "8.0.2024": "needs-review",
+    "8.0.2025": "needs-review",
+    "8.0.2026": "diagnostic:telemetry",
+    "8.0.2154": "command",
+    "8.0.2158": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -58,6 +69,15 @@
     "lumi.gateway.sacn01"
   ],
   "regions": [],
+  "settings": {
+    "8.0.2042": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Maximum power parameters",
+      "platform": "number",
+      "resource_code": "device_max_power"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.20029": {

@@ -53,6 +53,78 @@
     "aqara.speaker.hpcn03"
   ],
   "regions": [],
+  "settings": {
+    "1.5.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Volume adjustment",
+      "platform": "number",
+      "resource_code": "set_volunm"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "name": "Song control",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "set_device_mode2"
+    },
+    "14.48.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2"
+      },
+      "name": "Switch audio source",
+      "platform": "select",
+      "resource_code": "set_device_mode3"
+    },
+    "14.50.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "name": "Loop mode",
+      "platform": "select",
+      "resource_code": "set_device_mode5"
+    },
+    "4.101.85": {
+      "entity_category": "config",
+      "name": "Play playlist",
+      "platform": "text",
+      "resource_code": "spec_ctrl_text_01"
+    },
+    "4.21.85": {
+      "entity_category": "config",
+      "name": "Playback control",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch21_status"
+    },
+    "4.25.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Up",
+        "1": "Down"
+      },
+      "name": "Volume up/down",
+      "platform": "select",
+      "resource_code": "ctrl_ch25_status"
+    },
+    "4.46.85": {
+      "entity_category": "config",
+      "name": "Mute / unmute",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "mute_mode"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.145.32954": {

@@ -37,6 +37,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "13.11.85": "event"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -54,6 +58,32 @@
     "aqara.tow_w.acn001"
   ],
   "regions": [],
+  "settings": {
+    "14.92.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 65,
+      "min": 45,
+      "name": "Set temperature",
+      "platform": "number",
+      "resource_code": "set_num_third"
+    },
+    "14.93.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Set drying time",
+      "platform": "number",
+      "resource_code": "set_num_fourth"
+    },
+    "4.21.85": {
+      "entity_category": "config",
+      "name": "Drying mode",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch21_status"
+    }
+  },
   "source_region": "default",
   "traits": {},
   "whitelabels": {}

@@ -58,6 +58,11 @@
     "4.130.33012",
     "4.130.33016"
   ],
+  "dropped_rids": {
+    "4.1.85": "dual",
+    "4.2.85": "dual",
+    "4.3.85": "dual"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -81,6 +86,29 @@
     "lumi.dimmer.c3egl01"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Brightness Percentage of channel 1",
+      "platform": "number",
+      "resource_code": "light_0_level"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Brightness Percentage of channel 2",
+      "platform": "number",
+      "resource_code": "light_1_level"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Brightness Percentage of channel 3",
+      "platform": "number",
+      "resource_code": "light_2_level"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

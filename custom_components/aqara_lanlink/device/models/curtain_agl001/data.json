@@ -69,6 +69,27 @@
     "lumi.curtain.agl001"
   ],
   "regions": [],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Open curtain percentage",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Open",
+        "1": "Close",
+        "2": "Stop",
+        "3": "Automatic auto"
+      },
+      "name": "Curtain switch control",
+      "platform": "select",
+      "resource_code": "set_mode"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.137.20031": {

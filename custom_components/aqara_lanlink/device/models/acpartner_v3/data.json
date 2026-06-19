@@ -42,6 +42,18 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "0.11.85": "sensor",
+    "0.13.85": "sensor",
+    "0.14.85": "sensor",
+    "0.15.85": "sensor",
+    "14.10.85": "dual",
+    "3.1.85": "sensor",
+    "8.0.2018": "needs-review",
+    "8.0.2019": "needs-review",
+    "8.0.2020": "needs-review",
+    "8.0.2026": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -62,6 +74,79 @@
     "lumi.acpartner.v3"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm"
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 8,
+      "min": 0,
+      "name": "Alarm ringtone",
+      "platform": "number",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.19.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Overload threshold",
+      "platform": "number",
+      "resource_code": "ovp_threshold"
+    },
+    "14.20.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Over temperature threshold",
+      "platform": "number",
+      "resource_code": "ovt_threshold"
+    },
+    "14.25.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No mode configured",
+        "1": "Air conditioner plug socket mode",
+        "2": "The air conditioner is not plugged in",
+        "3": "Infrared water heater mode",
+        "4": "16A socket mode"
+      },
+      "name": "Air Conditioning Mode",
+      "platform": "select",
+      "resource_code": "ac_mode"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Unkown"
+      },
+      "name": "Relay switch status",
+      "platform": "select",
+      "resource_code": "relay_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

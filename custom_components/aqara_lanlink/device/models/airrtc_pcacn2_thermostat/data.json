@@ -52,6 +52,12 @@
     "5.130.32915",
     "5.130.32919"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "0.2.85": "sensor",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -78,6 +84,52 @@
     "lumi.airrtc.pcacn2_thermostat"
   ],
   "regions": [],
+  "settings": {
+    "1.8.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 32,
+      "min": 16,
+      "name": "Set temperature",
+      "platform": "number",
+      "resource_code": "set_temperature"
+    },
+    "14.35.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Medium",
+        "1": "Low",
+        "2": "Auto",
+        "3": "High"
+      },
+      "name": "Set wind speed",
+      "platform": "select",
+      "resource_code": "set_device_mode"
+    },
+    "14.51.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "10": "10",
+        "3": "3",
+        "4": "4",
+        "8": "8",
+        "9": "9"
+      },
+      "name": "Work mode",
+      "platform": "select",
+      "resource_code": "set_device_mode6"
+    },
+    "4.21.85": {
+      "entity_category": "config",
+      "name": "Switch control",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch21_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.20029": {

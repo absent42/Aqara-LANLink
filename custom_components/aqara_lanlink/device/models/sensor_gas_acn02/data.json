@@ -55,6 +55,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.5.85": "sensor",
+    "8.0.2007": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -77,6 +81,36 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "14.35.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Low sensitivity",
+        "2": "Medium sensitivity"
+      },
+      "name": "Set Natural Gas Sensitivity",
+      "platform": "select",
+      "resource_code": "set_device_mode"
+    },
+    "4.12.85": {
+      "entity_category": "config",
+      "name": "Alarm mute",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "alarm_mute"
+    },
+    "4.15.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "End of self inspection",
+        "1": "Execute self inspection"
+      },
+      "name": "Alarm test",
+      "platform": "select",
+      "resource_code": "alarm_test"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.157.20104": {

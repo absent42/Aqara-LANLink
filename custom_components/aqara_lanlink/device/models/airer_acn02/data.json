@@ -45,6 +45,15 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "1.1.85": "dual",
+    "1.2.85": "dual",
+    "1.3.85": "dual",
+    "1.4.85": "dual",
+    "1.5.85": "dual",
+    "13.3.85": "event",
+    "13.4.85": "event"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -70,6 +79,82 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Stop",
+        "1": "Down",
+        "2": "Up",
+        "3": "Auto"
+      },
+      "name": "Airer motion control",
+      "platform": "select",
+      "resource_code": "airer_control"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Light control",
+      "platform": "number",
+      "resource_code": "light_control"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Set airer limit",
+      "platform": "number",
+      "resource_code": "set_limit"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Mute mode",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "mute_mode"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Tracer mode",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "tracer_mode"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "name": "F1 key switch to wireless switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "f_one_wireless"
+    },
+    "4.4.85": {
+      "entity_category": "config",
+      "name": "F2 key switch to wireless switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "f_two_wireless"
+    },
+    "4.5.85": {
+      "entity_category": "config",
+      "name": "F3 key switch to wireless switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "f_three_wireless"
+    },
+    "4.6.85": {
+      "entity_category": "config",
+      "name": "F4 key switch to wireless switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "f_four_wireless"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20119": {

@@ -44,6 +44,18 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "13.15.85": "event",
+    "13.17.85": "event",
+    "13.20.85": "event",
+    "13.3.85": "event",
+    "13.4.85": "event",
+    "13.5.85": "event",
+    "13.7.85": "event",
+    "13.9.85": "event",
+    "14.3.85": "command",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -61,6 +73,45 @@
     "lumi.lock.acn02"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "High",
+        "2": "Medium",
+        "3": "Low",
+        "4": "Mute"
+      },
+      "name": "Speaker volume",
+      "platform": "select",
+      "resource_code": "spk_vol"
+    },
+    "14.10.85": {
+      "entity_category": "config",
+      "name": "Trigger the gateway and door lock to perform encryption and decryption configuration operations",
+      "platform": "text",
+      "resource_code": "rand_string"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "High",
+        "2": "Medium",
+        "3": "Low",
+        "4": "Mute"
+      },
+      "name": "Doorbell volume",
+      "platform": "select",
+      "resource_code": "doorbell_vol"
+    },
+    "14.9.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Remotely add users",
+      "platform": "number",
+      "resource_code": "creat_type"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32969": {

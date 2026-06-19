@@ -44,6 +44,14 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "13.10.85": "event",
+    "13.11.85": "event",
+    "13.12.85": "event",
+    "13.9.85": "event",
+    "13.95.85": "event",
+    "8.0.2001": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -61,6 +69,123 @@
     "lumi.camera.agl002"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.125.85": {
+      "entity_category": "config",
+      "name": "Scheduled Sleep Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "time_sleep_enable"
+    },
+    "14.2.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Doorbell Volume",
+      "platform": "number",
+      "resource_code": "doorbell_bell_volume"
+    },
+    "14.34.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Default",
+        "1": "Execute"
+      },
+      "name": "Format TF card",
+      "platform": "select",
+      "resource_code": "format_sd"
+    },
+    "14.65.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Camera Volume",
+      "platform": "number",
+      "resource_code": "camera_volume"
+    },
+    "4.138.85": {
+      "entity_category": "config",
+      "name": "Doorbell Video Recording Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "doorbell_record_enable"
+    },
+    "4.154.85": {
+      "entity_category": "config",
+      "name": "Doorbell Notification Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "doorbell_push_enable"
+    },
+    "4.54.85": {
+      "entity_category": "config",
+      "name": "Face Detection Video Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "face_record_enable"
+    },
+    "4.55.85": {
+      "entity_category": "config",
+      "name": "Face Detection Push Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "face_push_enable"
+    },
+    "4.66.85": {
+      "entity_category": "config",
+      "name": "Anti tamper Alarm",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "damage_alarm"
+    },
+    "4.67.85": {
+      "entity_category": "config",
+      "name": "High Temperature Alarm Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "high_temp_alarm"
+    },
+    "4.68.85": {
+      "entity_category": "config",
+      "name": "Low Temperature Alarm Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "low_temp_alarm"
+    },
+    "4.86.85": {
+      "entity_category": "config",
+      "name": "PIR Human Infrared Sensing Video Recording Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "pir_record_enable"
+    },
+    "4.90.85": {
+      "entity_category": "config",
+      "name": "Forced demolition alarm video switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "dismantle_record_enable"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32969": {

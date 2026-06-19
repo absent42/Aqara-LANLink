@@ -55,6 +55,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.8112": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -77,6 +81,83 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Curtain opening percentage",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "14.35.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Slow",
+        "1": "Medium",
+        "2": "Fast"
+      },
+      "name": "Curtain lifting speed",
+      "platform": "select",
+      "resource_code": "set_device_mode"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Offing",
+        "1": "Oning",
+        "2": "Stop",
+        "3": "Hinder stop"
+      },
+      "name": "Curtain operation status",
+      "platform": "select",
+      "resource_code": "curtain_running_status"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Invalid",
+        "1": "Travel Point 1",
+        "2": "Travel Point 2"
+      },
+      "name": "Itinerary Settings",
+      "platform": "select",
+      "resource_code": "set_device_mode2"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Closure",
+        "1": "Open",
+        "2": "Stop",
+        "3": "Automatic",
+        "5": "Jog Close",
+        "6": "Jog open"
+      },
+      "name": "Curtain switch status",
+      "platform": "select",
+      "resource_code": "set_mode"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No itinerary set",
+        "1": "Itinerary set"
+      },
+      "name": "Motor stroke",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Forward",
+        "1": "Reverse"
+      },
+      "name": "Motor movement polarity",
+      "platform": "select",
+      "resource_code": "ctrl_ch1_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.137.20031": {

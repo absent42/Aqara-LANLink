@@ -35,6 +35,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "4.29.85": "dual",
+    "8.0.2045": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -52,6 +56,100 @@
     "lumi.proj.dbcn02"
   ],
   "regions": [],
+  "settings": {
+    "14.178.602": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Up",
+        "1": "Down"
+      },
+      "name": "Volume up/down",
+      "platform": "select",
+      "resource_code": "increase_or_decrease_volume"
+    },
+    "14.178.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 20,
+      "min": 0,
+      "name": "Set absolute volume",
+      "platform": "number",
+      "resource_code": "set_volume"
+    },
+    "14.182.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Standard mode",
+        "1": "Child mode",
+        "2": "Senior mode",
+        "3": "Camping mode"
+      },
+      "name": "Mode switching",
+      "platform": "select",
+      "resource_code": "switch_mode"
+    },
+    "14.185.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Open home",
+        "1": "Open menu",
+        "2": "Open auto keystone correction",
+        "3": "Open auto focus",
+        "4": "Find remote",
+        "5": "Back"
+      },
+      "name": "Operation control",
+      "platform": "select",
+      "resource_code": "operation_control"
+    },
+    "14.39.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Up",
+        "1": "Down",
+        "2": "Left",
+        "3": "Right",
+        "4": "OK"
+      },
+      "name": "Set direction",
+      "platform": "select",
+      "resource_code": "set_direction"
+    },
+    "14.43.700": {
+      "entity_category": "config",
+      "name": "Projector display content (alert type)",
+      "platform": "text",
+      "resource_code": "display_content"
+    },
+    "14.43.701": {
+      "entity_category": "config",
+      "name": "On-demand",
+      "platform": "text",
+      "resource_code": "select_content_to_play"
+    },
+    "14.43.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2"
+      },
+      "name": "Playback control",
+      "platform": "select",
+      "resource_code": "play_ctrl"
+    },
+    "4.165.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Mute",
+        "1": "Unmute",
+        "2": "Toggle"
+      },
+      "name": "Mute mode",
+      "platform": "select",
+      "resource_code": "mute_mode"
+    }
+  },
   "source_region": "cn",
   "traits": {
     "2.132.32920": {

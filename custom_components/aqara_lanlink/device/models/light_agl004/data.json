@@ -45,6 +45,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "1.9.85": "dual",
+    "4.1.85": "dual"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -67,6 +71,15 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "brightness set",
+      "platform": "number",
+      "resource_code": "light_level"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

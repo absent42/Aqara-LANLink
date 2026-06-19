@@ -45,6 +45,11 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "8.0.28": "metadata",
+    "8.0.9002": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -65,6 +70,73 @@
     "aqara.airrtc.acn02"
   ],
   "regions": [],
+  "settings": {
+    "1.1.602": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": -10000,
+      "name": "AC temperature increment/decrement control",
+      "platform": "number",
+      "resource_code": "ac_temperature_incremental"
+    },
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 10000,
+      "min": 0,
+      "name": "AC temperature setpoint",
+      "platform": "number",
+      "resource_code": "ac_temperature_set"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Low",
+        "2": "Medium",
+        "3": "High"
+      },
+      "name": "AC fan speed",
+      "platform": "select",
+      "resource_code": "air_conditioner_wind"
+    },
+    "14.140.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Auto",
+        "1": "Cool",
+        "2": "Dehumidify",
+        "3": "Fan",
+        "4": "Heat"
+      },
+      "name": "Air-conditioner mode",
+      "platform": "select",
+      "resource_code": "air_conditioner_mode"
+    },
+    "14.39.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+      },
+      "name": "Set fan speed",
+      "platform": "select",
+      "resource_code": "set_direction"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "AC switch",
+      "platform": "select",
+      "resource_code": "air_conditioner_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

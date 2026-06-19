@@ -40,6 +40,32 @@
     "2.130.33012",
     "2.130.33016"
   ],
+  "dropped_rids": {
+    "13.17.85": "event",
+    "13.18.85": "event",
+    "13.19.85": "event",
+    "13.31.85": "event",
+    "13.32.85": "event",
+    "13.33.85": "event",
+    "13.41.85": "event",
+    "13.42.85": "event",
+    "13.43.85": "event",
+    "13.44.85": "event",
+    "13.46.85": "event",
+    "13.47.85": "event",
+    "13.48.85": "event",
+    "13.49.85": "event",
+    "13.50.85": "event",
+    "13.51.85": "event",
+    "13.53.85": "event",
+    "13.54.85": "event",
+    "13.88.85": "event",
+    "13.89.85": "event",
+    "13.90.85": "event",
+    "3.19.85": "sensor",
+    "8.0.1033": "needs-review",
+    "8.0.9002": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -60,6 +86,34 @@
     "EU",
     "US"
   ],
+  "settings": {
+    "4.17.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Lock",
+        "1": "Unlock"
+      },
+      "name": "Linked lock/unlock",
+      "platform": "select",
+      "resource_code": "automation_lock_operation"
+    },
+    "4.20.85": {
+      "entity_category": "config",
+      "name": "Local Lock",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "set_lock"
+    },
+    "4.84.85": {
+      "entity_category": "config",
+      "name": "APP enables remote operation of door lock",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "enable_remote_operation"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32969": {

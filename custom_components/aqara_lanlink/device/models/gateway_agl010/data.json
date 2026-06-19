@@ -47,6 +47,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "8.0.2045": "diagnostic:telemetry",
+    "8.0.2158": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -67,6 +71,105 @@
     "CN",
     "unknown"
   ],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alert Volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Police car sound 1",
+        "1": "Police car sound 2",
+        "2": "Safety accident sound",
+        "3": "Missile countdown",
+        "4": "Ghost screaming",
+        "5": "Sniper rifle",
+        "6": "Battle sound",
+        "7": "Air raid alarm",
+        "8": "Dog barking"
+      },
+      "name": "Alert Ringtone",
+      "platform": "select",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.10.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "2": "English"
+      },
+      "name": "Hub language",
+      "platform": "select",
+      "resource_code": "gateway_language"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System Volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.12.85": {
+      "entity_category": "config",
+      "name": "Gateway Time Zone",
+      "platform": "text",
+      "resource_code": "gw_time_zone"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Doorbell Ring",
+      "platform": "number",
+      "resource_code": "doorbell_bell_index"
+    },
+    "14.21.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Night light configuration",
+      "platform": "number",
+      "resource_code": "en_nnlight"
+    },
+    "14.3.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Music volume",
+      "platform": "number",
+      "resource_code": "music_volume"
+    },
+    "14.5.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm Clock Volume",
+      "platform": "number",
+      "resource_code": "clock_volume"
+    },
+    "14.6.113": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Arming Delay Time",
+      "platform": "number",
+      "resource_code": "arming_delay_time",
+      "unit": "sec"
+    },
+    "14.7.1006": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Night Light Brightness",
+      "platform": "number",
+      "resource_code": "brightness_level"
+    }
+  },
   "source_region": "cn",
   "traits": {
     "1.171.20118": {

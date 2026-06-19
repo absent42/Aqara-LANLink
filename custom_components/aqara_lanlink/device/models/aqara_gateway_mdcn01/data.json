@@ -36,6 +36,19 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.1001.85": "sensor",
+    "0.13.85": "sensor",
+    "3.1001.85": "sensor",
+    "3.104.85": "sensor",
+    "8.0.2245": "needs-review",
+    "8.0.2280": "needs-review",
+    "8.0.3001": "network",
+    "8.0.3002": "network",
+    "8.0.3003": "network",
+    "8.0.3004": "network",
+    "8.0.8107": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -53,6 +66,26 @@
     "aqara.gateway.mdcn01"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Control of all breakers under the gateway",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "ctrl_ch_all_status"
+    },
+    "4.1001.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Device arrangement",
+        "2": "End address arrangement"
+      },
+      "name": "Address-arrangement command",
+      "platform": "select",
+      "resource_code": "subdev_modbus_addr_set"
+    }
+  },
   "source_region": "cn",
   "traits": {
     "1.140.32946": {

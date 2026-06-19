@@ -61,6 +61,54 @@
     "lumi.gateway.aqhm02"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm"
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm ringtone",
+      "platform": "number",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.7.1006": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Night light brightness",
+      "platform": "number",
+      "resource_code": "brightness_level"
+    },
+    "14.7.111": {
+      "entity_category": "config",
+      "name": "Night light status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "corridor_light_status"
+    },
+    "14.7.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Night light ARGB",
+      "platform": "number",
+      "resource_code": "argb_value"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

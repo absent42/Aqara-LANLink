@@ -48,6 +48,15 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.3.85": "sensor",
+    "13.1.85": "event",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.2045": "diagnostic:telemetry",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -65,6 +74,17 @@
     "lumi.vibration.aq1"
   ],
   "regions": [],
+  "settings": {
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 30,
+      "min": 1,
+      "name": "Sensitivity Configuration",
+      "platform": "number",
+      "resource_code": "vibration_level"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32944": {

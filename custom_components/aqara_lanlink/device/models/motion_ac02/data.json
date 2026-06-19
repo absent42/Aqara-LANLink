@@ -55,6 +55,16 @@
     "3.130.32919",
     "3.130.33012"
   ],
+  "dropped_rids": {
+    "0.3.85": "sensor",
+    "3.1.85": "sensor",
+    "8.0.2001": "needs-review",
+    "8.0.2006": "diagnostic:telemetry",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -75,6 +85,16 @@
     "lumi.motion.ac02"
   ],
   "regions": [],
+  "settings": {
+    "4.21.85": {
+      "entity_category": "config",
+      "name": "Flashing light after detecting person's movement",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch21_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32944": {

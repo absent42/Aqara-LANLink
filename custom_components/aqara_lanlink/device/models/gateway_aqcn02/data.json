@@ -61,6 +61,34 @@
     "lumi.gateway.aqcn02"
   ],
   "regions": [],
+  "settings": {
+    "14.79.85": {
+      "entity_category": "config",
+      "name": "WiFi hotspot name",
+      "platform": "text",
+      "resource_code": "WiFi_hotspot_name"
+    },
+    "14.80.85": {
+      "entity_category": "config",
+      "name": "WiFi hotspot password",
+      "platform": "text",
+      "resource_code": "WiFi_hotspot_password"
+    },
+    "14.81.85": {
+      "entity_category": "config",
+      "name": "WiFi hotspot - connecting devices",
+      "platform": "text",
+      "resource_code": "WiFi_hotspot_devicelist"
+    },
+    "4.37.85": {
+      "entity_category": "config",
+      "name": "WiFi hotspot function switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "WiFi_hotspot_switch"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20118": {

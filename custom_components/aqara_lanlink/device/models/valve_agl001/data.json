@@ -53,6 +53,13 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "13.9.85": "event",
+    "4.1.85": "dual",
+    "8.0.2001": "needs-review",
+    "8.0.2014": "needs-review",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"

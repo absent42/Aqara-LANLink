@@ -60,6 +60,26 @@
     "7.130.32919",
     "7.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.45": "sensor",
+    "0.1.59": "sensor",
+    "0.1.718": "sensor",
+    "0.1.85": "sensor",
+    "0.2.45": "sensor",
+    "0.2.59": "sensor",
+    "0.2.85": "sensor",
+    "1.1.65": "sensor",
+    "1.1.69": "sensor",
+    "13.1.85": "event",
+    "13.2.85": "event",
+    "13.3.85": "event",
+    "13.5.85": "event",
+    "13.6.85": "event",
+    "13.7.85": "event",
+    "8.0.2001": "needs-review",
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -85,6 +105,93 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Temperature setpoint",
+      "platform": "number",
+      "resource_code": "temperature_set"
+    },
+    "1.111.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Temperature & humidity sampling-period setting",
+      "platform": "number",
+      "resource_code": "samp_freq_set"
+    },
+    "1.113.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Temperature reporting period",
+      "platform": "number",
+      "resource_code": "temp_report_freq"
+    },
+    "1.114.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Humidity reporting period",
+      "platform": "number",
+      "resource_code": "humidity_report_freq"
+    },
+    "1.2.65": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Comfort-zone setpoint temperature upper limit",
+      "platform": "number",
+      "resource_code": "comfort_max_temperature"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2"
+      },
+      "name": "Thermostat mode",
+      "platform": "select",
+      "resource_code": "thermostat_mode"
+    },
+    "14.104.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "name": "Temperature reporting method",
+      "platform": "select",
+      "resource_code": "temp_report_mode"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "name": "Thermostat fan speed",
+      "platform": "select",
+      "resource_code": "thermostat_wind"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Thermostat switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "thermostat_status"
+    },
+    "8.0.2096": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Device search",
+      "platform": "number",
+      "resource_code": "identify"
+    }
+  },
   "source_region": "default",
   "traits": {
     "6.143.32952": {

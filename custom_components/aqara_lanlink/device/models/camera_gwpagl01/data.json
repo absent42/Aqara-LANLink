@@ -85,6 +85,16 @@
     "9.130.32919",
     "9.130.33012"
   ],
+  "dropped_rids": {
+    "13.95.85": "event",
+    "13.96.85": "event",
+    "13.97.85": "event",
+    "13.98.85": "event",
+    "14.78.85": "dual",
+    "3.21.85": "sensor",
+    "3.22.85": "sensor",
+    "8.0.2045": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -126,6 +136,186 @@
     "lumi.camera.gwpagl01"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "name": "Alarm state",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 8,
+      "min": 0,
+      "name": "Alarm ringtone",
+      "platform": "number",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.119.85": {
+      "entity_category": "config",
+      "name": "Abnormal sound detection switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "soundtrigger_enable"
+    },
+    "14.122.85": {
+      "entity_category": "config",
+      "name": "Human tracking switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "humans_track_enable"
+    },
+    "14.123.85": {
+      "entity_category": "config",
+      "name": "Pet tracking switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "pets_track_enable"
+    },
+    "14.3.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Music volume",
+      "platform": "number",
+      "resource_code": "music_volume"
+    },
+    "14.3.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Not playing",
+        "1": "Playing"
+      },
+      "name": "Music state",
+      "platform": "select",
+      "resource_code": "music_status"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "10": "10",
+        "101": "101",
+        "102": "102",
+        "103": "103",
+        "104": "104",
+        "105": "105",
+        "106": "106",
+        "107": "107",
+        "108": "108",
+        "109": "109",
+        "11": "11",
+        "110": "110",
+        "111": "111",
+        "112": "112",
+        "113": "113",
+        "114": "114",
+        "115": "115",
+        "116": "116",
+        "117": "117",
+        "118": "118",
+        "119": "119",
+        "12": "12",
+        "120": "120",
+        "13": "13",
+        "14": "14",
+        "15": "15",
+        "2": "2",
+        "20": "20",
+        "21": "21",
+        "22": "22",
+        "23": "23",
+        "24": "24",
+        "25": "25",
+        "26": "26",
+        "27": "27",
+        "28": "28",
+        "29": "29",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8"
+      },
+      "name": "Play music number",
+      "platform": "select",
+      "resource_code": "music_index"
+    },
+    "14.70.85": {
+      "entity_category": "config",
+      "name": "Motion-detection switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "mdtrigger_enable"
+    },
+    "14.74.85": {
+      "entity_category": "config",
+      "name": "Enable / disable camera",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "set_video"
+    },
+    "14.75.85": {
+      "entity_category": "config",
+      "name": "Enable / disable face recognition",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "face_detect_enable"
+    },
+    "14.76.85": {
+      "entity_category": "config",
+      "name": "Enable / disable gesture recognition",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "gesture_detect_enable"
+    },
+    "14.77.85": {
+      "entity_category": "config",
+      "name": "Enable / disable human-form detection",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "human_detect_enable"
+    },
+    "14.90.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Stop",
+        "1": "Calibrate"
+      },
+      "name": "PTZ one-key calibration",
+      "platform": "select",
+      "resource_code": "ptz_calibration"
+    },
+    "4.89.85": {
+      "entity_category": "config",
+      "name": "Device offline notification",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_offline_push_enable"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.33089": {

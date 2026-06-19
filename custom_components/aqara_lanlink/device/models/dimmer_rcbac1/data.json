@@ -62,6 +62,27 @@
     "4.130.33012",
     "4.130.33016"
   ],
+  "dropped_rids": {
+    "1.11.85": "dual",
+    "1.12.85": "dual",
+    "1.13.85": "dual",
+    "1.14.85": "dual",
+    "14.16.85": "dual",
+    "14.17.85": "dual",
+    "14.18.85": "dual",
+    "14.2.85": "dual",
+    "14.21.85": "dual",
+    "14.22.85": "dual",
+    "14.23.85": "dual",
+    "14.8.85": "dual",
+    "4.1.85": "dual",
+    "4.2.85": "dual",
+    "4.3.85": "dual",
+    "4.4.85": "dual",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.2105": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -85,6 +106,57 @@
     "lumi.dimmer.rcbac1"
   ],
   "regions": [],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "name": "Channel mask",
+      "platform": "text",
+      "resource_code": "channel_mask"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Brightness Percentage",
+      "platform": "number",
+      "resource_code": "light_level"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Light mode",
+      "platform": "number",
+      "resource_code": "light_mode"
+    },
+    "14.12.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Channel 2 brightness percentage",
+      "platform": "number",
+      "resource_code": "light_level_2"
+    },
+    "14.19.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Channel 3 brightness percentage",
+      "platform": "number",
+      "resource_code": "light_level_3"
+    },
+    "14.20.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Channel 4 brightness percentage",
+      "platform": "number",
+      "resource_code": "light_level_4"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-Off Memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.20029": {

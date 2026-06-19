@@ -38,6 +38,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "13.1.85": "event",
+    "8.0.2026": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -55,6 +59,42 @@
     "lumi.camera.gwag03"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm"
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 8,
+      "min": 0,
+      "name": "Alarm bell",
+      "platform": "number",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.16.85": {
+      "entity_category": "config",
+      "name": "Motion detect switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "mdtrigger_enable"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.33089": {

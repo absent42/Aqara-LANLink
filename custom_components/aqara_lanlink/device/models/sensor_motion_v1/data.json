@@ -38,6 +38,11 @@
     "2.130.33012",
     "2.160.33001"
   ],
+  "dropped_rids": {
+    "3.1.85": "sensor",
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"

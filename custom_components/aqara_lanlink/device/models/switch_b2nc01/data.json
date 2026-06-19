@@ -63,6 +63,12 @@
     "3.130.33012",
     "3.130.33016"
   ],
+  "dropped_rids": {
+    "13.1.85": "event",
+    "13.2.85": "event",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -88,6 +94,50 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Channel 1 switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn1"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Channel 2 switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.42.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Wireless switch"
+      },
+      "name": "Switch to wireless switch(Channel 2)",
+      "platform": "select",
+      "resource_code": "disable_btn2"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-off memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "power_remenber"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

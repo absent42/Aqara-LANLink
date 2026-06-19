@@ -53,6 +53,13 @@
     "2.130.32929",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "13.1.85": "event",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -75,6 +82,42 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power off memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    },
+    "8.0.2114": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Do not reverse",
+        "1": "Reverse"
+      },
+      "name": "Indicator light reverse",
+      "platform": "select",
+      "resource_code": "led_toggle"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

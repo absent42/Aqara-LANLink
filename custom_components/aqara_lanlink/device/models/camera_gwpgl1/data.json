@@ -85,6 +85,19 @@
     "9.130.32919",
     "9.130.33012"
   ],
+  "dropped_rids": {
+    "13.95.85": "event",
+    "13.96.85": "event",
+    "13.97.85": "event",
+    "13.98.85": "event",
+    "14.74.85": "dual",
+    "14.75.85": "dual",
+    "14.76.85": "dual",
+    "14.77.85": "dual",
+    "3.21.85": "sensor",
+    "3.22.85": "sensor",
+    "8.0.2026": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -126,6 +139,189 @@
     "lumi.camera.gwpgl1"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alert Volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Alarm"
+      },
+      "name": "Alarm Status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Police car sound 1",
+        "1": "Police car sound 2",
+        "2": "Safety accident sound",
+        "3": "Missile countdown",
+        "4": "Ghost scream",
+        "5": "Sniper rifle",
+        "6": "Battle sound",
+        "7": "Air raid alarm",
+        "8": "Dog barking"
+      },
+      "name": "Alert Ringtone",
+      "platform": "select",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System Volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.14.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Default",
+        "1": "Recording",
+        "22": "Integrated Events",
+        "27": "Security Integrated Events"
+      },
+      "name": "Record cloud video",
+      "platform": "select",
+      "resource_code": "cloud_small_video"
+    },
+    "14.3.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Music volume",
+      "platform": "number",
+      "resource_code": "music_volume"
+    },
+    "14.3.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Not playing",
+        "1": "playing"
+      },
+      "name": "Music state",
+      "platform": "select",
+      "resource_code": "music_status"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Police siren 1",
+        "1": "Police siren 2",
+        "10": "Doorbell",
+        "101": "1",
+        "102": "2",
+        "103": "3",
+        "104": "4",
+        "105": "5",
+        "106": "6",
+        "107": "7",
+        "108": "8",
+        "109": "9",
+        "11": "Knock",
+        "110": "10",
+        "111": "11",
+        "112": "12",
+        "113": "13",
+        "114": "14",
+        "115": "15",
+        "116": "16",
+        "117": "17",
+        "118": "18",
+        "119": "19",
+        "12": "Funny sound",
+        "120": "20",
+        "13": "Alarm clock",
+        "14": "Arming sound",
+        "15": "Disarming sound",
+        "2": "Safety incident sound",
+        "20": "MiMix",
+        "21": "Enthusiastic",
+        "22": "GuitarClassic",
+        "23": "IceWorldPiano",
+        "24": "LeisureTime",
+        "25": "Childhood",
+        "26": "MorningStreamIet",
+        "27": "MusixBox",
+        "28": "Orange",
+        "29": "Thinker",
+        "3": "Missile countdown",
+        "4": "Ghost cry",
+        "5": "Sniper rifle",
+        "6": "Battle sound",
+        "7": "Air-raid siren",
+        "8": "Dog bark"
+      },
+      "name": "Play music number",
+      "platform": "select",
+      "resource_code": "music_index"
+    },
+    "14.39.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Up",
+        "1": "Down",
+        "2": "Left",
+        "3": "Right",
+        "4": "Pause"
+      },
+      "name": "Pan-Tilt Control",
+      "platform": "select",
+      "resource_code": "set_direction"
+    },
+    "14.65.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Camera volume",
+      "platform": "number",
+      "resource_code": "camera_volume"
+    },
+    "14.70.85": {
+      "entity_category": "config",
+      "name": "Motion detect switch",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "mdtrigger_enable"
+    },
+    "14.78.85": {
+      "entity_category": "config",
+      "name": "Pets detect switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "pets_detect_enable"
+    },
+    "4.46.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Mute"
+      },
+      "name": "Mute/Unmute",
+      "platform": "select",
+      "resource_code": "mute_mode"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Turn Off The Indicator Light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.33089": {

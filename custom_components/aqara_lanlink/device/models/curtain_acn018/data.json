@@ -43,6 +43,9 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "13.4.85": "event"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -64,6 +67,47 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Curtain open percentage",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "14.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Stop",
+        "3": "Auto",
+        "7": "On/Off toggle",
+        "8": "Turn off/Off toggle"
+      },
+      "name": "Curtain control and status",
+      "platform": "select",
+      "resource_code": "curtain_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Forward",
+        "1": "Reverse"
+      },
+      "name": "Motor rotation polarity",
+      "platform": "select",
+      "resource_code": "polarity"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "name": "Pull-to-start enable",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "manual_enabled"
+    }
+  },
   "source_region": "cn",
   "traits": {
     "2.137.20033": {

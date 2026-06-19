@@ -44,6 +44,10 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "8.0.2026": "diagnostic:telemetry",
+    "8.0.2092": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -61,6 +65,121 @@
     "lumi.gateway.iragl8"
   ],
   "regions": [],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No alarm",
+        "1": "Alarm"
+      },
+      "name": "Alarm status",
+      "platform": "select",
+      "resource_code": "alarm_status"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 8,
+      "min": 0,
+      "name": "Alarm bell",
+      "platform": "number",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.3.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Music volume",
+      "platform": "number",
+      "resource_code": "music_volume"
+    },
+    "14.3.111": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "No play",
+        "1": "Play"
+      },
+      "name": "Music status",
+      "platform": "select",
+      "resource_code": "music_status"
+    },
+    "14.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "10": "10",
+        "101": "101",
+        "102": "102",
+        "103": "103",
+        "104": "104",
+        "105": "105",
+        "106": "106",
+        "107": "107",
+        "108": "108",
+        "109": "109",
+        "11": "11",
+        "110": "110",
+        "111": "111",
+        "112": "112",
+        "113": "113",
+        "114": "114",
+        "115": "115",
+        "116": "116",
+        "117": "117",
+        "118": "118",
+        "119": "119",
+        "12": "12",
+        "120": "120",
+        "121": "121",
+        "122": "122",
+        "123": "123",
+        "124": "124",
+        "125": "125",
+        "126": "126",
+        "127": "127",
+        "128": "128",
+        "129": "129",
+        "13": "13",
+        "130": "130",
+        "14": "14",
+        "15": "15",
+        "2": "2",
+        "20": "20",
+        "21": "21",
+        "22": "22",
+        "23": "23",
+        "24": "24",
+        "25": "25",
+        "26": "26",
+        "27": "27",
+        "28": "28",
+        "29": "29",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8"
+      },
+      "name": "Play music index",
+      "platform": "select",
+      "resource_code": "music_index"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20118": {

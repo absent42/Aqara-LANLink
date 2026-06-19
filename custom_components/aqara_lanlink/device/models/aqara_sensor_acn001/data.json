@@ -36,6 +36,12 @@
     "2.130.32915",
     "2.130.32919"
   ],
+  "dropped_rids": {
+    "0.5.85": "sensor",
+    "13.100.85": "event",
+    "13.39.85": "event",
+    "8.0.2234": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -53,6 +59,48 @@
     "aqara.sensor.acn001"
   ],
   "regions": [],
+  "settings": {
+    "14.35.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Low",
+        "2": "High"
+      },
+      "name": "Set device mode",
+      "platform": "select",
+      "resource_code": "set_device_mode"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Low",
+        "2": "High"
+      },
+      "name": "LPG alarm setpoint",
+      "platform": "select",
+      "resource_code": "set_device_mode2"
+    },
+    "4.12.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Cancel mute",
+        "1": "Mute"
+      },
+      "name": "Mute",
+      "platform": "select",
+      "resource_code": "alarm_mute"
+    },
+    "4.15.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1"
+      },
+      "name": "Self-check",
+      "platform": "select",
+      "resource_code": "alarm_test"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.157.32994": {

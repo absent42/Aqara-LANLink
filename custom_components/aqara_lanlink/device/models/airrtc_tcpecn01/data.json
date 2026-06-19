@@ -43,6 +43,11 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "3.1.85": "sensor",
+    "3.2.85": "sensor",
+    "8.0.2007": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -60,6 +65,15 @@
     "lumi.airrtc.tcpecn01"
   ],
   "regions": [],
+  "settings": {
+    "14.2.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Control state",
+      "platform": "number",
+      "resource_code": "ac_state"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

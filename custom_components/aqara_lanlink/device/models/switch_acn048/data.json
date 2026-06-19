@@ -52,6 +52,15 @@
     "2.130.32929",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.11.85": "sensor",
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "0.14.85": "sensor",
+    "13.21.85": "event",
+    "8.0.2014": "needs-review",
+    "8.0.2162": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -69,6 +78,62 @@
     "lumi.switch.acn048"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 0 switch",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Channel 0 turn-into-wireless-switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "4.4.85": {
+      "entity_category": "config",
+      "name": "Relay lock for channel 0",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_lock"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Night-time indicator-light-off function",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    },
+    "8.0.2259": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Restore",
+        "1": "On",
+        "2": "Off",
+        "3": "Reverse"
+      },
+      "name": "Power-on state setting",
+      "platform": "select",
+      "resource_code": "power_on_state"
+    },
+    "8.0.2293": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Single fire power input for channel 0",
+      "platform": "number",
+      "resource_code": "device_load0_power"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.20029": {

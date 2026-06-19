@@ -68,6 +68,19 @@
     "5.130.33012",
     "5.130.33016"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "0.22.85": "sensor",
+    "0.23.85": "sensor",
+    "0.32.85": "sensor",
+    "0.33.85": "sensor",
+    "0.42.85": "sensor",
+    "0.43.85": "sensor",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2014": "needs-review",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -94,6 +107,55 @@
     "lumi.relay.c4acn01"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Switch status of channel 1",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Switch status of channel 2",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "name": "Channel 3 switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch2_status"
+    },
+    "4.4.85": {
+      "entity_category": "config",
+      "name": "Switch status of channel 4",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch3_status"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-off memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    },
+    "8.0.2042": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Maximum power",
+      "platform": "number",
+      "resource_code": "device_max_power"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

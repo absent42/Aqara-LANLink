@@ -43,6 +43,18 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.12.85": "sensor",
+    "1.12.85": "dual",
+    "1.9.65": "sensor",
+    "1.9.69": "sensor",
+    "1.9.85": "dual",
+    "4.1.85": "dual",
+    "4.17.85": "sensor",
+    "8.0.2009": "needs-review",
+    "8.0.2045": "diagnostic:telemetry",
+    "8.0.2221": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -60,6 +72,43 @@
     "lumi.light.acn037"
   ],
   "regions": [],
+  "settings": {
+    "1.7.65": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Maximum brightness",
+      "platform": "number",
+      "resource_code": "light_actual_max_value"
+    },
+    "1.7.69": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Minimum brightness",
+      "platform": "number",
+      "resource_code": "light_actual_min_value"
+    },
+    "1.7.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 100,
+      "min": 1,
+      "name": "Set brightness",
+      "platform": "number",
+      "resource_code": "light_level"
+    },
+    "8.0.2259": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Turn on light after power-on",
+        "1": "Keep pre-power-off state",
+        "2": "Turn off light after power-on",
+        "3": "Inverted switch state"
+      },
+      "name": "Power-on state setting",
+      "platform": "select",
+      "resource_code": "power_on_state"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32945": {

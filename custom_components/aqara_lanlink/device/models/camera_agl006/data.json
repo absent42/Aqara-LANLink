@@ -51,6 +51,9 @@
     "4.130.32919",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "4.8.85": "dual"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -71,6 +74,15 @@
     "lumi.camera.agl006"
   ],
   "regions": [],
+  "settings": {
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32969": {

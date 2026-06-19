@@ -53,6 +53,13 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "8.0.2001": "needs-review",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.9001": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -70,6 +77,69 @@
     "lumi.airrtc.agl001"
   ],
   "regions": [],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 1500,
+      "min": 50,
+      "name": "Antifreeze Mode Temperature",
+      "platform": "number",
+      "resource_code": "set_num_sixth"
+    },
+    "1.8.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 3000,
+      "min": 500,
+      "name": "Set temperature to",
+      "platform": "number",
+      "resource_code": "set_temperature"
+    },
+    "14.51.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Manual Mode",
+        "1": "Smart Schedule Mode",
+        "2": "Anti-freeze Mode",
+        "3": "Installation Mode"
+      },
+      "name": "Thermostat working mode",
+      "platform": "select",
+      "resource_code": "set_device_mode6"
+    },
+    "4.21.85": {
+      "entity_category": "config",
+      "name": "Heating switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch21_status"
+    },
+    "4.22.85": {
+      "entity_category": "config",
+      "name": "Valve calibration",
+      "platform": "button",
+      "press_value": "1",
+      "resource_code": "ctrl_ch22_status"
+    },
+    "4.25.85": {
+      "entity_category": "config",
+      "name": "Thermostat valve detection switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch25_status"
+    },
+    "4.26.85": {
+      "entity_category": "config",
+      "name": "Child lock switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch26_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

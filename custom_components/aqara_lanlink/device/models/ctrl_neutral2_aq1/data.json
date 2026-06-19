@@ -64,6 +64,40 @@
     "lumi.ctrl_neutral2.aq1"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "name": "Left button switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "name": "Left Button physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn0"
+    },
+    "4.11.85": {
+      "entity_category": "config",
+      "name": "Right Button physical control",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "disable_btn1"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "name": "Right button switch status",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "ctrl_ch1_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.132.32920": {

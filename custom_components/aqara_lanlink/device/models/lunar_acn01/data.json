@@ -48,6 +48,55 @@
     "4.130.32915",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "0.10.85": "sensor",
+    "0.11.85": "sensor",
+    "0.12.85": "sensor",
+    "0.41.85": "sensor",
+    "0.42.85": "sensor",
+    "0.43.85": "sensor",
+    "0.44.85": "sensor",
+    "0.45.85": "sensor",
+    "0.46.85": "sensor",
+    "0.47.85": "sensor",
+    "0.48.85": "sensor",
+    "0.513.85": "sensor",
+    "0.514.85": "sensor",
+    "0.515.85": "sensor",
+    "0.516.85": "sensor",
+    "0.517.85": "sensor",
+    "0.518.85": "sensor",
+    "0.519.85": "sensor",
+    "0.52.85": "sensor",
+    "0.520.85": "sensor",
+    "0.521.85": "sensor",
+    "0.522.85": "sensor",
+    "0.53.85": "sensor",
+    "0.54.85": "sensor",
+    "0.55.85": "sensor",
+    "0.71.85": "sensor",
+    "0.8.85": "sensor",
+    "0.9.85": "sensor",
+    "13.11.85": "event",
+    "13.2.85": "event",
+    "13.21.85": "event",
+    "13.22.85": "event",
+    "13.23.85": "event",
+    "13.62.85": "event",
+    "13.71.85": "event",
+    "13.72.85": "event",
+    "13.73.85": "event",
+    "13.74.85": "event",
+    "13.75.85": "event",
+    "13.76.85": "event",
+    "13.77.85": "event",
+    "13.78.85": "event",
+    "4.31.85": "dual",
+    "4.46.85": "dual",
+    "8.0.1031": "needs-review",
+    "8.0.1032": "needs-review",
+    "8.0.2041": "diagnostic:telemetry"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -71,6 +120,93 @@
     "lumi.lunar.acn01"
   ],
   "regions": [],
+  "settings": {
+    "1.10.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 255,
+      "min": 0,
+      "name": "Motion amplitude increase",
+      "platform": "number",
+      "resource_code": "set_num_sixth"
+    },
+    "14.35.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Leave bed",
+        "1": "In bed",
+        "2": "Awake",
+        "3": "Fall asleep"
+      },
+      "name": "Set mode",
+      "platform": "select",
+      "resource_code": "set_device_mode"
+    },
+    "14.44.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Awake",
+        "1": "REM",
+        "2": "Light sleep",
+        "3": "Deep sleep"
+      },
+      "name": "Sleep staging",
+      "platform": "select",
+      "resource_code": "play_ctrl02"
+    },
+    "14.50.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Out of bed",
+        "1": "In bed",
+        "2": "Awake",
+        "3": "Asleep"
+      },
+      "name": "Report status (used for automation configuration)",
+      "platform": "select",
+      "resource_code": "set_device_mode5"
+    },
+    "14.51.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Real-time reporting (default 6 seconds/time)",
+        "2": "Non-real-time reporting (default 1 minute/time)"
+      },
+      "name": "Device data reporting mode",
+      "platform": "select",
+      "resource_code": "set_device_mode6"
+    },
+    "14.52.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Excellent",
+        "1": "Good",
+        "2": "Fair",
+        "255": "First self-evaluation",
+        "3": "Poor",
+        "4": "Very poor"
+      },
+      "name": "Turnovers per day",
+      "platform": "select",
+      "resource_code": "set_device_mode7"
+    },
+    "14.9.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Turnover times per day",
+      "platform": "number",
+      "resource_code": "linkage_alarm_bell_index"
+    },
+    "4.21.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Real-time query"
+      },
+      "name": "Start time of longest sleep interval",
+      "platform": "select",
+      "resource_code": "ai_query_type"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.158.32995": {

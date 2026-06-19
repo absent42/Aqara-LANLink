@@ -73,6 +73,15 @@
     "9.130.32919",
     "9.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "0.2.85": "sensor",
+    "0.32.85": "sensor",
+    "3.100.85": "sensor",
+    "8.0.2014": "needs-review",
+    "8.0.2339": "needs-review",
+    "8.0.58": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -111,6 +120,116 @@
     "lumi.switch.acn053"
   ],
   "regions": [],
+  "settings": {
+    "1.85.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Linear Motor Vibration Level",
+      "platform": "number",
+      "resource_code": "motor_vibration_level"
+    },
+    "14.147.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Base Channel Display Configuration",
+      "platform": "number",
+      "resource_code": "configuration_channel_display"
+    },
+    "14.160.85": {
+      "entity_category": "config",
+      "name": "Base Type",
+      "platform": "text",
+      "resource_code": "base_type1"
+    },
+    "14.172.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Rotation Sensitivity",
+      "platform": "number",
+      "resource_code": "rotation_sensitivity"
+    },
+    "14.175.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Device List Style",
+      "platform": "number",
+      "resource_code": "device_list_style"
+    },
+    "14.50.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Level 1",
+        "2": "Level 2",
+        "3": "Level 3",
+        "4": "Level 4",
+        "5": "Level 5"
+      },
+      "name": "Proximity Wake-up Distance Level",
+      "platform": "select",
+      "resource_code": "Approach_wakeup_distance_gear"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 0 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch0_status"
+    },
+    "4.120.85": {
+      "entity_category": "config",
+      "name": "Screen Cleaning",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "screen_cleaning"
+    },
+    "4.2.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 1 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch1_status"
+    },
+    "4.3.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Channel 2 Switch Status",
+      "platform": "select",
+      "resource_code": "ctrl_ch2_status"
+    },
+    "4.32.85": {
+      "entity_category": "config",
+      "name": "Proximity Wake-up Function Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "proximity_wake_function"
+    },
+    "8.0.2259": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Power on",
+        "1": "Power off",
+        "2": "Restore",
+        "3": "Reversed"
+      },
+      "name": "Power-On Settings",
+      "platform": "select",
+      "resource_code": "power_on_state"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.32944": {

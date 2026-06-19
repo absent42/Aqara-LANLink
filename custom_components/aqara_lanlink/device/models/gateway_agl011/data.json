@@ -56,6 +56,9 @@
     "4.130.32919",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "3.1.85": "sensor"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -84,6 +87,77 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.113": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm duration",
+      "platform": "number",
+      "resource_code": "alarm_time_length"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 8,
+      "min": 0,
+      "name": "Alarm ringtone",
+      "platform": "number",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.10.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Gateway language",
+      "platform": "number",
+      "resource_code": "gateway_language"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.25.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Not configured",
+        "1": "AC-with-socket mode",
+        "2": "AC-without-socket mode",
+        "3": "IR water-heater mode",
+        "4": "16A socket mode"
+      },
+      "name": "Air-conditioner mode",
+      "platform": "select",
+      "resource_code": "ac_mode"
+    },
+    "14.26.85": {
+      "entity_category": "config",
+      "name": "Air-conditioner control range",
+      "platform": "text",
+      "resource_code": "ac_ctr_range"
+    },
+    "14.40.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Chinese",
+        "1": "English",
+        "2": "..."
+      },
+      "name": "Language configuration",
+      "platform": "select",
+      "resource_code": "langue"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20119": {

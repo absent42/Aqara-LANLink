@@ -62,9 +62,6 @@
     "0.1.85": "sensor",
     "0.2.85": "sensor",
     "0.3.85": "sensor",
-    "1.1.85": "sensor",
-    "1.113.85": "sensor",
-    "1.161.85": "sensor",
     "13.1.85": "event",
     "3.51.85": "sensor",
     "8.0.2001": "needs-review"
@@ -101,6 +98,31 @@
     "unknown"
   ],
   "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 6,
+      "min": 0,
+      "name": "Set detection range",
+      "platform": "number",
+      "resource_code": "set_detect_range"
+    },
+    "1.113.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Temperature reporting period",
+      "platform": "number",
+      "resource_code": "temp_report_freq"
+    },
+    "1.161.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "max": 60,
+      "min": 10,
+      "name": "No person detection delay",
+      "platform": "number",
+      "resource_code": "unman_delay"
+    },
     "14.1.85": {
       "entity_category": "config",
       "enum_values": {

@@ -53,6 +53,17 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.55.85": "sensor",
+    "13.10.85": "event",
+    "13.11.85": "event",
+    "13.29.85": "event",
+    "13.9.85": "event",
+    "14.59.85": "needs-review",
+    "4.70.85": "dual",
+    "8.0.2001": "needs-review",
+    "8.0.8112": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -70,6 +81,106 @@
     "lumi.curtain.acn003"
   ],
   "regions": [],
+  "settings": {
+    "1.1.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "Open curtain percentage",
+      "platform": "number",
+      "resource_code": "curtain_open_percentage"
+    },
+    "1.12.85": {
+      "entity_category": "config",
+      "is_float": true,
+      "name": "increment",
+      "platform": "number",
+      "resource_code": "increment_value"
+    },
+    "14.4.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Offing",
+        "1": "Oning",
+        "2": "Stop",
+        "3": "Hinder stop"
+      },
+      "name": "Curtain operating state",
+      "platform": "select",
+      "resource_code": "curtain_running_status"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Clear Point",
+        "1": "Set Point Open",
+        "2": "Set Point Close"
+      },
+      "name": "Set travel point",
+      "platform": "select",
+      "resource_code": "set_device_mode2"
+    },
+    "14.48.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "name": "Curtain track type",
+      "platform": "select",
+      "resource_code": "set_device_mode3"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Open",
+        "1": "Close",
+        "2": "Stop",
+        "3": "Auto"
+      },
+      "name": "Curtain on/off control",
+      "platform": "select",
+      "resource_code": "set_mode"
+    },
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Travel not set",
+        "1": "Travel set"
+      },
+      "name": "Motor travel",
+      "platform": "select",
+      "resource_code": "pos_limit"
+    },
+    "4.71.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Forward",
+        "1": "Reverse"
+      },
+      "name": "Motor direction",
+      "platform": "select",
+      "resource_code": "ctrl_ch71_status"
+    },
+    "4.72.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Unlock",
+        "1": "Lock"
+      },
+      "name": "Hold-tight setting",
+      "platform": "select",
+      "resource_code": "ctrl_ch72_status"
+    },
+    "8.0.2096": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Device search",
+      "platform": "number",
+      "resource_code": "identify"
+    }
+  },
   "source_region": "default",
   "traits": {
     "2.137.20031": {

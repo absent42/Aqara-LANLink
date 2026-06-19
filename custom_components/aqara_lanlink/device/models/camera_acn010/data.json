@@ -66,6 +66,9 @@
     "8.130.32919",
     "8.130.33012"
   ],
+  "dropped_rids": {
+    "3.21.85": "sensor"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -95,6 +98,62 @@
     "lumi.camera.acn010"
   ],
   "regions": [],
+  "settings": {
+    "14.104.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+      },
+      "name": "Motion detection sensitivity",
+      "platform": "select",
+      "resource_code": "md_sensivity"
+    },
+    "14.105.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Motion detection interval",
+      "platform": "number",
+      "resource_code": "md_interval"
+    },
+    "14.106.85": {
+      "entity_category": "config",
+      "name": "Motion detection area",
+      "platform": "text",
+      "resource_code": "md_region"
+    },
+    "14.107.85": {
+      "entity_category": "config",
+      "name": "Motion detection period",
+      "platform": "text",
+      "resource_code": "md_duration"
+    },
+    "14.70.85": {
+      "entity_category": "config",
+      "name": "Motion detection switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "mdtrigger_enable"
+    },
+    "4.50.85": {
+      "entity_category": "config",
+      "name": "Motion detection recording switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "md_record_enable"
+    },
+    "4.51.85": {
+      "entity_category": "config",
+      "name": "Motion detection push switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "md_push_enable"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20119": {

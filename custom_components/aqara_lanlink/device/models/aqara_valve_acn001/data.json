@@ -36,6 +36,14 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "4.1.85": "dual",
+    "8.0.2014": "needs-review",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.2082": "needs-review",
+    "8.0.28": "metadata",
+    "8.0.58": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"

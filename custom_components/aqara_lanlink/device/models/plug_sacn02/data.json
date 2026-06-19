@@ -54,6 +54,13 @@
     "2.130.32929",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.11.85": "sensor",
+    "0.12.85": "sensor",
+    "0.13.85": "sensor",
+    "0.14.85": "sensor",
+    "8.0.2014": "needs-review"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -71,6 +78,60 @@
     "lumi.plug.sacn02"
   ],
   "regions": [],
+  "settings": {
+    "4.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Off",
+        "1": "On",
+        "2": "Toggle"
+      },
+      "name": "Socket Switch Status",
+      "platform": "select",
+      "resource_code": "plug_status"
+    },
+    "4.10.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Physical control enabled",
+        "1": "Physical control disconnected"
+      },
+      "name": "Button enable function",
+      "platform": "select",
+      "resource_code": "disable_btn0"
+    },
+    "8.0.2030": {
+      "entity_category": "config",
+      "name": "Power-Off Memory",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_power_off"
+    },
+    "8.0.2031": {
+      "entity_category": "config",
+      "name": "Charging Protection",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_charge_protect"
+    },
+    "8.0.2032": {
+      "entity_category": "config",
+      "name": "Switch indicator light",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "device_night_tip_light"
+    },
+    "8.0.2042": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Maximum Power",
+      "platform": "number",
+      "resource_code": "device_max_power"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.140.20029": {

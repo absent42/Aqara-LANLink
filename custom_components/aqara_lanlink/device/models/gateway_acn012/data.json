@@ -55,6 +55,25 @@
     "4.130.32919",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "0.1.85": "sensor",
+    "0.2.85": "sensor",
+    "13.2.85": "event",
+    "3.1.85": "sensor",
+    "3.2.85": "sensor",
+    "8.0.2024": "needs-review",
+    "8.0.2025": "needs-review",
+    "8.0.2029": "diagnostic:telemetry",
+    "8.0.2045": "diagnostic:telemetry",
+    "8.0.2092": "needs-review",
+    "8.0.2093": "needs-review",
+    "8.0.2108": "command",
+    "8.0.2158": "command",
+    "8.0.2334": "needs-review",
+    "8.0.2337": "needs-review",
+    "8.0.2338": "needs-review",
+    "8.0.8104": "metadata"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -83,6 +102,120 @@
     "US",
     "unknown"
   ],
+  "settings": {
+    "14.1.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Alarm volume",
+      "platform": "number",
+      "resource_code": "alarm_bell_volume"
+    },
+    "14.1.113": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Alarm duration",
+      "platform": "number",
+      "resource_code": "alarm_time_length"
+    },
+    "14.1.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Police car sound 1",
+        "1": "Police car sound 2",
+        "2": "Safety accident sound",
+        "3": "Missile countdown",
+        "4": "Ghost scream",
+        "5": "Sniper rifle",
+        "6": "Intense battle sound",
+        "7": "Air raid alarm",
+        "8": "Dog barking"
+      },
+      "name": "Alarm ringtone",
+      "platform": "select",
+      "resource_code": "alarm_bell_index"
+    },
+    "14.10.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Chinese",
+        "2": "English."
+      },
+      "name": "Hub language",
+      "platform": "select",
+      "resource_code": "gateway_language"
+    },
+    "14.11.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "System volume",
+      "platform": "number",
+      "resource_code": "system_volume"
+    },
+    "14.17.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Quick cooling time configuration",
+      "platform": "number",
+      "resource_code": "quick_cool_time_cfg"
+    },
+    "14.18.85": {
+      "entity_category": "config",
+      "name": "Sleep function configurations",
+      "platform": "text",
+      "resource_code": "sleep_func_cfg"
+    },
+    "14.2.113": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Doorbell duration",
+      "platform": "number",
+      "resource_code": "doorbell_time_length"
+    },
+    "14.25.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Mode not configured",
+        "1": "Air Conditioner Plugged In Mode",
+        "2": "Air Conditioner Not Plugged In Mode",
+        "3": "Infrared Water Heater Mode",
+        "4": "16A Socket Mode"
+      },
+      "name": "Air Conditioning Controller",
+      "platform": "select",
+      "resource_code": "ac_mode"
+    },
+    "14.26.85": {
+      "entity_category": "config",
+      "name": "Air conditioner control range",
+      "platform": "text",
+      "resource_code": "ac_ctr_range"
+    },
+    "14.3.1000": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Music volume",
+      "platform": "number",
+      "resource_code": "music_volume"
+    },
+    "14.40.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Language settings",
+      "platform": "number",
+      "resource_code": "langue"
+    },
+    "14.6.111": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Armed state (the function of this resource is now equivalent to the 14.1.111 alarm state)",
+      "platform": "number",
+      "resource_code": "arming_status"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.171.20118": {

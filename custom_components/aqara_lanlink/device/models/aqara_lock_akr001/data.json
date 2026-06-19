@@ -36,6 +36,23 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "13.151.85": "event",
+    "13.18.85": "event",
+    "13.32.85": "event",
+    "13.37.85": "event",
+    "13.42.85": "event",
+    "13.43.85": "event",
+    "13.44.85": "event",
+    "13.45.85": "event",
+    "13.46.85": "event",
+    "13.48.85": "event",
+    "13.51.85": "event",
+    "13.57.85": "event",
+    "13.88.85": "event",
+    "13.89.85": "event",
+    "3.19.85": "sensor"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -53,6 +70,18 @@
     "aqara.lock.akr001"
   ],
   "regions": [],
+  "settings": {
+    "4.155.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Deadbolt disengaged",
+        "1": "Deadbolt engaged"
+      },
+      "name": "Linked deadbolt/unlock deadbolt",
+      "platform": "select",
+      "resource_code": "automation_lock_out_operation"
+    }
+  },
   "source_region": "kr",
   "traits": {
     "1.147.32969": {

@@ -38,6 +38,9 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "8.0.2108": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -55,6 +58,95 @@
     "aqara.bed.hhcn03"
   ],
   "regions": [],
+  "settings": {
+    "14.35.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2"
+      },
+      "name": "Massage intensity",
+      "platform": "select",
+      "resource_code": "set_device_mode"
+    },
+    "14.47.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5"
+      },
+      "name": "Mode",
+      "platform": "select",
+      "resource_code": "set_device_mode2"
+    },
+    "14.48.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2"
+      },
+      "name": "Massage timer",
+      "platform": "select",
+      "resource_code": "set_device_mode3"
+    },
+    "14.8.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3"
+      },
+      "name": "Massage",
+      "platform": "select",
+      "resource_code": "set_mode"
+    },
+    "14.92.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Back lift adjustment",
+      "platform": "number",
+      "resource_code": "set_num_third"
+    },
+    "14.93.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Leg lift adjustment",
+      "platform": "number",
+      "resource_code": "set_num_fourth"
+    },
+    "4.20.85": {
+      "entity_category": "config",
+      "name": "Child lock",
+      "off_value": "1",
+      "on_value": "0",
+      "platform": "switch",
+      "resource_code": "set_lock"
+    },
+    "4.31.85": {
+      "entity_category": "config",
+      "name": "Back and legs lifted together",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "bool_switch_first"
+    },
+    "4.7.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "1": "Open"
+      },
+      "name": "Stop",
+      "platform": "select",
+      "resource_code": "switch_nostatus"
+    }
+  },
   "source_region": "default",
   "traits": {},
   "whitelabels": {}

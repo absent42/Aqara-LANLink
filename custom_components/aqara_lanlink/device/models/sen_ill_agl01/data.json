@@ -48,6 +48,16 @@
     "2.130.32919",
     "2.130.33012"
   ],
+  "dropped_rids": {
+    "0.3.85": "sensor",
+    "8.0.2001": "needs-review",
+    "8.0.2007": "diagnostic:telemetry",
+    "8.0.2008": "diagnostic:telemetry",
+    "8.0.2041": "diagnostic:telemetry",
+    "8.0.2097": "needs-review",
+    "8.0.9001": "status",
+    "8.0.9002": "status"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"

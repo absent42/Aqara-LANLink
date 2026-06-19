@@ -49,6 +49,13 @@
     "4.130.32919",
     "4.130.33012"
   ],
+  "dropped_rids": {
+    "13.108.85": "event",
+    "13.12.85": "event",
+    "13.95.85": "event",
+    "14.66.85": "needs-review",
+    "8.0.2108": "command"
+  },
   "endpoints": {
     "0": {
       "deviceType": "Root"
@@ -69,6 +76,107 @@
     "lumi.camera.acn005"
   ],
   "regions": [],
+  "settings": {
+    "14.110.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Face recognition interval",
+      "platform": "number",
+      "resource_code": "face_interval"
+    },
+    "14.125.85": {
+      "entity_category": "config",
+      "name": "Scheduled Sleep Switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "time_sleep_enable"
+    },
+    "14.65.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "max": 100,
+      "min": 0,
+      "name": "Camera Volume",
+      "platform": "number",
+      "resource_code": "camera_volume"
+    },
+    "14.68.85": {
+      "entity_category": "config",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Horizontal flip",
+        "2": "Vertical flip",
+        "3": "Horizontal and vertical flip"
+      },
+      "name": "Screen Flip",
+      "platform": "select",
+      "resource_code": "image_flip"
+    },
+    "14.92.85": {
+      "entity_category": "config",
+      "is_float": false,
+      "name": "Doorbell Do Not Disturb",
+      "platform": "number",
+      "resource_code": "do_not_disturb"
+    },
+    "4.138.85": {
+      "entity_category": "config",
+      "name": "Doorbell ring recording switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "doorbell_record_enable"
+    },
+    "4.154.85": {
+      "entity_category": "config",
+      "name": "Doorbell ring push notification switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "doorbell_push_enable"
+    },
+    "4.54.85": {
+      "entity_category": "config",
+      "name": "Face recognition recording switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "face_record_enable"
+    },
+    "4.55.85": {
+      "entity_category": "config",
+      "name": "Face recognition push switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "face_push_enable"
+    },
+    "4.66.85": {
+      "entity_category": "config",
+      "name": "Tamper alarm switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "damage_alarm"
+    },
+    "4.67.85": {
+      "entity_category": "config",
+      "name": "High temperature alarm switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "high_temp_alarm"
+    },
+    "4.68.85": {
+      "entity_category": "config",
+      "name": "Low temperature alarm switch",
+      "off_value": "0",
+      "on_value": "1",
+      "platform": "switch",
+      "resource_code": "low_temp_alarm"
+    }
+  },
   "source_region": "default",
   "traits": {
     "1.147.32969": {
