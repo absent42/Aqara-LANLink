@@ -45,6 +45,7 @@
     "2.130.33012"
   ],
   "dropped_rids": {
+    "14.1.111": "sensor",
     "8.0.2026": "diagnostic:telemetry",
     "8.0.2045": "diagnostic:telemetry",
     "8.0.2154": "command",
@@ -71,16 +72,6 @@
   ],
   "regions": [],
   "settings": {
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "No alarm",
-        "1": "Alarm"
-      },
-      "name": "Alarm status",
-      "platform": "select",
-      "resource_code": "alarm_status"
-    },
     "14.1.85": {
       "entity_category": "config",
       "enum_values": {

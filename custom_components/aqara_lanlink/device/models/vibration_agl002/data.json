@@ -142,11 +142,9 @@
     },
     "4.22.85": {
       "entity_category": "config",
-      "enum_values": {
-        "1": "Execlute"
-      },
       "name": "Remote posture calibration",
-      "platform": "select",
+      "platform": "button",
+      "press_value": "1",
       "resource_code": "ctrl_ch22_status"
     },
     "4.7.85": {

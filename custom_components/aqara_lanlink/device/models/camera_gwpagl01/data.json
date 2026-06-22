@@ -90,6 +90,8 @@
     "13.96.85": "event",
     "13.97.85": "event",
     "13.98.85": "event",
+    "14.1.111": "sensor",
+    "14.3.111": "sensor",
     "14.78.85": "dual",
     "3.21.85": "sensor",
     "3.22.85": "sensor",
@@ -146,14 +148,6 @@
       "platform": "number",
       "resource_code": "alarm_bell_volume"
     },
-    "14.1.111": {
-      "entity_category": "config",
-      "name": "Alarm state",
-      "off_value": "0",
-      "on_value": "1",
-      "platform": "switch",
-      "resource_code": "alarm_status"
-    },
     "14.1.85": {
       "entity_category": "config",
       "is_float": false,
@@ -193,16 +187,6 @@
       "name": "Music volume",
       "platform": "number",
       "resource_code": "music_volume"
-    },
-    "14.3.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Not playing",
-        "1": "Playing"
-      },
-      "name": "Music state",
-      "platform": "select",
-      "resource_code": "music_status"
     },
     "14.3.85": {
       "entity_category": "config",

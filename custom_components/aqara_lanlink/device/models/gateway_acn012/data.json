@@ -59,6 +59,7 @@
     "0.1.85": "sensor",
     "0.2.85": "sensor",
     "13.2.85": "event",
+    "14.6.111": "sensor",
     "3.1.85": "sensor",
     "3.2.85": "sensor",
     "8.0.2024": "needs-review",
@@ -207,13 +208,6 @@
       "name": "Language settings",
       "platform": "number",
       "resource_code": "langue"
-    },
-    "14.6.111": {
-      "entity_category": "config",
-      "is_float": false,
-      "name": "Armed state (the function of this resource is now equivalent to the 14.1.111 alarm state)",
-      "platform": "number",
-      "resource_code": "arming_status"
     }
   },
   "source_region": "default",

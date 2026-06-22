@@ -40,6 +40,7 @@
   ],
   "dropped_rids": {
     "13.1.85": "event",
+    "14.1.111": "sensor",
     "8.0.2026": "diagnostic:telemetry"
   },
   "endpoints": {
@@ -66,16 +67,6 @@
       "name": "Alarm volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "No alarm",
-        "1": "Alarm"
-      },
-      "name": "Alarm status",
-      "platform": "select",
-      "resource_code": "alarm_status"
     },
     "14.1.85": {
       "entity_category": "config",

@@ -40,6 +40,8 @@
     "2.130.33012"
   ],
   "dropped_rids": {
+    "14.1.111": "sensor",
+    "14.9.111": "sensor",
     "8.0.2154": "command"
   },
   "endpoints": {
@@ -71,16 +73,6 @@
       "name": "Alert Volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "no alarm",
-        "1": "alarm"
-      },
-      "name": "Alarm status",
-      "platform": "select",
-      "resource_code": "alarm_status"
     },
     "14.1.85": {
       "entity_category": "config",
@@ -160,16 +152,6 @@
       "name": "Night Light Brightness",
       "platform": "number",
       "resource_code": "brightness_level"
-    },
-    "14.9.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "no alarm",
-        "1": "alarm"
-      },
-      "name": "Linkage alarm status",
-      "platform": "select",
-      "resource_code": "linkage_alarm_status"
     }
   },
   "source_region": "default",

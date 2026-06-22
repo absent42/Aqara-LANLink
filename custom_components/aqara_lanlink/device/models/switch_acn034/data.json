@@ -111,6 +111,7 @@
   "dropped_rids": {
     "0.12.85": "sensor",
     "0.13.85": "sensor",
+    "14.1.111": "sensor",
     "4.14.85": "dual"
   },
   "endpoints": {
@@ -190,13 +191,6 @@
       "name": "Alarm Volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "is_float": false,
-      "name": "Alarm Status",
-      "platform": "number",
-      "resource_code": "alarm_status"
     },
     "4.1.85": {
       "entity_category": "config",

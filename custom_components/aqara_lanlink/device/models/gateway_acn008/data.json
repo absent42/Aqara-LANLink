@@ -50,6 +50,9 @@
   ],
   "dropped_rids": {
     "0.3.85": "sensor",
+    "14.1.111": "sensor",
+    "14.3.111": "sensor",
+    "14.7.111": "sensor",
     "8.0.2026": "diagnostic:telemetry"
   },
   "endpoints": {
@@ -82,16 +85,6 @@
       "platform": "number",
       "resource_code": "alarm_bell_volume"
     },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "No alarm",
-        "1": "Alarm"
-      },
-      "name": "Alarm state",
-      "platform": "select",
-      "resource_code": "alarm_status"
-    },
     "14.1.85": {
       "entity_category": "config",
       "is_float": false,
@@ -123,16 +116,6 @@
       "name": "Music volume",
       "platform": "number",
       "resource_code": "music_volume"
-    },
-    "14.3.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Not playing",
-        "1": "Playing"
-      },
-      "name": "Music state",
-      "platform": "select",
-      "resource_code": "music_status"
     },
     "14.3.113": {
       "entity_category": "config",
@@ -212,18 +195,6 @@
       "name": "Night-light brightness",
       "platform": "number",
       "resource_code": "brightness_level"
-    },
-    "14.7.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Off",
-        "1": "On",
-        "2": "Toggle",
-        "3": "Smart night-light on"
-      },
-      "name": "Night-light state",
-      "platform": "select",
-      "resource_code": "corridor_light_status"
     },
     "14.7.85": {
       "entity_category": "config",

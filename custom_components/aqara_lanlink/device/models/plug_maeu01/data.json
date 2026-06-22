@@ -50,6 +50,7 @@
   "dropped_rids": {
     "0.12.85": "sensor",
     "0.13.85": "sensor",
+    "14.1.111": "sensor",
     "8.0.2007": "diagnostic:telemetry",
     "8.0.2014": "needs-review",
     "8.0.2041": "diagnostic:telemetry",
@@ -74,16 +75,6 @@
   ],
   "regions": [],
   "settings": {
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "No alarm",
-        "1": "Alarm"
-      },
-      "name": "Alarm status",
-      "platform": "select",
-      "resource_code": "alarm_status"
-    },
     "4.1.85": {
       "entity_category": "config",
       "enum_values": {

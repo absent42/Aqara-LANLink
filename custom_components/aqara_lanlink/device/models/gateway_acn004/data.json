@@ -50,6 +50,10 @@
     "3.130.33012"
   ],
   "dropped_rids": {
+    "14.1.111": "sensor",
+    "14.2.111": "sensor",
+    "14.3.111": "sensor",
+    "14.7.111": "sensor",
     "8.0.2026": "diagnostic:telemetry"
   },
   "endpoints": {
@@ -81,16 +85,6 @@
       "name": "Alarm volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "No alarm",
-        "1": "Alarm"
-      },
-      "name": "Alarm status",
-      "platform": "select",
-      "resource_code": "alarm_status"
     },
     "14.1.113": {
       "entity_category": "config",
@@ -132,14 +126,6 @@
       "platform": "number",
       "resource_code": "doorbell_bell_volume"
     },
-    "14.2.111": {
-      "entity_category": "config",
-      "name": "Door bell status",
-      "off_value": "0",
-      "on_value": "1",
-      "platform": "switch",
-      "resource_code": "doorbell_status"
-    },
     "14.2.113": {
       "entity_category": "config",
       "is_float": false,
@@ -162,16 +148,6 @@
       "name": "Music volume",
       "platform": "number",
       "resource_code": "music_volume"
-    },
-    "14.3.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Not playing",
-        "1": "Playing"
-      },
-      "name": "Music Status",
-      "platform": "select",
-      "resource_code": "music_status"
     },
     "14.3.113": {
       "entity_category": "config",
@@ -251,18 +227,6 @@
       "name": "Night light brightness",
       "platform": "number",
       "resource_code": "brightness_level"
-    },
-    "14.7.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Off",
-        "1": "On",
-        "2": "Toggle",
-        "3": "Smart night light on"
-      },
-      "name": "Night light status",
-      "platform": "select",
-      "resource_code": "corridor_light_status"
     },
     "14.7.85": {
       "entity_category": "config",

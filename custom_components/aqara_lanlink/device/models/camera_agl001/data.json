@@ -77,6 +77,7 @@
   ],
   "dropped_rids": {
     "13.25.85": "event",
+    "14.1.111": "sensor",
     "14.74.85": "dual",
     "3.21.85": "sensor",
     "3.22.85": "sensor"
@@ -123,16 +124,6 @@
       "name": "Alarm volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "No alarm",
-        "1": "Alarm"
-      },
-      "name": "Alarm status",
-      "platform": "select",
-      "resource_code": "alarm_status"
     },
     "14.1.85": {
       "entity_category": "config",

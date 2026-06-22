@@ -14,6 +14,7 @@
     "13.108.85": "event",
     "13.12.85": "event",
     "13.95.85": "event",
+    "14.1.111": "sensor",
     "14.66.85": "needs-review",
     "8.0.2001": "needs-review",
     "8.0.2108": "command"
@@ -38,16 +39,6 @@
       "name": "Alarm volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Normal",
-        "1": "Alarm"
-      },
-      "name": "Alarm Status",
-      "platform": "select",
-      "resource_code": "alarm_status"
     },
     "14.1.85": {
       "entity_category": "config",

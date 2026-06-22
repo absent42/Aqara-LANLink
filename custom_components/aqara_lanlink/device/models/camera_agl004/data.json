@@ -80,12 +80,14 @@
     "13.95.85": "event",
     "13.97.85": "event",
     "13.98.85": "event",
+    "14.1.111": "sensor",
     "14.114.85": "dual",
     "14.116.85": "dual",
     "14.136.85": "dual",
     "14.156.85": "dual",
     "14.157.85": "dual",
     "14.170.85": "dual",
+    "14.3.111": "sensor",
     "14.66.85": "needs-review",
     "14.67.85": "needs-review",
     "14.78.85": "dual",
@@ -151,16 +153,6 @@
       "name": "Alarm volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "No alarm",
-        "1": "Alarm"
-      },
-      "name": "Alarm state",
-      "platform": "select",
-      "resource_code": "alarm_status"
     },
     "14.1.113": {
       "entity_category": "config",
@@ -411,16 +403,6 @@
       "name": "Music volume",
       "platform": "number",
       "resource_code": "music_volume"
-    },
-    "14.3.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "Not playing",
-        "1": "playing"
-      },
-      "name": "Music state",
-      "platform": "select",
-      "resource_code": "music_status"
     },
     "14.36.85": {
       "entity_category": "config",

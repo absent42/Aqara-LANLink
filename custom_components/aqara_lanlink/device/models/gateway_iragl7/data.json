@@ -45,6 +45,7 @@
     "2.130.33012"
   ],
   "dropped_rids": {
+    "14.1.111": "sensor",
     "8.0.2026": "diagnostic:telemetry",
     "8.0.2154": "command",
     "8.0.2158": "command"
@@ -75,16 +76,6 @@
       "name": "Alarm volume",
       "platform": "number",
       "resource_code": "alarm_bell_volume"
-    },
-    "14.1.111": {
-      "entity_category": "config",
-      "enum_values": {
-        "0": "no alarm",
-        "1": "alarm"
-      },
-      "name": "Alarm status",
-      "platform": "select",
-      "resource_code": "alarm_status"
     },
     "14.1.85": {
       "entity_category": "config",
