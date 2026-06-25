@@ -1,6 +1,7 @@
 """Tests for the LANLink JSON message protocol layer."""
 
 import json
+import re
 import time
 
 import pytest
@@ -324,6 +325,16 @@ class TestBuildWriteWithExplicitSdid:
         msg = build_write(SEQ, DEVICE_ID, G400_MODEL, {"a": 1})
         assert msg["data"]["did"] == DEVICE_ID
         assert msg["data"]["sdid"] == DEVICE_ID
+
+
+def test_build_write_uses_provided_src():
+    msg = build_write(1, "did", "model", {"a": "1"}, src="3,,12345,,")
+    assert msg["data"]["src"] == "3,,12345,,"
+
+
+def test_build_write_generates_src_when_omitted():
+    msg = build_write(1, "did", "model", {"a": "1"})
+    assert re.fullmatch(r"3,,\d+,,", msg["data"]["src"])
 
 
 # =============================================================================
