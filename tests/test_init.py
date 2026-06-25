@@ -57,6 +57,7 @@ def test_platforms_include_all_expected() -> None:
         Platform.SWITCH,
         Platform.SENSOR,
         Platform.LIGHT,
+        Platform.TEXT,
     }
     assert set(PLATFORMS) == expected
 
@@ -147,7 +148,9 @@ async def test_remove_device_not_linked_to_entry_is_allowed():
 # -----------------------------------------------------------------------------
 
 
-def _hub_entry(hass, *, hub_did: str = "lumi1.HUB") -> MockConfigEntry:
+def _hub_entry(
+    hass, *, hub_did: str = "lumi1.HUB", hub_model: str = "lumi.gateway.agl004",
+) -> MockConfigEntry:
     """Build + register a hub config entry with the data setup_entry reads."""
     entry = MockConfigEntry(
         domain=DOMAIN,
@@ -157,7 +160,7 @@ def _hub_entry(hass, *, hub_did: str = "lumi1.HUB") -> MockConfigEntry:
             CONF_HUB_IP: "192.0.2.10",
             CONF_HUB_PORT: 59703,
             CONF_HUB_DID: hub_did,
-            CONF_HUB_MODEL: "lumi.gateway.agl004",
+            CONF_HUB_MODEL: hub_model,
             CONF_AQARA_REGION: "EU",
             CONF_AQARA_USER_ID: "USR",
             CONF_AQARA_TOKEN: "TOK",
@@ -1367,10 +1370,17 @@ async def test_setup_seeds_settings_from_cloud_by_rid(
         result = await async_setup_entry(hass, entry)
 
     assert result is True
-    # The rid-keyed read targeted this device, with its catalogued rids.
+    # The rid-keyed read targeted this device, with its catalogued rids. The
+    # hub self-device (and any other settings-bearing device) is seeded in the
+    # same pass, so select this device's call by did rather than assuming it is
+    # the last await.
     fake_cloud.query_resources_by_rid.assert_awaited()
-    call = fake_cloud.query_resources_by_rid.await_args
-    assert call.args[1] == "lumi1.plug"
+    plug_calls = [
+        c for c in fake_cloud.query_resources_by_rid.await_args_list
+        if c.args[1] == "lumi1.plug"
+    ]
+    assert len(plug_calls) == 1, plug_calls
+    call = plug_calls[0]
     queried_rids = call.args[2]
     # All 8 stateful rids are queried.
     stateful_rids = {
@@ -1470,10 +1480,14 @@ async def test_setup_no_settings_makes_no_rid_cloud_call(
     """A device whose model has no catalogued settings must not issue a
     rid-keyed cloud read.
     """
-    entry = _hub_entry(hass)
-    # lumi.motion.agl001 has no catalogued SETTINGS.
+    # Both the hub and the sub-device must be models with no catalogued
+    # SETTINGS: the hub self-device is seeded in the same pass, so a
+    # settings-bearing hub model would itself issue a rid read.
+    # lumi.gateway.agl013 (hub) and lumi.airmonitor.acn01 (sub) have none.
+    entry = _hub_entry(hass, hub_model="lumi.gateway.agl013")
     sub = _make_subentry(
-        subentry_id="sub-fp2", did="lumi1.fp2", model="lumi.motion.agl001",
+        subentry_id="sub-nosettings", did="lumi1.nosettings",
+        model="lumi.airmonitor.acn01",
     )
     _attach_subentries(entry, {sub.subentry_id: sub})
 
