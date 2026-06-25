@@ -28,6 +28,7 @@ the likely cause, and the steps to resolve it.
 ## Known device issues
 
 - Noise detection not working on G350
+- ResouceID writes not working for IP based devices
 
 ---
 
