@@ -22,6 +22,7 @@ from custom_components.aqara_lanlink.hub.cloud_client import (
     AqaraCloudClient,
     AqaraTokens,
     _AUTH_FAILURE_CODES,
+    _SIGNING_COMBOS,
     _parse_effects,
     _UNIVERSAL_PATHS,
 )
@@ -1320,3 +1321,184 @@ class TestAuthFailureClassification:
         Aqara's error-code table."""
         assert _AUTH_FAILURE_CODES == frozenset({108, 109, 802, 804})
 
+
+
+# =============================================================================
+# Signing combos + region pairs (Task 1)
+# =============================================================================
+
+class TestSigningCombos:
+    def test_every_area_pair_is_a_known_combo(self):
+        known = set(_SIGNING_COMBOS)
+        for region, cfg in AREAS.items():
+            assert (cfg.appid, cfg.appkey) in known, f"{region} uses an unknown combo"
+
+    def test_us_family_uses_verified_pair(self):
+        # US/HMT/OTHER/AU/ME must use the live-verified 7be1984f.. + Jddz.. pair.
+        for region in ("US", "HMT", "OTHER", "AU", "ME"):
+            cfg = AREAS[region]
+            assert cfg.appid == "7be1984f0556276133336839"
+            assert cfg.appkey == "Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3"
+
+    def test_combos_are_the_three_distinct_pairs(self):
+        assert _SIGNING_COMBOS == (
+            ("7be1984f0556276133336839", "Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3"),
+            ("94549908487478b220992a70", "euGhPe2rcmxwculATNj45eEtnd50zp0I"),
+            ("94549908487478b220992a70", "Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3"),
+        )
+
+
+# =============================================================================
+# Mutable active signing pair (Task 2)
+# =============================================================================
+
+class TestMutableSigningPair:
+    def test_seeded_from_area(self):
+        c = AqaraCloudClient(region="EU")
+        assert c._appid == AREAS["EU"].appid
+        assert c._appkey == AREAS["EU"].appkey
+        assert c._signing_probed is False
+
+    def test_sign_and_appid_header_follow_the_instance_pair(self):
+        # Swapping the instance pair must change BOTH the Sign and the Appid header,
+        # and the signed Appid= component must match the header (all three reads swapped).
+        c = AqaraCloudClient(region="EU")
+        h1 = c._build_headers("body", token="t")
+        c._appid = "94549908487478b220992a70"
+        c._appkey = "euGhPe2rcmxwculATNj45eEtnd50zp0I"
+        h2 = c._build_headers("body", token="t")
+        assert h2["Appid"] == "94549908487478b220992a70"
+        assert h2["Appid"] != h1["Appid"]
+        assert h2["Sign"] != h1["Sign"]  # appkey changed -> different md5
+
+    def test_sign_uses_instance_appkey_both_branches(self):
+        import hashlib
+        c = AqaraCloudClient(region="EU")
+        c._appid, c._appkey = "AID", "AKEY"
+        # token branch
+        s_tok = c._sign("N", "T", "b", token="TOK")
+        assert s_tok == hashlib.md5(b"Appid=AID&Nonce=N&Time=T&Token=TOK&b&AKEY").hexdigest()
+        # no-token branch
+        s_no = c._sign("N", "T", "b")
+        assert s_no == hashlib.md5(b"Appid=AID&Nonce=N&Time=T&b&AKEY").hexdigest()
+
+
+# =============================================================================
+# Signing fallback chokepoint (Task 3)
+# =============================================================================
+
+class TestSigningFallback:
+    def _client(self, session, region="US"):
+        return AqaraCloudClient(region=region, session=session)
+
+    async def test_happy_path_no_probe(self):
+        # Table pair signs first try -> exactly one HTTP call, no probe.
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "code": 0, "result": {"userId": "u", "token": "t"},
+        })))
+        c = self._client(session)
+        await c.login("user@example.com", "pw")
+        assert session.request.call_count == 1
+        assert c._signing_probed is False
+
+    async def test_fallback_success_caches_winner(self):
+        # First (seed) pair -> 106; an alternate -> 0. Probe retries and keeps the winner.
+        session = MagicMock()
+        session.request = MagicMock(side_effect=[
+            _fake_response(json.dumps({"code": 106, "message": "invalid sign"})),
+            _fake_response(json.dumps({"code": 0, "result": {"userId": "u", "token": "t"}})),
+        ])
+        c = self._client(session)
+        tokens = await c.login("user@example.com", "pw")
+        assert tokens.token == "t"
+        assert session.request.call_count == 2          # original + 1 probe retry
+        assert c._signing_probed is True
+        winner = (c._appid, c._appkey)
+        assert winner != (AREAS["US"].appid, AREAS["US"].appkey)
+
+    async def test_fallback_exhaustion_raises_clear_106(self):
+        # Every combo -> 106. Raises, message names the credential cause, probe ran once.
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "code": 106, "message": "invalid sign",
+        })))
+        c = self._client(session)
+        with pytest.raises(AqaraAuthError, match="all known app credentials") as ei:
+            await c.login("user@example.com", "pw")
+        assert "invalid sign" in str(ei.value)          # server's original message preserved
+        # 1 original + 2 alternate combos (seed skipped) = 3
+        assert session.request.call_count == 3
+        assert c._signing_probed is True
+
+    async def test_probe_runs_at_most_once(self):
+        # After exhaustion, a later 106 is NOT re-probed.
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({"code": 106})))
+        c = self._client(session)
+        with pytest.raises(AqaraAuthError):
+            await c.login("u", "pw")
+        session.request.reset_mock()
+        with pytest.raises(AqaraAuthError):
+            await c.query_device_list(token="tok")
+        assert session.request.call_count == 1          # one call, no re-probe
+
+    async def test_108_not_probed(self):
+        # A token-expiry (108) must NOT trigger the signing probe.
+        session = MagicMock()
+        session.request = MagicMock(return_value=_fake_response(json.dumps({
+            "code": 108, "message": "token expired",
+        })))
+        c = self._client(session)
+        with pytest.raises(AqaraAuthError):
+            await c.query_device_list(token="expired")
+        assert session.request.call_count == 1
+        assert c._signing_probed is False
+
+    async def test_probe_retry_exception_restores_seed(self):
+        # A probe retry that raises (non-JSON -> _request raises AqaraAuthError)
+        # must NOT strand the client on the alternate pair.
+        session = MagicMock()
+        session.request = MagicMock(side_effect=[
+            _fake_response(json.dumps({"code": 106})),   # seed -> 106, triggers probe
+            _fake_response("<html>boom</html>"),         # first probe retry -> non-JSON -> _request raises
+        ])
+        c = self._client(session)                         # region="US"
+        seed = (AREAS["US"].appid, AREAS["US"].appkey)
+        with pytest.raises(AqaraAuthError):
+            await c.login("u", "pw")
+        assert (c._appid, c._appkey) == seed              # not stranded on the probe pair
+
+    async def test_fallback_log_omits_secrets(self, caplog):
+        session = MagicMock()
+        session.request = MagicMock(side_effect=[
+            _fake_response(json.dumps({"code": 106})),
+            _fake_response(json.dumps({"code": 0, "result": {"userId": "u", "token": "t"}})),
+        ])
+        c = self._client(session)
+        with caplog.at_level(logging.INFO):
+            await c.login("u", "pw")
+        logtext = caplog.text
+        assert "euGhPe2rcmxwculATNj45eEtnd50zp0I" not in logtext   # no appkey
+        assert "Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3" not in logtext
+
+
+# =============================================================================
+# Cross-endpoint signing-fallback reuse (Task 4)
+# =============================================================================
+
+class TestSigningFallbackCrossEndpoint:
+    async def test_probe_on_login_then_other_endpoint_reuses_winner(self):
+        devlist = _load_fixture("cloud_device_list.json")
+        session = MagicMock()
+        session.request = MagicMock(side_effect=[
+            _fake_response(json.dumps({"code": 106})),                                 # login seed -> 106
+            _fake_response(json.dumps({"code": 0, "result": {"userId": "u", "token": "t"}})),  # login probe -> ok
+            _fake_response(json.dumps(devlist)),                                        # device list -> ok (no re-probe)
+        ])
+        c = AqaraCloudClient(region="US", session=session)
+        await c.login("u", "pw")
+        winner = (c._appid, c._appkey)
+        await c.query_device_list(token="t")
+        assert session.request.call_count == 3          # NOT 4 - device list did not re-probe
+        assert (c._appid, c._appkey) == winner          # same winning pair

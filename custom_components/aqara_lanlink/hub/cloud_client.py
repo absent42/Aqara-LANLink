@@ -134,30 +134,40 @@ AREAS: dict[str, _AreaConfig] = {
     ),
     "US": _AreaConfig(
         server="https://aiot-rpc-usa.aqara.com",
-        appid="94549908487478b220992a70",
+        appid="7be1984f0556276133336839",
         appkey="Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3",
     ),
     "HMT": _AreaConfig(
         server="https://aiot-rpc-usa.aqara.com",
-        appid="94549908487478b220992a70",
+        appid="7be1984f0556276133336839",
         appkey="Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3",
     ),
     "OTHER": _AreaConfig(
         server="https://aiot-rpc-usa.aqara.com",
-        appid="94549908487478b220992a70",
+        appid="7be1984f0556276133336839",
         appkey="Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3",
     ),
     "AU": _AreaConfig(
         server="https://rpc-au.aqara.com",
-        appid="94549908487478b220992a70",
+        appid="7be1984f0556276133336839",
         appkey="Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3",
     ),
     "ME": _AreaConfig(
         server="https://rpc-au.aqara.com",
-        appid="94549908487478b220992a70",
+        appid="7be1984f0556276133336839",
         appkey="Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3",
     ),
 }
+
+
+# The 3 distinct (appid, appkey) pairs across the region table. The per-region
+# assignment in AREAS is the best first guess; AqaraCloudClient auto-probes
+# these on a code-106 ("invalid sign") reply. Order = probe order.
+_SIGNING_COMBOS: tuple[tuple[str, str], ...] = (
+    ("7be1984f0556276133336839", "Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3"),
+    ("94549908487478b220992a70", "euGhPe2rcmxwculATNj45eEtnd50zp0I"),
+    ("94549908487478b220992a70", "Jddz01kIORDYrBzqGYgpUXKBnIHfW8E3"),
+)
 
 
 # Hardcoded RSA public key used to encrypt the password hash. Extracted from
@@ -326,6 +336,11 @@ class AqaraCloudClient:
             raise ValueError(f"unknown Aqara region {region!r}")
         self._region = region
         self._area = AREAS[region]
+        # Active signing credential, seeded from the region's best-guess pair.
+        # Swapped in place by the code-106 auto-probe (see _signed_request).
+        self._appid = self._area.appid
+        self._appkey = self._area.appkey
+        self._signing_probed = False
         self._session = session
         # When no explicit session is given but a HomeAssistant instance is,
         # _request lazily borrows HA's shared aiohttp session (pooled TLS,
@@ -375,13 +390,13 @@ class AqaraCloudClient:
         """
         if token:
             source = (
-                f"Appid={self._area.appid}&Nonce={nonce}&Time={ts_ms}"
-                f"&Token={token}&{body_str}&{self._area.appkey}"
+                f"Appid={self._appid}&Nonce={nonce}&Time={ts_ms}"
+                f"&Token={token}&{body_str}&{self._appkey}"
             )
         else:
             source = (
-                f"Appid={self._area.appid}&Nonce={nonce}&Time={ts_ms}"
-                f"&{body_str}&{self._area.appkey}"
+                f"Appid={self._appid}&Nonce={nonce}&Time={ts_ms}"
+                f"&{body_str}&{self._appkey}"
             )
         return hashlib.md5(source.encode()).hexdigest()
 
@@ -392,7 +407,7 @@ class AqaraCloudClient:
             **self._CLIENT_HEADERS,
             "PhoneId": self._phone_id,
             "Area": self._region,
-            "Appid": self._area.appid,
+            "Appid": self._appid,
             "Nonce": nonce,
             "Time": ts_ms,
             "Content-Type": "application/json",
@@ -401,6 +416,72 @@ class AqaraCloudClient:
         if token:
             headers["Token"] = token
         return headers
+
+    async def _signed_request(
+        self,
+        method: str,
+        url: str,
+        *,
+        sign_source: str,
+        token: str | None = None,
+        body: str | None = None,
+    ) -> dict[str, Any]:
+        """Sign + issue a request, auto-probing alternate app credentials on a 106.
+
+        ``sign_source`` is the per-endpoint sign component (JSON body for POST,
+        sorted query string for GET). ``body`` is the POST body to send (None for GET).
+
+        On a ``code == 106`` ("invalid sign") reply - and only once per client
+        instance - re-sign with each other pair in ``_SIGNING_COMBOS`` and retry,
+        keeping the first that signs (it stays on ``self._appid/_appkey`` for later
+        calls). Probes at most once whether it succeeds or exhausts; any non-106 code
+        (including 108) is returned untouched.
+
+        The in-place probe is NOT safe under concurrent calls on the same
+        instance; that is acceptable because the probe window is a single
+        one-shot login round-trip.
+        """
+        headers = self._build_headers(sign_source, token)
+        payload = await self._request(method, url, headers, data=body)
+        if str(payload.get("code")) != "106" or self._signing_probed:
+            return payload
+
+        self._signing_probed = True
+        seed = (self._appid, self._appkey)
+        try:
+            for appid, appkey in _SIGNING_COMBOS:
+                if (appid, appkey) == seed:
+                    continue  # the seed already failed on the original call
+                self._appid, self._appkey = appid, appkey
+                headers = self._build_headers(sign_source, token)
+                retry = await self._request(method, url, headers, data=body)
+                if str(retry.get("code")) != "106":
+                    _LOGGER.info(
+                        "Aqara signing fallback for region %s: switched to appid %s.. "
+                        "after the configured credential was rejected (code 106)",
+                        self._region, appid[:10],
+                    )
+                    return retry
+        except BaseException:
+            # A probe retry raised (HTTP / non-JSON / ClientError). Never leave
+            # the instance stranded on an alternate pair: restore the seed before
+            # propagating, so the active pair changes permanently ONLY on a
+            # probe success.
+            self._appid, self._appkey = seed
+            raise
+
+        # No combo signed: restore the seed pair, surface a clear 106 while
+        # PRESERVING the server's original message (existing 106 tests match on it,
+        # and we should not discard upstream detail).
+        self._appid, self._appkey = seed
+        clarified = dict(payload)
+        original = (clarified.get("message") or "").strip()
+        suffix = (
+            f"all known app credentials were rejected for region {self._region}; "
+            f"the app may use an undocumented appid"
+        )
+        clarified["message"] = f"{original} ({suffix})".strip() if original else suffix
+        return clarified
 
     # -------------------------------------------------------------------------
     # Public API
@@ -421,10 +502,10 @@ class AqaraCloudClient:
         # (space after `,` and `:`). Using separators=(",", ":") breaks the sign.
         body_str = json.dumps(body_dict)
 
-        headers = self._build_headers(body_str)
         url = f"{self._area.server}{_LOGIN_PATH}"
-
-        payload = await self._request("POST", url, headers, data=body_str)
+        payload = await self._signed_request(
+            "POST", url, sign_source=body_str, body=body_str,
+        )
         self._raise_if_error(payload)
         result = payload.get("result") or {}
         user_id = result.get("userId")
@@ -459,9 +540,7 @@ class AqaraCloudClient:
         # parameters in alpha order and serialise without URL encoding.
         query = "size=300&startIndex=0"
         url = f"{self._area.server}{_DEVICE_LIST_PATH}?{query}"
-        headers = self._build_headers(query, token=token)
-
-        payload = await self._request("GET", url, headers)
+        payload = await self._signed_request("GET", url, sign_source=query, token=token)
         self._raise_if_error(payload)
         result = payload.get("result") or {}
         devices = result.get("devices")
@@ -516,14 +595,15 @@ class AqaraCloudClient:
         # Use default json.dumps spacing - matches the byte sequence the
         # server expects when computing the sign.
         body_str = json.dumps(body_dict)
-        headers = self._build_headers(body_str, token=token)
         url = f"{self._area.server}{_TRAIT_READ_PATH}"
 
         _LOGGER.debug(
             "query_device_traits: POST %s body=%s",
             _TRAIT_READ_PATH, body_str,
         )
-        payload = await self._request("POST", url, headers, data=body_str)
+        payload = await self._signed_request(
+            "POST", url, sign_source=body_str, token=token, body=body_str,
+        )
         self._raise_if_error(payload)
         result = payload.get("result")
         if not isinstance(result, list) or not result:
@@ -570,14 +650,15 @@ class AqaraCloudClient:
         # Use default json.dumps spacing - matches the byte sequence the
         # server expects when computing the sign.
         body_str = json.dumps(body_dict)
-        headers = self._build_headers(body_str, token=token)
         url = f"{self._area.server}{_RES_QUERY_BY_RID_PATH}"
 
         _LOGGER.debug(
             "query_resources_by_rid: POST %s body=%s",
             _RES_QUERY_BY_RID_PATH, body_str,
         )
-        payload = await self._request("POST", url, headers, data=body_str)
+        payload = await self._signed_request(
+            "POST", url, sign_source=body_str, token=token, body=body_str,
+        )
         self._raise_if_error(payload)
         result = payload.get("result")
         values: dict[str, str] = {}
@@ -624,9 +705,7 @@ class AqaraCloudClient:
         # Alphabetical order: 'area' before 'dids'.
         query = f"area={self._region}&dids={dids_json}"
         url = f"{self._area.server}{_DEV_QUERY_DETAIL_PATH}?{query}"
-        headers = self._build_headers(query, token=token)
-
-        payload = await self._request("GET", url, headers)
+        payload = await self._signed_request("GET", url, sign_source=query, token=token)
         self._raise_if_error(payload)
         result = payload.get("result")
         if not isinstance(result, list) or not result:
@@ -672,10 +751,11 @@ class AqaraCloudClient:
             "userDeviceId": user_device_id,
         }
         body_str = json.dumps(body_dict)
-        headers = self._build_headers(body_str, token=token)
         url = f"{self._area.server}{_CUSTOM_ACTION_QUERY_PATH}"
 
-        payload = await self._request("POST", url, headers, data=body_str)
+        payload = await self._signed_request(
+            "POST", url, sign_source=body_str, token=token, body=body_str,
+        )
         self._raise_if_error(payload)
         result = payload.get("result")
         if not isinstance(result, dict):
@@ -706,10 +786,11 @@ class AqaraCloudClient:
             "seqId": seq_id,
         }
         body_str = json.dumps(body_dict)
-        headers = self._build_headers(body_str, token=token)
         url = f"{self._area.server}{_SEQUENCE_RUN_PATH}"
 
-        payload = await self._request("POST", url, headers, data=body_str)
+        payload = await self._signed_request(
+            "POST", url, sign_source=body_str, token=token, body=body_str,
+        )
         self._raise_if_error(payload)
 
     async def query_collection_panels(
@@ -743,9 +824,7 @@ class AqaraCloudClient:
         # query_device_detail which JSON-encodes its dids list).
         query = f"subjectIds={did}&types=device_endpoint_panel"
         url = f"{self._area.server}{_COLLECTION_PANELS_PATH}?{query}"
-        headers = self._build_headers(query, token=token)
-
-        payload = await self._request("GET", url, headers)
+        payload = await self._signed_request("GET", url, sign_source=query, token=token)
         self._raise_if_error(payload)
 
         result = payload.get("result")
@@ -809,9 +888,7 @@ class AqaraCloudClient:
         """
         query = f"did={did}"
         url = f"{self._area.server}{_CAMERA_P2P_INFO_PATH}?{query}"
-        headers = self._build_headers(query, token=token)
-
-        payload = await self._request("GET", url, headers)
+        payload = await self._signed_request("GET", url, sign_source=query, token=token)
         self._raise_if_error(payload)
         result = payload.get("result")
         if not isinstance(result, dict):
@@ -847,10 +924,11 @@ class AqaraCloudClient:
             "p2pAppPublicKey": p2p_app_public_key_hex,
         }
         body_str = json.dumps(body_dict)
-        headers = self._build_headers(body_str, token=token)
         url = f"{self._area.server}{_CAMERA_P2P_SIGN_PATH}"
 
-        payload = await self._request("POST", url, headers, data=body_str)
+        payload = await self._signed_request(
+            "POST", url, sign_source=body_str, token=token, body=body_str,
+        )
         self._raise_if_error(payload)
         result = payload.get("result")
         if not isinstance(result, dict):
@@ -884,9 +962,7 @@ class AqaraCloudClient:
         """
         query = f"did={did}"
         url = f"{self._area.server}{_CAMERA_PTZ_POSITION_LIST_PATH}?{query}"
-        headers = self._build_headers(query, token=token)
-
-        payload = await self._request("GET", url, headers)
+        payload = await self._signed_request("GET", url, sign_source=query, token=token)
         self._raise_if_error(payload)
         result = payload.get("result")
         return list(result) if isinstance(result, list) else []
