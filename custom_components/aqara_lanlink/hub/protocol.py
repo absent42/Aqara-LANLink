@@ -187,6 +187,7 @@ def build_write(
     attrs: dict[str, Any],
     *,
     sdid: str | None = None,
+    src: str | None = None,
 ) -> dict:
     """Build a device trait write request.
 
@@ -209,6 +210,8 @@ def build_write(
     attrs:     Mapping of attribute name to the value to write.
     sdid:      Optional sub-device DID for gateway-relay framing. When
                ``None`` (default) ``data.sdid`` is set to ``device_id``.
+    src:       Optional pre-stamped src; when None, a ``3,,<ms>,,`` local-write
+               src is generated.
     """
     return {
         "seq": seq,
@@ -218,7 +221,7 @@ def build_write(
             "did": device_id,
             "sdid": sdid if sdid is not None else device_id,
             "model": model,
-            "src": f"3,,{int(time.time() * 1000)},,",
+            "src": src if src is not None else f"3,,{int(time.time() * 1000)},,",
             "value": attrs,
         },
     }
