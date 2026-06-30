@@ -678,7 +678,21 @@ def resolve_subentry_metadata(subentry: Any) -> tuple[str, str, str, str]:
     except AttributeError:
         fallback_model = ""
     model = cloud_record.get("model") or fallback_model
-    parent_did = cloud_record.get("parentDeviceId") or ""
+    # PARENT_DID drives coordinator._resolve_write_framing. Gateway-class devices
+    # (cloud devicetype 1=hub, 8=camera/standalone Wi-Fi) are their own parent on
+    # the LAN: the M3 relays writes to them addressed by did==sdid==device (PROVEN
+    # on the G350 -- did=hub/sdid=device no-ops). Force the empty own-parent
+    # sentinel for them so they get direct framing regardless of how the cloud set
+    # parentDeviceId for a relayed device. Zigbee/Thread sub-devices (devicetype 2)
+    # keep their parent hub -> framing-via-parent (the proven aeu002 path).
+    try:
+        _devtype = int(cloud_record.get("devicetype"))
+    except (TypeError, ValueError):
+        _devtype = None
+    if _devtype in (1, 8):
+        parent_did = ""
+    else:
+        parent_did = cloud_record.get("parentDeviceId") or ""
     catalog_metadata = catalog.get_display_metadata(model)
     cloud_name = cloud_record.get("deviceName") or ""
     manufacturer = (

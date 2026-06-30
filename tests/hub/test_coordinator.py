@@ -1145,6 +1145,50 @@ class TestAsyncWrite:
 
         await coord.stop()
 
+    async def test_own_parent_node_uses_direct_framing(self, monkeypatch):
+        """Standalone Wi-Fi node (camera/FP2): parent_did="" -> did==sdid==node.
+
+        PROVEN LIVE 2026-06-30: a relayed write with did==sdid==G350 (over the M3
+        tunnel) toggled the camera's OSD overlay; did=hub/sdid=G350 did nothing.
+        So an own-parent node (empty PARENT_DID, not the connected hub) must be
+        addressed directly by its own DID, NOT framed as a child of the hub.
+        """
+        node_did = "lumi3.CAMERA00000001"
+        node_model = "lumi.camera.agl010"
+        t = FakeTunnel(device_id=HUB_DID)
+        coord, _ = await _coord_with(monkeypatch, [t], model=HUB_MODEL)
+        coord.start()
+        await coord.wait_connected(timeout=1.0)
+
+        async def run_write() -> None:
+            await coord.async_write(
+                node_did, node_model, {_FakeAttr(name="14.4.85"): "0"},
+                parent_did="",
+            )
+
+        write_task = asyncio.create_task(run_write())
+        for _ in range(100):
+            if len(t.sent) >= 2:
+                break
+            await asyncio.sleep(0.01)
+        assert len(t.sent) == 2, "coordinator did not send write request"
+        write_msg = t.sent[1]
+        assert write_msg["cmd"] == LANLINK_CMD_WRITE
+        # Direct framing: did == sdid == the node, model unchanged, hub absent.
+        assert write_msg["data"]["did"] == node_did
+        assert write_msg["data"]["sdid"] == node_did
+        assert write_msg["data"]["model"] == node_model
+        assert write_msg["data"]["did"] != HUB_DID
+
+        t._queue.put_nowait({
+            "seq": write_msg["seq"],
+            "type": LANLINK_TYPE_DEVICE,
+            "cmd": LANLINK_CMD_WRITE_DONE,
+            "data": {"code": 0},
+        })
+        await asyncio.wait_for(write_task, timeout=1.0)
+        await coord.stop()
+
     async def test_raises_on_nonzero_code(self, monkeypatch):
         t = FakeTunnel(device_id=HUB_DID)
         coord, _ = await _coord_with(monkeypatch, [t])

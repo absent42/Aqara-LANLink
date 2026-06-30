@@ -367,17 +367,30 @@ class HubCoordinator:
     ) -> tuple[str, str | None]:
         """Resolve the wire ``(did, sdid)`` framing for a write.
 
-        ``parent_did`` set -> route through that parent (cluster mesh). Else a
-        write to the connected hub itself is hub-scoped. Else (legacy fallback)
-        assume the connected hub is the parent. Returns ``(wire_did, sdid)``
-        where ``sdid`` is None for a hub-scoped write (did == sdid).
+        - ``parent_did`` non-empty -> route via that parent (a Zigbee sub-device
+          of a peer hub): ``wire_did = parent_did``, ``sdid = did``.
+        - ``parent_did == ""`` (the own-parent sentinel a standalone Wi-Fi node
+          carries -- camera, FP2) OR ``did == self._device_id`` (the connected
+          hub itself) -> address the target DIRECTLY by its own DID:
+          ``wire_did = did``, ``sdid = None`` (so ``data.did == data.sdid``).
+          PROVEN LIVE 2026-06-30: a relayed write with ``did == sdid == G350``
+          toggled the camera's OSD timestamp overlay over the M3 tunnel, while
+          ``did = hub, sdid = G350`` did nothing -- the M3 routes the relay by
+          ``did`` (did=device => finds the device's tunnel; did=hub => looks for
+          a local child it doesn't own => no-op).
+        - ``parent_did is None`` (legacy callers that don't know the parent) ->
+          assume the connected hub is the parent.
+
+        Returns ``(wire_did, sdid)`` where ``sdid`` is None for a direct write.
         """
         if parent_did:
             wire_did = parent_did
-        elif did == self._device_id:
-            wire_did = did  # hub-scoped, target IS the hub
+        elif parent_did == "" or did == self._device_id:
+            # Own-parent node (standalone Wi-Fi device) or the connected hub
+            # itself: address the target directly by its own DID.
+            wire_did = did
         else:
-            wire_did = self._device_id  # legacy: connected hub is the parent
+            wire_did = self._device_id  # legacy (parent_did is None)
         sdid = None if wire_did == did else did
         return wire_did, sdid
 

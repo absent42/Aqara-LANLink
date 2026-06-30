@@ -80,6 +80,31 @@ def test_resolve_subentry_metadata_falls_back_to_model_when_cloud_silent():
     assert display_name == "lumi.camera.unknown"
 
 
+@pytest.mark.parametrize("devicetype", [1, 8, "1", "8"])
+def test_resolve_subentry_metadata_forces_empty_parent_for_gateway_class(devicetype):
+    """Gateway-class devices (devicetype 1=hub, 8=camera/standalone) are their own
+    parent on the LAN -> PARENT_DID forced empty so coordinator framing is
+    did==sdid==device, even if the cloud record carries a parentDeviceId."""
+    sub = MagicMock()
+    sub.data = {"model": "lumi.camera.agl010", "_cloud_metadata": {
+        "model": "lumi.camera.agl010", "devicetype": devicetype,
+        "parentDeviceId": "lumi1.somehub",  # relayed-by-hub: must be ignored
+    }}
+    _, parent_did, _, _ = resolve_subentry_metadata(sub)
+    assert parent_did == ""
+
+
+def test_resolve_subentry_metadata_keeps_parent_for_subdevice():
+    """A Zigbee sub-device (devicetype 2) keeps its parent hub -> framing-via-parent."""
+    sub = MagicMock()
+    sub.data = {"model": "lumi.plug.aeu002", "_cloud_metadata": {
+        "model": "lumi.plug.aeu002", "devicetype": 2,
+        "parentDeviceId": "lumi1.54ef447b3c21",
+    }}
+    _, parent_did, _, _ = resolve_subentry_metadata(sub)
+    assert parent_did == "lumi1.54ef447b3c21"
+
+
 def test_v3_camera_models_route_to_camera_device_via_is_camera_model():
     """Models marked Camera in the V3 catalogue must be detectable by the
     dispatch logic. is_camera_model() is the gate __init__.py's dispatch

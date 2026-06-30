@@ -250,5 +250,507 @@
       "trait_code": "AnomalySoundDetected"
     }
   },
-  "whitelabels": {}
+  "whitelabels": {},
+  "settings": {
+    "1.16.85": {
+      "name": "Set sensitivity",
+      "entity_category": "config",
+      "resource_code": "set_sensitive",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.1.1000": {
+      "name": "Alert Volume",
+      "entity_category": "config",
+      "resource_code": "alarm_bell_volume",
+      "platform": "number",
+      "is_float": false,
+      "min": 0,
+      "max": 100
+    },
+    "14.1.113": {
+      "name": "Alert Duration",
+      "entity_category": "config",
+      "resource_code": "alarm_time_length",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.1.85": {
+      "name": "Alert Ringtone",
+      "entity_category": "config",
+      "resource_code": "alarm_bell_index",
+      "platform": "select",
+      "enum_values": {
+        "0": "Police car sound 1",
+        "1": "Police car sound 2",
+        "2": "Safety accident sound",
+        "3": "Missile countdown",
+        "4": "Ghost scream",
+        "5": "Sniper rifle",
+        "6": "Battle sound",
+        "7": "Air raid alarm",
+        "8": "Dog barking"
+      }
+    },
+    "14.10.85": {
+      "name": "Hub language",
+      "entity_category": "config",
+      "resource_code": "gateway_language",
+      "platform": "select",
+      "enum_values": {
+        "0": "default",
+        "1": "Chinese",
+        "2": "English",
+        "3": "Cantonese",
+        "4": "Spanish",
+        "5": "Russian",
+        "6": "Korean",
+        "7": "Brazilian",
+        "8": "German",
+        "9": "French",
+        "10": "Italian",
+        "11": "Japanese"
+      }
+    },
+    "14.104.85": {
+      "name": "Motion detection sensitivity",
+      "entity_category": "config",
+      "resource_code": "md_sensivity",
+      "platform": "select",
+      "enum_values": {
+        "0": "low",
+        "1": "mid",
+        "2": "high"
+      }
+    },
+    "14.105.85": {
+      "name": "Motion detection interval",
+      "entity_category": "config",
+      "resource_code": "md_interval",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.106.85": {
+      "name": "Motion detection area",
+      "entity_category": "config",
+      "resource_code": "md_region",
+      "platform": "text"
+    },
+    "14.107.85": {
+      "name": "Motion detection period",
+      "entity_category": "config",
+      "resource_code": "md_duration",
+      "platform": "text"
+    },
+    "14.108.85": {
+      "name": "AI sound detection interval",
+      "entity_category": "config",
+      "resource_code": "cry_interval",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.109.85": {
+      "name": "AI sound detection period",
+      "entity_category": "config",
+      "resource_code": "cry_duration",
+      "platform": "text"
+    },
+    "14.11.85": {
+      "name": "System Volume",
+      "entity_category": "config",
+      "resource_code": "system_volume",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.110.85": {
+      "name": "Face recognition interval",
+      "entity_category": "config",
+      "resource_code": "face_interval",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.111.85": {
+      "name": "Face detection Time",
+      "entity_category": "config",
+      "resource_code": "face_duration",
+      "platform": "text"
+    },
+    "14.112.85": {
+      "name": "Gesture Recognition Region",
+      "entity_category": "config",
+      "resource_code": "gesture_region",
+      "platform": "text"
+    },
+    "14.113.85": {
+      "name": "Gesture recognition period",
+      "entity_category": "config",
+      "resource_code": "gesture_duration",
+      "platform": "text"
+    },
+    "14.114.85": {
+      "name": "Person Detection Interval",
+      "entity_category": "config",
+      "resource_code": "body_interval",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.115.85": {
+      "name": "Person Detection Period",
+      "entity_category": "config",
+      "resource_code": "body_duration",
+      "platform": "text"
+    },
+    "14.116.85": {
+      "name": "Pet Detection Frequency",
+      "entity_category": "config",
+      "resource_code": "pet_interval",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.117.85": {
+      "name": "Animal Detection Period",
+      "entity_category": "config",
+      "resource_code": "pet_duration",
+      "platform": "text"
+    },
+    "14.118.85": {
+      "name": "Detection type",
+      "entity_category": "config",
+      "resource_code": "set_detection_mode",
+      "platform": "select",
+      "enum_values": {
+        "0": "Motion detection",
+        "1": "Baby Crying detection",
+        "2": "Face recognition",
+        "3": "Person detection",
+        "4": "Animal detection",
+        "5": "Gesture recognition"
+      }
+    },
+    "14.119.85": {
+      "name": "Abnormal sound detection switch",
+      "entity_category": "config",
+      "resource_code": "soundtrigger_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.122.85": {
+      "name": "Person Tracking Switch",
+      "entity_category": "config",
+      "resource_code": "humans_track_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.123.85": {
+      "name": "Pet Tracking Switch",
+      "entity_category": "config",
+      "resource_code": "pets_track_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.125.85": {
+      "name": "Timed sleep switch",
+      "entity_category": "config",
+      "resource_code": "time_sleep_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.13.85": {
+      "name": "Device Identification",
+      "entity_category": "config",
+      "resource_code": "device_identify",
+      "platform": "text"
+    },
+    "14.135.85": {
+      "name": "Time-Lapse Mode period",
+      "entity_category": "config",
+      "resource_code": "camera_timelapse_duration",
+      "platform": "text"
+    },
+    "14.137.85": {
+      "name": "Pet Detection Sensitivity",
+      "entity_category": "config",
+      "resource_code": "pet_sensivity",
+      "platform": "select",
+      "enum_values": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+      }
+    },
+    "14.14.85": {
+      "name": "Record cloud video",
+      "entity_category": "config",
+      "resource_code": "cloud_small_video",
+      "platform": "select",
+      "enum_values": {
+        "0": "Default",
+        "1": "Recording",
+        "22": "Integrated Events",
+        "27": "Security Integrated Events"
+      }
+    },
+    "14.171.85": {
+      "name": "Baby crying detection",
+      "entity_category": "config",
+      "resource_code": "sound2_detect_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.173.85": {
+      "name": "Alarm sound recognition switch",
+      "entity_category": "config",
+      "resource_code": "sound4_detect_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.174.85": {
+      "name": "Cough recognition switch",
+      "entity_category": "config",
+      "resource_code": "sound3_detect_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.2.1000": {
+      "name": "Doorbell volume",
+      "entity_category": "config",
+      "resource_code": "doorbell_bell_volume",
+      "platform": "number",
+      "is_float": false
+    },
+    "14.20.85": {
+      "name": "Recording mode",
+      "entity_category": "config",
+      "resource_code": "record_mode",
+      "platform": "text"
+    },
+    "14.38.85": {
+      "name": "Scheduled Sleep Period",
+      "entity_category": "config",
+      "resource_code": "time_sleep",
+      "platform": "text"
+    },
+    "14.4.85": {
+      "name": "OSD time watermark",
+      "entity_category": "config",
+      "resource_code": "osd_enable",
+      "platform": "text"
+    },
+    "14.43.85": {
+      "name": "Playback control",
+      "entity_category": "config",
+      "resource_code": "play_ctrl",
+      "platform": "select",
+      "enum_values": {
+        "0": "Default Mode",
+        "1": "Mode 1",
+        "2": "Mode 2",
+        "3": "Mode 3",
+        "4": "Mode 4",
+        "5": "Mode 5",
+        "6": "Mode 6",
+        "7": "Mode 7"
+      }
+    },
+    "14.65.85": {
+      "name": "Camera Volume",
+      "entity_category": "config",
+      "resource_code": "camera_volume",
+      "platform": "number",
+      "is_float": false,
+      "min": 0,
+      "max": 100
+    },
+    "14.68.85": {
+      "name": "Screen Flip",
+      "entity_category": "config",
+      "resource_code": "image_flip",
+      "platform": "select",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Horizontal flip",
+        "2": "Vertical flip",
+        "3": "Horizontal and vertical flip"
+      }
+    },
+    "14.70.85": {
+      "name": "Motion detection switch",
+      "entity_category": "config",
+      "resource_code": "mdtrigger_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.73.85": {
+      "name": "Infrared Night Vision",
+      "entity_category": "config",
+      "resource_code": "ir_cut",
+      "platform": "select",
+      "enum_values": {
+        "0": "Always off",
+        "1": "Always on",
+        "2": "Auto-switching"
+      }
+    },
+    "14.78.85": {
+      "name": "Enable/disable pet detection",
+      "entity_category": "config",
+      "resource_code": "pets_detect_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.87.85": {
+      "name": "Pan-tilt Smart mode",
+      "entity_category": "config",
+      "resource_code": "ptz_auto_mode",
+      "platform": "select",
+      "enum_values": {
+        "0": "None",
+        "1": "Patrol",
+        "2": "Person tracking",
+        "3": "Pet tracking",
+        "4": "Sound source location"
+      }
+    },
+    "4.27.85": {
+      "name": "Time-lapse switch",
+      "entity_category": "config",
+      "resource_code": "camera_timelapse_switch",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.28.85": {
+      "name": "Time-Lapse Mode notification",
+      "entity_category": "config",
+      "resource_code": "camera_timelapse_push",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.46.85": {
+      "name": "Mute/Unmute",
+      "entity_category": "config",
+      "resource_code": "mute_mode",
+      "platform": "select",
+      "enum_values": {
+        "0": "Normal",
+        "1": "Mute"
+      }
+    },
+    "4.48.85": {
+      "name": "Gesture detection anti-mistouch switch",
+      "entity_category": "config",
+      "resource_code": "gesture_detect_protection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.50.85": {
+      "name": "Motion detection recording switch",
+      "entity_category": "config",
+      "resource_code": "md_record_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.51.85": {
+      "name": "Motion detection push switch",
+      "entity_category": "config",
+      "resource_code": "md_push_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.52.85": {
+      "name": "AI Sound Detection Recording Switch",
+      "entity_category": "config",
+      "resource_code": "cry_record_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.54.85": {
+      "name": "Face recognition recording switch",
+      "entity_category": "config",
+      "resource_code": "face_record_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.55.85": {
+      "name": "Face recognition push switch",
+      "entity_category": "config",
+      "resource_code": "face_push_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.56.85": {
+      "name": "Human detection recording switch",
+      "entity_category": "config",
+      "resource_code": "body_record_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.57.85": {
+      "name": "Human detection push switch",
+      "entity_category": "config",
+      "resource_code": "body_push_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.58.85": {
+      "name": "Pet detection recording switch",
+      "entity_category": "config",
+      "resource_code": "pet_record_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.59.85": {
+      "name": "Pet detection push switch",
+      "entity_category": "config",
+      "resource_code": "pet_push_enable",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "8.0.2032": {
+      "name": "Turn Off The Indicator Light",
+      "entity_category": "config",
+      "resource_code": "device_night_tip_light",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    }
+  },
+  "dropped_rids": {
+    "13.173.85": "event",
+    "13.174.85": "event",
+    "13.176.85": "event",
+    "13.95.85": "event",
+    "13.96.85": "event",
+    "13.97.85": "event",
+    "13.98.85": "event",
+    "14.1.111": "sensor",
+    "14.136.85": "dual",
+    "14.74.85": "dual",
+    "14.75.85": "dual",
+    "14.76.85": "dual",
+    "14.77.85": "dual",
+    "14.86.85": "dual",
+    "3.21.85": "sensor",
+    "3.22.85": "sensor"
+  }
 }
