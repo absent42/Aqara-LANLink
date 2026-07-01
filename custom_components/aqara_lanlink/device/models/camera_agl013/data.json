@@ -268,5 +268,378 @@
       "writable": true
     }
   },
-  "whitelabels": {}
+  "whitelabels": {},
+  "settings": {
+    "1.10.85": {
+      "name": "Doorbell press volume",
+      "entity_category": "config",
+      "resource_code": "Doorbell press volume",
+      "platform": "number",
+      "is_float": false,
+      "min": 0,
+      "max": 100,
+      "unit": "%"
+    },
+    "14.10.85": {
+      "name": "Voice prompt language",
+      "entity_category": "config",
+      "resource_code": "Voice prompt language",
+      "platform": "select",
+      "enum_values": {
+        "0": "default",
+        "1": "Chinese",
+        "2": "English",
+        "3": "Cantonese",
+        "4": "Spanish",
+        "5": "Russian",
+        "6": "Korean",
+        "7": "Portuguese",
+        "8": "German",
+        "9": "French",
+        "10": "Italian",
+        "11": "Japanese",
+        "12": "Polish",
+        "13": "Arabic"
+      }
+    },
+    "14.100.85": {
+      "name": "Intrusion Zone Detection Time Interval",
+      "entity_category": "config",
+      "resource_code": "Intrusion Zone Detection Time Interval",
+      "platform": "number",
+      "is_float": false,
+      "min": 15,
+      "max": 600,
+      "unit": "s"
+    },
+    "14.104.85": {
+      "name": "Motion Detection Sensitivity",
+      "entity_category": "config",
+      "resource_code": "Motion Detection Sensitivity",
+      "platform": "select",
+      "enum_values": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+      }
+    },
+    "14.105.85": {
+      "name": "Motion Detection Time Interval",
+      "entity_category": "config",
+      "resource_code": "Motion Detection Time Interval",
+      "platform": "number",
+      "is_float": false,
+      "min": 15,
+      "max": 600,
+      "unit": "s"
+    },
+    "14.106.85": {
+      "name": "Motion Detection Region",
+      "entity_category": "config",
+      "resource_code": "Motion Detection Region",
+      "platform": "text"
+    },
+    "14.107.85": {
+      "name": "Motion Detection Period",
+      "entity_category": "config",
+      "resource_code": "Motion Detection Period",
+      "platform": "text"
+    },
+    "14.11.85": {
+      "name": "Device volume",
+      "platform": "number",
+      "entity_category": "config",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "is_float": false
+    },
+    "14.114.85": {
+      "name": "Person Detection Time Interval",
+      "entity_category": "config",
+      "resource_code": "Person Detection Time Interval",
+      "platform": "number",
+      "is_float": false,
+      "min": 15,
+      "max": 600,
+      "unit": "s"
+    },
+    "14.115.85": {
+      "name": "Person Detection Time Period",
+      "entity_category": "config",
+      "resource_code": "Person Detection Time Period",
+      "platform": "text"
+    },
+    "14.120.85": {
+      "name": "Power Frequency",
+      "platform": "select",
+      "entity_category": "config",
+      "enum_values": {
+        "0": "50hz",
+        "1": "60hz"
+      }
+    },
+    "14.125.85": {
+      "name": "Privacy mode",
+      "entity_category": "config",
+      "resource_code": "Privacy mode",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.127.85": {
+      "name": "Privacy Masking Zone",
+      "entity_category": "config",
+      "resource_code": "Privacy Masking Zone",
+      "platform": "text"
+    },
+    "14.134.85": {
+      "name": "Timestamp format",
+      "platform": "select",
+      "entity_category": "config",
+      "enum_values": {
+        "%Y-%m-%d %H:%M:%S": "Y-M-D h:m:s",
+        "%m-%d-%Y %H:%M:%S": "M-D-Y h:m:s",
+        "%d-%m-%Y %H:%M:%S": "D-M-Y h:m:s"
+      }
+    },
+    "14.136.85": {
+      "name": "Person Detection Sensitivity",
+      "entity_category": "config",
+      "resource_code": "Person Detection Sensitivity",
+      "platform": "select",
+      "enum_values": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+      }
+    },
+    "14.159.85": {
+      "name": "Vehicle Detection",
+      "entity_category": "config",
+      "resource_code": "Vehicle Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.192.85": {
+      "name": "Video Brightness",
+      "entity_category": "config",
+      "resource_code": "Video Brightness",
+      "platform": "text"
+    },
+    "14.21.85": {
+      "name": "Turn off indicator light period",
+      "entity_category": "config",
+      "resource_code": "Turn off indicator light period",
+      "platform": "text"
+    },
+    "14.38.85": {
+      "name": "Sleep schedule",
+      "entity_category": "config",
+      "resource_code": "Sleep schedule",
+      "platform": "text"
+    },
+    "14.4.85": {
+      "name": "Timestamp Overlay",
+      "entity_category": "config",
+      "resource_code": "Timestamp Overlay",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.47.85": {
+      "name": "Number of rings",
+      "entity_category": "config",
+      "resource_code": "Number of rings",
+      "platform": "number",
+      "is_float": false,
+      "min": 1,
+      "max": 2
+    },
+    "14.70.85": {
+      "name": "Motion Detection",
+      "entity_category": "config",
+      "resource_code": "Motion Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.73.85": {
+      "name": "Infrared Night Vision",
+      "entity_category": "config",
+      "resource_code": "Infrared Night Vision",
+      "platform": "select",
+      "enum_values": {
+        "0": "Always off",
+        "1": "Always on",
+        "2": "Auto"
+      }
+    },
+    "14.75.85": {
+      "name": "Face Detection",
+      "entity_category": "config",
+      "resource_code": "Face Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.77.701": {
+      "name": "Person Detection Region",
+      "entity_category": "config",
+      "resource_code": "Person Detection Region",
+      "platform": "text"
+    },
+    "14.77.85": {
+      "name": "Person Detection",
+      "entity_category": "config",
+      "resource_code": "Person Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.78.85": {
+      "name": "Animal Detection",
+      "entity_category": "config",
+      "resource_code": "Animal Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "14.8.85": {
+      "name": "Doorbell outdoor unit ringtone",
+      "entity_category": "config",
+      "resource_code": "Doorbell outdoor unit ringtone",
+      "platform": "select",
+      "enum_values": {
+        "1": "Ringtone 1",
+        "2": "Ringtone 2",
+        "3": "Ringtone 3"
+      }
+    },
+    "14.85.85": {
+      "name": "Intrusion Zone Sensitivity",
+      "entity_category": "config",
+      "resource_code": "Intrusion Zone Sensitivity",
+      "platform": "select",
+      "enum_values": {
+        "0": "Low",
+        "1": "High"
+      }
+    },
+    "14.92.85": {
+      "name": "Do Not Disturb",
+      "entity_category": "config",
+      "resource_code": "Do Not Disturb",
+      "platform": "text"
+    },
+    "4.151.85": {
+      "name": "Mark as lost",
+      "entity_category": "config",
+      "resource_code": "Mark as lost",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.187.85": {
+      "name": "10-Minute Timed Snapshot",
+      "entity_category": "config",
+      "resource_code": "10-Minute Timed Snapshot",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.193.85": {
+      "name": "Fire Detection",
+      "entity_category": "config",
+      "resource_code": "Fire Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.29.700": {
+      "name": "Intrusion Zone Detection Period",
+      "entity_category": "config",
+      "resource_code": "Intrusion Zone Detection Period",
+      "platform": "text"
+    },
+    "4.29.701": {
+      "name": "Intrusion Zone Fence Area",
+      "entity_category": "config",
+      "resource_code": "Intrusion Zone Fence Area",
+      "platform": "text"
+    },
+    "4.29.85": {
+      "name": "Intrusion Zone Detection",
+      "entity_category": "config",
+      "resource_code": "Intrusion Zone Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.34.85": {
+      "name": "Intrusion Zone - person entering fence",
+      "entity_category": "config",
+      "resource_code": "Intrusion Zone - person entering fence",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.38.85": {
+      "name": "Intrusion Zone - person leaving fence",
+      "entity_category": "config",
+      "resource_code": "Intrusion Zone - person leaving fence",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.60.85": {
+      "name": "Logo watermark",
+      "entity_category": "config",
+      "resource_code": "Logo watermark",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.63.85": {
+      "name": "Disable audio recording",
+      "entity_category": "config",
+      "resource_code": "Disable audio recording",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.66.85": {
+      "name": "Tamper Alarm",
+      "entity_category": "config",
+      "resource_code": "Tamper Alarm",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.89.85": {
+      "name": "Device offline notification",
+      "entity_category": "config",
+      "resource_code": "Device offline notification",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.94.85": {
+      "name": "Package Detection",
+      "entity_category": "config",
+      "resource_code": "Package Detection",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    },
+    "4.99.85": {
+      "name": "Anti-Theft Lock",
+      "entity_category": "config",
+      "resource_code": "Anti-Theft Lock",
+      "platform": "switch",
+      "on_value": "1",
+      "off_value": "0"
+    }
+  }
 }
