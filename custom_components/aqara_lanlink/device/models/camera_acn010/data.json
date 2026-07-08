@@ -117,18 +117,6 @@
       "platform": "number",
       "resource_code": "md_interval"
     },
-    "14.106.85": {
-      "entity_category": "config",
-      "name": "Motion detection area",
-      "platform": "text",
-      "resource_code": "md_region"
-    },
-    "14.107.85": {
-      "entity_category": "config",
-      "name": "Motion detection period",
-      "platform": "text",
-      "resource_code": "md_duration"
-    },
     "14.70.85": {
       "entity_category": "config",
       "name": "Motion detection switch",
@@ -263,5 +251,15 @@
       "trait_code": "PackageRecognitionReport"
     }
   },
-  "whitelabels": {}
+  "whitelabels": {},
+  "composites": {
+    "14.106.85": {
+      "codec": "region_json",
+      "name": "Motion detection area"
+    },
+    "14.107.85": {
+      "codec": "schedule_json",
+      "name": "Motion detection period"
+    }
+  }
 }

@@ -203,18 +203,6 @@
       "platform": "number",
       "resource_code": "md_interval"
     },
-    "14.106.85": {
-      "entity_category": "config",
-      "name": "Motion detection area",
-      "platform": "text",
-      "resource_code": "md_region"
-    },
-    "14.107.85": {
-      "entity_category": "config",
-      "name": "Motion detection period",
-      "platform": "text",
-      "resource_code": "md_duration"
-    },
     "14.108.85": {
       "entity_category": "config",
       "is_float": false,
@@ -235,12 +223,6 @@
       "name": "Person Detection Interval",
       "platform": "number",
       "resource_code": "body_interval"
-    },
-    "14.115.85": {
-      "entity_category": "config",
-      "name": "Person Detection Period",
-      "platform": "text",
-      "resource_code": "body_duration"
     },
     "14.118.85": {
       "entity_category": "config",
@@ -289,12 +271,6 @@
       "name": "Timestamp watermark format settings",
       "platform": "text",
       "resource_code": "osd_format"
-    },
-    "14.135.85": {
-      "entity_category": "config",
-      "name": "Time-Lapse Mode period",
-      "platform": "text",
-      "resource_code": "camera_timelapse_duration"
     },
     "14.136.85": {
       "entity_category": "config",
@@ -438,12 +414,6 @@
       "platform": "select",
       "resource_code": "format_sd"
     },
-    "14.38.85": {
-      "entity_category": "config",
-      "name": "Scheduled Sleep Period",
-      "platform": "text",
-      "resource_code": "time_sleep"
-    },
     "14.4.85": {
       "entity_category": "config",
       "name": "OSD time watermark",
@@ -522,12 +492,6 @@
       "on_value": "1",
       "platform": "switch",
       "resource_code": "human_detect_enable"
-    },
-    "14.88.701": {
-      "entity_category": "config",
-      "name": "Default Position",
-      "platform": "text",
-      "resource_code": "PTZ_home_point"
     },
     "14.88.702": {
       "entity_category": "config",
@@ -750,5 +714,31 @@
       "trait_code": "VehicleDetected"
     }
   },
-  "whitelabels": {}
+  "whitelabels": {},
+  "composites": {
+    "14.106.85": {
+      "codec": "region_json",
+      "name": "Motion detection area"
+    },
+    "14.107.85": {
+      "codec": "schedule_json",
+      "name": "Motion detection period"
+    },
+    "14.115.85": {
+      "codec": "schedule_json",
+      "name": "Person Detection Period"
+    },
+    "14.135.85": {
+      "codec": "schedule_json",
+      "name": "Time-Lapse Mode period"
+    },
+    "14.38.85": {
+      "codec": "schedule_json",
+      "name": "Scheduled Sleep Period"
+    },
+    "14.88.701": {
+      "codec": "ptz_preset_json",
+      "name": "Default Position"
+    }
+  }
 }

@@ -175,12 +175,6 @@
       "resource_code": "cry_interval",
       "unit": "seconds"
     },
-    "14.109.85": {
-      "entity_category": "config",
-      "name": "Sound-detection time period",
-      "platform": "text",
-      "resource_code": "cry_duration"
-    },
     "14.11.85": {
       "entity_category": "config",
       "is_float": false,
@@ -195,24 +189,6 @@
       "platform": "number",
       "resource_code": "face_interval",
       "unit": "seconds"
-    },
-    "14.111.85": {
-      "entity_category": "config",
-      "name": "Face-recognition time period",
-      "platform": "text",
-      "resource_code": "face_duration"
-    },
-    "14.115.85": {
-      "entity_category": "config",
-      "name": "Human-form detection time period",
-      "platform": "text",
-      "resource_code": "body_duration"
-    },
-    "14.117.85": {
-      "entity_category": "config",
-      "name": "Pet-recognition time period",
-      "platform": "text",
-      "resource_code": "pet_duration"
     },
     "14.118.85": {
       "entity_category": "config",
@@ -254,12 +230,6 @@
       "platform": "text",
       "resource_code": "osd_format"
     },
-    "14.135.85": {
-      "entity_category": "config",
-      "name": "Time-lapse photography period",
-      "platform": "text",
-      "resource_code": "camera_timelapse_duration"
-    },
     "14.137.85": {
       "entity_category": "config",
       "enum_values": {
@@ -294,12 +264,6 @@
       "platform": "select",
       "resource_code": "sound_sensivity"
     },
-    "14.144.85": {
-      "entity_category": "config",
-      "name": "Masking-detection time period",
-      "platform": "text",
-      "resource_code": "occlusion_detection_duration"
-    },
     "14.148.85": {
       "entity_category": "config",
       "enum_values": {
@@ -318,12 +282,6 @@
       "platform": "number",
       "resource_code": "pir_interval"
     },
-    "14.159.701": {
-      "entity_category": "config",
-      "name": "Vehicle-recognition detection region",
-      "platform": "text",
-      "resource_code": "vehicle_detect_region"
-    },
     "14.159.85": {
       "entity_category": "config",
       "name": "Enable / disable vehicle recognition",
@@ -331,12 +289,6 @@
       "on_value": "1",
       "platform": "switch",
       "resource_code": "vehicle_detect_enable"
-    },
-    "14.162.85": {
-      "entity_category": "config",
-      "name": "Vehicle-recognition time period",
-      "platform": "text",
-      "resource_code": "vehicle_duration"
     },
     "14.163.85": {
       "entity_category": "config",
@@ -495,12 +447,6 @@
       "platform": "select",
       "resource_code": "playback_channel"
     },
-    "14.38.85": {
-      "entity_category": "config",
-      "name": "Scheduled sleep period",
-      "platform": "text",
-      "resource_code": "time_sleep"
-    },
     "14.4.85": {
       "entity_category": "config",
       "name": "OSD time watermark",
@@ -550,18 +496,6 @@
       "platform": "select",
       "resource_code": "image_flip"
     },
-    "14.72.700": {
-      "entity_category": "config",
-      "name": "Lens-masking detection time period",
-      "platform": "text",
-      "resource_code": "lens_hide_duration"
-    },
-    "14.72.701": {
-      "entity_category": "config",
-      "name": "Lens-masking detection region",
-      "platform": "text",
-      "resource_code": "lens_hide_region"
-    },
     "14.74.85": {
       "entity_category": "config",
       "name": "Enable / disable camera",
@@ -570,18 +504,6 @@
       "platform": "switch",
       "resource_code": "set_video"
     },
-    "14.75.701": {
-      "entity_category": "config",
-      "name": "Face-recognition detection region",
-      "platform": "text",
-      "resource_code": "face_detect_region"
-    },
-    "14.77.701": {
-      "entity_category": "config",
-      "name": "Human-form recognition detection region",
-      "platform": "text",
-      "resource_code": "body_region_set"
-    },
     "14.77.85": {
       "entity_category": "config",
       "name": "Enable / disable human-form detection",
@@ -589,18 +511,6 @@
       "on_value": "1",
       "platform": "switch",
       "resource_code": "human_detect_enable"
-    },
-    "14.90.700": {
-      "entity_category": "config",
-      "name": "Package-recognition detection time period",
-      "platform": "text",
-      "resource_code": "package_detect_duration"
-    },
-    "14.90.701": {
-      "entity_category": "config",
-      "name": "Package-recognition detection region",
-      "platform": "text",
-      "resource_code": "pets_detect_region"
     },
     "4.111.85": {
       "entity_category": "config",
@@ -872,5 +782,67 @@
       "trait_code": "PackageRecognitionReport"
     }
   },
-  "whitelabels": {}
+  "whitelabels": {},
+  "composites": {
+    "14.109.85": {
+      "codec": "schedule_json",
+      "name": "Sound-detection time period"
+    },
+    "14.111.85": {
+      "codec": "schedule_json",
+      "name": "Face-recognition time period"
+    },
+    "14.115.85": {
+      "codec": "schedule_json",
+      "name": "Human-form detection time period"
+    },
+    "14.117.85": {
+      "codec": "schedule_json",
+      "name": "Pet-recognition time period"
+    },
+    "14.135.85": {
+      "codec": "schedule_json",
+      "name": "Time-lapse photography period"
+    },
+    "14.144.85": {
+      "codec": "schedule_json",
+      "name": "Masking-detection time period"
+    },
+    "14.159.701": {
+      "codec": "region_json",
+      "name": "Vehicle-recognition detection region"
+    },
+    "14.162.85": {
+      "codec": "schedule_json",
+      "name": "Vehicle-recognition time period"
+    },
+    "14.38.85": {
+      "codec": "schedule_json",
+      "name": "Scheduled sleep period"
+    },
+    "14.72.700": {
+      "codec": "schedule_json",
+      "name": "Lens-masking detection time period"
+    },
+    "14.72.701": {
+      "codec": "region_json",
+      "name": "Lens-masking detection region"
+    },
+    "14.75.701": {
+      "codec": "region_json",
+      "name": "Face-recognition detection region"
+    },
+    "14.77.701": {
+      "codec": "region_json",
+      "name": "Human-form recognition detection region"
+    },
+    "14.90.700": {
+      "codec": "schedule_json",
+      "name": "Package-recognition detection time period"
+    },
+    "14.90.701": {
+      "codec": "region_json",
+      "name": "Package-recognition detection region"
+    }
+  }
 }
