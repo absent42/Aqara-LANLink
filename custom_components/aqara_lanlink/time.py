@@ -16,7 +16,9 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
+from .device import catalog
 from .device.composites.entities import CompositeTime
+from .device.composites.setup import composite_entities_for_platform
 from .entity import setup_descriptor_platform
 
 
@@ -30,12 +32,9 @@ async def async_setup_entry(
 
     def build(hub, device, subentry) -> list:
         entities: list = []
-        for controller in controllers.get(device.did, []):
-            for field in controller.codec.fields:
-                if field.platform == "time":
-                    entities.append(
-                        CompositeTime(hub, device, subentry, controller, field)
-                    )
+        decls = catalog.composites_for_model(device.MODEL)
+        entities.extend(composite_entities_for_platform(
+            hub, device, subentry, controllers, "time", decls))
         return entities
 
     await setup_descriptor_platform(entry, async_add_entities, build)

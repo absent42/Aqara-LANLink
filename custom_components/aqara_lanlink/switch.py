@@ -13,6 +13,8 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
+from .device import catalog
+from .device.composites.setup import composite_entities_for_platform
 from .device.descriptors import SwitchDescriptor
 from .entity import AqaraEntity, build_descriptor_entities, setup_descriptor_platform
 
@@ -23,13 +25,18 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Build a switch per `SwitchDescriptor` per device."""
-    await setup_descriptor_platform(
-        entry,
-        async_add_entities,
-        lambda hub, device, subentry: build_descriptor_entities(
+    controllers = getattr(entry.runtime_data, "composite_controllers", {})
+
+    def build(hub, device, subentry) -> list:
+        entities = build_descriptor_entities(
             hub, device, subentry, SwitchDescriptor, AqaraSwitch,
-        ),
-    )
+        )
+        decls = catalog.composites_for_model(device.MODEL)
+        entities.extend(composite_entities_for_platform(
+            hub, device, subentry, controllers, "switch", decls))
+        return entities
+
+    await setup_descriptor_platform(entry, async_add_entities, build)
 
 
 class AqaraSwitch(AqaraEntity, SwitchEntity):

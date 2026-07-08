@@ -14,6 +14,8 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
+from .device import catalog
+from .device.composites.setup import composite_entities_for_platform
 from .device.descriptors import NumberDescriptor
 from .entity import AqaraEntity, build_descriptor_entities, setup_descriptor_platform
 from .ptz import commands as _ptz_cmd
@@ -42,6 +44,7 @@ async def async_setup_entry(
     drives their warm-session `PtzController`.
     """
     ptz_controllers = getattr(entry.runtime_data, "ptz_controllers", {})
+    controllers = getattr(entry.runtime_data, "composite_controllers", {})
 
     async def build(hub, device, subentry) -> list:
         entities = build_descriptor_entities(
@@ -51,6 +54,9 @@ async def async_setup_entry(
         controller = ptz_controllers.get(device.did)
         if controller is not None:
             entities.extend(_ptz_numbers_for_device(hub, device, subentry, controller))
+        decls = catalog.composites_for_model(device.MODEL)
+        entities.extend(composite_entities_for_platform(
+            hub, device, subentry, controllers, "number", decls))
         return entities
 
     await setup_descriptor_platform(entry, async_add_entities, build)
