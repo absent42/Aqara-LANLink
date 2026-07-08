@@ -30,6 +30,7 @@ class CompositeController:
         self._codec = codec
         self._attr = AttrSpec(name=rid, resource_id=rid)
         self._fields: dict[str, Any] = dict(codec.defaults())
+        self._seeded = False
         self._listeners: list[Callable[[], None]] = []
 
     @property
@@ -40,23 +41,44 @@ class CompositeController:
     def codec(self):
         return self._codec
 
+    @property
+    def seeded(self) -> bool:
+        """True once a real device value has been decoded in.
+
+        A composite rid has no local read path, so its sibling fields come
+        entirely from the cloud seed. Until that lands, ``_fields`` is only
+        codec defaults - writing then would clobber the device's real value
+        with defaults. Entities key their availability off this.
+        """
+        return self._seeded
+
     def seed(self, wire: str) -> None:
         """Decode ``wire`` into the field dict. Bad wire keeps defaults."""
         try:
-            self._fields = self._codec.decode(wire)
+            fields = self._codec.decode(wire)
         except Exception:  # noqa: BLE001
             _LOGGER.warning("composite %s: undecodable seed %r", self._rid, wire)
             return
+        self._fields = fields
+        self._seeded = True
         self._notify()
 
     def get(self, field_name: str) -> Any:
         return self._fields.get(field_name, self._codec.defaults()[field_name])
 
     async def async_set(self, field_name: str, value: Any) -> None:
-        """Set one field, re-encode ALL fields, and write to the device."""
-        self._fields[field_name] = value
-        wire = self._codec.encode(self._fields)
+        """Set one field, re-encode ALL fields, and write to the device.
+
+        Encode/write happen on a COPY; ``_fields`` is committed only after the
+        write succeeds. A failed encode (e.g. invalid schedule repeat) or write
+        therefore leaves the controller's state untouched - it never poisons a
+        sibling field for the next write.
+        """
+        new_fields = dict(self._fields)
+        new_fields[field_name] = value
+        wire = self._codec.encode(new_fields)          # may raise -> state untouched
         await self._device.async_write({self._attr: wire})
+        self._fields = new_fields                      # commit only on success
         self._notify()
 
     def add_listener(self, cb: Callable[[], None]) -> Callable[[], None]:

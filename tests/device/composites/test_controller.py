@@ -103,3 +103,43 @@ async def test_async_set_notifies_listeners():
     c.add_listener(lambda: calls.append(1))
     await c.async_set("enabled", False)
     assert calls == [1]
+
+
+# --- review fixes: state-poisoning, seeded gating ---
+
+def test_seeded_flag():
+    c = make()
+    assert c.seeded is False
+    c.seed("5162040")
+    assert c.seeded is True
+
+def test_malformed_seed_keeps_unseeded():
+    c = make()
+    c.seed("not-an-int")
+    assert c.seeded is False and c.get("start") == __import__("datetime").time(0, 0)
+
+async def test_failed_encode_does_not_poison_state():
+    from datetime import time
+    c = make(rid="14.107.85", codec="schedule_json")
+    c.seed('{"starttime":"01:00","endtime":"23:59","repeat":[1,1,1,1,1,1,1]}')
+    # invalid repeat -> encode raises, state must be untouched
+    import pytest
+    with pytest.raises(ValueError):
+        await c.async_set("repeat", "12")
+    assert c.get("repeat") == "1111111"          # not poisoned
+    # a valid sibling write still works
+    await c.async_set("start", time(2, 0))
+    assert c.get("start") == time(2, 0)
+
+async def test_failed_write_does_not_commit():
+    from datetime import time
+    class BoomDevice:
+        async def async_write(self, attrs): raise RuntimeError("boom")
+    from custom_components.aqara_lanlink.device.composites import CODECS
+    from custom_components.aqara_lanlink.device.composites.controller import CompositeController
+    c = CompositeController(BoomDevice(), "14.92.85", CODECS["packed_period"])
+    c.seed("5162040")
+    import pytest
+    with pytest.raises(RuntimeError):
+        await c.async_set("end", time(6, 0))
+    assert c.get("end") == time(9, 0)            # not committed

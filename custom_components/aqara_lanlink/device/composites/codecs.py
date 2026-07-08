@@ -131,10 +131,13 @@ class ScheduleJsonCodec:
 
     def decode(self, wire: str) -> dict[str, Any]:
         d = json.loads(wire)
+        repeat = "".join(str(int(b)) for b in d["repeat"])
+        if not _REPEAT_RE.match(repeat):  # symmetric with encode; a malformed
+            raise ValueError(f"repeat must be 7 chars of 0/1, got {repeat!r}")
         return {
             "start": time.fromisoformat(d["starttime"]),
             "end": time.fromisoformat(d["endtime"]),
-            "repeat": "".join(str(int(b)) for b in d["repeat"]),
+            "repeat": repeat,
         }
 
     def encode(self, f: dict[str, Any]) -> str:

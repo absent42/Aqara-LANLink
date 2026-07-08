@@ -56,6 +56,13 @@ class _CompositeBase(AqaraEntity):
         self._field = field
         self._attr_should_poll = False
 
+    @property
+    def available(self) -> bool:
+        # A composite has no local read: until the cloud seed lands, the
+        # sibling fields are only codec defaults and a write would clobber the
+        # device's real value. Stay unavailable until seeded.
+        return super().available and self._controller.seeded
+
     async def async_added_to_hass(self) -> None:
         # write_state_if_added guards `hass is None` (parity with descriptor
         # entities whose apply_value can fire before add).

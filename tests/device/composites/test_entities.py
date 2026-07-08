@@ -230,3 +230,19 @@ async def test_write_key_is_attrspec():
     spec = next(iter(ctrl._device.writes[-1]))
     assert isinstance(spec, AttrSpec)
     assert spec.resource_id == "14.92.85"
+
+
+def test_available_gated_by_seeded():
+    """A composite entity is unavailable until its controller is seeded (no
+    local read -> writing from defaults would clobber the device value)."""
+    hub = make_hub()
+    sub = make_subentry()
+    device = make_device([], subentry=sub)
+    ctrl = _controller()
+    ent = CompositeSwitch(hub, device, sub, ctrl, CODECS["packed_period"].fields[2])  # enabled
+    hub_available = ent.available  # capture the super().available baseline
+    ctrl.seed("5162040")
+    assert ent.available is True          # seeded + hub available
+    # a fresh unseeded controller entity is unavailable (given the same hub)
+    ent2 = CompositeSwitch(hub, device, sub, _controller(), CODECS["packed_period"].fields[2])
+    assert ent2.available is False

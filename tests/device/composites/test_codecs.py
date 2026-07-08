@@ -93,3 +93,9 @@ def test_schedule_roundtrip_semantic():
 def test_schedule_repeat_validation():
     with pytest.raises(ValueError):
         S.encode({"start": time(0, 0), "end": time(1, 0), "repeat": "12"})
+
+
+def test_schedule_decode_rejects_bad_repeat_length():
+    import pytest
+    with pytest.raises(ValueError):
+        S.decode('{"starttime":"01:00","endtime":"23:59","repeat":[1,1,1]}')
