@@ -23,6 +23,7 @@ PLATFORMS: list[Platform] = [
     Platform.SENSOR,
     Platform.LIGHT,
     Platform.TEXT,
+    Platform.TIME,
 ]
 
 # Config entry data keys (hub entry)
