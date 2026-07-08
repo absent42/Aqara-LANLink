@@ -79,6 +79,10 @@ _DROPPED_RIDS_INDEX: dict[str, dict[str, str]] = {}
 # Maps model -> {rid: SettingSpec}. Rid-keyed device settings written bare
 # over LANLink (no wire_path); separate from the trait pipeline.
 _SETTINGS_INDEX: dict[str, dict[str, "SettingSpec"]] = {}
+# Maps model -> {rid: {"codec": name, "name": display}}. Composite settings
+# that pack several fields into one wire value; turned into
+# CompositeControllers at entry setup. Kept as a raw declaration dict here.
+_COMPOSITES_INDEX: dict[str, dict[str, dict]] = {}
 # Maps model -> power_class string ("mains"/"battery"/...) or None.
 _POWER_CLASS_INDEX: dict[str, str | None] = {}
 
@@ -191,6 +195,7 @@ def reset_for_tests() -> None:
     _DROPPED_PATHS_INDEX.clear()
     _DROPPED_RIDS_INDEX.clear()
     _SETTINGS_INDEX.clear()
+    _COMPOSITES_INDEX.clear()
     _POWER_CLASS_INDEX.clear()
     _discovered = False
 
@@ -470,6 +475,10 @@ def _populate_model_indices(
     if settings is not None:
         for m in models:
             _SETTINGS_INDEX[m] = dict(settings)  # type: ignore[arg-type]
+    composites: object = getattr(mod, "COMPOSITES", None)
+    if composites is not None:
+        for m in models:
+            _COMPOSITES_INDEX[m] = dict(composites)  # type: ignore[arg-type]
     power_class: object = getattr(mod, "POWER_CLASS", None)
     if power_class is not None:
         for m in models:
@@ -478,6 +487,7 @@ def _populate_model_indices(
 __all__ = [
     "_ALLOW_UNAUTHORED_INDEX",
     "_CAPABILITIES_INDEX",
+    "_COMPOSITES_INDEX",
     "_DEVICE_TYPES_INDEX",
     "_DISPLAY_INDEX",
     "_ENDPOINTS_INDEX",

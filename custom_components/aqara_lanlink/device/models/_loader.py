@@ -48,6 +48,11 @@ def load_model_data(pkg_dir: Path) -> dict:
         "CAPABILITIES": dict(capabilities),
         "TRAITS": merged_traits,
         "SETTINGS": merged_settings,
+        # composites is the {rid: {"codec": name, "name": display}} map of
+        # multi-field settings packed into one wire value; loaded raw here and
+        # turned into CompositeControllers at entry setup. Empty-dict default so
+        # older packages without the block index cleanly.
+        "COMPOSITES": raw.get("composites", {}),
         "POWER_CLASS": raw.get("power_class"),
     }
     # whitelabels is optional in data.json; only emit WHITELABELS when the

@@ -118,6 +118,18 @@ def settings_for_model(model: str) -> dict[str, "SettingSpec"]:
     return dict(_reg()._SETTINGS_INDEX.get(model, {}))
 
 
+def composites_for_model(model: str) -> dict[str, dict]:
+    """Return a fresh dict of {rid: {"codec": ..., "name": ...}} for `model`.
+
+    Returns a copy, not a live view; mutating the result does not affect the
+    underlying index. Empty dict when the package has no composites block or
+    the model is unknown.
+
+    Backs the entry-level CompositeController construction in __init__.py.
+    """
+    return dict(_reg()._COMPOSITES_INDEX.get(model, {}))
+
+
 def power_class_for_model(model: str) -> str | None:
     """Return the model's power_class ("mains"/"battery"/...), or None.
 
@@ -221,6 +233,7 @@ __all__ = [
     "DisplayMetadata",
     "all_traits_for_model",
     "allow_unauthored",
+    "composites_for_model",
     "device_types_for_model",
     "dropped_paths_for_model",
     "dropped_rids_for_model",
