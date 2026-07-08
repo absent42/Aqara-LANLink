@@ -1,7 +1,7 @@
-# Aqara LANLink
+# Aqara LANLink - local control Home Assistant integration for Aqara devices
 
 A local-push Home Assistant integration for Aqara hubs,
-their sub-devices, and cameras over the LAN, using the reverse-engineered Aqara LANLink and P2P protocols.
+their sub-devices, and cameras giving local control over the network LAN, using the reverse-engineered Aqara LANLink and P2P protocols.
 
 Device state is pushed from the hub to Home Assistant over a persistent encrypted TCP LAN connection; no polling or cloud roundtrip.
 
@@ -25,7 +25,7 @@ Aqara does not endorse or support this integration. The LANLink protocol was rev
 
 The integration creates an encrypted tunnel between Home Assistant and an Aqara hub using a reverse engineered version of Aqara's LANLink protocol.
 
-Once the tunnel is in place individual sub-device state changes and automations operate fully locally with every read and write going over the LAN tunnel to and from the hub which then relays them locally to the sub-device, with no roundtrip via the Aqara cloud servers.
+Once the tunnel is in place individual sub-device state changes and automations operate fully locally with every read and write going over the LAN network tunnel to and from the hub which then relays them locally to the sub-devices, with no roundtrip via the Aqara cloud servers.
 
 The cloud is still required at two points:
 
@@ -50,9 +50,8 @@ For a deeper look at the workings and protocol details, see
 ## Requirements
 
 - Home Assistant 2025.4.0 or later.
-- An Aqara hub that supports LAN Control. The **M3 (firmware 4.5.50_0019)** has been tested; other `lumi1.` hubs may work but are unvalidated.
-- **LAN Control enabled on the hub.** In the Aqara Home app, open the hub's
-  settings and enable the LAN Control / local control option. Without it the hub
+- An Aqara hub that supports LAN Control. The **M3 (firmware 4.5.50_0019/4.5.60_0017)** has been tested; other `lumi1.` hubs may work but are unvalidated.
+- **Hub Cluster** and **LAN Control** enabled on the hub. In the Aqara Home app, open your profile settings and enable the Hub Cluster/LAN Control options. Without it the hub
   will not accept the encrypted LANLink session.
 - An Aqara account (email + password), or a user ID + session token
   obtained externally. Only the resulting session token is stored; credentials
