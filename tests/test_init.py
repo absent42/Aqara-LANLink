@@ -1088,7 +1088,7 @@ async def test_persistent_stall_repair_lifecycle(
 
     clock = [1000.0]
     monkeypatch.setattr(
-        "custom_components.aqara_lanlink.time.monotonic", lambda: clock[0],
+        "custom_components.aqara_lanlink.monotonic", lambda: clock[0],
     )
     with patch(
         "custom_components.aqara_lanlink.ir.async_create_issue",
@@ -1148,7 +1148,7 @@ async def test_watchdog_stops_rearming_after_repair_threshold(
 
     clock = [1000.0]
     monkeypatch.setattr(
-        "custom_components.aqara_lanlink.time.monotonic", lambda: clock[0],
+        "custom_components.aqara_lanlink.monotonic", lambda: clock[0],
     )
     with patch("custom_components.aqara_lanlink.ir.async_create_issue"):
         # Re-arm up to the escalation threshold (one re-arm per cooldown).

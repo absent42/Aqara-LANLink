@@ -10,8 +10,12 @@ from __future__ import annotations
 
 import asyncio
 import logging
-import time
 import uuid
+# Import `monotonic` by name, NOT `import time`: this package has a sibling
+# `time.py` (the HA time platform), and once that submodule is imported it
+# binds as `aqara_lanlink.time`, shadowing a module-level `import time` in this
+# __init__ (they share the package namespace). Importing the function avoids it.
+from time import monotonic
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from datetime import timedelta
@@ -397,7 +401,7 @@ async def _watchdog_tick(
         return
     # Cooldown: a single re-arm needs time to take effect (and produce a report);
     # don't hammer the cloud every keepalive while a hub stays wedged.
-    now = time.monotonic()
+    now = monotonic()
     if now - data.watchdog_last_rearm < PUSH_STALL_TTL_SECONDS:
         return
     data.watchdog_last_rearm = now
