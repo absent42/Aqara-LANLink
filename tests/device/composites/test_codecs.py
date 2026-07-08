@@ -18,7 +18,8 @@ from custom_components.aqara_lanlink.device.composites.codecs import (
 
 
 def test_registry_has_three_codecs():
-    assert set(CODECS) == {"packed_period", "brightness", "schedule_json"}
+    assert set(CODECS) == {"packed_period", "brightness", "schedule_json",
+                       "region_json", "bbox_region_json", "ptz_preset_json"}
 
 
 def test_field_shape():
@@ -99,3 +100,45 @@ def test_schedule_decode_rejects_bad_repeat_length():
     import pytest
     with pytest.raises(ValueError):
         S.decode('{"starttime":"01:00","endtime":"23:59","repeat":[1,1,1]}')
+
+
+# --- Phase A: JSON-blob unwrap/decompose codecs ---
+
+def test_region_json_unwraps_hex():
+    from custom_components.aqara_lanlink.device.composites.codecs import RegionJsonCodec
+    R = RegionJsonCodec()
+    w = '{"detect_region": "3fffffffffffffffffffffffffffffffffff"}'
+    assert R.decode(w) == {"region": "3fffffffffffffffffffffffffffffffffff"}
+    # re-wrap: bare hex -> string envelope
+    import json
+    assert json.loads(R.encode({"region": "5fffbfffffffffffffffffffffffffffffff"})) == \
+        {"detect_region": "5fffbfffffffffffffffffffffffffffffff"}
+
+def test_region_json_unwraps_int_array():
+    import json
+    from custom_components.aqara_lanlink.device.composites.codecs import RegionJsonCodec
+    R = RegionJsonCodec()
+    w = '{"detect_region": [0,0,1,1,1,1]}'
+    d = R.decode(w)
+    assert json.loads(d["region"]) == [0, 0, 1, 1, 1, 1]         # array rendered as text
+    assert json.loads(R.encode(d)) == {"detect_region": [0, 0, 1, 1, 1, 1]}  # round-trips to array
+
+def test_bbox_region_decompose_and_field_platforms():
+    import json
+    from custom_components.aqara_lanlink.device.composites.codecs import BboxRegionJsonCodec
+    B = BboxRegionJsonCodec()
+    # device emits keys in varying order -> decode must be order-agnostic
+    assert B.decode('{"x_begin":3,"y_end":8,"y_begin":0,"x_end":11}') == \
+        {"x_begin": 3, "x_end": 11, "y_begin": 0, "y_end": 8}
+    assert [(f.name, f.platform) for f in B.fields] == [
+        ("x_begin","number"),("x_end","number"),("y_begin","number"),("y_end","number")]
+    assert json.loads(B.encode({"x_begin":0,"x_end":8,"y_begin":0,"y_end":8})) == \
+        {"x_begin":0,"x_end":8,"y_begin":0,"y_end":8}
+
+def test_ptz_preset_decompose():
+    import json
+    from custom_components.aqara_lanlink.device.composites.codecs import PtzPresetJsonCodec
+    P = PtzPresetJsonCodec()
+    assert P.decode('{"mode": 0, "x": 999, "y": 999}') == {"mode": 0, "x": 999, "y": 999}
+    assert json.loads(P.encode({"mode": 1, "x": 120, "y": 240})) == {"mode": 1, "x": 120, "y": 240}
+    assert [f.name for f in P.fields] == ["mode", "x", "y"]

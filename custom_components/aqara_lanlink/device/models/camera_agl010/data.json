@@ -330,12 +330,6 @@
       "platform": "number",
       "is_float": false
     },
-    "14.106.85": {
-      "name": "Motion detection area",
-      "entity_category": "config",
-      "resource_code": "md_region",
-      "platform": "text"
-    },
     "14.108.85": {
       "name": "Sound Detection Interval",
       "entity_category": "config",
@@ -356,12 +350,6 @@
       "resource_code": "face_interval",
       "platform": "number",
       "is_float": false
-    },
-    "14.112.85": {
-      "name": "Gesture Detection Region",
-      "entity_category": "config",
-      "resource_code": "gesture_region",
-      "platform": "text"
     },
     "14.114.85": {
       "name": "Person Detection Interval",
@@ -450,12 +438,6 @@
         "1": "Medium",
         "2": "High"
       }
-    },
-    "14.139.85": {
-      "name": "Animal Detection Region",
-      "entity_category": "config",
-      "resource_code": "Animal Detection Region",
-      "platform": "text"
     },
     "14.14.85": {
       "name": "Record cloud video",
@@ -605,12 +587,6 @@
         "2": "High"
       }
     },
-    "14.6.701": {
-      "name": "Smile Detection Region",
-      "entity_category": "config",
-      "resource_code": "Smile Detection Region",
-      "platform": "text"
-    },
     "14.61.85": {
       "name": "Distortion Correction",
       "entity_category": "config",
@@ -669,12 +645,6 @@
         "2": "Auto-switching"
       }
     },
-    "14.75.701": {
-      "name": "Face Detection Region",
-      "entity_category": "config",
-      "resource_code": "Face Detection Region",
-      "platform": "text"
-    },
     "14.75.85": {
       "name": "Face Detection",
       "entity_category": "config",
@@ -690,12 +660,6 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
-    },
-    "14.77.701": {
-      "name": "Person Detection Region",
-      "entity_category": "config",
-      "resource_code": "Person Detection Region",
-      "platform": "text"
     },
     "14.77.85": {
       "name": "Person Detection",
@@ -743,11 +707,6 @@
         "3": "Pet tracking",
         "4": "Sound source location"
       }
-    },
-    "14.88.701": {
-      "name": "Pan/tilt Preset Position",
-      "platform": "text",
-      "entity_category": "config"
     },
     "4.10.85": {
       "name": "Loud Sound Detection",
@@ -964,6 +923,10 @@
     "3.22.85": "sensor"
   },
   "composites": {
+    "14.106.85": {
+      "codec": "region_json",
+      "name": "Motion detection area"
+    },
     "14.107.85": {
       "codec": "schedule_json",
       "name": "Motion detection period"
@@ -975,6 +938,10 @@
     "14.111.85": {
       "codec": "schedule_json",
       "name": "Face Detection Period"
+    },
+    "14.112.85": {
+      "codec": "bbox_region_json",
+      "name": "Gesture Detection Region"
     },
     "14.113.85": {
       "codec": "schedule_json",
@@ -992,13 +959,33 @@
       "codec": "schedule_json",
       "name": "Time Lapse Recording Period"
     },
+    "14.139.85": {
+      "codec": "region_json",
+      "name": "Animal Detection Region"
+    },
     "14.38.85": {
       "codec": "schedule_json",
       "name": "Scheduled Sleep Period"
     },
+    "14.6.701": {
+      "codec": "region_json",
+      "name": "Smile Detection Region"
+    },
     "14.72.700": {
       "codec": "schedule_json",
       "name": "Lens Obstruction Detection Period"
+    },
+    "14.75.701": {
+      "codec": "region_json",
+      "name": "Face Detection Region"
+    },
+    "14.77.701": {
+      "codec": "region_json",
+      "name": "Person Detection Region"
+    },
+    "14.88.701": {
+      "codec": "ptz_preset_json",
+      "name": "Pan/tilt Preset Position"
     },
     "4.6.700": {
       "codec": "schedule_json",

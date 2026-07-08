@@ -154,3 +154,71 @@ class ScheduleJsonCodec:
 
     def defaults(self) -> dict[str, Any]:
         return {"start": time(0, 0), "end": time(23, 59), "repeat": "1111111"}
+
+
+class RegionJsonCodec:
+    """Detection-region mask envelope: ``{"detect_region": <hex|int-array>}``.
+
+    UNWRAP to a single ``text`` field carrying the bare inner value (a hex
+    bitmap string, or the int array rendered as JSON). The mask itself is a 2D
+    spatial bitmap not meaningfully hand-editable as scalars - this only strips
+    the envelope for readability/paste; the real editor is a grid card.
+    """
+
+    fields = (CompositeField("region", "text", "Region"),)
+
+    def decode(self, wire: str) -> dict[str, Any]:
+        inner = json.loads(wire)["detect_region"]
+        return {"region": inner if isinstance(inner, str) else json.dumps(inner)}
+
+    def encode(self, f: dict[str, Any]) -> str:
+        v = str(f["region"]).strip()
+        inner = json.loads(v) if v[:1] in "[{" else v  # array vs bare hex string
+        return json.dumps({"detect_region": inner})
+
+    def defaults(self) -> dict[str, Any]:
+        return {"region": ""}
+
+
+class BboxRegionJsonCodec:
+    """Bounding-box region: ``{"x_begin","x_end","y_begin","y_end"}`` (grid units).
+
+    DECOMPOSE to four numbers. Unlike detect_region's opaque bitmap, a bbox is
+    meaningful as scalars. Device emits keys in varying order (order-tolerant).
+    """
+
+    _KEYS = ("x_begin", "x_end", "y_begin", "y_end")
+    fields = tuple(
+        CompositeField(k, "number", k.replace("_", " ").title(), {"min": 0, "max": 15})
+        for k in _KEYS
+    )
+
+    def decode(self, wire: str) -> dict[str, Any]:
+        d = json.loads(wire)
+        return {k: int(d[k]) for k in self._KEYS}
+
+    def encode(self, f: dict[str, Any]) -> str:
+        return json.dumps({k: int(f[k]) for k in self._KEYS})
+
+    def defaults(self) -> dict[str, Any]:
+        return {"x_begin": 0, "x_end": 8, "y_begin": 0, "y_end": 8}
+
+
+class PtzPresetJsonCodec:
+    """Pan/tilt preset position: ``{"mode","x","y"}`` (x/y 999 = unset)."""
+
+    fields = (
+        CompositeField("mode", "number", "Mode", {"min": 0, "max": 10}),
+        CompositeField("x", "number", "X", {"min": 0, "max": 999}),
+        CompositeField("y", "number", "Y", {"min": 0, "max": 999}),
+    )
+
+    def decode(self, wire: str) -> dict[str, Any]:
+        d = json.loads(wire)
+        return {k: int(d[k]) for k in ("mode", "x", "y")}
+
+    def encode(self, f: dict[str, Any]) -> str:
+        return json.dumps({k: int(f[k]) for k in ("mode", "x", "y")})
+
+    def defaults(self) -> dict[str, Any]:
+        return {"mode": 0, "x": 999, "y": 999}

@@ -346,12 +346,6 @@
       "on_value": "1",
       "off_value": "0"
     },
-    "14.193.85": {
-      "name": "Motion Detection Region",
-      "entity_category": "config",
-      "resource_code": "Motion Detection Region",
-      "platform": "text"
-    },
     "14.4.85": {
       "name": "Timestamp Overlay",
       "entity_category": "config",
@@ -387,12 +381,6 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
-    },
-    "14.77.701": {
-      "name": "Person Detection Region",
-      "entity_category": "config",
-      "resource_code": "Person Detection Region",
-      "platform": "text"
     },
     "14.77.85": {
       "name": "Person Detection",
@@ -504,6 +492,10 @@
       "codec": "schedule_json",
       "name": "Timelapse Recording Period"
     },
+    "14.193.85": {
+      "codec": "region_json",
+      "name": "Motion Detection Region"
+    },
     "14.21.85": {
       "codec": "packed_period",
       "name": "Turn off indicator light period"
@@ -511,6 +503,10 @@
     "14.38.85": {
       "codec": "schedule_json",
       "name": "Sleep schedule"
+    },
+    "14.77.701": {
+      "codec": "region_json",
+      "name": "Person Detection Region"
     },
     "4.190.700": {
       "codec": "schedule_json",

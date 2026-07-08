@@ -333,12 +333,6 @@
       "max": 600,
       "unit": "s"
     },
-    "14.106.85": {
-      "name": "Motion Detection Region",
-      "entity_category": "config",
-      "resource_code": "Motion Detection Region",
-      "platform": "text"
-    },
     "14.11.85": {
       "name": "Device volume",
       "platform": "number",
@@ -453,12 +447,6 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
-    },
-    "14.77.701": {
-      "name": "Person Detection Region",
-      "entity_category": "config",
-      "resource_code": "Person Detection Region",
-      "platform": "text"
     },
     "14.77.85": {
       "name": "Person Detection",
@@ -601,6 +589,10 @@
     }
   },
   "composites": {
+    "14.106.85": {
+      "codec": "region_json",
+      "name": "Motion Detection Region"
+    },
     "14.107.85": {
       "codec": "schedule_json",
       "name": "Motion Detection Period"
@@ -620,6 +612,10 @@
     "14.38.85": {
       "codec": "schedule_json",
       "name": "Sleep schedule"
+    },
+    "14.77.701": {
+      "codec": "region_json",
+      "name": "Person Detection Region"
     },
     "14.92.85": {
       "codec": "packed_period",
