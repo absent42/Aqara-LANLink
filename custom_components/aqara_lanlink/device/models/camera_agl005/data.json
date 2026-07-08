@@ -266,12 +266,6 @@
       "max": 600,
       "unit": "s"
     },
-    "14.107.85": {
-      "name": "Motion Detection Period",
-      "entity_category": "config",
-      "resource_code": "Motion Detection Period",
-      "platform": "text"
-    },
     "14.11.85": {
       "name": "Device Volume",
       "entity_category": "config",
@@ -291,12 +285,6 @@
       "min": 15,
       "max": 600,
       "unit": "s"
-    },
-    "14.115.85": {
-      "name": "Person Detection Time Period",
-      "entity_category": "config",
-      "resource_code": "Person Detection Time Period",
-      "platform": "text"
     },
     "14.120.85": {
       "name": "Power Frequency",
@@ -331,12 +319,6 @@
         "%d-%m-%Y %H:%M:%S": "D-M-Y h:m:s"
       }
     },
-    "14.135.85": {
-      "name": "Timelapse Recording Period",
-      "entity_category": "config",
-      "resource_code": "Timelapse Recording Period",
-      "platform": "text"
-    },
     "14.136.85": {
       "name": "Person Detection Sensitivity",
       "entity_category": "config",
@@ -368,18 +350,6 @@
       "name": "Motion Detection Region",
       "entity_category": "config",
       "resource_code": "Motion Detection Region",
-      "platform": "text"
-    },
-    "14.21.85": {
-      "name": "Turn off indicator light period",
-      "entity_category": "config",
-      "resource_code": "Turn off indicator light period",
-      "platform": "text"
-    },
-    "14.38.85": {
-      "name": "Sleep schedule",
-      "entity_category": "config",
-      "resource_code": "Sleep schedule",
       "platform": "text"
     },
     "14.4.85": {
@@ -456,12 +426,6 @@
       "on_value": "1",
       "off_value": "0"
     },
-    "4.190.700": {
-      "name": "Spotlight Schedule",
-      "entity_category": "config",
-      "resource_code": "Spotlight Schedule",
-      "platform": "text"
-    },
     "4.193.85": {
       "name": "Fire Detection",
       "entity_category": "config",
@@ -525,6 +489,32 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
+    }
+  },
+  "composites": {
+    "14.107.85": {
+      "codec": "schedule_json",
+      "name": "Motion Detection Period"
+    },
+    "14.115.85": {
+      "codec": "schedule_json",
+      "name": "Person Detection Time Period"
+    },
+    "14.135.85": {
+      "codec": "schedule_json",
+      "name": "Timelapse Recording Period"
+    },
+    "14.21.85": {
+      "codec": "packed_period",
+      "name": "Turn off indicator light period"
+    },
+    "14.38.85": {
+      "codec": "schedule_json",
+      "name": "Sleep schedule"
+    },
+    "4.190.700": {
+      "codec": "schedule_json",
+      "name": "Spotlight Schedule"
     }
   }
 }

@@ -336,24 +336,12 @@
       "resource_code": "md_region",
       "platform": "text"
     },
-    "14.107.85": {
-      "name": "Motion detection period",
-      "entity_category": "config",
-      "resource_code": "md_duration",
-      "platform": "text"
-    },
     "14.108.85": {
       "name": "Sound Detection Interval",
       "entity_category": "config",
       "resource_code": "cry_interval",
       "platform": "number",
       "is_float": false
-    },
-    "14.109.85": {
-      "name": "Sound Detection Period",
-      "entity_category": "config",
-      "resource_code": "cry_duration",
-      "platform": "text"
     },
     "14.11.85": {
       "name": "System Volume",
@@ -369,22 +357,10 @@
       "platform": "number",
       "is_float": false
     },
-    "14.111.85": {
-      "name": "Face Detection Period",
-      "entity_category": "config",
-      "resource_code": "face_duration",
-      "platform": "text"
-    },
     "14.112.85": {
       "name": "Gesture Detection Region",
       "entity_category": "config",
       "resource_code": "gesture_region",
-      "platform": "text"
-    },
-    "14.113.85": {
-      "name": "Gesture Detection Time Period",
-      "entity_category": "config",
-      "resource_code": "gesture_duration",
       "platform": "text"
     },
     "14.114.85": {
@@ -394,24 +370,12 @@
       "platform": "number",
       "is_float": false
     },
-    "14.115.85": {
-      "name": "Person Detection Period",
-      "entity_category": "config",
-      "resource_code": "body_duration",
-      "platform": "text"
-    },
     "14.116.85": {
       "name": "Animal Detection Time Interval",
       "entity_category": "config",
       "resource_code": "pet_interval",
       "platform": "number",
       "is_float": false
-    },
-    "14.117.85": {
-      "name": "Animal Detection Period",
-      "entity_category": "config",
-      "resource_code": "pet_duration",
-      "platform": "text"
     },
     "14.118.85": {
       "name": "Detection type",
@@ -463,12 +427,6 @@
       "name": "Device Identification",
       "entity_category": "config",
       "resource_code": "device_identify",
-      "platform": "text"
-    },
-    "14.135.85": {
-      "name": "Time Lapse Recording Period",
-      "entity_category": "config",
-      "resource_code": "camera_timelapse_duration",
       "platform": "text"
     },
     "14.136.85": {
@@ -614,12 +572,6 @@
       "resource_code": "record_mode",
       "platform": "text"
     },
-    "14.38.85": {
-      "name": "Scheduled Sleep Period",
-      "entity_category": "config",
-      "resource_code": "time_sleep",
-      "platform": "text"
-    },
     "14.4.85": {
       "name": "OSD time watermark",
       "entity_category": "config",
@@ -695,12 +647,6 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
-    },
-    "14.72.700": {
-      "name": "Lens Obstruction Detection Period",
-      "entity_category": "config",
-      "resource_code": "Lens Obstruction Detection Period",
-      "platform": "text"
     },
     "14.72.85": {
       "name": "Lens Obstruction Time Interval",
@@ -933,12 +879,6 @@
       "on_value": "1",
       "off_value": "0"
     },
-    "4.6.700": {
-      "name": "Smile Detection Period",
-      "entity_category": "config",
-      "resource_code": "Smile Detection Period",
-      "platform": "text"
-    },
     "4.6.85": {
       "name": "Smile Detection",
       "entity_category": "config",
@@ -1022,5 +962,47 @@
     "14.86.85": "dual",
     "3.21.85": "sensor",
     "3.22.85": "sensor"
+  },
+  "composites": {
+    "14.107.85": {
+      "codec": "schedule_json",
+      "name": "Motion detection period"
+    },
+    "14.109.85": {
+      "codec": "schedule_json",
+      "name": "Sound Detection Period"
+    },
+    "14.111.85": {
+      "codec": "schedule_json",
+      "name": "Face Detection Period"
+    },
+    "14.113.85": {
+      "codec": "schedule_json",
+      "name": "Gesture Detection Time Period"
+    },
+    "14.115.85": {
+      "codec": "schedule_json",
+      "name": "Person Detection Period"
+    },
+    "14.117.85": {
+      "codec": "schedule_json",
+      "name": "Animal Detection Period"
+    },
+    "14.135.85": {
+      "codec": "schedule_json",
+      "name": "Time Lapse Recording Period"
+    },
+    "14.38.85": {
+      "codec": "schedule_json",
+      "name": "Scheduled Sleep Period"
+    },
+    "14.72.700": {
+      "codec": "schedule_json",
+      "name": "Lens Obstruction Detection Period"
+    },
+    "4.6.700": {
+      "codec": "schedule_json",
+      "name": "Smile Detection Period"
+    }
   }
 }

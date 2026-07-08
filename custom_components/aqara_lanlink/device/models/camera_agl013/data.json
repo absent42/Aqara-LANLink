@@ -339,12 +339,6 @@
       "resource_code": "Motion Detection Region",
       "platform": "text"
     },
-    "14.107.85": {
-      "name": "Motion Detection Period",
-      "entity_category": "config",
-      "resource_code": "Motion Detection Period",
-      "platform": "text"
-    },
     "14.11.85": {
       "name": "Device volume",
       "platform": "number",
@@ -363,12 +357,6 @@
       "min": 15,
       "max": 600,
       "unit": "s"
-    },
-    "14.115.85": {
-      "name": "Person Detection Time Period",
-      "entity_category": "config",
-      "resource_code": "Person Detection Time Period",
-      "platform": "text"
     },
     "14.120.85": {
       "name": "Power Frequency",
@@ -421,24 +409,6 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
-    },
-    "14.192.85": {
-      "name": "Video Brightness",
-      "entity_category": "config",
-      "resource_code": "Video Brightness",
-      "platform": "text"
-    },
-    "14.21.85": {
-      "name": "Turn off indicator light period",
-      "entity_category": "config",
-      "resource_code": "Turn off indicator light period",
-      "platform": "text"
-    },
-    "14.38.85": {
-      "name": "Sleep schedule",
-      "entity_category": "config",
-      "resource_code": "Sleep schedule",
-      "platform": "text"
     },
     "14.4.85": {
       "name": "Timestamp Overlay",
@@ -527,12 +497,6 @@
         "1": "High"
       }
     },
-    "14.92.85": {
-      "name": "Do Not Disturb",
-      "entity_category": "config",
-      "resource_code": "Do Not Disturb",
-      "platform": "text"
-    },
     "4.151.85": {
       "name": "Mark as lost",
       "entity_category": "config",
@@ -556,12 +520,6 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
-    },
-    "4.29.700": {
-      "name": "Intrusion Zone Detection Period",
-      "entity_category": "config",
-      "resource_code": "Intrusion Zone Detection Period",
-      "platform": "text"
     },
     "4.29.701": {
       "name": "Intrusion Zone Fence Area",
@@ -640,6 +598,36 @@
       "platform": "switch",
       "on_value": "1",
       "off_value": "0"
+    }
+  },
+  "composites": {
+    "14.107.85": {
+      "codec": "schedule_json",
+      "name": "Motion Detection Period"
+    },
+    "14.115.85": {
+      "codec": "schedule_json",
+      "name": "Person Detection Time Period"
+    },
+    "14.192.85": {
+      "codec": "brightness",
+      "name": "Video Brightness"
+    },
+    "14.21.85": {
+      "codec": "packed_period",
+      "name": "Turn off indicator light period"
+    },
+    "14.38.85": {
+      "codec": "schedule_json",
+      "name": "Sleep schedule"
+    },
+    "14.92.85": {
+      "codec": "packed_period",
+      "name": "Do Not Disturb"
+    },
+    "4.29.700": {
+      "codec": "schedule_json",
+      "name": "Intrusion Zone Detection Period"
     }
   }
 }
