@@ -246,3 +246,11 @@ def test_available_gated_by_seeded():
     # a fresh unseeded controller entity is unavailable (given the same hub)
     ent2 = CompositeSwitch(hub, device, sub, _controller(), CODECS["packed_period"].fields[2])
     assert ent2.available is False
+
+
+def test_composite_entities_are_config_category():
+    """Composite sub-entities are settings -> Configuration section, not controls."""
+    from homeassistant.const import EntityCategory
+    hub = make_hub(); sub = make_subentry(); device = make_device([], subentry=sub)
+    ent = CompositeSwitch(hub, device, sub, _controller(), CODECS["packed_period"].fields[2])
+    assert ent.entity_category == EntityCategory.CONFIG

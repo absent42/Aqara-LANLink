@@ -24,6 +24,7 @@ from homeassistant.components.number import NumberEntity
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.components.text import TextEntity
 from homeassistant.components.time import TimeEntity
+from homeassistant.const import EntityCategory
 
 from ...entity import AqaraEntity
 from .codecs import CompositeField
@@ -36,6 +37,10 @@ class _CompositeBase(AqaraEntity):
     Binds one (controller, field) pair, derives a unique id from the rid and
     field name, and subscribes to the controller for push updates.
     """
+
+    # These are settings, not primary controls: file them under Configuration
+    # (parity with the rid-setting entities they replaced, entity_category=config).
+    _attr_entity_category = EntityCategory.CONFIG
 
     def __init__(
         self,
