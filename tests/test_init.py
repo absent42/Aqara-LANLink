@@ -58,6 +58,7 @@ def test_platforms_include_all_expected() -> None:
         Platform.SENSOR,
         Platform.LIGHT,
         Platform.TEXT,
+        Platform.TIME,
     }
     assert set(PLATFORMS) == expected
 
@@ -1556,3 +1557,109 @@ async def test_setup_does_not_open_traits_storage_file(hass, monkeypatch):
     assert "aqara_lanlink_traits" not in opened_keys
 
 
+
+
+# -----------------------------------------------------------------------------
+# Composite controllers: entry-level build + cloud seed (Chunk 4, Tasks 4.2/4.3).
+# -----------------------------------------------------------------------------
+
+
+@pytest.mark.asyncio
+async def test_setup_builds_and_seeds_composite_controllers(
+    hass, patch_clientsession,
+) -> None:
+    """A model with a `composites` block gets one CompositeController per rid,
+    keyed by (did, rid) at ENTRY level, and each is seeded from the cloud.
+
+    The build runs after per-device build and before platform forwarding, so
+    the (did, rid) store is populated when platforms register. The seed decodes
+    the cloud wire value straight onto the controller (descriptor-less path)."""
+    from datetime import time
+
+    entry = _hub_entry(hass)
+    sub = _make_subentry(
+        subentry_id="sub-c", did="lumi1.COMP", model="lumi.comp.model",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+
+    coord = _make_coordinator_mock()
+
+    rid = "8.0.2229"
+    # start=01:00 (60), end=02:00 (120), enabled -> disabled bit 0.
+    wire = (60 << 12) | (120 << 1) | 0  # == 246000
+
+    def _composites_for(model):
+        if model == "lumi.comp.model":
+            return {rid: {"codec": "packed_period", "name": "Do not disturb"}}
+        return {}
+
+    cloud = MagicMock()
+    cloud.query_resources_by_rid = AsyncMock(return_value={rid: str(wire)})
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=cloud,
+    ), patch(
+        "custom_components.aqara_lanlink.device_catalog.composites_for_model",
+        side_effect=_composites_for,
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ):
+        result = await async_setup_entry(hass, entry)
+
+    assert result is True
+    controllers = entry.runtime_data.composite_controllers
+    key = ("lumi1.COMP", rid)
+    assert key in controllers
+    from custom_components.aqara_lanlink.device.composites.controller import (
+        CompositeController,
+    )
+    controller = controllers[key]
+    assert isinstance(controller, CompositeController)
+    assert controller.rid == rid
+    # Seeded from the cloud wire value: start 01:00, end 02:00, enabled True.
+    assert controller.get("start") == time(1, 0)
+    assert controller.get("end") == time(2, 0)
+    assert controller.get("enabled") is True
+
+
+@pytest.mark.asyncio
+async def test_setup_skips_composite_with_unknown_codec(
+    hass, patch_clientsession,
+) -> None:
+    """An unknown codec name logs a warning and skips that rid (no controller,
+    no crash)."""
+    entry = _hub_entry(hass)
+    sub = _make_subentry(
+        subentry_id="sub-c", did="lumi1.COMP", model="lumi.comp.model",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+
+    coord = _make_coordinator_mock()
+    rid = "8.0.9999"
+
+    def _composites_for(model):
+        if model == "lumi.comp.model":
+            return {rid: {"codec": "does_not_exist", "name": "Bogus"}}
+        return {}
+
+    cloud = MagicMock()
+    cloud.query_resources_by_rid = AsyncMock(return_value={})
+
+    with patch(
+        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
+    ), patch(
+        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=cloud,
+    ), patch(
+        "custom_components.aqara_lanlink.device_catalog.composites_for_model",
+        side_effect=_composites_for,
+    ), patch.object(
+        hass.config_entries, "async_forward_entry_setups",
+        new=AsyncMock(return_value=True),
+    ):
+        result = await async_setup_entry(hass, entry)
+
+    assert result is True
+    assert ("lumi1.COMP", rid) not in entry.runtime_data.composite_controllers

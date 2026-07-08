@@ -49,6 +49,8 @@ from .device.base import AutoDerivedDevice, Device, SelfDeviceContext
 from .device.camera.base import AutoDerivedCameraDevice
 from .device.build_descriptors import build_descriptors
 from .device.catalog import ptz_features_for_model
+from .device.composites import CODECS
+from .device.composites.controller import CompositeController
 from .device.observed_path_cache import ObservedPathCache
 from .device.overlay import Overlay, OverlayStore
 from .hub.cloud_client import (
@@ -121,6 +123,16 @@ class AqaraLanLinkRuntimeData:
     # separate from the LANLink tunnel; controllers connect lazily on first
     # command and are torn down on unload.
     ptz_controllers: dict[str, "PtzController"] = field(default_factory=dict)
+    # One CompositeController per (device did, rid) for models whose data.json
+    # declares a `composites` block. Built at ENTRY level (next to
+    # ptz_controllers) AFTER per-device build, because per-device settings
+    # seeding runs during _build_device and would otherwise race the controller
+    # construction. Descriptor-less: the platform entities (next chunk) read
+    # this flat (did, rid)-keyed dict during their own setup, so it must be
+    # fully populated before platforms are forwarded.
+    composite_controllers: dict[tuple[str, str], CompositeController] = field(
+        default_factory=dict,
+    )
 
 
 # Type alias used by platform modules: `entry.runtime_data` is typed as
@@ -825,6 +837,54 @@ async def async_setup_entry(
             self_dev = entry.runtime_data.self_device
             _build_ptz_controller(self_dev, self_dev.subentry, self_dev.MODEL)
 
+        # Build a CompositeController per (device, rid) for models with a
+        # `composites` block. This runs at ENTRY level -- AFTER _build_device
+        # (which seeds per-device settings) and BEFORE platform forwarding --
+        # so the flat (did, rid) store is fully populated when the composite
+        # platform entities (next chunk) register. Then seed each from the cloud.
+        def _build_composite_controllers(device: Device) -> None:
+            for rid, decl in device_catalog.composites_for_model(
+                device.MODEL,
+            ).items():
+                codec = CODECS.get(decl.get("codec"))
+                if codec is None:
+                    _LOGGER.warning(
+                        "composite %s on model %s: unknown codec %r; skipping",
+                        rid, device.MODEL, decl.get("codec"),
+                    )
+                    continue
+                entry.runtime_data.composite_controllers[(device.did, rid)] = (
+                    CompositeController(device, rid, codec)
+                )
+
+        for device in devices.values():
+            _build_composite_controllers(device)
+        if entry.runtime_data.self_device is not None:
+            _build_composite_controllers(entry.runtime_data.self_device)
+
+        # Seed composite controllers from the cloud (entry-level pass, after the
+        # controllers exist). Descriptor-less, so this does NOT route through
+        # device.seed_initial_value; it decodes straight onto each controller.
+        for device in devices.values():
+            cloud_auth_failed = await _run_cloud_call_with_reauth(
+                _seed_composites_from_cloud(
+                    cloud=cloud, token=token, device=device,
+                    runtime_data=entry.runtime_data,
+                ),
+                hass=hass, entry=entry, cloud_auth_failed=cloud_auth_failed,
+                op_label=f"composites seed for did={device.did}",
+            )
+        if entry.runtime_data.self_device is not None:
+            self_dev = entry.runtime_data.self_device
+            cloud_auth_failed = await _run_cloud_call_with_reauth(
+                _seed_composites_from_cloud(
+                    cloud=cloud, token=token, device=self_dev,
+                    runtime_data=entry.runtime_data,
+                ),
+                hass=hass, entry=entry, cloud_auth_failed=cloud_auth_failed,
+                op_label=f"composites seed for did={self_dev.did}",
+            )
+
         await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
         from .services import register_services
         entry.async_on_unload(register_services(hass, entry))
@@ -981,6 +1041,68 @@ async def _seed_settings_from_cloud(
         seeded += 1
     _LOGGER.info(
         "settings seed: did=%s model=%s rids=%d seeded=%d",
+        did, model, len(rids), seeded,
+    )
+
+
+async def _seed_composites_from_cloud(
+    *,
+    cloud: AqaraCloudClient,
+    token: str,
+    device: Device,
+    runtime_data: "AqaraLanLinkRuntimeData",
+) -> None:
+    """Seed composite-controller state from the cloud at setup.
+
+    Composite rids pack several fields into one wire value and are
+    descriptor-less, so -- unlike ``_seed_settings_from_cloud`` -- this does
+    NOT route through ``device.seed_initial_value`` (that store is descriptor-
+    driven). It reads current wire values by rid and decodes them straight onto
+    the already-built ``CompositeController`` for each (did, rid).
+
+    Must run AFTER the controllers are constructed. Read-only, best-effort: an
+    auth error propagates (so the caller can trigger re-auth once per setup
+    pass); any other failure is logged and swallowed. A model with no composite
+    rids makes no cloud call.
+    """
+    # Gate: no cloud session configured -> skip silently (controllers keep their
+    # codec defaults until a value arrives, mirroring the cloud-free path).
+    if cloud is None or not token:
+        return
+    model = getattr(device, "MODEL", "") or ""
+    composites = device_catalog.composites_for_model(model)
+    if not composites:
+        return
+    did = device.did
+    rids = list(composites)
+    try:
+        values = await cloud.query_resources_by_rid(token, did, rids)
+    except AqaraCloudAuthError:
+        # Propagate so the caller can trigger HA's re-auth flow once.
+        raise
+    except Exception as exc:  # noqa: BLE001 -- log and continue
+        _LOGGER.warning(
+            "composites seed: cloud read failed for did=%s model=%s "
+            "rids=%s (%s); composite entities will load with codec defaults "
+            "until next reload.",
+            did, model, rids, exc,
+        )
+        return
+    seeded = 0
+    queried = set(rids)
+    for rid, value in values.items():
+        # Only seed rids we asked for; the cloud may echo extra/stale rids.
+        if value is None or rid not in queried:
+            continue
+        controller = runtime_data.composite_controllers.get((did, rid))
+        if controller is None:
+            # Defensive: a controller should exist for every composite rid, but
+            # skip rather than crash if one is missing (unknown-codec skip).
+            continue
+        controller.seed(str(value))
+        seeded += 1
+    _LOGGER.info(
+        "composites seed: did=%s model=%s rids=%d seeded=%d",
         did, model, len(rids), seeded,
     )
 
