@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.2] - 2026-07-08
+
+### Added
+
+- Composite entities: packed and JSON-blob rids exposed as native HA number, switch, text, and time entities via a codec registry and CompositeController read-modify-write
+- Time platform for schedule-style rids
+- Codecs for packed periods, brightness, schedule JSON, region unwrap, gesture bounding box, and PTZ preset
+- Camera: composites for agl003, agl004, acn007, and acn010; packed and schedule rids moved to composite entities
+
+## [0.5.1] - 2026-07-02
+
+### Added
+
+- Camera: expand G350 (agl010) settings block to 90 ResourceIDs
+
+## [0.5.0] - 2026-07-01
+
+### Added
+
+- Camera: local LANLink settings control for relayed cameras
+- Camera: settings block for G400 (agl013) and G100 (agl005); G350 (agl010) block expanded to 90 entries
+- Hub: self-echo report suppression via src origin
+
 ## [0.4.2] - 2026-06-25
 
 ### Fixed
@@ -67,6 +90,9 @@ Initial public release.
 - PTZ control for supported cameras
 - HACS-compatible custom integration
 
+[0.5.2]: https://github.com/absent42/Aqara-LANLink/releases/tag/v0.5.2
+[0.5.1]: https://github.com/absent42/Aqara-LANLink/releases/tag/v0.5.1
+[0.5.0]: https://github.com/absent42/Aqara-LANLink/releases/tag/v0.5.0
 [0.4.2]: https://github.com/absent42/Aqara-LANLink/releases/tag/v0.4.2
 [0.4.1]: https://github.com/absent42/Aqara-LANLink/releases/tag/v0.4.1
 [0.4.0]: https://github.com/absent42/Aqara-LANLink/releases/tag/v0.4.0
