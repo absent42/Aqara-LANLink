@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Camera: local LANLink settings control for relayed cameras
-- Camera: settings block for G400 (agl013) and G100 (agl005); G350 (agl010) block expanded to 90 entries
+- Camera: settings block for G400 (agl013), G100 (agl005) and G350 (agl010)
 - Hub: self-echo report suppression via src origin
 
 ## [0.4.2] - 2026-06-25
