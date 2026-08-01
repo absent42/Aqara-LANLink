@@ -7,6 +7,8 @@ Device state is pushed from the hub to Home Assistant over a persistent encrypte
 
 Aqara does not endorse or support this integration. The LANLink protocol was reverse-engineered from Aqara app and firmware; future firmware updates may break compatibility without warning.
 
+**Note: This integration is currently in a beta development state.**
+
 ## Features
 
 - **~379 Aqara device models supported** out of the box, from a shipped device catalogue.
