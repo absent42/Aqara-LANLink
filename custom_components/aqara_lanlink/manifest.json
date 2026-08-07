@@ -10,5 +10,5 @@
   "issue_tracker": "https://github.com/absent42/Aqara-LANLink/issues",
   "quality_scale": "custom",
   "requirements": ["pynacl>=1.5.0"],
-  "version": "0.5.2"
+  "version": "0.5.3"
 }

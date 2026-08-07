@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.3] - 2026-08-07
+
+### Fixed
+
+- Hub: entity state no longer stalls after an HA-initiated write. Self-echo suppression dropped the hub's echo report, which is the only state source for report-driven entities (lights and wire-path traits set no optimistic state), leaving state frozen at the pre-write value. A toggle automation re-sent turn_on on every trigger instead of turning off
+
+### Removed
+
+- Hub: self-echo report suppression via src origin (added in 0.5.0)
+
 ## [0.5.2] - 2026-07-08
 
 ### Added

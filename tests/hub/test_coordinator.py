@@ -312,35 +312,31 @@ class TestPerDidDispatch:
             values=values or {"5.160.33000.1": "1"},
         )
 
-    def test_self_echo_suppressed_but_liveness_bumped(self, monkeypatch):
+    def test_reports_dispatched_regardless_of_src_origin(self, monkeypatch):
+        """Every origin reaches the handler, including a local (type-3) src.
+
+        A type-3 src is either HA's own write-echo or another LAN
+        controller's change; both carry real device state, and for
+        report-driven entities the echo is the only state source.
+        """
         coord = self._make_coord(monkeypatch)
         seen: list = []
         coord.register_report_handler("lumi.dev", seen.append)
+        for src in ("3,,42,,", "4,,99,app,id,", "10,,43,lumi.dev.trg=0,,", ""):
+            coord._dispatch_report(
+                self._report(sdid="lumi.dev", values={"2.1.1.1": "1"}, src=src)
+            )
+        assert len(seen) == 4
+
+    def test_report_bumps_liveness(self, monkeypatch):
+        coord = self._make_coord(monkeypatch)
+        coord.register_report_handler("lumi.dev", lambda _r: None)
         monkeypatch.setattr(coordinator.time, "monotonic", lambda: 7000.0)
-        coord._remember_self_src("3,,42,,")
         coord._dispatch_report(
             self._report(sdid="lumi.dev", values={"2.1.1.1": "1"}, src="3,,42,,")
         )
-        assert seen == []                              # NOT dispatched to handler
         monkeypatch.setattr(coordinator.time, "monotonic", lambda: 7002.0)
-        assert coord.seconds_since_last_report() == pytest.approx(2.0)   # liveness WAS bumped
-
-    def test_external_reports_not_suppressed(self, monkeypatch):
-        coord = self._make_coord(monkeypatch)
-        seen: list = []
-        coord.register_report_handler("lumi.dev", seen.append)
-        coord._remember_self_src("3,,42,,")
-        # type-4 app src, and a type-3 from another controller (different ts):
-        coord._dispatch_report(self._report(sdid="lumi.dev", values={"x": "1"}, src="4,,99,app,id,"))
-        coord._dispatch_report(self._report(sdid="lumi.dev", values={"x": "1"}, src="3,,43,,"))
-        assert len(seen) == 2
-
-    def test_empty_src_not_suppressed(self, monkeypatch):
-        coord = self._make_coord(monkeypatch)
-        seen: list = []
-        coord.register_report_handler("lumi.dev", seen.append)
-        coord._dispatch_report(self._report(sdid="lumi.dev", values={"x": "1"}, src=""))
-        assert len(seen) == 1
+        assert coord.seconds_since_last_report() == pytest.approx(2.0)
 
     def test_first_report_after_arm_logs_latency_once(self, monkeypatch, caplog):
         coord = self._make_coord(monkeypatch)
@@ -477,42 +473,6 @@ class TestPerDidDispatch:
         second: list[LANReport] = []
         coord.register_report_handler("lumi.late", second.append)
         assert second == []  # buffer already drained
-
-
-class TestSelfSrcRegistry:
-    def _make_coord(self, monkeypatch) -> HubCoordinator:
-        # mirror TestPerDidDispatch._make_coord (a bare coordinator
-        # whose _dispatch_report can be driven directly)
-        monkeypatch.setattr(
-            coordinator, "EncryptedTunnel", FactoryState([]),
-        )
-        return HubCoordinator(
-            host=HUB_IP, port=HUB_PORT,
-            device_id=HUB_DID, user_id=USER_ID, token=TOKEN,
-            reconnect_min_delay=0.01, reconnect_max_delay=0.02,
-        )
-
-    def test_remember_records(self, monkeypatch):
-        coord = self._make_coord(monkeypatch)
-        coord._remember_self_src("3,,111,,")
-        assert "3,,111,," in coord._recent_self_src
-
-    def test_remember_ttl_prunes(self, monkeypatch):
-        coord = self._make_coord(monkeypatch)
-        monkeypatch.setattr(coordinator.time, "monotonic", lambda: 1000.0)
-        coord._remember_self_src("3,,old,,")
-        monkeypatch.setattr(coordinator.time, "monotonic",
-                            lambda: 1000.0 + coordinator._SELF_SRC_TTL + 1.0)
-        coord._remember_self_src("3,,new,,")          # prune runs on insert
-        assert "3,,old,," not in coord._recent_self_src
-        assert "3,,new,," in coord._recent_self_src
-
-    def test_remember_size_bounded(self, monkeypatch):
-        coord = self._make_coord(monkeypatch)
-        for i in range(coordinator._SELF_SRC_MAX + 10):
-            coord._remember_self_src(f"3,,{i},,")
-        assert len(coord._recent_self_src) <= coordinator._SELF_SRC_MAX
-        assert "3,,0,," not in coord._recent_self_src   # oldest evicted
 
 
 class TestAsyncDispatch:
@@ -1016,7 +976,7 @@ class TestAsyncWrite:
 
         await coord.stop()
 
-    async def test_async_write_records_self_src(self, monkeypatch):
+    async def test_async_write_stamps_local_origin_src(self, monkeypatch):
         t = FakeTunnel(device_id=HUB_DID)
         coord, _ = await _coord_with(monkeypatch, [t], model=HUB_MODEL)
         coord.start()
@@ -1035,7 +995,6 @@ class TestAsyncWrite:
         write_msg = t.sent[1]
         src = write_msg["data"]["src"]
         assert re.fullmatch(r"3,,\d+,,", src)            # stamped a local-write src
-        assert src in coord._recent_self_src             # and recorded it for echo-suppression
 
         # complete the write_done so run_write() finishes (mirror sibling tests)
         t._queue.put_nowait({
@@ -1045,6 +1004,54 @@ class TestAsyncWrite:
             "data": {"code": 0},
         })
         await write_task
+
+        await coord.stop()
+
+    async def test_write_echo_reaches_report_handler(self, monkeypatch):
+        """Regression: the hub's echo of our own write must be dispatched.
+
+        Report-driven entities (lights, wire-path traits) never set
+        optimistic state - `descriptor.optimistic` is opt-in and used only
+        by rid-keyed settings, which receive no reports at all. So for a
+        light the echo is the ONLY state source. Dropping it left HA's
+        state frozen at the pre-write value, and a `light.toggle`
+        automation re-sent turn_on on every press instead of turning off.
+        """
+        t = FakeTunnel(device_id=HUB_DID)
+        coord, _ = await _coord_with(monkeypatch, [t], model=HUB_MODEL)
+        coord.start()
+        await coord.wait_connected(timeout=1.0)
+
+        seen: list = []
+        coord.register_report_handler(HUB_DID, seen.append)
+        spec = _FakeAttr(name="4.1.85")
+
+        async def run_write() -> None:
+            await coord.async_write(HUB_DID, HUB_MODEL, {spec: "1"}, parent_did=HUB_DID)
+
+        write_task = asyncio.create_task(run_write())
+        for _ in range(100):
+            if len(t.sent) >= 2:
+                break
+            await asyncio.sleep(0.01)
+        write_msg = t.sent[1]
+        src = write_msg["data"]["src"]
+        t._queue.put_nowait({
+            "seq": write_msg["seq"],
+            "type": LANLINK_TYPE_DEVICE,
+            "cmd": "write_done",
+            "data": {"code": 0},
+        })
+        await write_task
+
+        # The hub echoes the write back as a report carrying the same src.
+        coord._dispatch_report(
+            LANReport(
+                did=HUB_DID, sdid=HUB_DID, src=src, time=0,
+                values={"4.1.85.1": "1"},
+            ),
+        )
+        assert [r.values for r in seen] == [{"4.1.85.1": "1"}]
 
         await coord.stop()
 

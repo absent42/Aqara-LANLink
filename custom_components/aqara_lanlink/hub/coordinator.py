@@ -20,7 +20,7 @@ import asyncio
 import logging
 import random
 import time
-from collections import OrderedDict, deque
+from collections import deque
 from typing import TYPE_CHECKING, Any, Protocol
 from collections.abc import Callable
 
@@ -57,11 +57,6 @@ ReportHandler = Callable[[LANReport], None]
 # can't grow memory without limit.
 _REPORT_BUFFER_MAXLEN = 10
 _REPORT_BUFFER_MAX_DIDS = 64
-
-# Outbound-write srcs are remembered briefly so the hub's echo of our own write
-# can be recognised and suppressed in _dispatch_report (see self-echo handling).
-_SELF_SRC_TTL = 30.0   # seconds to keep a src (echoes arrive in ~1s; generous slack)
-_SELF_SRC_MAX = 64     # hard cap (guards against echoes that never arrive)
 
 
 def _apply_jitter(delay: float) -> float:
@@ -220,32 +215,6 @@ class HubCoordinator:
         # arm. Together they yield the arm->first-report latency diagnostic.
         self._armed_at: dict[str, float] = {}
         self._reported_since_arm: set[str] = set()
-
-        # src strings stamped on our own writes (build_write src="3,,<ms>,,"),
-        # remembered briefly so the hub's echo of the write can be suppressed.
-        # OrderedDict[src -> monotonic insert time]; bounded by _SELF_SRC_TTL/_MAX.
-        self._recent_self_src: OrderedDict[str, float] = OrderedDict()
-
-    def _remember_self_src(self, src: str) -> None:
-        """Remember an outbound write's ``src`` so its echo can be suppressed.
-
-        Bounded on insert by TTL (``_SELF_SRC_TTL``) and size (``_SELF_SRC_MAX``).
-        """
-        reg = self._recent_self_src
-        now = time.monotonic()
-        cutoff = now - _SELF_SRC_TTL
-        # Drop expired entries (oldest first; OrderedDict preserves insert order).
-        while reg:
-            _, ts = next(iter(reg.items()))
-            if ts >= cutoff:
-                break
-            reg.popitem(last=False)
-        # Same-ms writes collapse to one src entry (re-insert refreshes it); both
-        # echoes are then suppressed - acceptable, optimistic state is already set.
-        reg[src] = now
-        reg.move_to_end(src)             # ensure it is the newest even if it existed
-        while len(reg) > _SELF_SRC_MAX:  # cap size, evict oldest
-            reg.popitem(last=False)
 
     def note_subscription_armed(self, did: str) -> None:
         """Record that a subscribe was (re-)armed for ``did`` so the next report
@@ -505,13 +474,9 @@ class HubCoordinator:
         )
         seq = client.next_seq()
         wire_did, sdid = self._resolve_write_framing(did, parent_did)
-        # Stamp the src ourselves and remember it, so the hub's echo of this
-        # write is recognised and suppressed in _dispatch_report (self-echo).
-        src = f"3,,{int(time.time() * 1000)},,"
-        self._remember_self_src(src)
         # Wire `model` is always the target's model. sdid=None is a hub-scoped
         # write (did==sdid); a set sdid is a cluster-routed sub-device write.
-        msg = build_write(seq, wire_did, model, payload, sdid=sdid, src=src)
+        msg = build_write(seq, wire_did, model, payload, sdid=sdid)
         response = await self._send_awaiting(client, msg, op="write")
         data = response.get("data") or {}
         # Only `code` signals failure. `result` is intentionally NOT read:
@@ -747,18 +712,18 @@ class HubCoordinator:
         itself emitting a report for its own state). Handlers are
         invoked synchronously in registration order; a raising handler
         is logged and the remaining handlers are still called.
+
+        Echoes of our own writes are dispatched like any other report.
+        They are NOT redundant: report-driven entities (lights, wire-path
+        traits) set no optimistic state, so the echo is their only state
+        source. ``descriptor.optimistic`` is opt-in and used solely by
+        rid-keyed settings, which receive no reports at all.
         """
         self._last_report_monotonic = time.monotonic()
         _LOGGER.debug(
             "LANLink report did=%s sdid=%s values=%s",
             report.did, report.sdid, report.values,
         )
-        if report.src and report.src in self._recent_self_src:
-            _LOGGER.debug(
-                "suppressed self-echo did=%s sdid=%s src=%s",
-                report.did, report.sdid, report.src,
-            )
-            return
         key = report.sdid or report.did
         armed = self._armed_at.get(key)
         if armed is not None and key not in self._reported_since_arm:
