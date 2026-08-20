@@ -9,6 +9,10 @@ CLAUDE.md
 /tests/tools/
 /tests/legacy/
 
+# Test Hardware
+/custom_components/aqara_lanlink/device/models/camera_agl017/
+/custom_components/aqara_lanlink/device/models/gateway.agl014/
+
 # Python
 __pycache__/
 
