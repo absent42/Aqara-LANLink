@@ -1,6 +1,7 @@
 {
   "bundle_ids": [],
   "device_types": [
+    "Camera",
     "FaceScanner",
     "HumanDetector",
     "PackageDetector",
@@ -26,6 +27,9 @@
     "8.130.33012"
   ],
   "endpoints": {
+    "2": {
+      "deviceType": "Camera"
+    },
     "3": {
       "deviceType": "HumanDetector"
     },

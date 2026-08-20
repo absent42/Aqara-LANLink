@@ -1,6 +1,7 @@
 {
   "bundle_ids": [],
   "device_types": [
+    "Camera",
     "FaceScanner"
   ],
   "display_name": "Doorbell Camera Hub G410",
@@ -20,6 +21,9 @@
     "8.0.2108": "command"
   },
   "endpoints": {
+    "2": {
+      "deviceType": "Camera"
+    },
     "4": {
       "deviceType": "FaceScanner"
     }

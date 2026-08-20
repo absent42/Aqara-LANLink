@@ -1,6 +1,7 @@
 {
   "bundle_ids": [],
   "device_types": [
+    "Camera",
     "FaceScanner",
     "FireAlarm",
     "HumanDetector",
@@ -44,6 +45,9 @@
   "endpoints": {
     "10": {
       "deviceType": "FireAlarm"
+    },
+    "2": {
+      "deviceType": "Camera"
     },
     "3": {
       "deviceType": "HumanDetector"
