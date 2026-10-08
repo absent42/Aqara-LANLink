@@ -315,9 +315,6 @@ async def test_setup_entry_hub_unreachable_raises_config_entry_not_ready(hass, p
     coord.stop.assert_awaited_once()
 
 
-
-
-
 @pytest.mark.asyncio
 async def test_setup_entry_picks_override_class_over_auto_derived(hass, patch_clientsession) -> None:
     """A registered Device subclass for a model is preferred over AutoDerivedDevice."""
@@ -362,7 +359,6 @@ async def test_setup_entry_picks_override_class_over_auto_derived(hass, patch_cl
 
     assert len(instances) == 1
     assert isinstance(entry.runtime_data.devices["sub-override"], _Override)
-
 
 
 @pytest.mark.asyncio
@@ -507,7 +503,6 @@ async def test_async_unload_entry(hass, patch_clientsession) -> None:
     coord.stop.assert_awaited_once()
 
 
-
 def test_register_initial_read_machinery_deleted() -> None:
     """The legacy INITIAL_READ_ATTRS / register_initial_read /
     _fire_initial_reads triple are removed. Their absence is the contract.
@@ -563,7 +558,6 @@ async def test_setup_entry_partial_failure_after_wait_connected_stops_coordinato
     # The wrapping try/except must have torn the coordinator down so HA's
     # retry doesn't end up with two live coordinators.
     coord.stop.assert_awaited_once()
-
 
 
 @pytest.mark.xfail(reason="rewritten in Task 6 with scan service")
@@ -652,13 +646,9 @@ async def test_setup_entry_real_auto_derive_with_t2_light_fixture(hass, patch_cl
         attrs_catalog.reset_for_tests()
 
 
-
-
-
 # -----------------------------------------------------------------------------
 # Task 4.3: new-paths Repair issue registration.
 # -----------------------------------------------------------------------------
-
 
 
 async def test_register_candidate_paths_issue_carries_count_and_details(monkeypatch):
@@ -909,27 +899,6 @@ async def test_session_up_rearms_subscription(hass, patch_clientsession) -> None
     assert fake_cloud.query_device_traits.await_count > baseline
 
 
-def test_push_appears_stalled_predicate() -> None:
-    from custom_components.aqara_lanlink import _push_appears_stalled
-
-    # Connected + topology ready + nothing heard for > ttl -> stalled.
-    assert _push_appears_stalled(
-        connected=True, topology_size=2, seconds_since_report=400.0, ttl=300.0,
-    ) is True
-    # A recent report (e.g. the hub heartbeat) -> healthy.
-    assert _push_appears_stalled(
-        connected=True, topology_size=2, seconds_since_report=10.0, ttl=300.0,
-    ) is False
-    # Not connected -> the reconnect/session-up path owns recovery.
-    assert _push_appears_stalled(
-        connected=False, topology_size=2, seconds_since_report=400.0, ttl=300.0,
-    ) is False
-    # Topology not ready yet (cold start) -> the topology-growth path owns it.
-    assert _push_appears_stalled(
-        connected=True, topology_size=0, seconds_since_report=400.0, ttl=300.0,
-    ) is False
-
-
 @pytest.mark.asyncio
 async def test_host_kind_classification_is_sticky(hass, patch_clientsession) -> None:
     """Once classified as a hub, a transient 0-DID topology push must not
@@ -1013,200 +982,6 @@ async def test_concurrent_rearm_coalesces(hass, patch_clientsession) -> None:
     assert len(calls) == in_flight  # no second pass started
     gate.set()
     await asyncio.gather(t1, t2)
-
-
-@pytest.mark.asyncio
-async def test_watchdog_rearms_when_pushes_stalled(hass, patch_clientsession) -> None:
-    """A connected hub with a ready topology that has gone silent past the TTL
-    gets its subscription re-armed by the watchdog tick."""
-    from custom_components.aqara_lanlink import _watchdog_tick
-
-    entry = _hub_entry(hass)
-    sub = _make_subentry(
-        subentry_id="s", did="lumi1.FP2", model="lumi.motion.agl001",
-    )
-    _attach_subentries(entry, {sub.subentry_id: sub})
-
-    coord = _make_coordinator_mock()
-    coord.lanlink_topology_dids = frozenset({"lumi1.FP2"})
-    coord.connected = True
-    coord.seconds_since_last_report = lambda: 9999.0
-
-    fake_cloud = MagicMock()
-    fake_cloud.query_device_traits = AsyncMock(return_value=[])
-
-    with patch(
-        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
-    ), patch(
-        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=fake_cloud,
-    ), patch.object(
-        hass.config_entries, "async_forward_entry_setups",
-        new=AsyncMock(return_value=True),
-    ):
-        await async_setup_entry(hass, entry)
-
-    baseline = fake_cloud.query_device_traits.await_count
-    await _watchdog_tick(hass, entry)
-    assert fake_cloud.query_device_traits.await_count > baseline
-
-
-@pytest.mark.asyncio
-async def test_persistent_stall_repair_lifecycle(
-    hass, patch_clientsession, monkeypatch,
-) -> None:
-    """After repeated watchdog re-arms with no recovery, a Repair is raised;
-    it clears once reports resume."""
-    from custom_components.aqara_lanlink import (
-        PUSH_STALL_TTL_SECONDS,
-        STALL_REARM_REPAIR_THRESHOLD,
-        _watchdog_tick,
-    )
-
-    entry = _hub_entry(hass)
-    sub = _make_subentry(
-        subentry_id="s", did="lumi1.FP2", model="lumi.motion.agl001",
-    )
-    _attach_subentries(entry, {sub.subentry_id: sub})
-
-    coord = _make_coordinator_mock()
-    coord.lanlink_topology_dids = frozenset({"lumi1.FP2"})
-    coord.connected = True
-    coord.seconds_since_last_report = lambda: 9999.0  # stalled
-
-    fake_cloud = MagicMock()
-    fake_cloud.query_device_traits = AsyncMock(return_value=[])
-
-    with patch(
-        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
-    ), patch(
-        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=fake_cloud,
-    ), patch.object(
-        hass.config_entries, "async_forward_entry_setups",
-        new=AsyncMock(return_value=True),
-    ):
-        await async_setup_entry(hass, entry)
-
-    clock = [1000.0]
-    monkeypatch.setattr(
-        "custom_components.aqara_lanlink.monotonic", lambda: clock[0],
-    )
-    with patch(
-        "custom_components.aqara_lanlink.ir.async_create_issue",
-    ) as mock_create, patch(
-        "custom_components.aqara_lanlink.ir.async_delete_issue",
-    ) as mock_delete:
-        for _ in range(STALL_REARM_REPAIR_THRESHOLD):
-            clock[0] += PUSH_STALL_TTL_SECONDS + 1  # clear the re-arm cooldown
-            await _watchdog_tick(hass, entry)
-        assert mock_create.call_count == 1
-        assert mock_create.call_args.kwargs.get("translation_key") == "push_stalled"
-
-        # Reports resume -> not stalled -> Repair cleared, counter reset.
-        coord.seconds_since_last_report = lambda: 5.0
-        await _watchdog_tick(hass, entry)
-        mock_delete.assert_called()
-    await hass.async_block_till_done()
-
-
-@pytest.mark.asyncio
-async def test_watchdog_stops_rearming_after_repair_threshold(
-    hass, patch_clientsession, monkeypatch,
-) -> None:
-    """Once the push_stalled Repair is raised, the watchdog stops re-arming a
-    still-wedged hub. Re-subscribing a wedged hub is proven useless (the hub's
-    relay table is persistent; only a factory reset clears it), so further
-    re-arms are pointless cloud load. It resumes only when reports recover."""
-    from custom_components.aqara_lanlink import (
-        PUSH_STALL_TTL_SECONDS,
-        STALL_REARM_REPAIR_THRESHOLD,
-        _watchdog_tick,
-    )
-
-    entry = _hub_entry(hass)
-    sub = _make_subentry(
-        subentry_id="s", did="lumi1.FP2", model="lumi.motion.agl001",
-    )
-    _attach_subentries(entry, {sub.subentry_id: sub})
-
-    coord = _make_coordinator_mock()
-    coord.lanlink_topology_dids = frozenset({"lumi1.FP2"})
-    coord.connected = True
-    coord.seconds_since_last_report = lambda: 9999.0  # permanently stalled
-
-    fake_cloud = MagicMock()
-    fake_cloud.query_device_traits = AsyncMock(return_value=[])
-
-    with patch(
-        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
-    ), patch(
-        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=fake_cloud,
-    ), patch.object(
-        hass.config_entries, "async_forward_entry_setups",
-        new=AsyncMock(return_value=True),
-    ):
-        await async_setup_entry(hass, entry)
-
-    clock = [1000.0]
-    monkeypatch.setattr(
-        "custom_components.aqara_lanlink.monotonic", lambda: clock[0],
-    )
-    with patch("custom_components.aqara_lanlink.ir.async_create_issue"):
-        # Re-arm up to the escalation threshold (one re-arm per cooldown).
-        for _ in range(STALL_REARM_REPAIR_THRESHOLD):
-            clock[0] += PUSH_STALL_TTL_SECONDS + 1
-            await _watchdog_tick(hass, entry)
-        capped = fake_cloud.query_device_traits.await_count
-        assert capped > 0  # it did re-arm up to the threshold
-
-        # Further stalled ticks past the cooldown must NOT re-arm any more.
-        for _ in range(3):
-            clock[0] += PUSH_STALL_TTL_SECONDS + 1
-            await _watchdog_tick(hass, entry)
-        assert fake_cloud.query_device_traits.await_count == capped
-
-        # Reports recover -> stall cleared -> watchdog re-arms again next stall.
-        coord.seconds_since_last_report = lambda: 5.0
-        with patch("custom_components.aqara_lanlink.ir.async_delete_issue"):
-            await _watchdog_tick(hass, entry)  # not stalled: resets counter
-        coord.seconds_since_last_report = lambda: 9999.0
-        clock[0] += PUSH_STALL_TTL_SECONDS + 1
-        await _watchdog_tick(hass, entry)
-        assert fake_cloud.query_device_traits.await_count > capped
-    await hass.async_block_till_done()
-
-
-@pytest.mark.asyncio
-async def test_watchdog_noop_when_healthy(hass, patch_clientsession) -> None:
-    """A recently-heard hub is not re-armed by the watchdog."""
-    from custom_components.aqara_lanlink import _watchdog_tick
-
-    entry = _hub_entry(hass)
-    sub = _make_subentry(
-        subentry_id="s", did="lumi1.FP2", model="lumi.motion.agl001",
-    )
-    _attach_subentries(entry, {sub.subentry_id: sub})
-
-    coord = _make_coordinator_mock()
-    coord.lanlink_topology_dids = frozenset({"lumi1.FP2"})
-    coord.connected = True
-    coord.seconds_since_last_report = lambda: 5.0  # just heard from it
-
-    fake_cloud = MagicMock()
-    fake_cloud.query_device_traits = AsyncMock(return_value=[])
-
-    with patch(
-        "custom_components.aqara_lanlink.HubCoordinator", return_value=coord,
-    ), patch(
-        "custom_components.aqara_lanlink.AqaraCloudClient", return_value=fake_cloud,
-    ), patch.object(
-        hass.config_entries, "async_forward_entry_setups",
-        new=AsyncMock(return_value=True),
-    ):
-        await async_setup_entry(hass, entry)
-
-    baseline = fake_cloud.query_device_traits.await_count
-    await _watchdog_tick(hass, entry)
-    assert fake_cloud.query_device_traits.await_count == baseline
 
 
 @pytest.mark.asyncio
@@ -1557,8 +1332,6 @@ async def test_setup_does_not_open_traits_storage_file(hass, monkeypatch):
     assert "aqara_lanlink_traits" not in opened_keys
 
 
-
-
 # -----------------------------------------------------------------------------
 # Composite controllers: entry-level build + cloud seed (Chunk 4, Tasks 4.2/4.3).
 # -----------------------------------------------------------------------------
@@ -1663,3 +1436,46 @@ async def test_setup_skips_composite_with_unknown_codec(
 
     assert result is True
     assert ("lumi1.COMP", rid) not in entry.runtime_data.composite_controllers
+
+
+@pytest.mark.asyncio
+async def test_quiet_event_stream_does_not_rearm_or_raise_repair(
+    hass, patch_clientsession,
+) -> None:
+    """Connected keepalives plus a silent event source do not imply a stall."""
+    from custom_components.aqara_lanlink.hub.coordinator import HubCoordinator
+    from custom_components.aqara_lanlink.hub.protocol import LANLINK_CMD_KEEPALIVE_DONE
+
+    entry = _hub_entry(hass)
+    sub = _make_subentry(
+        subentry_id="s", did="lumi1.G4", model="lumi.camera.agl002",
+    )
+    _attach_subentries(entry, {sub.subentry_id: sub})
+    coord = _make_coordinator_mock()
+    coord.lanlink_topology_dids = frozenset({"lumi1.G4"})
+    coord.connected = True
+    coord.seconds_since_last_report = lambda: 2280.0
+    coord.on_keepalive = None
+    cloud = MagicMock()
+    cloud.query_device_traits = AsyncMock(return_value=[])
+
+    with (
+        patch("custom_components.aqara_lanlink.HubCoordinator", return_value=coord),
+        patch("custom_components.aqara_lanlink.AqaraCloudClient", return_value=cloud),
+        patch.object(
+            hass.config_entries, "async_forward_entry_setups",
+            new=AsyncMock(return_value=True),
+        ),
+        patch("custom_components.aqara_lanlink.ir.async_create_issue") as create_issue,
+        patch("custom_components.aqara_lanlink.ir.async_delete_issue") as delete_issue,
+    ):
+        await async_setup_entry(hass, entry)
+        baseline = cloud.query_device_traits.await_count
+        for _ in range(4):
+            HubCoordinator._dispatch_async(coord, {"cmd": LANLINK_CMD_KEEPALIVE_DONE})
+        await hass.async_block_till_done()
+        assert cloud.query_device_traits.await_count == baseline
+        create_issue.assert_not_called()
+        delete_issue.assert_called_with(
+            hass, "aqara_lanlink", f"push_stalled_{entry.entry_id}",
+        )

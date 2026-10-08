@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import time
-from unittest.mock import MagicMock
+from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
@@ -100,3 +100,28 @@ async def test_keepalive_loop_forces_reconnect_when_silent():
 
     await asyncio.wait_for(t._keepalive_loop(), timeout=1.0)
     assert closed  # writer closed to force the read side to unblock + reconnect
+
+
+@pytest.mark.asyncio
+async def test_keepalive_ack_keeps_quiet_report_stream_connected():
+    """Only device reports may be silent; a responding tunnel is not wedged."""
+    tunnel = tmod.EncryptedTunnel(device_id="d", keepalive_interval=0.01)
+    tunnel._session_key = b"k"
+    tunnel._writer = MagicMock()
+    tunnel._last_recv_monotonic = time.monotonic() - 1000.0
+    tunnel._recv_frame = AsyncMock(return_value=(
+        tmod.MSG_TYPE_SESSION, b'{"cmd":"keepalive_done"}',
+    ))
+
+    assert await tunnel.receive() == {"cmd": "keepalive_done"}
+
+    sent = []
+
+    async def send(message):
+        sent.append(message)
+        tunnel._session_key = None  # stop after the first healthy heartbeat
+
+    tunnel.send = send
+    await asyncio.wait_for(tunnel._keepalive_loop(), timeout=1.0)
+    assert [message["cmd"] for message in sent] == ["keepalive"]
+    tunnel._writer.close.assert_not_called()

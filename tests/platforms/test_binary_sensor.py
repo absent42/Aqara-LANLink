@@ -22,7 +22,7 @@ from .conftest import make_device, make_hub, make_subentry
 
 
 def test_forwarding_health_is_on_reflects_hub_liveness():
-    from custom_components.aqara_lanlink import PUSH_STALL_TTL_SECONDS
+    from custom_components.aqara_lanlink.const import PUSH_REPORT_FRESHNESS_SECONDS
     from custom_components.aqara_lanlink.binary_sensor import (
         AqaraHubForwardingHealth,
     )
@@ -30,21 +30,28 @@ def test_forwarding_health_is_on_reflects_hub_liveness():
     hub = MagicMock()
     hub.did = "lumi1.HUB"
     hub.connected = True
+    hub.has_received_report = True
     hub.lanlink_topology_dids = frozenset({"lumi3.cam"})
     hub.seconds_since_last_report = lambda: 5.0
     ent = AqaraHubForwardingHealth(hub)
     assert ent.is_on is True  # connected, topology ready, recent report
 
-    hub.seconds_since_last_report = lambda: PUSH_STALL_TTL_SECONDS + 1
-    assert ent.is_on is False  # silent past TTL
+    hub.seconds_since_last_report = lambda: PUSH_REPORT_FRESHNESS_SECONDS + 1
+    assert ent.is_on is None  # quiet event stream, no failure evidence
 
     hub.seconds_since_last_report = lambda: 5.0
     hub.lanlink_topology_dids = frozenset()
-    assert ent.is_on is False  # topology not ready
+    assert ent.is_on is None  # topology not ready
 
     hub.lanlink_topology_dids = frozenset({"lumi3.cam"})
     hub.connected = False
     assert ent.is_on is False  # tunnel down
+    assert ent.available is True  # the diagnostic must expose its off state
+    assert ent.state == STATE_OFF
+    hub.connected = True
+    hub.has_received_report = False
+    assert ent.is_on is None  # reconnect does not inherit earlier reports
+    assert ent.available is True
 
 
 async def test_async_setup_entry_adds_forwarding_health():

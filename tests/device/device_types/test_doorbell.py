@@ -1,6 +1,8 @@
 """Tests for the Doorbell deviceType composer."""
 from __future__ import annotations
 
+import dataclasses
+
 from homeassistant.components.event import EventDeviceClass
 
 from custom_components.aqara_lanlink.device.device_types import (
@@ -98,6 +100,48 @@ def test_event_types_default_to_ring_when_no_enum_values():
     assert descs[0].event_types == ("ring",)
 
 
+def test_camera_endpoint_doorbell_button_event_is_event_with_zero_code():
+    """Trait semantics win over Camera endpoint enum-sensor fallback."""
+    from custom_components.aqara_lanlink.device.device_types import _fallback
+
+    spec = dataclasses.replace(
+        _button_event(), endpoint_id=2, id="2.170.32928",
+        wire_path="2.170.32928", enum_values={"0": "Single press"},
+    )
+    descs = _fallback.compose(
+        endpoint_id=2, traits={spec.wire_path: spec}, context=_ctx(),
+    )
+    assert len(descs) == 1
+    desc = descs[0]
+    assert isinstance(desc, EventDescriptor)
+    assert desc.device_class == EventDeviceClass.DOORBELL
+    assert desc.trigger_trait.enum_values == {"0": "ring"}
+    assert desc.event_types == ("ring",)
+
+
+def test_camera_endpoint_button_event_and_volume_keep_distinct_descriptors():
+    """The cross-type event override must not absorb ordinary traits."""
+    from custom_components.aqara_lanlink.device.device_types import _fallback
+
+    event = dataclasses.replace(
+        _button_event(), endpoint_id=2, id="2.170.32928",
+        wire_path="2.170.32928", enum_values={"0": "Single press"},
+    )
+    volume = dataclasses.replace(
+        _volume(), endpoint_id=2, id="2.170.32960", wire_path="2.170.32960",
+    )
+    descs = _fallback.compose(
+        endpoint_id=2,
+        traits={event.wire_path: event, volume.wire_path: volume},
+        context=_ctx(),
+    )
+    assert len(descs) == 2
+    event_desc = next(d for d in descs if d.key.endswith("2_170_32928"))
+    volume_desc = next(d for d in descs if d.key.endswith("2_170_32960"))
+    assert isinstance(event_desc, EventDescriptor)
+    assert isinstance(volume_desc, NumberDescriptor)
+
+
 def test_volume_delegates_to_fallback_number():
     """Volume is a writable numeric range — _fallback emits a NumberDescriptor."""
     descs = doorbell.compose(
@@ -148,4 +192,41 @@ def test_every_doorbell_event_in_catalogue_supports_ring():
     assert not offenders, (
         "DOORBELL event entities missing the 'ring' event_type:\n"
         + "\n".join(f"  {m} {k}: {et}" for m, k, et in offenders)
+    )
+
+
+def test_every_catalogue_button_event_is_an_event_descriptor():
+    """Every shipped ButtonEvent trait must retain event semantics, regardless
+    of whether its endpoint is declared Button, Doorbell, or Camera."""
+    from pathlib import Path
+
+    from custom_components.aqara_lanlink.device.classify_v3 import classify_v3
+    from custom_components.aqara_lanlink.device.models._loader import load_model_data
+
+    models_root = (
+        Path(__file__).resolve().parents[3]
+        / "custom_components" / "aqara_lanlink" / "device" / "models"
+    )
+    offenders = []
+    for pkg in sorted(p for p in models_root.iterdir() if p.is_dir() and not p.name.startswith("_")):
+        data = load_model_data(pkg)
+        descs = classify_v3(
+            model=(data["MODELS"] or [pkg.name])[0],
+            endpoints=data["ENDPOINTS"], traits=data["TRAITS"],
+        )
+        button_event_paths = {
+            trait.wire_path or trait.id
+            for trait in data["TRAITS"].values()
+            if trait.trait_code == "ButtonEvent"
+        }
+        event_paths = {
+            d.trigger_trait.wire_path or d.trigger_trait.id
+            for d in descs if isinstance(d, EventDescriptor)
+        }
+        offenders.extend(
+            (pkg.name, path) for path in sorted(button_event_paths - event_paths)
+        )
+    assert not offenders, (
+        "ButtonEvent traits missing EventDescriptor classification:\n"
+        + "\n".join(f"  {model} {path}" for model, path in offenders)
     )

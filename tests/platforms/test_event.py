@@ -300,3 +300,40 @@ async def test_async_setup_entry_creates_entity_per_descriptor():
     await async_setup_entry(hass=MagicMock(), entry=entry, async_add_entities=lambda es, **_: added.extend(es))
     keys = sorted(e.descriptor.key for e in added)
     assert keys == ["multicast_ring", "test_ring"]
+
+
+def test_camera_doorbell_repeated_zero_reports_are_distinct_events(monkeypatch):
+    """Exercise captured LAN reports through the classifier and real HA event."""
+    from custom_components.aqara_lanlink.device.device_types import get_composer
+    from custom_components.aqara_lanlink.device.device_types._base import ComposeContext
+    from datetime import UTC, datetime, timedelta
+    from unittest.mock import Mock
+
+    first_time = datetime(2026, 10, 8, 9, 4, 50, tzinfo=UTC)
+    second_time = first_time + timedelta(seconds=5)
+    # HA serializes EventEntity states at millisecond precision. Control time
+    # so the regression tests identical wire codes, not host clock resolution
+    # or the installed HA version's handling of sub-millisecond bursts.
+    clock = Mock(side_effect=[first_time, second_time])
+    monkeypatch.setattr("homeassistant.components.event.dt_util.utcnow", clock)
+
+    trait = TraitSpec(
+        id="2.170.32928", wire_path="2.170.32928", name="Button event",
+        function_code="Doorbell", trait_code="ButtonEvent", data_type="enum",
+        readable=False, subscribable=True, endpoint_id=2,
+        enum_values={"0": "Single press"},
+    )
+    desc, = get_composer("Camera")(
+        2, {trait.id: trait}, ComposeContext(model="lumi.camera.agl002"),
+    )
+    device = make_device([desc])
+    event = AqaraEvent(make_hub(), device, make_subentry(), desc)
+    device.register_entity(desc, event)
+    report = SimpleNamespace(values={"2.170.32928.1": "0"})
+    device.handle_report(report)
+    first = event.state
+    assert first == first_time.isoformat(timespec="milliseconds")
+    device.handle_report(report)
+    assert event.state == second_time.isoformat(timespec="milliseconds")
+    assert clock.call_count == 2
+    assert event.state_attributes["event_type"] == "ring"

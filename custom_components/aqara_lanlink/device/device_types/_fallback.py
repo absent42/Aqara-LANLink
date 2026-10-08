@@ -10,7 +10,9 @@ composer module lands.
 """
 from __future__ import annotations
 
-from custom_components.aqara_lanlink.device.descriptors import AnyDescriptor
+from custom_components.aqara_lanlink.device.descriptors import (
+    AnyDescriptor,
+)
 from custom_components.aqara_lanlink.device.trait_policy import BUTTON_TRAITS
 from custom_components.aqara_lanlink.device.traits import TraitSpec
 
@@ -33,6 +35,21 @@ def compose(
 
 
 def _descriptor_for_trait(wp: str, spec: TraitSpec) -> AnyDescriptor | None:
+    # ButtonEvent is an event even when Aqara places it on a Camera endpoint
+    # rather than a Doorbell endpoint (e.g. several G4 models). The semantic
+    # trait identity takes precedence over the endpoint's data_type dispatch.
+    if spec.trait_code == "ButtonEvent":
+        if spec.function_code == "Doorbell":
+            from .doorbell import button_event_descriptor
+
+            return button_event_descriptor(spec)
+        if spec.function_code == "Button":
+            # Button.ButtonEvent also appears on Switch endpoints. It keeps
+            # event semantics there even though the endpoint composer is a
+            # switch-specific handler.
+            from .button import button_event_descriptor
+
+            return button_event_descriptor(spec)
     # Press-to-trigger traits (e.g. Identify.IdentifyTime) render as a
     # stateless Button rather than the data_type-dispatched defaults
     # (which would otherwise turn this writable trait into a Switch or

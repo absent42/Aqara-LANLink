@@ -68,11 +68,9 @@ DEFAULT_HUB_PORT = 59703
 # explicit model. Matches the G3 base hub firmware id.
 DEFAULT_HUB_MODEL = "lumi.gateway.agl004"
 
-# Push-liveness watchdog TTL (seconds). A connected hub with a populated
-# topology that goes silent past this is treated as wedged-forwarding and its
-# subscription is re-armed. Also surfaced by the tunnel-forwarding diagnostic
-# binary sensor as its staleness threshold.
-PUSH_STALL_TTL_SECONDS = 300.0
+# Window for positive evidence in the forwarding diagnostic. Outside this
+# window an event-driven stream is unknown, not failed.
+PUSH_REPORT_FRESHNESS_SECONDS = 300.0
 
 # Aqara cloud regions, in the order the Aqara apps display them. The
 # legacy RPC `cloud_client.AREAS` table is the authoritative mapping;

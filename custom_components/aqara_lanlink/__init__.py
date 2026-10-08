@@ -11,11 +11,6 @@ from __future__ import annotations
 import asyncio
 import logging
 import uuid
-# Import `monotonic` by name, NOT `import time`: this package has a sibling
-# `time.py` (the HA time platform), and once that submodule is imported it
-# binds as `aqara_lanlink.time`, shadowing a module-level `import time` in this
-# __init__ (they share the package namespace). Importing the function avoids it.
-from time import monotonic
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from datetime import timedelta
@@ -45,7 +40,6 @@ from .const import (
     DOMAIN,
     PHONE_ID_NAMESPACE,
     PLATFORMS,
-    PUSH_STALL_TTL_SECONDS,
 )
 from .device import registry
 from .device import catalog as device_catalog
@@ -105,16 +99,8 @@ class AqaraLanLinkRuntimeData:
     subscription_targets: list[tuple[Device, Mapping[str, Any], str, str]] = field(
         default_factory=list,
     )
-    # Monotonic timestamp of the last watchdog-triggered re-arm; used to
-    # rate-limit re-arms to at most once per stall TTL.
-    watchdog_last_rearm: float = 0.0
-    # True while a re-arm pass is running, so overlapping triggers (session-up +
-    # topology-growth on a fresh connect, or the watchdog) coalesce into one.
+    # Coalesce concurrent session-up and topology-growth subscription passes.
     rearm_in_flight: bool = False
-    # Consecutive watchdog re-arms that have not yet produced a report; once it
-    # reaches the threshold a "push_stalled" Repair is raised. Reset to 0 (and
-    # the Repair cleared) as soon as reports resume.
-    stall_rearm_count: int = 0
     # Snapshot of entry.options taken at setup. The update listener compares
     # against it so a data-only write (e.g. persisting the rediscovered LANLink
     # endpoint) does not trigger a full reload -- only an actual options change
@@ -348,81 +334,6 @@ async def _rearm_subscriptions(
             )
     finally:
         data.rearm_in_flight = False
-
-
-# Number of consecutive failed watchdog re-arms before raising a Repair telling
-# the user the hub likely needs attention (reboot / LAN Control). At one re-arm
-# per TTL this is ~15 minutes of sustained silence.
-STALL_REARM_REPAIR_THRESHOLD = 3
-
-
-def _push_appears_stalled(
-    *,
-    connected: bool,
-    topology_size: int,
-    seconds_since_report: float,
-    ttl: float,
-) -> bool:
-    """True when the tunnel is up and the hub claims a ready topology, yet no
-    report has arrived within ``ttl`` -- i.e. forwarding is silently wedged.
-    Disconnected / empty-topology states are owned by the reconnect and
-    topology-growth re-arm paths, so they are not treated as stalled here.
-    """
-    return bool(connected) and topology_size > 0 and seconds_since_report > ttl
-
-
-async def _watchdog_tick(
-    hass: HomeAssistant, entry: "AqaraLanLinkConfigEntry",
-) -> None:
-    """One watchdog pass: re-arm the subscription if pushes appear stalled."""
-    data = getattr(entry, "runtime_data", None)
-    if data is None:
-        return
-    coordinator = data.hub
-    issue_id = f"push_stalled_{entry.entry_id}"
-    seconds_since = coordinator.seconds_since_last_report()
-    if not _push_appears_stalled(
-        connected=coordinator.connected,
-        topology_size=len(coordinator.lanlink_topology_dids),
-        seconds_since_report=seconds_since,
-        ttl=PUSH_STALL_TTL_SECONDS,
-    ):
-        # Healthy (or recovered): clear any stall escalation.
-        if data.stall_rearm_count:
-            data.stall_rearm_count = 0
-            ir.async_delete_issue(hass, DOMAIN, issue_id)
-        return
-    # Cap: once we have escalated to a Repair, stop re-arming. A wedged hub does
-    # not honor re-subscribes -- its relay table is persistent and only a factory
-    # reset clears it (docs/dev/tunnel-resilience-report.md section 8) -- so
-    # further re-arms are pointless cloud load. The escalation self-clears (above)
-    # the moment reports resume, which restores the re-arm budget.
-    if data.stall_rearm_count >= STALL_REARM_REPAIR_THRESHOLD:
-        return
-    # Cooldown: a single re-arm needs time to take effect (and produce a report);
-    # don't hammer the cloud every keepalive while a hub stays wedged.
-    now = monotonic()
-    if now - data.watchdog_last_rearm < PUSH_STALL_TTL_SECONDS:
-        return
-    data.watchdog_last_rearm = now
-    data.stall_rearm_count += 1
-    _LOGGER.warning(
-        "LANLink pushes appear stalled (no report in %.0fs, topology=%d DIDs); "
-        "re-arming push subscription (attempt %d)",
-        seconds_since, len(coordinator.lanlink_topology_dids),
-        data.stall_rearm_count,
-    )
-    await _rearm_subscriptions(hass, entry)
-    # Re-arming repeatedly without recovery means the hub itself needs attention
-    # (reboot / LAN Control off) -- escalate to a Repair.
-    if data.stall_rearm_count >= STALL_REARM_REPAIR_THRESHOLD:
-        ir.async_create_issue(
-            hass, DOMAIN, issue_id,
-            is_fixable=False,
-            is_persistent=False,
-            severity=ir.IssueSeverity.WARNING,
-            translation_key="push_stalled",
-        )
 
 
 async def _build_device(
@@ -768,14 +679,10 @@ async def async_setup_entry(
 
         coordinator.on_session_up = _on_session_up
 
-        # Push-liveness watchdog, driven off the keepalive cycle (every ~10s):
-        # re-arm if a connected, topology-ready hub stops forwarding past the
-        # stall TTL -- a case neither session-up nor topology-growth re-arm would
-        # catch. _watchdog_tick self-rate-limits via the re-arm cooldown.
-        def _on_keepalive() -> None:
-            hass.async_create_task(_watchdog_tick(hass, entry))
-
-        coordinator.on_keepalive = _on_keepalive
+        # Reports are event-driven; silence is not proof of failed forwarding.
+        # Retire a previous silence-only Repair instead of telling users to
+        # reboot or factory-reset a hub that still forwards physical events.
+        ir.async_delete_issue(hass, DOMAIN, f"push_stalled_{entry.entry_id}")
 
         # Step 3f: Build the self-device for the tunnel host's own traits.
         # Mirrors the per-subentry setup (steps 3a-3e); keep the two in sync.

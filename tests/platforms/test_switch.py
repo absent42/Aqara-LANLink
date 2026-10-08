@@ -2,13 +2,19 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import AsyncMock, MagicMock
+from unittest.mock import AsyncMock, MagicMock, call
 
 import pytest
 
 from custom_components.aqara_lanlink.device.attrs import AttrSpec
-from custom_components.aqara_lanlink.device.descriptors import SwitchDescriptor
+from custom_components.aqara_lanlink.device.classify_v3 import classify_v3
+from custom_components.aqara_lanlink.device.descriptors import (
+    EventDescriptor, SwitchDescriptor,
+)
+from custom_components.aqara_lanlink.device.models._loader import load_model_data
+from custom_components.aqara_lanlink.event import AqaraEvent
 from custom_components.aqara_lanlink.switch import AqaraSwitch, async_setup_entry
 
 from .conftest import make_device, make_hub, make_subentry
@@ -188,3 +194,73 @@ async def test_async_setup_entry_creates_one_entity_per_descriptor():
     await async_setup_entry(hass=MagicMock(), entry=entry, async_add_entities=lambda es, **_: added.extend(es))
     keys = sorted(e.descriptor.key for e in added)
     assert keys == ["test_alarm", "test_power"]
+
+
+@pytest.mark.asyncio
+async def test_catalogued_switch_control_and_button_reports_are_independent():
+    """A real catalogue switch keeps writable OnOff and event paths distinct."""
+    models_root = (
+        Path(__file__).resolve().parents[2]
+        / "custom_components" / "aqara_lanlink" / "device" / "models"
+    )
+    model_data = next(
+        data for package in models_root.iterdir()
+        if package.is_dir() and not package.name.startswith("_")
+        for data in [load_model_data(package)]
+        if "lumi.switch.l3acn1" in data["MODELS"]
+    )
+    model = "lumi.switch.l3acn1"
+    endpoint_id = 2
+    endpoint_traits = {
+        path: trait for path, trait in model_data["TRAITS"].items()
+        if trait.endpoint_id == endpoint_id
+    }
+    descriptors = classify_v3(
+        model=model,
+        endpoints={endpoint_id: model_data["ENDPOINTS"][endpoint_id]},
+        traits=endpoint_traits,
+    )
+    onoff = next(
+        d for d in descriptors
+        if isinstance(d, SwitchDescriptor) and d.attr.name == "2.132.32920"
+    )
+    button_event = next(
+        d for d in descriptors
+        if isinstance(d, EventDescriptor)
+        and (d.trigger_trait.wire_path or d.trigger_trait.id) == "2.135.32928"
+    )
+    config_switch = next(
+        d for d in descriptors
+        if isinstance(d, SwitchDescriptor) and d.attr.name == "2.135.33109"
+    )
+
+    sub = make_subentry(model=model)
+    hub = make_hub()
+    device = make_device(descriptors, subentry=sub, model=model)
+    switch_entity = AqaraSwitch(hub, device, sub, onoff)
+    config_entity = AqaraSwitch(hub, device, sub, config_switch)
+    event_entity = AqaraEvent(hub, device, sub, button_event)
+    event_entity._trigger_event = MagicMock()  # type: ignore[method-assign]
+    device.register_entity(onoff, switch_entity)
+    device.register_entity(config_switch, config_entity)
+    device.register_entity(button_event, event_entity)
+
+    await switch_entity.async_turn_on()
+    await switch_entity.async_turn_off()
+    device.coordinator.async_write.assert_has_awaits([
+        call(device.did, model, {onoff.attr: onoff.on_value}, parent_did=device.PARENT_DID),
+        call(device.did, model, {onoff.attr: onoff.off_value}, parent_did=device.PARENT_DID),
+    ], any_order=False)
+
+    # The switch state report updates only Output.OnOff. Two identical button
+    # wire codes each remain a separate event and never toggle either switch.
+    device.handle_report(SimpleNamespace(values={"2.132.32920.1": "1"}))
+    device.handle_report(SimpleNamespace(values={"2.135.32928.1": "0"}))
+    device.handle_report(SimpleNamespace(values={"2.135.32928.1": "0"}))
+
+    assert switch_entity.is_on is True
+    assert config_entity.is_on is False
+    assert event_entity._trigger_event.call_args_list == [
+        call("Single press"),
+        call("Single press"),
+    ]

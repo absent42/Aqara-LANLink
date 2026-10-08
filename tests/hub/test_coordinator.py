@@ -128,6 +128,10 @@ def fast_backoff(monkeypatch):
     """Make reconnect delays instantaneous so tests run quickly."""
     # The coordinator uses asyncio.sleep for backoff; override the default
     # timings on each instance via constructor args, but also cap max sleep.
+    # Retry tests must not start real mDNS discovery (which waits three
+    # seconds while their connection deadline is one second). Discovery
+    # tests override this mock with their own explicit result.
+    monkeypatch.setattr(coordinator, "discover_hub_by_did", AsyncMock(return_value=None))
     yield
 
 
@@ -330,6 +334,7 @@ class TestPerDidDispatch:
 
     def test_report_bumps_liveness(self, monkeypatch):
         coord = self._make_coord(monkeypatch)
+        assert coord.has_received_report is False
         coord.register_report_handler("lumi.dev", lambda _r: None)
         monkeypatch.setattr(coordinator.time, "monotonic", lambda: 7000.0)
         coord._dispatch_report(
@@ -337,6 +342,7 @@ class TestPerDidDispatch:
         )
         monkeypatch.setattr(coordinator.time, "monotonic", lambda: 7002.0)
         assert coord.seconds_since_last_report() == pytest.approx(2.0)
+        assert coord.has_received_report is True
 
     def test_first_report_after_arm_logs_latency_once(self, monkeypatch, caplog):
         coord = self._make_coord(monkeypatch)

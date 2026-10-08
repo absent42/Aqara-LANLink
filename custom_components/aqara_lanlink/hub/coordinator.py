@@ -149,9 +149,8 @@ class HubCoordinator:
     # after a successful checkin. The hub's push subscription is per-connection,
     # so the integration uses this to re-arm subscribe+seed on every reconnect.
     on_session_up: "Callable[[], None] | None" = None
-    # Invoked (no args) on each keepalive ack from the hub. The integration uses
-    # this ~10s cadence to run the push-liveness watchdog without a wall-clock
-    # timer. A None value means no callback is installed.
+    # Invoked (no args) on each keepalive ack from the hub. This confirms the
+    # session, not the event-report forwarding path.
     on_keepalive: "Callable[[], None] | None" = None
 
     def __init__(
@@ -200,11 +199,11 @@ class HubCoordinator:
         # ``async_get_topology`` for cloud-vs-LANLink cross-checking.
         self._lanlink_topology_dids: frozenset[str] = frozenset()
         # Monotonic timestamp of the most recent inbound report (any report,
-        # including the hub's own 1.176.20009.1 heartbeat). The push-liveness
-        # watchdog uses ``seconds_since_last_report`` to detect a hub that is
-        # connected with a populated topology yet has silently stopped
-        # forwarding. Seeded to construction time so we don't fire immediately.
+        # including the hub's own 1.176.20009.1 heartbeat). This is activity
+        # evidence, not a guaranteed heartbeat schedule. Construction time
+        # supplies an age for diagnostics but does not count as a report.
         self._last_report_monotonic = time.monotonic()
+        self.has_received_report = False
         # Union of every DID ever seen in a topology push. Lets us tell a
         # LAN-direct device that has gone offline (was present, now dropped)
         # apart from a Zigbee sub-device that is never in the LAN-direct
@@ -593,6 +592,8 @@ class HubCoordinator:
         client.on_report = self._dispatch_report
         client.on_async = self._dispatch_async
         self._client = client
+        # A previous session's report does not prove this session forwards.
+        self.has_received_report = False
 
         listen_task = asyncio.create_task(
             client.listen(), name="lanlink-listen",
@@ -720,6 +721,7 @@ class HubCoordinator:
         rid-keyed settings, which receive no reports at all.
         """
         self._last_report_monotonic = time.monotonic()
+        self.has_received_report = True
         _LOGGER.debug(
             "LANLink report did=%s sdid=%s values=%s",
             report.did, report.sdid, report.values,

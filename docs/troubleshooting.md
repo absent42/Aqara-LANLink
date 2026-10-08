@@ -30,6 +30,16 @@ the likely cause, and the steps to resolve it.
 - Noise detection not working on G350
 - ResouceID settings writes not working for FP2
 
+### Button events on switch and camera endpoints
+
+`Button.ButtonEvent` and `Doorbell.ButtonEvent` now use event entities even
+when their endpoint is a Switch or Camera. Existing automations that listen
+to the former button-event sensor must be updated to the new event entity
+and its `event_type` attribute. The entity changes domain from `sensor` to
+`event`; do not assume existing sensor entity IDs or automations migrate
+automatically. Ordinary `Output.OnOff` switches and writable configuration
+traits retain their existing descriptors and control paths.
+
 ---
 
 ## "Cannot connect" error at setup or re-authentication
@@ -72,12 +82,12 @@ whose mesh has not yet finished joining, will not forward any reports even
 after a successful subscribe. This is a normal hub behaviour, not a bug in
 the integration.
 
-**What the integration does automatically:** A push-liveness watchdog monitors
-report traffic on connected hubs. If no reports have arrived for approximately
-300 seconds and the hub has a non-empty topology, the integration re-arms the
-push subscription automatically. After three consecutive failed re-arm
-attempts the integration raises a Repair issue (`push_stalled`) titled "Aqara
-hub stopped sending updates" -- see the next section.
+**What the integration does automatically:** The push subscription is re-armed
+when the tunnel reconnects or its device topology grows. Reports are
+event-driven: a doorbell may legitimately be quiet for many minutes. The
+forwarding diagnostic is on after a recent report and unknown after a quiet
+period; a tunnel disconnection reports off. Keepalive replies confirm
+the tunnel connection, not a periodic device-report contract.
 
 **Resolution:**
 
@@ -91,46 +101,35 @@ hub stopped sending updates" -- see the next section.
 
 ---
 
-## Repair issue: "Aqara hub stopped sending updates" (push_stalled)
+## Quiet devices and the former push_stalled warning
 
-**Symptom:** A Repair notification appears with the title "Aqara hub stopped
-sending updates". Entity states have not changed for an extended period despite
-the hub appearing connected.
+Older versions treated five minutes without reports as a forwarding failure
+and raised a Repair after three subscription retries. This inference is not
+valid for event-driven sources such as the G4 doorbell. Those warnings are
+retired when the integration loads; report silence alone no longer causes
+subscription retries or a recommendation to reboot or reset the hub.
 
-**Cause:** The integration's push-liveness watchdog re-armed the subscription
-three times (roughly 15 minutes of silence) without receiving any reports from
-a hub that has a non-empty topology. The hub's forwarding is wedged.
+The transport watchdog is still active: if no frames (including keepalive
+replies) arrive for more than three keepalive intervals, the tunnel is closed
+and the coordinator reconnects. Session-up and topology-growth subscription
+re-arming and standalone-device topology recovery are also retained.
 
-The hub stores its push relay/subscription table in persistent storage that
-survives reboots and reconnects. If that table accumulates a large number of
-stale entries, the hub keeps accepting tunnel connections and keeps sending
-keepalives and topology pushes but stops forwarding device reports. Re-arming
-the subscription (which the integration does automatically) does not clear the
-stale entries, so the wedge can persist across both HA restarts and hub
-reboots.
+The forwarding diagnostic remains available even when the tunnel is down,
+so it can show **off** for that observed failure. **On** means a recent device
+report was observed in this session; **unknown** means the tunnel is connected
+but there is no recent forwarding evidence. This cannot distinguish a quiet
+event source from a hub whose report forwarding is wedged while it still
+answers keepalives. Neither a successful read response nor a cloud subscription
+response proves unsolicited report delivery. Detecting that failure requires
+a known event or a device-specific, verified periodic-report contract; no such
+contract is assumed for a doorbell.
 
-**Resolution:**
-
-1. First confirm that "LAN Control" is enabled in the hub's app settings. A
-   firmware update can disable it, which produces the same "no updates"
-   symptom.
-2. Reboot the Aqara hub from the Aqara app or by cycling its power, then wait a
-   couple of minutes for it to re-deliver topology.
-3. If reports still do not resume after a reboot, the hub's relay table is
-   wedged with stale entries. A reboot does not clear it because the table is
-   persisted. A **factory reset of the hub** is the only reliable way to clear
-   the table; re-pair the hub and its sub-devices afterwards.
-4. Once reports resume, the integration clears the Repair issue automatically.
-   No manual dismissal is required.
-
-**What accumulates the stale entries:** in normal use this is rare -- the table
-is bounded by the set of devices you actually use. It builds up fastest under
-repeated connect/disconnect churn against the same hub: removing and re-adding
-the integration many times, or repeatedly triggering standalone-device relay
-activation (for example, FP2 activation testing during development). If you are
-doing that kind of repeated activation/reconnect testing, expect to need an
-occasional hub factory reset to clear accumulated relay state. See the
-developer notes for detail.
+To diagnose a real forwarding problem, generate a physical device event and
+check whether its report arrives. A captured doorbell report proves forwarding
+at that moment. It does not guarantee that every future event will arrive.
+If the event is absent, check LAN Control, topology, and the report log before
+considering hub recovery. Never infer corrupt persistent relay state solely
+from the time since the last report.
 
 ---
 

@@ -20,10 +20,11 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
 
-from .const import DOMAIN, PUSH_STALL_TTL_SECONDS
+from .const import DOMAIN, PUSH_REPORT_FRESHNESS_SECONDS
 from .device.base import _should_replay_seed
 from .device.descriptors import BinarySensorDescriptor
 from .entity import AqaraEntity, build_descriptor_entities, setup_descriptor_platform
+from .push_health import forwarding_health
 
 
 async def async_setup_entry(
@@ -128,10 +129,10 @@ class AqaraBinarySensor(AqaraEntity, RestoreEntity, BinarySensorEntity):
 class AqaraHubForwardingHealth(BinarySensorEntity):
     """Diagnostic connectivity sensor: on when the hub is actually forwarding.
 
-    'On' means the tunnel is up, the hub reports a populated LAN-direct
-    topology, and a report (incl. the hub's own heartbeat) has arrived within
-    the push-stall TTL. It flips off exactly in the wedged-forwarding case the
-    watchdog acts on, giving users and automations a signal for it.
+    Recent reports prove forwarding. Silence from event-driven devices does
+    not prove a fault: expose unknown until fresh evidence arrives. Tunnel
+    disconnection is an observed failure and reports off. The diagnostic
+    remains available independently of the monitored connection.
     """
 
     _attr_device_class = BinarySensorDeviceClass.CONNECTIVITY
@@ -145,15 +146,13 @@ class AqaraHubForwardingHealth(BinarySensorEntity):
         self._attr_device_info = DeviceInfo(identifiers={(DOMAIN, hub.did)})
 
     @property
-    def available(self) -> bool:
-        return bool(self._hub.connected)
-
-    @property
-    def is_on(self) -> bool:
-        return (
-            bool(self._hub.connected)
-            and len(self._hub.lanlink_topology_dids) > 0
-            and self._hub.seconds_since_last_report() < PUSH_STALL_TTL_SECONDS
+    def is_on(self) -> bool | None:
+        return forwarding_health(
+            connected=bool(self._hub.connected),
+            topology_size=len(self._hub.lanlink_topology_dids),
+            report_age=(self._hub.seconds_since_last_report()
+                        if self._hub.has_received_report else None),
+            freshness_window=PUSH_REPORT_FRESHNESS_SECONDS,
         )
 
 

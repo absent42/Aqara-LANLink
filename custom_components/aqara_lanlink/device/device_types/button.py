@@ -13,7 +13,8 @@ from custom_components.aqara_lanlink.device.traits import TraitSpec
 from ._base import _ec, make_single_trait_composer
 
 
-def _button_event(spec: TraitSpec) -> EventDescriptor:
+def button_event_descriptor(spec: TraitSpec) -> EventDescriptor:
+    """Preserve button event semantics independently of endpoint type."""
     event_types = (
         tuple(spec.enum_values.values()) if spec.enum_values else ("press",)
     )
@@ -30,5 +31,5 @@ def _button_event(spec: TraitSpec) -> EventDescriptor:
 compose = make_single_trait_composer(
     function_code="Button",
     trait_code="ButtonEvent",
-    descriptor_factory=_button_event,
+    descriptor_factory=button_event_descriptor,
 )
